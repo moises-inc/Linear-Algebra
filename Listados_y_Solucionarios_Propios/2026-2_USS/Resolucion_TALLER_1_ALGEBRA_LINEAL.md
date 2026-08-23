@@ -1,12 +1,6 @@
 ---
-id: taller_1_algebra_lineal_resolucion
 title: "Resolución Completa Taller 1 — Matrices, Determinantes e Inversas"
-asignatura: "Álgebra Lineal"
-profesora: "Carol Asencio G."
-estudiante: "Moisés Amundarain Romero"
-fecha: "2026-08-06"
 tags: [university, algebra_lineal, matrices, determinantes, inversa, taller]
-status: completado
 ---
 
 # Resolución Completa Taller 1 — Matrices, Determinantes e Inversas
@@ -14,35 +8,35 @@ status: completado
 > [!abstract] Taller 1 · Álgebra Lineal · USS
 > **Profesora:** Carol Asencio G. — **Estudiante:** Moisés Amundarain Romero
 > **Contenido:** Operaciones con matrices (1.1–1.6), determinantes (2.1–2.7) y matriz inversa (3.1–3.9).
-> **Método:** paso a paso con Operaciones Elementales por Filas (OEF) explícitas, verificación numérica con **SymPy** (`Trabajos_y_Talleres/Recursos/Scripts/verificar_taller1.py`) e ilustraciones generadas con Matplotlib (paleta USS `#00205B` / `#D4AF37`).
+> **Método:** paso a paso con Operaciones Elementales por Filas (OEF) explícitas, verificación numérica con **SymPy** (`01_Sistemas_Lineales/verificar_taller1.py`) e ilustraciones generadas con Matplotlib (paleta USS `#00205B` / `#D4AF37`).
 
 ---
 ## 🗺️ Mapa de respuestas (resultados finales)
 
 | # | Resultado clave | Ver dónde |
 |:---|:---|:---|
-| 1.1 | $A$: 0 diagonal, $+1$ sobre ella, $-1$ bajo ella | [[#1.1 Matrices por fórmula]] |
-| 1.2 | $(AB)^T = B^T A^T$ y $(A+B)^T = A^T + B^T$ verificadas | [[#1.2 Suma, producto y traspuestas]] |
-| 1.3 | $AB = \begin{pmatrix}1&6\\6&13\end{pmatrix}$; $b), k), l)$ **imposibles** | [[#1.3 Cálculo matricial combinado]] |
-| 1.4 | $X_{ii} = \begin{pmatrix}-1/2&0\\-1&0\end{pmatrix}$; $X_{iii} = \begin{pmatrix}3/4&1/2\\3/4&1/4\end{pmatrix}$ | [[#1.4 Ecuaciones matriciales]] |
-| 1.5 | $X^3 - X^2 - 5X + 5I_3 = \theta_3$ ✓ | [[#1.5 Polinomio de X]] |
-| 1.6 | $(x,y,z,w) = (-9/10, -3/5, 3/10, -3/10)$ | [[#1.6 Igualdad con incógnitas]] |
-| 2.1 | $\det\begin{pmatrix}3&4\\2&5\end{pmatrix} = 7$; $d)=0$ | [[#2.1 Determinantes 2x2]] |
-| 2.2 | $\det B_3 = -57$; k) $=-969$ | [[#2.2 Propiedades de determinantes]] |
-| 2.3 | a) $113$; b) $-145$; c) $\ln(9e^6) = 6 + \ln 9$ | [[#2.3 Evaluación de determinantes]] |
-| 2.4 | $\det(kA) = 2k^2$ | [[#2.4 Potencias y escala]] |
-| 2.5 | $\det = (b-a)(c-a)(c-b)$ (Vandermonde) | [[#2.5 Determinante de Vandermonde]] |
-| 2.6 | Raíz real $\lambda = 1$ (además $\pm i$) | [[#2.6 Valores propios]] |
-| 2.7 | a) $-5$; b) $300$; c) $5$; d) $-10$ | [[#2.7 Determinantes con datos]] |
-| 3.1 | $X = \frac{1}{3}(BA + 3AB)$ | [[#3.1 Ecuación con traspuestas]] |
-| 3.2 | d) **no tiene solución** (E singular) | [[#3.2 Ecuaciones con inversas]] |
-| 3.3 | a) $X = \begin{pmatrix}1&1\\0&0\end{pmatrix}$; b) **imposible** | [[#3.3 Ecuaciones simples]] |
-| 3.4 | $A^{-1} = \frac{1}{14}\begin{pmatrix}4&2\\1&4\end{pmatrix}$; $B$ no invertible | [[#3.4 Menores, cofactores y adjunta]] |
-| 3.5 | $X_3 = \begin{pmatrix}5&3/2\\-27/2&-17/4\end{pmatrix}$ | [[#3.5 Inversas y ecuaciones]] |
-| 3.6 | $X = \begin{pmatrix}6&9&12\\9&9&12\\12&12&12\end{pmatrix}$ | [[#3.6 Ecuación con A^T A]] |
-| 3.7 | a) $\lambda=5$; b) $\lambda=3/4$; c) $\lambda\in\{-2,-4/3\}$ | [[#3.7 Parámetro λ]] |
-| 3.8 | a) $k = \frac{5\pm\sqrt{17}}{2}$; b) $k = 1\pm\sqrt{3}$ | [[#3.8 Matrices singulares]] |
-| 3.9 | invertible $\iff a \neq \frac{1}{23}$ | [[#3.9 Invertibilidad 4x4]] |
+| 1.1 | $A$: 0 diagonal, $+1$ sobre ella, $-1$ bajo ella | [1.1 Matrices por fórmula](#11-matrices-por-fórmula) |
+| 1.2 | $(AB)^T = B^T A^T$ y $(A+B)^T = A^T + B^T$ verificadas | [1.2 Suma, producto y traspuestas](#12-suma-producto-y-traspuestas) |
+| 1.3 | $AB = \begin{pmatrix}1&6\\6&13\end{pmatrix}$; $b), k), l)$ **imposibles** | [1.3 Cálculo matricial combinado](#13-cálculo-matricial-combinado) |
+| 1.4 | $X_{ii} = \begin{pmatrix}-1/2&0\\-1&0\end{pmatrix}$; $X_{iii} = \begin{pmatrix}3/4&1/2\\3/4&1/4\end{pmatrix}$ | [1.4 Ecuaciones matriciales](#14-ecuaciones-matriciales) |
+| 1.5 | $X^3 - X^2 - 5X + 5I_3 = \theta_3$ ✓ | [1.5 Polinomio de X](#15-polinomio-de-x) |
+| 1.6 | $(x,y,z,w) = (-9/10, -3/5, 3/10, -3/10)$ | [1.6 Igualdad con incógnitas](#16-igualdad-con-incógnitas) |
+| 2.1 | $\det\begin{pmatrix}3&4\\2&5\end{pmatrix} = 7$; $d)=0$ | [2.1 Determinantes 2x2](#21-determinantes-2x2) |
+| 2.2 | $\det B_3 = -57$; k) $=-969$ | [2.2 Propiedades de determinantes](#22-propiedades-de-determinantes) |
+| 2.3 | a) $113$; b) $-145$; c) $\ln(9e^6) = 6 + \ln 9$ | [2.3 Evaluación de determinantes](#23-evaluación-de-determinantes) |
+| 2.4 | $\det(kA) = 2k^2$ | [2.4 Potencias y escala](#24-potencias-y-escala) |
+| 2.5 | $\det = (b-a)(c-a)(c-b)$ (Vandermonde) | [2.5 Determinante de Vandermonde](#25-determinante-de-vandermonde) |
+| 2.6 | Raíz real $\lambda = 1$ (además $\pm i$) | [2.6 Valores propios](#26-valores-propios) |
+| 2.7 | a) $-5$; b) $300$; c) $5$; d) $-10$ | [2.7 Determinantes con datos](#27-determinantes-con-datos) |
+| 3.1 | $X = \frac{1}{3}(BA + 3AB)$ | [3.1 Ecuación con traspuestas](#31-ecuación-con-traspuestas) |
+| 3.2 | d) **no tiene solución** (E singular) | [3.2 Ecuaciones con inversas](#32-ecuaciones-con-inversas) |
+| 3.3 | a) $X = \begin{pmatrix}1&1\\0&0\end{pmatrix}$; b) **imposible** | [3.3 Ecuaciones simples](#33-ecuaciones-simples) |
+| 3.4 | $A^{-1} = \frac{1}{14}\begin{pmatrix}4&2\\1&4\end{pmatrix}$; $B$ no invertible | [3.4 Menores, cofactores y adjunta](#34-menores-cofactores-y-adjunta) |
+| 3.5 | $X_3 = \begin{pmatrix}5&3/2\\-27/2&-17/4\end{pmatrix}$ | [3.5 Inversas y ecuaciones](#35-inversas-y-ecuaciones) |
+| 3.6 | $X = \begin{pmatrix}6&9&12\\9&9&12\\12&12&12\end{pmatrix}$ | [3.6 Ecuación con A^T A](#36-ecuación-con-at-a) |
+| 3.7 | a) $\lambda=5$; b) $\lambda=3/4$; c) $\lambda\in\{-2,-4/3\}$ | [3.7 Parámetro λ](#37-parámetro-λ) |
+| 3.8 | a) $k = \frac{5\pm\sqrt{17}}{2}$; b) $k = 1\pm\sqrt{3}$ | [3.8 Matrices singulares](#38-matrices-singulares) |
+| 3.9 | invertible $\iff a \neq \frac{1}{23}$ | [3.9 Invertibilidad 4x4](#39-invertibilidad-4x4) |
 
 ---
 
@@ -167,7 +161,7 @@ $$
 > Comparando d) con h): $(AB)^T = B^T A^T = \begin{pmatrix}9&4&11\\17&24&25\\-1&-6&10\end{pmatrix}$ ✓
 > Comparando i) con j): son idénticas ✓ (verificado numéricamente con SymPy, `True` para ambas).
 
-![[Figura1_producto_matrices.png]]
+![Figura1_producto_matrices](../../05_Simulaciones_y_Visualizaciones/Figura1_producto_matrices.png)
 
 ---
 
@@ -426,18 +420,18 @@ $$
 
 #### Paso 4: Sustitución Regresiva (Fase de Jordan hacia RREF)
 1. **De la Fila 4:**
-   $$\frac{160}{21}w = -\frac{16}{7} \implies w = \left(-\frac{16}{7}\right) \cdot \left(\frac{21}{160}\right) = -\frac{3}{10}$$
+ $$\frac{160}{21}w = -\frac{16}{7} \implies w = \left(-\frac{16}{7}\right) \cdot \left(\frac{21}{160}\right) = -\frac{3}{10}$$
 
 2. **De la Fila 3:**
-   $$-\frac{21}{2}z - \frac{1}{2}w = -3 \implies -\frac{21}{2}z - \frac{1}{2}\left(-\frac{3}{10}\right) = -3$$
-   $$-\frac{21}{2}z + \frac{3}{20} = -3 \implies -\frac{21}{2}z = -3 - \frac{3}{20} = -\frac{63}{20} \implies z = \left(-\frac{63}{20}\right)\left(-\frac{2}{21}\right) = \frac{3}{10}$$
+ $$-\frac{21}{2}z - \frac{1}{2}w = -3 \implies -\frac{21}{2}z - \frac{1}{2}\left(-\frac{3}{10}\right) = -3$$
+ $$-\frac{21}{2}z + \frac{3}{20} = -3 \implies -\frac{21}{2}z = -3 - \frac{3}{20} = -\frac{63}{20} \implies z = \left(-\frac{63}{20}\right)\left(-\frac{2}{21}\right) = \frac{3}{10}$$
 
 3. **De la Fila 2:**
-   $$-2y - 3z + w = 0 \implies -2y = 3z - w = 3\left(\frac{3}{10}\right) - \left(-\frac{3}{10}\right) = \frac{9}{10} + \frac{3}{10} = \frac{12}{10} = \frac{6}{5}$$
-   $$y = \frac{6/5}{-2} = -\frac{3}{5}$$
+ $$-2y - 3z + w = 0 \implies -2y = 3z - w = 3\left(\frac{3}{10}\right) - \left(-\frac{3}{10}\right) = \frac{9}{10} + \frac{3}{10} = \frac{12}{10} = \frac{6}{5}$$
+ $$y = \frac{6/5}{-2} = -\frac{3}{5}$$
 
 4. **De la Fila 1:**
-   $$x - y + z = 0 \implies x = y - z = -\frac{3}{5} - \frac{3}{10} = -\frac{6}{10} - \frac{3}{10} = -\frac{9}{10}$$
+ $$x - y + z = 0 \implies x = y - z = -\frac{3}{5} - \frac{3}{10} = -\frac{6}{10} - \frac{3}{10} = -\frac{9}{10}$$
 
 Matriz final en **Forma Escalonada Reducida por Filas (RREF)**:
 
@@ -497,24 +491,24 @@ $$
 Antes de aplicar las propiedades algebraicas, calculamos el determinante de cada una de las 6 matrices:
 
 1. **Determinante de $A_2 \in \mathcal{M}_{2\times 2}(\mathbb{R})$:**
-   $$\det(A_2) = (4)(4) - (-2)(-1) = 16 - 2 = \mathbf{14}$$
+ $$\det(A_2) = (4)(4) - (-2)(-1) = 16 - 2 = \mathbf{14}$$
 
 2. **Determinante de $A_3 \in \mathcal{M}_{3\times 3}(\mathbb{R})$:**
-   Observamos que la Fila 3 es múltiplo escalar de la Fila 1 ($F_3 = -3F_1$):
-   $$\det(A_3) = \begin{vmatrix} 1 & -2 & 3 \\ -1 & 4 & 5 \\ -3 & 6 & -9 \end{vmatrix} \xrightarrow{F_3 \to F_3 + 3F_1} \begin{vmatrix} 1 & -2 & 3 \\ -1 & 4 & 5 \\ 0 & 0 & 0 \end{vmatrix} = \mathbf{0}$$
+ Observamos que la Fila 3 es múltiplo escalar de la Fila 1 ($F_3 = -3F_1$):
+ $$\det(A_3) = \begin{vmatrix} 1 & -2 & 3 \\ -1 & 4 & 5 \\ -3 & 6 & -9 \end{vmatrix} \xrightarrow{F_3 \to F_3 + 3F_1} \begin{vmatrix} 1 & -2 & 3 \\ -1 & 4 & 5 \\ 0 & 0 & 0 \end{vmatrix} = \mathbf{0}$$
 
 3. **Determinante de $B_2 \in \mathcal{M}_{2\times 2}(\mathbb{R})$:**
-   $$\det(B_2) = (1)(4) - (-2)(-1) = 4 - 2 = \mathbf{2}$$
+ $$\det(B_2) = (1)(4) - (-2)(-1) = 4 - 2 = \mathbf{2}$$
 
 4. **Determinante de $B_3 \in \mathcal{M}_{3\times 3}(\mathbb{R})$ (Regla de Sarrus / Cofactores):**
-   $$\det(B_3) = (1)(4)(2) + (-2)(-2)(4) + (5)(-1)(-1) - (4)(4)(5) - (-1)(-2)(1) - (2)(-1)(-2)$$
-   $$\det(B_3) = 8 + 16 + 5 - 80 - 2 - 4 = 29 - 86 = \mathbf{-57}$$
+ $$\det(B_3) = (1)(4)(2) + (-2)(-2)(4) + (5)(-1)(-1) - (4)(4)(5) - (-1)(-2)(1) - (2)(-1)(-2)$$
+ $$\det(B_3) = 8 + 16 + 5 - 80 - 2 - 4 = 29 - 86 = \mathbf{-57}$$
 
 5. **Determinante de $C_2 \in \mathcal{M}_{2\times 2}(\mathbb{R})$ (Triangular superior):**
-   $$\det(C_2) = (1)(3) - (-1)(0) = \mathbf{3}$$
+ $$\det(C_2) = (1)(3) - (-1)(0) = \mathbf{3}$$
 
 6. **Determinante de $C_3 \in \mathcal{M}_{3\times 3}(\mathbb{R})$ (Triangular superior):**
-   $$\det(C_3) = 1 \cdot 3 \cdot (-1) = \mathbf{-3}$$
+ $$\det(C_3) = 1 \cdot 3 \cdot (-1) = \mathbf{-3}$$
 
 ---
 
@@ -541,70 +535,70 @@ Antes de aplicar las propiedades algebraicas, calculamos el determinante de cada
 #### a) $\lvert A_2^T \rvert = \det(A_2^T)$
 * **Propiedad:** El determinante de la transpuesta de una matriz es igual al determinante de la matriz original ($\det(M^T) = \det(M)$).
 * **Cálculo:**
-  $$\det(A_2^T) = \det(A_2) = \mathbf{14}$$
+ $$\det(A_2^T) = \det(A_2) = \mathbf{14}$$
 
 #### b) $\lvert -2B_3^T \rvert = \det(-2B_3^T)$
 * **Propiedad:** Para toda matriz $M \in \mathcal{M}_{n\times n}(\mathbb{R})$ y escalar $k \in \mathbb{R}$, se cumple $\det(kM) = k^n \det(M)$. Aquí $B_3$ es de orden $n=3$, luego el factor escalar sale elevado al cubo ($k^3$).
 * **Cálculo:**
-  $$\det(-2B_3^T) = (-2)^3 \det(B_3^T) = -8 \det(B_3) = -8(-57) = \mathbf{456}$$
+ $$\det(-2B_3^T) = (-2)^3 \det(B_3^T) = -8 \det(B_3) = -8(-57) = \mathbf{456}$$
 > [!warning] Error Frecuente
 > Olvidar elevar la constante al orden $n$. Un error común es escribir $-2\det(B_3)$ en lugar de $(-2)^3\det(B_3) = -8\det(B_3)$.
 
 #### c) $\lvert B_2^T \cdot A_2 \rvert = \det(B_2^T A_2)$
 * **Propiedad (Teorema de Cauchy-Binet):** El determinante del producto de matrices cuadradas es el producto de sus determinantes ($\det(MN) = \det(M)\det(N)$).
 * **Cálculo:**
-  $$\det(B_2^T A_2) = \det(B_2^T) \cdot \det(A_2) = \det(B_2) \cdot \det(A_2) = 2 \cdot 14 = \mathbf{28}$$
+ $$\det(B_2^T A_2) = \det(B_2^T) \cdot \det(A_2) = \det(B_2) \cdot \det(A_2) = 2 \cdot 14 = \mathbf{28}$$
 
 #### d) $\lvert B_2 \rvert = \det(B_2)$
 * **Cálculo:**
-  $$\det(B_2) = \mathbf{2}$$
+ $$\det(B_2) = \mathbf{2}$$
 
 #### e) $\lvert C_3^T \rvert = \det(C_3^T)$
 * **Propiedad:** Invarianza bajo transposición ($\det(C_3^T) = \det(C_3)$).
 * **Cálculo:**
-  $$\det(C_3^T) = \det(C_3) = \mathbf{-3}$$
+ $$\det(C_3^T) = \det(C_3) = \mathbf{-3}$$
 
 #### f) $\lvert B_2^T \rvert = \det(B_2^T)$
 * **Propiedad:** $\det(B_2^T) = \det(B_2)$.
 * **Cálculo:**
-  $$\det(B_2^T) = \mathbf{2}$$
+ $$\det(B_2^T) = \mathbf{2}$$
 
 #### g) $\lvert A_2 \cdot B_2 \rvert = \det(A_2 B_2)$
 * **Propiedad:** $\det(A_2 B_2) = \det(A_2)\det(B_2)$.
 * **Cálculo:**
-  $$\det(A_2 B_2) = 14 \cdot 2 = \mathbf{28}$$
+ $$\det(A_2 B_2) = 14 \cdot 2 = \mathbf{28}$$
 > [!tip] Observación de Conmutatividad
 > Nótese que aunque en general $A_2 B_2 \neq B_2 A_2$, sus determinantes **siempre coinciden**: $\det(A_2 B_2) = \det(B_2 A_2) = 28$.
 
 #### h) $\lvert A_3 B_3^T \rvert = \det(A_3 B_3^T)$
 * **Propiedad:** $\det(A_3 B_3^T) = \det(A_3)\det(B_3^T)$.
 * **Cálculo:** Como $A_3$ es singular ($\det A_3 = 0$):
-  $$\det(A_3 B_3^T) = 0 \cdot (-57) = \mathbf{0}$$
+ $$\det(A_3 B_3^T) = 0 \cdot (-57) = \mathbf{0}$$
 
 #### i) $\lvert A_3 B_3 \rvert = \det(A_3 B_3)$
 * **Propiedad:** $\det(A_3 B_3) = \det(A_3)\det(B_3)$.
 * **Cálculo:**
-  $$\det(A_3 B_3) = 0 \cdot (-57) = \mathbf{0}$$
+ $$\det(A_3 B_3) = 0 \cdot (-57) = \mathbf{0}$$
 
 #### j) $\lvert B_2 \cdot C_2 \cdot A_2 \rvert = \det(B_2 C_2 A_2)$
 * **Propiedad:** Multiplicatividad extendida a $k$ matrices cuadradas del mismo orden.
 * **Cálculo:**
-  $$\det(B_2 C_2 A_2) = \det(B_2) \cdot \det(C_2) \cdot \det(A_2) = 2 \cdot 3 \cdot 14 = \mathbf{84}$$
+ $$\det(B_2 C_2 A_2) = \det(B_2) \cdot \det(C_2) \cdot \det(A_2) = 2 \cdot 3 \cdot 14 = \mathbf{84}$$
 
 #### k) $\lvert B_3^T (A_3 - C_3) \rvert = \det(B_3^T (A_3 - C_3))$
 * **Propiedad:** Por multiplicatividad:
-  $$\det(B_3^T (A_3 - C_3)) = \det(B_3^T) \cdot \det(A_3 - C_3) = \det(B_3) \cdot \det(A_3 - C_3)$$
+ $$\det(B_3^T (A_3 - C_3)) = \det(B_3^T) \cdot \det(A_3 - C_3) = \det(B_3) \cdot \det(A_3 - C_3)$$
 * **Paso 1: Cálculo de la matriz diferencia $(A_3 - C_3)$:**
-  $$A_3 - C_3 = \begin{pmatrix}1 & -2 & 3 \\ -1 & 4 & 5 \\ -3 & 6 & -9\end{pmatrix} - \begin{pmatrix}1 & -1 & 3 \\ 0 & 3 & 2 \\ 0 & 0 & -1\end{pmatrix} = \begin{pmatrix}0 & -1 & 0 \\ -1 & 1 & 3 \\ -3 & 6 & -8\end{pmatrix}$$
+ $$A_3 - C_3 = \begin{pmatrix}1 & -2 & 3 \\ -1 & 4 & 5 \\ -3 & 6 & -9\end{pmatrix} - \begin{pmatrix}1 & -1 & 3 \\ 0 & 3 & 2 \\ 0 & 0 & -1\end{pmatrix} = \begin{pmatrix}0 & -1 & 0 \\ -1 & 1 & 3 \\ -3 & 6 & -8\end{pmatrix}$$
 * **Paso 2: Determinante de $(A_3 - C_3)$ por expansión en la Fila 1:**
-  $$\det(A_3 - C_3) = 0 \cdot C_{11} - (-1)\cdot \begin{vmatrix}-1 & 3 \\ -3 & -8\end{vmatrix} + 0 \cdot C_{13} = 1 \cdot \big((-1)(-8) - (3)(-3)\big) = 1 \cdot (8 + 9) = \mathbf{17}$$
+ $$\det(A_3 - C_3) = 0 \cdot C_{11} - (-1)\cdot \begin{vmatrix}-1 & 3 \\ -3 & -8\end{vmatrix} + 0 \cdot C_{13} = 1 \cdot \big((-1)(-8) - (3)(-3)\big) = 1 \cdot (8 + 9) = \mathbf{17}$$
 * **Paso 3: Producto final:**
-  $$\det(B_3^T (A_3 - C_3)) = (-57) \cdot 17 = \mathbf{-969}$$
+ $$\det(B_3^T (A_3 - C_3)) = (-57) \cdot 17 = \mathbf{-969}$$
 
 > [!important] Verificación Numérica
 > Todos los resultados anteriores fueron verificados de forma exacta mediante SymPy (`verificar_taller1.py`), confirmando 100% de consistencia algebraica.
 
-![[Figura2_sarrus_cofactores.png]]
+![Figura2_sarrus_cofactores](../../05_Simulaciones_y_Visualizaciones/Figura2_sarrus_cofactores.png)
 
 ---
 
@@ -792,7 +786,7 @@ $$
 > En $\mathbb{R}$ (como pide el enunciado: $\lambda\in\mathbb{R}$), la única solución es $\mathbf{\lambda = 1}$.
 > **Contexto:** el polinomio $\det(A-\lambda I)$ se llama **polinomio característico**; sus raíces son los valores propios. Cauchy (1826) los estudió al diagonalizar formas cuadráticas, y D'Alembert (1747) los usó antes, en el movimiento de cuerdas con masas (MacTutor).
 
-![[Figura3_valores_propios.png]]
+![Figura3_valores_propios](../../05_Simulaciones_y_Visualizaciones/Figura3_valores_propios.png)
 
 ---
 
@@ -904,39 +898,39 @@ $$
 $$
 
 - **Paso 1 (Intercambio de filas para pivote unitario):** $F_1 \leftrightarrow F_2$
-  $$
-  \xrightarrow{F_1 \leftrightarrow F_2}
-  \left[\begin{array}{cc|cc}
-  -1 & 4 & -1 & 4 \\
-  4 & -2 & 1 & -2
-  \end{array}\right]
-  \xrightarrow{F_1 \to -F_1}
-  \left[\begin{array}{cc|cc}
-  \mathbf{1} & -4 & 1 & -4 \\
-  4 & -2 & 1 & -2
-  \end{array}\right]
-  $$
+ $$
+ \xrightarrow{F_1 \leftrightarrow F_2}
+ \left[\begin{array}{cc|cc}
+ -1 & 4 & -1 & 4 \\
+ 4 & -2 & 1 & -2
+ \end{array}\right]
+ \xrightarrow{F_1 \to -F_1}
+ \left[\begin{array}{cc|cc}
+ \mathbf{1} & -4 & 1 & -4 \\
+ 4 & -2 & 1 & -2
+ \end{array}\right]
+ $$
 - **Paso 2 (Anular bajo el pivote 1):** $F_2 \to F_2 - 4F_1$
-  $$
-  \xrightarrow{F_2 \to F_2 - 4F_1}
-  \left[\begin{array}{cc|cc}
-  1 & -4 & 1 & -4 \\
-  0 & \mathbf{14} & -3 & 14
-  \end{array}\right]
-  $$
+ $$
+ \xrightarrow{F_2 \to F_2 - 4F_1}
+ \left[\begin{array}{cc|cc}
+ 1 & -4 & 1 & -4 \\
+ 0 & \mathbf{14} & -3 & 14
+ \end{array}\right]
+ $$
 - **Paso 3 (Normalizar pivote 2 y anular hacia arriba):** $F_2 \to \frac{1}{14}F_2$, luego $F_1 \to F_1 + 4F_2$
-  $$
-  \xrightarrow{F_2 \to \frac{1}{14}F_2}
-  \left[\begin{array}{cc|cc}
-  1 & -4 & 1 & -4 \\
-  0 & 1 & -3/14 & 1
-  \end{array}\right]
-  \xrightarrow{F_1 \to F_1 + 4F_2}
-  \left[\begin{array}{cc|cc}
-  1 & 0 & 1/7 & 0 \\
-  0 & 1 & -3/14 & 1
-  \end{array}\right]
-  $$
+ $$
+ \xrightarrow{F_2 \to \frac{1}{14}F_2}
+ \left[\begin{array}{cc|cc}
+ 1 & -4 & 1 & -4 \\
+ 0 & 1 & -3/14 & 1
+ \end{array}\right]
+ \xrightarrow{F_1 \to F_1 + 4F_2}
+ \left[\begin{array}{cc|cc}
+ 1 & 0 & 1/7 & 0 \\
+ 0 & 1 & -3/14 & 1
+ \end{array}\right]
+ $$
 
 > [!important] Resultado Clave
 > $$X = \begin{pmatrix}1/7 & 0 \\ -3/14 & 1\end{pmatrix}$$
@@ -966,51 +960,51 @@ $$
 $$
 
 - **Paso 1 (Pivote superior):** $F_1 \leftrightarrow F_3$ para tener pivote $1$:
-  $$
-  \xrightarrow{F_1 \leftrightarrow F_3}
-  \left[\begin{array}{ccc|ccc}
-  \mathbf{1} & 5 & -7 & 2 & 4 & -4 \\
-  -2 & 8 & 3 & -1 & 10 & -14 \\
-  2 & -4 & 8 & 1 & -1 & 2
-  \end{array}\right]
-  $$
+ $$
+ \xrightarrow{F_1 \leftrightarrow F_3}
+ \left[\begin{array}{ccc|ccc}
+ \mathbf{1} & 5 & -7 & 2 & 4 & -4 \\
+ -2 & 8 & 3 & -1 & 10 & -14 \\
+ 2 & -4 & 8 & 1 & -1 & 2
+ \end{array}\right]
+ $$
 - **Paso 2 (Anulación Columna 1):** $F_2 \to F_2 + 2F_1$, $F_3 \to F_3 - 2F_1$
-  $$
-  \xrightarrow{\substack{F_2 \to F_2 + 2F_1 \\ F_3 \to F_3 - 2F_1}}
-  \left[\begin{array}{ccc|ccc}
-  1 & 5 & -7 & 2 & 4 & -4 \\
-  0 & \mathbf{18} & -11 & 3 & 18 & -22 \\
-  0 & -14 & 22 & -3 & -9 & 10
-  \end{array}\right]
-  $$
+ $$
+ \xrightarrow{\substack{F_2 \to F_2 + 2F_1 \\ F_3 \to F_3 - 2F_1}}
+ \left[\begin{array}{ccc|ccc}
+ 1 & 5 & -7 & 2 & 4 & -4 \\
+ 0 & \mathbf{18} & -11 & 3 & 18 & -22 \\
+ 0 & -14 & 22 & -3 & -9 & 10
+ \end{array}\right]
+ $$
 - **Paso 3 (Anulación Columna 2):** $F_3 \to F_3 + \frac{7}{9}F_2$
-  $$
-  \xrightarrow{F_3 \to F_3 + \frac{7}{9}F_2}
-  \left[\begin{array}{ccc|ccc}
-  1 & 5 & -7 & 2 & 4 & -4 \\
-  0 & 18 & -11 & 3 & 18 & -22 \\
-  0 & 0 & \mathbf{\frac{121}{9}} & -\frac{6}{9} & \frac{45}{9} & -\frac{64}{9}
-  \end{array}\right]
-  $$
-  *(Matriz en Forma Escalonada por Filas - REF)*
+ $$
+ \xrightarrow{F_3 \to F_3 + \frac{7}{9}F_2}
+ \left[\begin{array}{ccc|ccc}
+ 1 & 5 & -7 & 2 & 4 & -4 \\
+ 0 & 18 & -11 & 3 & 18 & -22 \\
+ 0 & 0 & \mathbf{\frac{121}{9}} & -\frac{6}{9} & \frac{45}{9} & -\frac{64}{9}
+ \end{array}\right]
+ $$
+ *(Matriz en Forma Escalonada por Filas - REF)*
 - **Paso 4 (Normalizar Fila 3 y eliminación hacia arriba):** $F_3 \to \frac{9}{121}F_3$
-  $$
-  \xrightarrow{F_3 \to \frac{9}{121}F_3}
-  \left[\begin{array}{ccc|ccc}
-  1 & 5 & -7 & 2 & 4 & -4 \\
-  0 & 18 & -11 & 3 & 18 & -22 \\
-  0 & 0 & 1 & -\frac{6}{121} & \frac{45}{121} & -\frac{64}{121}
-  \end{array}\right]
-  $$
+ $$
+ \xrightarrow{F_3 \to \frac{9}{121}F_3}
+ \left[\begin{array}{ccc|ccc}
+ 1 & 5 & -7 & 2 & 4 & -4 \\
+ 0 & 18 & -11 & 3 & 18 & -22 \\
+ 0 & 0 & 1 & -\frac{6}{121} & \frac{45}{121} & -\frac{64}{121}
+ \end{array}\right]
+ $$
 - **Paso 5 (Anular Columna 3 arriba):** $F_2 \to F_2 + 11F_3$, $F_1 \to F_1 + 7F_3$, luego $F_2 \to \frac{1}{18}F_2$ y $F_1 \to F_1 - 5F_2$:
-  $$
-  \xrightarrow{\text{Gauss-Jordan}}
-  \left[\begin{array}{ccc|ccc}
-  1 & 0 & 0 & \frac{235}{242} & \frac{113}{242} & \frac{3}{121} \\
-  0 & 1 & 0 & \frac{3}{22} & \frac{27}{22} & -\frac{17}{11} \\
-  0 & 0 & 1 & -\frac{6}{121} & \frac{45}{121} & -\frac{64}{121}
-  \end{array}\right]
-  $$
+ $$
+ \xrightarrow{\text{Gauss-Jordan}}
+ \left[\begin{array}{ccc|ccc}
+ 1 & 0 & 0 & \frac{235}{242} & \frac{113}{242} & \frac{3}{121} \\
+ 0 & 1 & 0 & \frac{3}{22} & \frac{27}{22} & -\frac{17}{11} \\
+ 0 & 0 & 1 & -\frac{6}{121} & \frac{45}{121} & -\frac{64}{121}
+ \end{array}\right]
+ $$
 
 > [!important] Resultado Clave
 > $$X = \begin{pmatrix}235/242 & 113/242 & 3/121 \\ 3/22 & 27/22 & -17/11 \\ -6/121 & 45/121 & -64/121\end{pmatrix}$$
@@ -1208,7 +1202,7 @@ Para cada matriz cuadrada $M$:
 - **Cofactores:** $C_{11} = 4$, $C_{12} = 1$, $C_{21} = 2$, $C_{22} = 4 \implies \operatorname{Cof}(A) = \begin{pmatrix}4&1\\2&4\end{pmatrix}$.
 - **Adjunta:** $\operatorname{adj}(A) = [\operatorname{Cof}(A)]^T = \begin{pmatrix}4&2\\1&4\end{pmatrix}$.
 - **Inversa (Método de la Adjunta):**
-  $$A^{-1} = \frac{1}{14}\begin{pmatrix}4&2\\1&4\end{pmatrix} = \begin{pmatrix}2/7&1/7\\1/14&2/7\end{pmatrix}$$
+ $$A^{-1} = \frac{1}{14}\begin{pmatrix}4&2\\1&4\end{pmatrix} = \begin{pmatrix}2/7&1/7\\1/14&2/7\end{pmatrix}$$
 
 #### 🔄 Comparación Didáctica: Inversa de $A$ por Método de Gauss-Jordan $[A \mid I_2]$
 $$
@@ -1252,10 +1246,10 @@ Ambos métodos coinciden con exactitud matemática ✓.
 
 - $\det B = 0$ debido a que $F_3 = -3F_1$ (filas linealmente dependientes).
 - **Menores:**
-  - Fila 1: $M_{11} = \begin{vmatrix}4&5\\6&-9\end{vmatrix} = -66$, $M_{12} = \begin{vmatrix}-1&5\\-3&-9\end{vmatrix} = 24$, $M_{13} = \begin{vmatrix}-1&4\\-3&6\end{vmatrix} = 6$.
-  - Fila 2: $M_{21} = \begin{vmatrix}-2&3\\6&-9\end{vmatrix} = 0$, $M_{22} = \begin{vmatrix}1&3\\-3&-9\end{vmatrix} = 0$, $M_{23} = \begin{vmatrix}1&-2\\-3&6\end{vmatrix} = 0$.
-  - Fila 3: $M_{31} = \begin{vmatrix}-2&3\\4&5\end{vmatrix} = -22$, $M_{32} = \begin{vmatrix}1&3\\-1&5\end{vmatrix} = 8$, $M_{33} = \begin{vmatrix}1&-2\\-1&4\end{vmatrix} = 2$.
-  $$\operatorname{Men}(B) = \begin{pmatrix}-66&24&6\\0&0&0\\-22&8&2\end{pmatrix}$$
+ - Fila 1: $M_{11} = \begin{vmatrix}4&5\\6&-9\end{vmatrix} = -66$, $M_{12} = \begin{vmatrix}-1&5\\-3&-9\end{vmatrix} = 24$, $M_{13} = \begin{vmatrix}-1&4\\-3&6\end{vmatrix} = 6$.
+ - Fila 2: $M_{21} = \begin{vmatrix}-2&3\\6&-9\end{vmatrix} = 0$, $M_{22} = \begin{vmatrix}1&3\\-3&-9\end{vmatrix} = 0$, $M_{23} = \begin{vmatrix}1&-2\\-3&6\end{vmatrix} = 0$.
+ - Fila 3: $M_{31} = \begin{vmatrix}-2&3\\4&5\end{vmatrix} = -22$, $M_{32} = \begin{vmatrix}1&3\\-1&5\end{vmatrix} = 8$, $M_{33} = \begin{vmatrix}1&-2\\-1&4\end{vmatrix} = 2$.
+ $$\operatorname{Men}(B) = \begin{pmatrix}-66&24&6\\0&0&0\\-22&8&2\end{pmatrix}$$
 - **Cofactores:** $\operatorname{Cof}(B) = \begin{pmatrix}-66&-24&6\\0&0&0\\-22&-8&2\end{pmatrix}$.
 - **Adjunta:** $\operatorname{adj}(B) = [\operatorname{Cof}(B)]^T = \begin{pmatrix}-66&0&-22\\-24&0&-8\\6&0&2\end{pmatrix}$.
 
@@ -1287,7 +1281,7 @@ $$
 - **Cofactores:** $\operatorname{Cof}(C) = \begin{pmatrix}4&1\\2&1\end{pmatrix}$.
 - **Adjunta:** $\operatorname{adj}(C) = [\operatorname{Cof}(C)]^T = \begin{pmatrix}4&2\\1&1\end{pmatrix}$.
 - **Inversa (Método de la Adjunta):**
-  $$C^{-1} = \frac{1}{2}\begin{pmatrix}4&2\\1&1\end{pmatrix} = \begin{pmatrix}2&1\\1/2&1/2\end{pmatrix}$$
+ $$C^{-1} = \frac{1}{2}\begin{pmatrix}4&2\\1&1\end{pmatrix} = \begin{pmatrix}2&1\\1/2&1/2\end{pmatrix}$$
 
 #### 🔄 Comparación Didáctica: Inversa de $C$ por Método de Gauss-Jordan $[C \mid I_2]$
 $$
@@ -1488,11 +1482,11 @@ $$
 
 Calculamos los menores y cofactores $3\times 3$:
 - **Cofactor $C_{11} = +M_{11}$:**
-  $$M_{11} = \begin{vmatrix}2&0&2\\-3&2&0\\a&3&a\end{vmatrix} = 2(2a - 0) - 0 + 2(-9 - 2a) = 4a - 18 - 4a = -18 \implies C_{11} = -18$$
+ $$M_{11} = \begin{vmatrix}2&0&2\\-3&2&0\\a&3&a\end{vmatrix} = 2(2a - 0) - 0 + 2(-9 - 2a) = 4a - 18 - 4a = -18 \implies C_{11} = -18$$
 - **Cofactor $C_{13} = +M_{13}$:**
-  $$M_{13} = \begin{vmatrix}1&2&2\\0&-3&0\\1&a&a\end{vmatrix} = -3\begin{vmatrix}1&2\\1&a\end{vmatrix} = -3(a - 2) = 6 - 3a \implies C_{13} = 6 - 3a$$
+ $$M_{13} = \begin{vmatrix}1&2&2\\0&-3&0\\1&a&a\end{vmatrix} = -3\begin{vmatrix}1&2\\1&a\end{vmatrix} = -3(a - 2) = 6 - 3a \implies C_{13} = 6 - 3a$$
 - **Cofactor $C_{14} = -M_{14}$:**
-  $$M_{14} = \begin{vmatrix}1&2&0\\0&-3&2\\1&a&3\end{vmatrix} = 1(-9 - 2a) - 2(0 - 2) + 0 = -9 - 2a + 4 = -5 - 2a \implies C_{14} = 5 + 2a$$
+ $$M_{14} = \begin{vmatrix}1&2&0\\0&-3&2\\1&a&3\end{vmatrix} = 1(-9 - 2a) - 2(0 - 2) + 0 = -9 - 2a + 4 = -5 - 2a \implies C_{14} = 5 + 2a$$
 
 Sustituyendo en la expansión:
 
@@ -1598,7 +1592,7 @@ $$
 
 ## 🧪 Verificación numérica (SymPy)
 
-Todo el taller se validó con el script `Trabajos_y_Talleres/Recursos/Scripts/verificar_taller1.py` (SymPy), que reproduce:
+Todo el taller se validó con el script `01_Sistemas_Lineales/verificar_taller1.py` (SymPy), que reproduce:
 
 - Las matrices de los ejercicios 1.1–1.6, 2.2, 2.6, 2.7 y 3.1–3.9.
 - Cada producto, traspuesta, determinante, cofactor, adjunta, inversa y valor propio.
@@ -1609,11 +1603,11 @@ Todo el taller se validó con el script `Trabajos_y_Talleres/Recursos/Scripts/ve
 
 | Archivo | Ruta |
 |:---|:---|
-| Verificación SymPy | `Trabajos_y_Talleres/Recursos/Scripts/verificar_taller1.py` |
-| Figuras Matplotlib | `Trabajos_y_Talleres/Recursos/Scripts/generar_figuras_taller1.py` |
-| Figura 1 — producto de matrices | `Trabajos_y_Talleres/Recursos/Imagenes/Figura1_producto_matrices.png` |
-| Figura 2 — Sarrus y cofactores | `Trabajos_y_Talleres/Recursos/Imagenes/Figura2_sarrus_cofactores.png` |
-| Figura 3 — valores propios | `Trabajos_y_Talleres/Recursos/Imagenes/Figura3_valores_propios.png` |
+| Verificación SymPy | `01_Sistemas_Lineales/verificar_taller1.py` |
+| Figuras Matplotlib | `05_Simulaciones_y_Visualizaciones/generar_figuras_taller1.py` |
+| Figura 1 — producto de matrices | `05_Simulaciones_y_Visualizaciones/Figura1_producto_matrices.png` |
+| Figura 2 — Sarrus y cofactores | `05_Simulaciones_y_Visualizaciones/Figura2_sarrus_cofactores.png` |
+| Figura 3 — valores propios | `05_Simulaciones_y_Visualizaciones/Figura3_valores_propios.png` |
 
 ---
 
@@ -1624,16 +1618,6 @@ Todo el taller se validó con el script `Trabajos_y_Talleres/Recursos/Scripts/ve
 > - MacTutor History of Mathematics — *Matrices and Determinants* (St Andrews): Cauchy 1812 (multiplicación de determinantes), Sylvester 1850 (término "matriz"), Cayley 1858 (*Memoir on the theory of matrices*: inversa vía determinante), Frobenius 1878 (teorema de Cayley–Hamilton general y noción de rango).
 > - de la Puente, M.J. (UCM) — *Historia del Álgebra Lineal*: Vandermonde 1771, Laplace 1772, Jacobi 1841 (definición algorítmica del determinante), Weierstrass/Kronecker 1903 (definición axiomática).
 > - Grossman, S. (2012). *Álgebra Lineal* (7ª ed.). McGraw-Hill. (Texto base del que provienen los ejercicios del taller.)
-> - Apuntes del curso: [[20_University/USS/Ramos_Actuales/Algebra_Lineal/Apuntes/Unidad_1_Matrices_y_Sistemas/Matrices|Apuntes — Matrices]] (Unidad 1: Cramer, rango por menores, Rouché–Frobenius).
+> - Apuntes del curso: [Apuntes — Matrices](../../Teoria/Unidad_1_Matrices_y_Sistemas/Matrices.md) (Unidad 1: Cramer, rango por menores, Rouché–Frobenius).
 
 **Aplicaciones reales del material del taller:** la matriz adjunta en códigos correctores de errores y criptografía; el determinante como **área/volumen** (Lagrange, 1773) y criterio de invertibilidad en robótica (jacobianos de cinemática); los **valores propios** en análisis de vibraciones (D'Alembert), estabilidad de sistemas dinámicos y PageRank de Google; las **ecuaciones matriciales** en control automático (ecuaciones de Lyapunov $AX + XB = C$).
-
----
-## 🔗 Conexiones
-* [[20_University/USS/Ramos_Actuales/Algebra_Lineal/algebra_lineal_dashboard|Dashboard Álgebra Lineal]]
-* [[20_University/USS/Ramos_Actuales/Algebra_Lineal/Apuntes/Unidad_1_Matrices_y_Sistemas/Matrices|Apuntes — Matrices]]
-* [[90_System/Agent_Sync/Task_Board|Task Board]]
-* [[90_System/Agent_Sync/Active_Context|Active Context]]
-* [[90_System/Agent_Sync/Task_Logs/log_taller_1_algebra_lineal|Log Taller 1 Álgebra Lineal]]
-* [[20_University/USS/Ramos_Actuales/II_Semestre_Dashboard|Dashboard II° Semestre]]
-* [[Home|Panel de Control Unificado]]

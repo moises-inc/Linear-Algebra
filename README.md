@@ -23,6 +23,8 @@ Este repositorio reúne algoritmos computacionales, simulaciones geométricas 2D
 
 El proyecto abarca desde la resolución simbólica de sistemas de ecuaciones lineales mediante Operaciones Elementales por Filas (OEF), pasando por espacios vectoriales y transformaciones lineales, hasta la diagonalización, autovalores y descomposición en valores singulares (SVD).
 
+Incluye además **notas maestras de teoría en Markdown** — síntesis completas de *Álgebra Lineal* (Stanley I. Grossman, 7ª ed.) y *Linear Algebra Done Right* (Sheldon Axler, 4ª ed.) — junto con el apunte de la Unidad 1 (matrices y sistemas), todas con diagramas vectoriales reproducibles en la paleta USS.
+
 ---
 
 ## 🏛️ Diferenciación Histórica: UdeC vs. USS
@@ -76,6 +78,21 @@ Linear-Algebra/
 │   ├── Figura1_producto_matrices.png           # Diagrama visual de multiplicación de matrices
 │   ├── Figura2_sarrus_cofactores.png           # Diagrama de Regla de Sarrus y Expansión por Cofactores
 │   └── Figura3_valores_propios.png             # Transformación de autovectores bajo matriz A
+│
+├── Teoria/                                      # Apuntes de teoría y notas de libros en Markdown
+│   ├── Unidad_1_Matrices_y_Sistemas/            # Matrices, determinantes y sistemas lineales
+│   │   ├── Matrices.md                          # Apunte completo de la Unidad 1
+│   │   └── figuras/                             # Figuras del apunte
+│   ├── Unidad_2_Espacios_Vectoriales/           # (contenido en preparación)
+│   ├── Unidad_3_Transformaciones_Lineales/      # (contenido en preparación)
+│   ├── Unidad_4_Valores_y_Vectores_Propios/     # (contenido en preparación)
+│   └── Libros/
+│       ├── Grossman/
+│       │   ├── Grossman_Algebra_Lineal.md       # Nota maestra — 8 capítulos (Stanley I. Grossman, 7ª ed.)
+│       │   └── figuras/                         # Diagramas geométricos por capítulo
+│       └── Axler/
+│           ├── Axler_Linear_Algebra_Done_Right.md  # Nota maestra — 10 capítulos (Sheldon Axler, 4ª ed.)
+│           └── figuras/                         # Diagramas vectoriales por capítulo
 │
 └── Listados_y_Solucionarios_Propios/            # Solucionarios y notas conceptuales propias
     ├── 2025-1_UdeC/                             # Registro de ejercicios UdeC

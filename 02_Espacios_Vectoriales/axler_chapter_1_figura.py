@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -23,12 +24,8 @@ y2 = -1.5 * x
 ax.plot(x, y2, color=USSGold, linewidth=2.5, label=r'Subspace $U_2 = \{(x, -1.5x) : x \in \mathbb{R}\}$')
 
 # Point v = u1 + u2
-v = np.array([2.5, 1.0])
-u1 = np.array([2.0, 1.0])  # on U1
-u2 = np.array([0.5, 0.0])  # wait, u1 + u2 = (2,1) + (0.5, -0.75) = (2.5, 0.25)
-u1 = np.array([3.0, 1.5])
-u2 = np.array([-0.5, 0.75]) # on U2
-
+u1 = np.array([3.0, 1.5])   # on U1
+u2 = np.array([-0.5, 0.75])  # on U2
 v = u1 + u2
 
 # Vectors
@@ -58,5 +55,5 @@ ax.legend(loc='upper right', frameon=True)
 ax.grid(True, linestyle='--', alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('/mnt/9b846436-0407-4e80-b8af-5417ffbdee8e/ObsidianVault/20_University/USS/Ramos_Actuales/Algebra_Lineal/Apuntes/Libro_Axler/Recursos/axler_chapter_1_figura.png')
+plt.savefig(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'axler_chapter_1_figura.png'))
 print("Figura Axler Cap 1 generada con éxito.")

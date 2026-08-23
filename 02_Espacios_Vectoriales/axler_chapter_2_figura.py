@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -39,5 +40,5 @@ ax.set_title(r'Basis $(v_1, v_2)$ Spanning $\mathbb{R}^2$ ($\dim \mathbb{R}^2 = 
 ax.grid(True, linestyle='--', alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('/mnt/9b846436-0407-4e80-b8af-5417ffbdee8e/ObsidianVault/20_University/USS/Ramos_Actuales/Algebra_Lineal/Apuntes/Libro_Axler/Recursos/axler_chapter_2_figura.png')
+plt.savefig(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'axler_chapter_2_figura.png'))
 print("Figura Axler Cap 2 generada con éxito.")

@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -47,5 +48,5 @@ ax.set_title(r'Gram-Schmidt Orthonormalization Procedure ($e_1 \perp e_2, \|e_1\
 ax.grid(True, linestyle='--', alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('/mnt/9b846436-0407-4e80-b8af-5417ffbdee8e/ObsidianVault/20_University/USS/Ramos_Actuales/Algebra_Lineal/Apuntes/Libro_Axler/Recursos/axler_chapter_6_figura.png')
+plt.savefig(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'axler_chapter_6_figura.png'))
 print("Figura Axler Cap 6 generada con éxito.")

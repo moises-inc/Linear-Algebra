@@ -37,7 +37,7 @@ plt.rcParams.update({
     "ytick.color": TEXT_SOFT,
 })
 
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+OUT = os.path.dirname(os.path.abspath(__file__))
 os.makedirs(OUT, exist_ok=True)
 
 

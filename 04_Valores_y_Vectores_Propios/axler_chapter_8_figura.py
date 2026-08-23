@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -24,5 +25,5 @@ ax.text(0.5, 0.25, desc, fontsize=11, ha='center', color=USSBlue)
 ax.axhline(0.1, color='gray', linestyle='--', alpha=0.3)
 ax.axis('off')
 plt.tight_layout()
-plt.savefig('/mnt/9b846436-0407-4e80-b8af-5417ffbdee8e/ObsidianVault/20_University/USS/Ramos_Actuales/Algebra_Lineal/Apuntes/Libro_Axler/Recursos/axler_chapter_8_figura.png')
+plt.savefig(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'axler_chapter_8_figura.png'))
 print("Figura Axler Cap 8 generada con éxito.")

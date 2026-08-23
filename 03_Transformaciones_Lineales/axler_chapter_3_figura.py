@@ -1,3 +1,4 @@
+import os
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -31,5 +32,5 @@ ax2.legend()
 
 plt.suptitle(r'Fundamental Theorem of Linear Maps: $\dim V = \dim \operatorname{null}(T) + \dim \operatorname{range}(T)$', fontsize=13, fontweight='bold', color=USSBlue)
 plt.tight_layout()
-plt.savefig('/mnt/9b846436-0407-4e80-b8af-5417ffbdee8e/ObsidianVault/20_University/USS/Ramos_Actuales/Algebra_Lineal/Apuntes/Libro_Axler/Recursos/axler_chapter_3_figura.png')
+plt.savefig(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'axler_chapter_3_figura.png'))
 print("Figura Axler Cap 3 generada con éxito.")
