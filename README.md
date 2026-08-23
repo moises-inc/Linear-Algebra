@@ -153,5 +153,5 @@ Este proyecto está distribuido bajo la **Licencia MIT**. Consulta el archivo [L
 ---
 
 <div align="center">
-Desarrollado con ❤️ por <b>Moisés Amundarain Romero</b> — Universidad San Sebastián
+Desarrollado por <b>Moisés Amundarain Romero</b> — Universidad San Sebastián
 </div>
