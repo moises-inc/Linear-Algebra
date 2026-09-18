@@ -33,6 +33,10 @@ ENV/
 env.bak/
 venv.bak/
 
+# Jupyter Notebook checkpoints & runtime
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
 # IDE & Editor settings
 .idea/
 .vscode/
@@ -46,3 +50,13 @@ Thumbs.db
 # University Official PDFs & Protected Materials (IP protection)
 *.pdf
 !Listados_y_Solucionarios_Propios/**/*.pdf
+
+# Agent Sync & Obsidian Vault internals
+.obsidian/
+_Agent_Sync/
+90_System/
+*.tmp
+*.log
+system_prompt*.md
+Setup_Prompt*.md
+Prompt_*.md
