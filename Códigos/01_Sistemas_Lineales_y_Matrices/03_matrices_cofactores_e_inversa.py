@@ -185,9 +185,9 @@ class MatrixCofactorInverter:
         titles = [
             r"1. Matriz Original $A$",
             r"2. Tablero de Signos $(-1)^{i+j}$",
-            r"3. Matriz de Cofactores $\operatorname{Cof}(A)$",
-            r"4. Matriz Adjunta $\operatorname{Adj}(A) = [\operatorname{Cof}(A)]^T$",
-            r"5. Matriz Inversa $A^{-1} = \frac{1}{\det A}\operatorname{Adj}(A)$",
+            r"3. Matriz de Cofactores $\mathrm{Cof}(A)$",
+            r"4. Matriz Adjunta $\mathrm{Adj}(A) = [\mathrm{Cof}(A)]^T$",
+            r"5. Matriz Inversa $A^{-1} = \frac{1}{\det A}\mathrm{Adj}(A)$",
             r"6. Verificación $A \cdot A^{-1} = I$"
         ]
 

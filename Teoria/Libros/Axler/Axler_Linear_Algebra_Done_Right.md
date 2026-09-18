@@ -172,14 +172,14 @@ $$
 a_1 v_1 + a_2 v_2 + \dots + a_m v_m
 $$
 
-donde $a_1, \dots, a_m \in \mathbb{F}$. El conjunto de todas las combinaciones lineales de $(v_1, \dots, v_m)$ se llama el **espacio generado** (*span*), denotado $\operatorname{span}(v_1, \dots, v_m)$:
+donde $a_1, \dots, a_m \in \mathbb{F}$. El conjunto de todas las combinaciones lineales de $(v_1, \dots, v_m)$ se llama el **espacio generado** (*span*), denotado $\mathrm{span}(v_1, \dots, v_m)$:
 
 $$
-\operatorname{span}(v_1, \dots, v_m) = \{a_1 v_1 + \dots + a_m v_m : a_1, \dots, a_m \in \mathbb{F}\}
+\mathrm{span}(v_1, \dots, v_m) = \{a_1 v_1 + \dots + a_m v_m : a_1, \dots, a_m \in \mathbb{F}\}
 $$
 
-- El espacio generado $\operatorname{span}(v_1, \dots, v_m)$ es siempre un **subespacio** de $V$.
-- Si $\operatorname{span}(v_1, \dots, v_m) = V$, decimos que $(v_1, \dots, v_m)$ **genera** a $V$.
+- El espacio generado $\mathrm{span}(v_1, \dots, v_m)$ es siempre un **subespacio** de $V$.
+- Si $\mathrm{span}(v_1, \dots, v_m) = V$, decimos que $(v_1, \dots, v_m)$ **genera** a $V$.
 - Un espacio vectorial $V$ se dice de **dimensión finita** si está generado por alguna lista finita de vectores.
 
 ### 2.2 Independencia Lineal [Axler 4ª Ed. §2A]
@@ -194,9 +194,9 @@ es $a_1 = a_2 = \dots = a_m = 0$.
 
 > [!theorem] Lemma de Dependencia Lineal
 > Supóngase que $(v_1, \dots, v_m)$ es una lista linealmente dependiente en $V$. Entonces existe un $j \in \{1, \dots, m\}$ tal que:
-> 1. $v_j \in \operatorname{span}(v_1, \dots, v_{j-1})$.
+> 1. $v_j \in \mathrm{span}(v_1, \dots, v_{j-1})$.
 > 2. Si se remueve $v_j$ de la lista, el conjunto restante sigue teniendo el mismo espacio generado:
-> $$\operatorname{span}(v_1, \dots, \hat{v}_j, \dots, v_m) = \operatorname{span}(v_1, \dots, v_m)$$
+> $$\mathrm{span}(v_1, \dots, \hat{v}_j, \dots, v_m) = \mathrm{span}(v_1, \dots, v_m)$$
 
 > [!theorem] Teorema Fundamental (Longitud de Listas Independientes vs Generadoras)
 > En un espacio de dimensión finita, **la longitud de cualquier lista linealmente independiente es menor o igual que la longitud de cualquier lista generadora**.
@@ -301,31 +301,31 @@ $\mathcal{L}(V, W)$ es en sí mismo un **espacio vectorial** bajo las operacione
 ## 3B. Espacios Nulos e Imagen (Rango)
 
 ### 3.3 Espacio Nulo e Inyectividad [Axler 4ª Ed. §3B]
-Para $T \in \mathcal{L}(V, W)$, el **espacio nulo** (o núcleo) de $T$, denotado $\operatorname{null}(T)$, es el conjunto de vectores de $V$ que $T$ envía al cero:
+Para $T \in \mathcal{L}(V, W)$, el **espacio nulo** (o núcleo) de $T$, denotado $\mathrm{null}(T)$, es el conjunto de vectores de $V$ que $T$ envía al cero:
 
 $$
-\operatorname{null}(T) = \{v \in V : T(v) = 0\}
+\mathrm{null}(T) = \{v \in V : T(v) = 0\}
 $$
 
-- $\operatorname{null}(T)$ es siempre un **subespacio** de $V$.
-- **Criterio de Inyectividad:** $T$ es **inyectiva** $\iff \operatorname{null}(T) = \{0\}$.
+- $\mathrm{null}(T)$ es siempre un **subespacio** de $V$.
+- **Criterio de Inyectividad:** $T$ es **inyectiva** $\iff \mathrm{null}(T) = \{0\}$.
 
 ### 3.4 Imagen (Rango) y Sobreyectividad
-El **rango** (o imagen) de $T$, denotado $\operatorname{range}(T)$, es el subconjunto de $W$ formado por las imágenes de todos los vectores de $V$:
+El **rango** (o imagen) de $T$, denotado $\mathrm{range}(T)$, es el subconjunto de $W$ formado por las imágenes de todos los vectores de $V$:
 
 $$
-\operatorname{range}(T) = \{T(v) : v \in V\}
+\mathrm{range}(T) = \{T(v) : v \in V\}
 $$
 
-- $\operatorname{range}(T)$ es un **subespacio** de $W$.
-- $T$ es **sobreyectiva** $\iff \operatorname{range}(T) = W$.
+- $\mathrm{range}(T)$ es un **subespacio** de $W$.
+- $T$ es **sobreyectiva** $\iff \mathrm{range}(T) = W$.
 
 ### 3.5 Teorema Fundamental de las Aplicaciones Lineales [Axler 4ª Ed. §3B]
 > [!theorem] Teorema Fundamental de las Aplicaciones Lineales (Teorema Rango-Nulidad)
-> Sea $V$ un espacio vectorial de dimensión finita y $T \in \mathcal{L}(V, W)$. Entonces $\operatorname{range}(T)$ es de dimensión finita y:
+> Sea $V$ un espacio vectorial de dimensión finita y $T \in \mathcal{L}(V, W)$. Entonces $\mathrm{range}(T)$ es de dimensión finita y:
 >
 > $$
-> \dim V = \dim \operatorname{null}(T) + \dim \operatorname{range}(T)
+> \dim V = \dim \mathrm{null}(T) + \dim \mathrm{range}(T)
 > $$
 
 ```text
@@ -522,7 +522,7 @@ u \in U \implies T(u) \in U
 $$
 
 - Los subespacios triviales $\{0\}$ y $V$ son siempre invariantes bajo cualquier $T \in \mathcal{L}(V)$.
-- El espacio nulo $\operatorname{null}(T)$ y la imagen $\operatorname{range}(T)$ son invariantes bajo $T$.
+- El espacio nulo $\mathrm{null}(T)$ y la imagen $\mathrm{range}(T)$ son invariantes bajo $T$.
 
 ### 5.2 Valores Propios y Vectores Propios [Axler 4ª Ed. §5A]
 Un escalar $\lambda \in \mathbb{F}$ es un **valor propio** (autovalor) de $T \in \mathcal{L}(V)$ si existe un vector **no nulo** $v \in V$ tal que:
@@ -564,7 +564,7 @@ $$
 ## 5C. Matrices Triangulares Superiores
 
 ### 5.5 Matriz de un Operador respecto a una Base (§5C)
-Para $T \in \mathcal{L}(V)$ y una base $(v_1, \dots, v_n)$, la matriz $\mathcal{M}(T)$ es triangular superior $\iff T(v_j) \in \operatorname{span}(v_1, \dots, v_j)$ para cada $j = 1, \dots, n$.
+Para $T \in \mathcal{L}(V)$ y una base $(v_1, \dots, v_n)$, la matriz $\mathcal{M}(T)$ es triangular superior $\iff T(v_j) \in \mathrm{span}(v_1, \dots, v_j)$ para cada $j = 1, \dots, n$.
 
 > [!theorem] Existencia de Base Triangular Superior sobre $\mathbb{C}$
 > Supóngase que $V$ es un espacio vectorial complejo de dimensión finita y $T \in \mathcal{L}(V)$. Entonces existe una base de $V$ respecto a la cual la matriz de $T$ es **triangular superior**.
@@ -675,7 +675,7 @@ Figura Proceso de Ortogonalización de Gram-Schmidt:
 > e_1 = \frac{v_1}{\|v_1\|}, \qquad e_j = \frac{v_j - \sum_{k=1}^{j-1} \langle v_j, e_k \rangle e_k}{\left\|v_j - \sum_{k=1}^{j-1} \langle v_j, e_k \rangle e_k\right\|} \quad (j = 2, \dots, m)
 > $$
 >
-> de modo que $\operatorname{span}(e_1, \dots, e_j) = \operatorname{span}(v_1, \dots, v_j)$ para todo $j$.
+> de modo que $\mathrm{span}(e_1, \dots, e_j) = \mathrm{span}(v_1, \dots, v_j)$ para todo $j$.
 
 ---
 
@@ -853,7 +853,7 @@ para algún entero positivo $k \in \mathbb{Z}^+$.
 - El conjunto de todos los autovectores generalizados correspondientes a $\lambda$ (junto con el vector cero) forma el **subespacio propio generalizado**, denotado $G(\lambda, T)$:
 
 $$
-G(\lambda, T) = \operatorname{null}((T - \lambda I)^{\dim V})
+G(\lambda, T) = \mathrm{null}((T - \lambda I)^{\dim V})
 $$
 
 ### 8.2 Descomposición en Subespacios Propios Generalizados
@@ -876,7 +876,7 @@ N^k = 0
 $$
 
 - El menor entero positivo $k$ se denomina el **índice de nilpotencia** de $N$.
-- Si $\operatorname{dim} V = n$, entonces $N^n = 0$ para todo operador nilpotente.
+- Si $\dim V = n$, entonces $N^n = 0$ para todo operador nilpotente.
 
 ```text
 Figura Forma Canónica de Jordan y Descomposición Nilpotente:
@@ -977,7 +977,7 @@ Una forma $n$-lineal $f$ es **alternada** si $f(v_1, \dots, v_n) = 0$ siempre qu
 Sea $A \in \mathcal{M}_n(\mathbb{F})$ una matriz cuadrada cuyas columnas son $c_1, \dots, c_n \in \mathbb{F}^n$. El **determinante** de $A$, denotado $\det A$, es el único escalar obtenido al evaluar la única forma $n$-lineal alternada en $\mathbb{F}^n$ que asigna el valor $1$ a la matriz identidad $I_n$:
 
 $$
-\det(c_1, \dots, c_n) = \sum_{\sigma \in S_n} \operatorname{sign}(\sigma) A_{\sigma(1), 1} A_{\sigma(2), 2} \dots A_{\sigma(n), n}
+\det(c_1, \dots, c_n) = \sum_{\sigma \in S_n} \mathrm{sign}(\sigma) A_{\sigma(1), 1} A_{\sigma(2), 2} \dots A_{\sigma(n), n}
 $$
 
 ```text
@@ -1024,16 +1024,16 @@ print("¿Es A invertible?:", det_A != 0)
 ## 10A. Traza de un Operador
 
 ### 10.1 Definición de Traza [Axler 4ª Ed. §10A]
-Supóngase que $\mathbb{F} = \mathbb{C}$ y $V$ es un espacio complejo de dimensión finita. Para $T \in \mathcal{L}(V)$ con valores propios distintos $\lambda_1, \dots, \lambda_m$ y multiplicidades algebraicas $d_1, \dots, d_m$ (dimensiones de los subespacios propios generalizados $G(\lambda_j, T)$), la **traza** de $T$, denotada $\operatorname{tr}(T)$, se define por:
+Supóngase que $\mathbb{F} = \mathbb{C}$ y $V$ es un espacio complejo de dimensión finita. Para $T \in \mathcal{L}(V)$ con valores propios distintos $\lambda_1, \dots, \lambda_m$ y multiplicidades algebraicas $d_1, \dots, d_m$ (dimensiones de los subespacios propios generalizados $G(\lambda_j, T)$), la **traza** de $T$, denotada $\mathrm{tr}(T)$, se define por:
 
 $$
-\operatorname{tr}(T) = \sum_{j=1}^{m} d_j \lambda_j
+\mathrm{tr}(T) = \sum_{j=1}^{m} d_j \lambda_j
 $$
 
-- En cualquier base de $V$, $\operatorname{tr}(T)$ es la **suma de los elementos diagonales** de la matriz $\mathcal{M}(T)$:
+- En cualquier base de $V$, $\mathrm{tr}(T)$ es la **suma de los elementos diagonales** de la matriz $\mathcal{M}(T)$:
 
 $$
-\operatorname{tr}(T) = \sum_{i=1}^{n} A_{ii}
+\mathrm{tr}(T) = \sum_{i=1}^{n} A_{ii}
 $$
 
 ### 10.2 Invariancia de la Traza
@@ -1041,7 +1041,7 @@ $$
 > Para matrices semejantes $A, B \in \mathcal{M}_n(\mathbb{F})$ (donde $B = P^{-1} A P$):
 >
 > $$
-> \operatorname{tr}(B) = \operatorname{tr}(P^{-1} A P) = \operatorname{tr}(A)
+> \mathrm{tr}(B) = \mathrm{tr}(P^{-1} A P) = \mathrm{tr}(A)
 > $$
 
 ---

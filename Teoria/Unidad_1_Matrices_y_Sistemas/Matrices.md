@@ -38,12 +38,12 @@ fuentes:
 | **I. Suma y Escalar** | • $A + B = B + A$ (conmutativa)<br>• $A + (B + C) = (A + B) + C$ (asociativa)<br>• $\alpha(A + B) = \alpha A + \alpha B$ y $(\alpha + \beta)A = \alpha A + \beta A$<br>• $\alpha(\beta A) = (\alpha\beta)A$<br>• $A + \mathbf{0} = A$ y $A + (-A) = \mathbf{0}$ |
 | **II. Multiplicación** | • $A(B + C) = AB + AC$ y $(A + B)C = AC + BC$<br>• $A(BC) = (AB)C$<br>• $\alpha(AB) = (\alpha A)B = A(\alpha B)$<br>• $A\mathbf{0} = \mathbf{0}A = \mathbf{0}$ y $BI = IB = B$<br>• ⚠️ **$AB \neq BA$ en general** (no conmutativa)<br>• ⚠️ **$AB = \mathbf{0} \not\implies A = \mathbf{0} \lor B = \mathbf{0}$** (existen divisores de cero)<br>• ⚠️ **$AB = AC \not\implies B = C$** (no cancelable salvo si $A$ es invertible) |
 | **III. Transpuesta** | • $(A^T)^T = A$<br>• $(A + B)^T = A^T + B^T$<br>• $(AB)^T = B^T A^T$ (**invierte el orden**) |
-| **IV. Matriz Inversa** | • $A^{-1}$ es **única**<br>• $(A^{-1})^{-1} = A$<br>• $(AB)^{-1} = B^{-1} A^{-1}$ (**invierte el orden**)<br>• $(\alpha A)^{-1} = \dfrac{1}{\alpha} A^{-1} \quad (\alpha \neq 0)$<br>• $(A^T)^{-1} = (A^{-1})^T$<br>• $A^{-1} = \dfrac{1}{\det(A)} \operatorname{Adj}(A) \quad (\det A \neq 0)$ |
-| **V. Determinantes** | • $\det(A) = \det(A^T)$<br>• $\det(\alpha A) = \alpha^n \det(A)$ con $n = \text{orden de } A$<br>• $\det(AB) = \det(A)\det(B)$<br>• $\det(I) = 1$ y $\det(A^k) = [\det(A)]^k$<br>• $\det(A^{-1}) = \dfrac{1}{\det(A)}$<br>• $\det(\operatorname{Adj} A) = (\det A)^{n-1}$<br>• Fila/columna nula, igual o proporcional $\implies \det(A) = 0$<br>• Intercambiar 2 filas/columnas $\implies$ cambia de signo ($-\det$)<br>• Sumar múltiplo de una fila a otra $\implies$ **no varía** el $\det$<br>• Triangular / Diagonal $\implies \det(A) = \prod_{i=1}^n a_{ii}$<br>• $A$ es singular $\iff \det(A) = 0$; $A$ no singular (invertible) $\iff \det(A) \neq 0$ |
+| **IV. Matriz Inversa** | • $A^{-1}$ es **única**<br>• $(A^{-1})^{-1} = A$<br>• $(AB)^{-1} = B^{-1} A^{-1}$ (**invierte el orden**)<br>• $(\alpha A)^{-1} = \dfrac{1}{\alpha} A^{-1} \quad (\alpha \neq 0)$<br>• $(A^T)^{-1} = (A^{-1})^T$<br>• $A^{-1} = \dfrac{1}{\det(A)} \mathrm{Adj}(A) \quad (\det A \neq 0)$ |
+| **V. Determinantes** | • $\det(A) = \det(A^T)$<br>• $\det(\alpha A) = \alpha^n \det(A)$ con $n = \text{orden de } A$<br>• $\det(AB) = \det(A)\det(B)$<br>• $\det(I) = 1$ y $\det(A^k) = [\det(A)]^k$<br>• $\det(A^{-1}) = \dfrac{1}{\det(A)}$<br>• $\det(\mathrm{Adj} A) = (\det A)^{n-1}$<br>• Fila/columna nula, igual o proporcional $\implies \det(A) = 0$<br>• Intercambiar 2 filas/columnas $\implies$ cambia de signo ($-\det$)<br>• Sumar múltiplo de una fila a otra $\implies$ **no varía** el $\det$<br>• Triangular / Diagonal $\implies \det(A) = \prod_{i=1}^n a_{ii}$<br>• $A$ es singular $\iff \det(A) = 0$; $A$ no singular (invertible) $\iff \det(A) \neq 0$ |
 | **VI. Matriz Ortogonal** | • $A^T = A^{-1} \iff A A^T = A^T A = I$<br>• Consecuencia: $\det(A) = \pm 1$ |
 | **VII. Simétricas y Antisimétricas** | • **Simétrica:** $A^T = A \iff a_{ij} = a_{ji}$<br>• **Antisimétrica:** $A^T = -A \iff a_{ij} = -a_{ji}$ (diagonal principal $a_{ii} = 0$) |
 | **VIII. Idempotentes y Nilpotentes** | • **Idempotente:** $A^2 = A$ (autovalores $\lambda \in \{0, 1\}$)<br>• **Nilpotente:** $\exists\, k \in \mathbb{Z}^+$ tal que $A^k = \mathbf{0}$<br>• **Índice de Nilpotencia:** el menor entero positivo $k$ tal que $A^k = \mathbf{0}$ |
-| **IX. Rango de una Matriz** | • $0 \le \operatorname{rg}(A) \le \min(m, n)$<br>• $\operatorname{rg}(A^T) = \operatorname{rg}(A)$<br>• $A_{n\times n} \text{ invertible} \iff \operatorname{rg}(A) = n$ (rango completo)<br>• $\operatorname{rg}(AB) \le \min(\operatorname{rg}(A), \operatorname{rg}(B))$<br>• $\operatorname{rg}(PAQ) = \operatorname{rg}(A)$ si $P, Q$ son invertibles<br>• $\operatorname{rg}(A) + \operatorname{nulidad}(A) = n$ (Teorema Rango-Nulidad) |
+| **IX. Rango de una Matriz** | • $0 \le \mathrm{rg}(A) \le \min(m, n)$<br>• $\mathrm{rg}(A^T) = \mathrm{rg}(A)$<br>• $A_{n\times n} \text{ invertible} \iff \mathrm{rg}(A) = n$ (rango completo)<br>• $\mathrm{rg}(AB) \le \min(\mathrm{rg}(A), \mathrm{rg}(B))$<br>• $\mathrm{rg}(PAQ) = \mathrm{rg}(A)$ si $P, Q$ son invertibles<br>• $\mathrm{rg}(A) + \mathrm{nulidad}(A) = n$ (Teorema Rango-Nulidad) |
 
 ---
 
@@ -92,10 +92,10 @@ donde $a_{ij}$ es el elemento ubicado en la **fila $i$** y la **columna $j$**, c
 **Traza:** suma de los elementos de la diagonal principal:
 
 $$
-\operatorname{tr}(A) = \sum_{i=1}^{n} a_{ii}
+\mathrm{tr}(A) = \sum_{i=1}^{n} a_{ii}
 $$
 
-Propiedades: $\operatorname{tr}(A+B) = \operatorname{tr}(A) + \operatorname{tr}(B)$, $\operatorname{tr}(\alpha A) = \alpha\,\operatorname{tr}(A)$, $\operatorname{tr}(A^T) = \operatorname{tr}(A)$, $\operatorname{tr}(AB) = \operatorname{tr}(BA)$.
+Propiedades: $\mathrm{tr}(A+B) = \mathrm{tr}(A) + \mathrm{tr}(B)$, $\mathrm{tr}(\alpha A) = \alpha\,\mathrm{tr}(A)$, $\mathrm{tr}(A^T) = \mathrm{tr}(A)$, $\mathrm{tr}(AB) = \mathrm{tr}(BA)$.
 
 > [!abstract] Matriz Ortogonal 🎓 [Cátedra USS / Diapositivas Docente]
 > Una **matriz ortogonal** es una matriz cuadrada real $A \in \mathcal{M}_n(\mathbb{R})$ que cumple:
@@ -120,7 +120,7 @@ Propiedades: $\operatorname{tr}(A+B) = \operatorname{tr}(A) + \operatorname{tr}(
 > **Propiedades:**
 > - Si $A$ es idempotente e **invertible**, entonces $A = I_n$: de $A^2 = A$ se premultiplica por $A^{-1}$ obteniendo $A = I_n$.
 > - Los únicos autovalores posibles de $A$ son $\lambda \in \{0, 1\}$.
-> - $\operatorname{tr}(A)$ coincide con la dimensión de la imagen (el rango de la proyección).
+> - $\mathrm{tr}(A)$ coincide con la dimensión de la imagen (el rango de la proyección).
 
 > [!abstract] Matriz Nilpotente e Índice de Nilpotencia 🎓 [Cátedra USS / Diapositivas Docente]
 > Una **matriz nilpotente** es una matriz cuadrada $A \in \mathcal{M}_n(\mathbb{K})$ para la cual existe $k \in \mathbb{Z}^+$ tal que $A^k = \mathbf{0}$. El **índice de nilpotencia** es el menor entero positivo $k$ con esa propiedad.
@@ -223,11 +223,11 @@ $$
 | Propiedad / Objeto | Fórmula Algebraica | Condiciones y Demostración Breve |
 |:---|:---|:---|
 | **Escalar en Determinante** | $\det(k \cdot M) = k^n \det(M)$ | Para $M \in \mathcal{M}_n(\mathbb{K})$. Cada una de las $n$ filas se escala por $k$. |
-| **Adjunta de un Producto** | $\operatorname{Adj}(AB) = \operatorname{Adj}(B) \operatorname{Adj}(A)$ | Es homomorfa a la regla de la transpuesta e inversa (invierte el orden). |
-| **Determinante de la Adjunta** | $\det(\operatorname{Adj} A) = (\det A)^{n-1}$ | **Demostración:** De $A \cdot \operatorname{Adj}(A) = \det(A) I_n$, tomando $\det$:<br>$\det(A)\det(\operatorname{Adj} A) = \det(\det(A)I_n) = (\det A)^n$. Si $\det A \neq 0$, se despeja $(\det A)^{n-1}$. |
-| **Transpuesta de la Adjunta** | $\operatorname{Adj}(A^T) = [\operatorname{Adj}(A)]^T$ | La adjunta conmuta con la operación de transposición. |
-| **Inversa de la Adjunta** | $\operatorname{Adj}(A^{-1}) = [\operatorname{Adj}(A)]^{-1} = \dfrac{1}{\det A} A$ | Válido para toda matriz no singular $A \in \mathcal{M}_n(\mathbb{K})$. |
-| **Adjunta de la Adjunta** | $\operatorname{Adj}(\operatorname{Adj} A) = (\det A)^{n-2} A$ | Para $n \ge 2$. Permite simplificar expresiones iteradas de adjuntas. |
+| **Adjunta de un Producto** | $\mathrm{Adj}(AB) = \mathrm{Adj}(B) \mathrm{Adj}(A)$ | Es homomorfa a la regla de la transpuesta e inversa (invierte el orden). |
+| **Determinante de la Adjunta** | $\det(\mathrm{Adj} A) = (\det A)^{n-1}$ | **Demostración:** De $A \cdot \mathrm{Adj}(A) = \det(A) I_n$, tomando $\det$:<br>$\det(A)\det(\mathrm{Adj} A) = \det(\det(A)I_n) = (\det A)^n$. Si $\det A \neq 0$, se despeja $(\det A)^{n-1}$. |
+| **Transpuesta de la Adjunta** | $\mathrm{Adj}(A^T) = [\mathrm{Adj}(A)]^T$ | La adjunta conmuta con la operación de transposición. |
+| **Inversa de la Adjunta** | $\mathrm{Adj}(A^{-1}) = [\mathrm{Adj}(A)]^{-1} = \dfrac{1}{\det A} A$ | Válido para toda matriz no singular $A \in \mathcal{M}_n(\mathbb{K})$. |
+| **Adjunta de la Adjunta** | $\mathrm{Adj}(\mathrm{Adj} A) = (\det A)^{n-2} A$ | Para $n \ge 2$. Permite simplificar expresiones iteradas de adjuntas. |
 
 ---
 
@@ -245,10 +245,10 @@ $$
 
 ### 4.3 Método de la Matriz Adjunta (Cofactores) 🎓 [Cátedra USS / Diapositivas Docente]
 
-Dada $A \in \mathcal{M}_n(\mathbb{K})$, se define la **matriz de cofactores** $\operatorname{Cof}(A) = (C_{ij})$ y la **matriz adjunta** $\operatorname{Adj}(A) = [\operatorname{Cof}(A)]^T$. Si $\det(A) \neq 0$:
+Dada $A \in \mathcal{M}_n(\mathbb{K})$, se define la **matriz de cofactores** $\mathrm{Cof}(A) = (C_{ij})$ y la **matriz adjunta** $\mathrm{Adj}(A) = [\mathrm{Cof}(A)]^T$. Si $\det(A) \neq 0$:
 
 $$
-\boxed{\,A^{-1} = \frac{1}{\det(A)} \operatorname{Adj}(A) = \frac{1}{\det(A)} [\operatorname{Cof}(A)]^T\,}
+\boxed{\,A^{-1} = \frac{1}{\det(A)} \mathrm{Adj}(A) = \frac{1}{\det(A)} [\mathrm{Cof}(A)]^T\,}
 $$
 
 ### 4.4 Operaciones Elementales por Filas (OEF)
@@ -353,10 +353,10 @@ Calculamos los 9 cofactores $C_{ij} = (-1)^{i+j} M_{ij}$:
 - $C_{32} = - \begin{vmatrix} -5 & -1 \\ 0 & 0 \end{vmatrix} = 0$
 - $C_{33} = + \begin{vmatrix} -5 & -1 \\ 0 & -1 \end{vmatrix} = 5$
 
-Formamos la matriz de cofactores $\operatorname{Cof}(A)$ y su transpuesta $\operatorname{Adj}(A)$:
+Formamos la matriz de cofactores $\mathrm{Cof}(A)$ y su transpuesta $\mathrm{Adj}(A)$:
 
 $$
-\operatorname{Cof}(A) = \begin{pmatrix} -1 & 0 & 2 \\ 1 & -3 & -2 \\ -1 & 0 & 5 \end{pmatrix} \implies \operatorname{Adj}(A) = \begin{pmatrix} -1 & 1 & -1 \\ 0 & -3 & 0 \\ 2 & -2 & 5 \end{pmatrix}
+\mathrm{Cof}(A) = \begin{pmatrix} -1 & 0 & 2 \\ 1 & -3 & -2 \\ -1 & 0 & 5 \end{pmatrix} \implies \mathrm{Adj}(A) = \begin{pmatrix} -1 & 1 & -1 \\ 0 & -3 & 0 \\ 2 & -2 & 5 \end{pmatrix}
 $$
 
 Por lo tanto, la matriz solución $X = A^{-1}$ es:
@@ -434,13 +434,13 @@ $$
 > > Para cualquier matriz $A \in \mathcal{M}_{m\times n}(\mathbb{K})$, el rango filas coincide exactamente con el rango columnas:
 > >
 > > $$
-> > \operatorname{rango}_{\text{filas}}(A) = \operatorname{rango}_{\text{columnas}}(A) = \operatorname{rg}(A)
+> > \mathrm{rango}_{\text{filas}}(A) = \mathrm{rango}_{\text{columnas}}(A) = \mathrm{rg}(A)
 > > $$
 > >
-> > Por tanto, el **rango de $A$**, denotado $\operatorname{rg}(A)$, $\operatorname{rango}(A)$ o $\operatorname{rank}(A)$, es un número entero bien definido que cumple:
+> > Por tanto, el **rango de $A$**, denotado $\mathrm{rg}(A)$, $\mathrm{rango}(A)$ o $\mathrm{rank}(A)$, es un número entero bien definido que cumple:
 > >
 > > $$
-> > 0 \le \operatorname{rg}(A) \le \min(m, n)
+> > 0 \le \mathrm{rg}(A) \le \min(m, n)
 > > $$
 
 #### 4.8.1 Métodos de Cálculo del Rango
@@ -452,16 +452,16 @@ El rango de una matriz $A$ es igual al **número de pivotes no nulos** (o númer
 > Las operaciones elementales por filas preservan el espacio generado por las filas de la matriz. Por lo tanto:
 >
 > $$
-> A \xrightarrow{\text{OEF}} B \implies \operatorname{rg}(A) = \operatorname{rg}(B)
+> A \xrightarrow{\text{OEF}} B \implies \mathrm{rg}(A) = \mathrm{rg}(B)
 > $$
 >
-> En particular, para cualquier matriz elemental $E$ invertible, $\operatorname{rg}(E A) = \operatorname{rg}(A)$.
+> En particular, para cualquier matriz elemental $E$ invertible, $\mathrm{rg}(E A) = \mathrm{rg}(A)$.
 
 ##### 2. Método por Menores No Nulos (Determinantes)
 Un **menor de orden $r$** de $A$ es el determinante de una submatriz cuadrada $r \times r$ obtenida al seleccionar $r$ filas y $r$ columnas de $A$.
 
 > [!theorem] Caracterización del Rango por Menores
-> El rango de $A$ es $r$ ($\operatorname{rg}(A) = r$) **si y solo si**:
+> El rango de $A$ es $r$ ($\mathrm{rg}(A) = r$) **si y solo si**:
 > 1. Existe al menos un menor de orden $r$ con determinante **distinto de cero** ($\det \neq 0$).
 > 2. Todos los menores de orden $r+1$ (si existen) tienen determinante **igual a cero** ($\det = 0$).
 
@@ -469,12 +469,12 @@ Un **menor de orden $r$** de $A$ es el determinante de una submatriz cuadrada $r
 
 | Propiedad / Teorema | Expresión Matemática | Significado y Demostración Breve |
 |:---|:---|:---|
-| **Transpuesta** | $\operatorname{rg}(A^T) = \operatorname{rg}(A)$ | El rango de la matriz traspuesta es igual al rango de la matriz original (pues transponer intercambia filas por columnas). |
-| **Invertibilidad** | $A_{n \times n} \text{ invertible} \iff \operatorname{rg}(A) = n$ | Una matriz cuadrada de orden $n$ es regular (no singular) $\iff$ tiene **rango completo** ($\operatorname{rg} = n \iff \det A \neq 0$). |
-| **Producto General** | $\operatorname{rg}(AB) \le \min(\operatorname{rg}(A), \operatorname{rg}(B))$ | Multiplicar matrices nunca incrementa el rango. |
-| **Producto por Matriz Regular** | $\operatorname{rg}(P A Q) = \operatorname{rg}(A)$ | Si $P_{m \times m}$ y $Q_{n \times n}$ son invertibles, la multiplicación por izquierda/derecha **conserva exactamente el rango**. |
-| **Desigualdad Subaditiva** | $\operatorname{rg}(A + B) \le \operatorname{rg}(A) + \operatorname{rg}(B)$ | El rango de la suma de dos matrices está acotado por la suma de sus rangos. |
-| **Teorema Rango-Nulidad** | $\operatorname{rg}(A) + \operatorname{nulidad}(A) = n$ | Para $A \in \mathcal{M}_{m \times n}(\mathbb{K})$, $\operatorname{nulidad}(A) = \dim(\operatorname{Nul} A)$ es el número de variables libres del sistema homogéneo $A\mathbf{x} = \mathbf{0}$. |
+| **Transpuesta** | $\mathrm{rg}(A^T) = \mathrm{rg}(A)$ | El rango de la matriz traspuesta es igual al rango de la matriz original (pues transponer intercambia filas por columnas). |
+| **Invertibilidad** | $A_{n \times n} \text{ invertible} \iff \mathrm{rg}(A) = n$ | Una matriz cuadrada de orden $n$ es regular (no singular) $\iff$ tiene **rango completo** ($\mathrm{rg} = n \iff \det A \neq 0$). |
+| **Producto General** | $\mathrm{rg}(AB) \le \min(\mathrm{rg}(A), \mathrm{rg}(B))$ | Multiplicar matrices nunca incrementa el rango. |
+| **Producto por Matriz Regular** | $\mathrm{rg}(P A Q) = \mathrm{rg}(A)$ | Si $P_{m \times m}$ y $Q_{n \times n}$ son invertibles, la multiplicación por izquierda/derecha **conserva exactamente el rango**. |
+| **Desigualdad Subaditiva** | $\mathrm{rg}(A + B) \le \mathrm{rg}(A) + \mathrm{rg}(B)$ | El rango de la suma de dos matrices está acotado por la suma de sus rangos. |
+| **Teorema Rango-Nulidad** | $\mathrm{rg}(A) + \mathrm{nulidad}(A) = n$ | Para $A \in \mathcal{M}_{m \times n}(\mathbb{K})$, $\mathrm{nulidad}(A) = \dim(\mathrm{Nul} A)$ es el número de variables libres del sistema homogéneo $A\mathbf{x} = \mathbf{0}$. |
 
 > [!example] Ejemplo Ilustrativo de Cálculo de Rango 🎓 [Cátedra USS]
 > Dada la matriz $3 \times 4$:
@@ -492,12 +492,12 @@ Un **menor de orden $r$** de $A$ es el determinante de una submatriz cuadrada $r
 > Como la matriz escalonada tiene **2 filas no nulas** (2 pivotes no nulos en las columnas 1 y 2), concluimos inmediatamente que:
 >
 > $$
-> \operatorname{rg}(A) = 2
+> \mathrm{rg}(A) = 2
 > $$
 >
 > **Método 2 (Menores no nulos):**
-> - Menor $2 \times 2$ no nulo: $\begin{vmatrix} 1 & -2 \\ -1 & 4 \end{vmatrix} = 4 - 2 = 2 \neq 0 \implies \operatorname{rg}(A) \ge 2$.
-> - Todos los menores $3 \times 3$ contienen a $F_3 = -3F_1$, por lo que todos se anulan ($\det = 0$). Por lo tanto, $\operatorname{rg}(A) = 2$.
+> - Menor $2 \times 2$ no nulo: $\begin{vmatrix} 1 & -2 \\ -1 & 4 \end{vmatrix} = 4 - 2 = 2 \neq 0 \implies \mathrm{rg}(A) \ge 2$.
+> - Todos los menores $3 \times 3$ contienen a $F_3 = -3F_1$, por lo que todos se anulan ($\det = 0$). Por lo tanto, $\mathrm{rg}(A) = 2$.
 
 #### 4.8.3 Verificación Computacional en Python (SymPy y NumPy)
 
@@ -541,15 +541,15 @@ Un sistema de $m$ ecuaciones con $n$ incógnitas se escribe como $A \mathbf{x} =
 
 ### 5.2 Principio de Superposición en Sistemas Homogéneos
 
-Si $\mathbf{u}$ y $\mathbf{v}$ cumplen $A\mathbf{u} = \mathbf{0}$ y $A\mathbf{v} = \mathbf{0}$, entonces $A(\alpha\mathbf{u} + \beta\mathbf{v}) = \mathbf{0}$ para todo $\alpha, \beta \in \mathbb{K}$. El conjunto solución es el **subespacio nulo** $\operatorname{Nul}(A)$.
+Si $\mathbf{u}$ y $\mathbf{v}$ cumplen $A\mathbf{u} = \mathbf{0}$ y $A\mathbf{v} = \mathbf{0}$, entonces $A(\alpha\mathbf{u} + \beta\mathbf{v}) = \mathbf{0}$ para todo $\alpha, \beta \in \mathbb{K}$. El conjunto solución es el **subespacio nulo** $\mathrm{Nul}(A)$.
 
 ### 5.3 Clasificación de Sistemas (Teorema de Rouché-Frobenius)
 
 | Caso | Condición de Rangos | Soluciones |
 |:---|:---|:---|
-| **Compatible Determinado (SCD)** | $\operatorname{rg}(A) = \operatorname{rg}(A \mid \mathbf{b}) = n$ | Solución **única** |
-| **Compatible Indeterminado (SCI)** | $\operatorname{rg}(A) = \operatorname{rg}(A \mid \mathbf{b}) < n$ | **Infinitas** soluciones ($n - \operatorname{rg}$ variables libres) |
-| **Incompatible (SI)** | $\operatorname{rg}(A) < \operatorname{rg}(A \mid \mathbf{b})$ | **Sin** solución |
+| **Compatible Determinado (SCD)** | $\mathrm{rg}(A) = \mathrm{rg}(A \mid \mathbf{b}) = n$ | Solución **única** |
+| **Compatible Indeterminado (SCI)** | $\mathrm{rg}(A) = \mathrm{rg}(A \mid \mathbf{b}) < n$ | **Infinitas** soluciones ($n - \mathrm{rg}$ variables libres) |
+| **Incompatible (SI)** | $\mathrm{rg}(A) < \mathrm{rg}(A \mid \mathbf{b})$ | **Sin** solución |
 
 ### 5.4 Análisis del "Triángulo de Ceros" tras Eliminación Gaussiana
 
@@ -559,10 +559,10 @@ Si $\mathbf{u}$ y $\mathbf{v}$ cumplen $A\mathbf{u} = \mathbf{0}$ y $A\mathbf{v}
 
 ### 5.5 Geometría en $\mathbb{R}^3$ (Planos en el espacio)
 
-- **Intersección en un punto:** SCD ($\operatorname{rg} = 3$).
-- **Intersección en una recta:** SCI con 1 parámetro ($\operatorname{rg} = 2$).
-- **Planos coincidentes:** SCI con 2 parámetros ($\operatorname{rg} = 1$).
-- **Paralelos / Prisma hueco:** SI ($\operatorname{rg}(A) < \operatorname{rg}(A\mid\mathbf{b})$).
+- **Intersección en un punto:** SCD ($\mathrm{rg} = 3$).
+- **Intersección en una recta:** SCI con 1 parámetro ($\mathrm{rg} = 2$).
+- **Planos coincidentes:** SCI con 2 parámetros ($\mathrm{rg} = 1$).
+- **Paralelos / Prisma hueco:** SI ($\mathrm{rg}(A) < \mathrm{rg}(A\mid\mathbf{b})$).
 
 > [!info] Desarrollo Completo en Unidad 2
 > Para la deducción analítica de planos, vectores normales y las 5 configuraciones espaciales clasificadas por rangos, véase: `Unidad 2: Planos en el Espacio R³ y Clasificación Geométrica con Rouché-Frobenius`.
@@ -577,7 +577,7 @@ Si $\mathbf{u}$ y $\mathbf{v}$ cumplen $A\mathbf{u} = \mathbf{0}$ y $A\mathbf{v}
 > > [!warning] Condiciones Obligatorias para Aplicar la Regla de Cramer
 > > Para que el método sea válido y arroje solución única, se deben cumplir **dos condiciones estrictas**:
 > > 1. **Sistema Cuadrado:** El número de ecuaciones $m$ debe ser igual al número de incógnitas $n$ ($m = n$, es decir, la matriz de coeficientes $A \in \mathcal{M}_n(\mathbb{K})$ es cuadrada).
-> > 2. **Matriz No Singular (Invertible):** El determinante de la matriz de coeficientes debe ser distinto de cero ($\det(A) \neq 0 \implies \operatorname{rg}(A) = n$).
+> > 2. **Matriz No Singular (Invertible):** El determinante de la matriz de coeficientes debe ser distinto de cero ($\det(A) \neq 0 \implies \mathrm{rg}(A) = n$).
 
 ---
 
@@ -608,15 +608,15 @@ Si $\mathbf{u}$ y $\mathbf{v}$ cumplen $A\mathbf{u} = \mathbf{0}$ y $A\mathbf{v}
 ### 6.2 Demostración Rigurosa (vía Matriz Inversa y Cofactores)
 
 > [!tip] Demostración Formal 📖 [Texto Guía — Grossman]
-> Como $\det(A) \neq 0$, la matriz $A$ es invertible y su inversa está dada por $A^{-1} = \dfrac{1}{\det(A)} \operatorname{Adj}(A)$, donde $\operatorname{Adj}(A) = [\operatorname{Cof}(A)]^T$.
+> Como $\det(A) \neq 0$, la matriz $A$ es invertible y su inversa está dada por $A^{-1} = \dfrac{1}{\det(A)} \mathrm{Adj}(A)$, donde $\mathrm{Adj}(A) = [\mathrm{Cof}(A)]^T$.
 >
 > 1. Multiplicando la ecuación $A \mathbf{x} = \mathbf{b}$ por $A^{-1}$ a la izquierda:
 >    $$
->    \mathbf{x} = A^{-1} \mathbf{b} = \frac{1}{\det(A)} \operatorname{Adj}(A) \mathbf{b}
+>    \mathbf{x} = A^{-1} \mathbf{b} = \frac{1}{\det(A)} \mathrm{Adj}(A) \mathbf{b}
 >    $$
-> 2. La componente $i$-ésima del vector columna $\mathbf{x}$ viene dada por el producto de la fila $i$ de $\operatorname{Adj}(A)$ con $\mathbf{b}$:
+> 2. La componente $i$-ésima del vector columna $\mathbf{x}$ viene dada por el producto de la fila $i$ de $\mathrm{Adj}(A)$ con $\mathbf{b}$:
 >    $$
->    x_i = \frac{1}{\det(A)} \sum_{j=1}^{n} [\operatorname{Adj}(A)]_{ij} b_j = \frac{1}{\det(A)} \sum_{j=1}^{n} C_{ji} b_j
+>    x_i = \frac{1}{\det(A)} \sum_{j=1}^{n} [\mathrm{Adj}(A)]_{ij} b_j = \frac{1}{\det(A)} \sum_{j=1}^{n} C_{ji} b_j
 >    $$
 > 3. Por el **Desarrollo de Laplace**, la suma $\sum_{j=1}^{n} b_j C_{ji}$ corresponde exactamente al desarrollo del determinante de la matriz $A_i$ por su columna $i$ (que contiene los elementos $b_j$). Por lo tanto:
 >    $$
@@ -952,9 +952,9 @@ print("Solución analítica z(alpha):", z_sol)
 
 4. **Matriz de Cofactores y Matriz Adjunta:**
    $$
-   \operatorname{Cof}(A) = \begin{pmatrix} -7 & 12 & 8 \\ -1 & 6 & -1 \\ -2 & -3 & -2 \end{pmatrix} \implies \operatorname{Adj}(A) = [\operatorname{Cof}(A)]^T = \begin{pmatrix} -7 & -1 & -2 \\ 12 & 6 & -3 \\ 8 & -1 & -2 \end{pmatrix}
+   \mathrm{Cof}(A) = \begin{pmatrix} -7 & 12 & 8 \\ -1 & 6 & -1 \\ -2 & -3 & -2 \end{pmatrix} \implies \mathrm{Adj}(A) = [\mathrm{Cof}(A)]^T = \begin{pmatrix} -7 & -1 & -2 \\ 12 & 6 & -3 \\ 8 & -1 & -2 \end{pmatrix}
    $$
-5. **Cálculo de $A^{-1} = \frac{1}{\det(A)} \operatorname{Adj}(A)$:**
+5. **Cálculo de $A^{-1} = \frac{1}{\det(A)} \mathrm{Adj}(A)$:**
    $$
    A^{-1} = \frac{1}{-15} \begin{pmatrix} -7 & -1 & -2 \\ 12 & 6 & -3 \\ 8 & -1 & -2 \end{pmatrix}
    $$
@@ -1054,9 +1054,9 @@ mindmap
 | Concepto | Resultado Clave |
 |:---|:---|
 | **Ecuaciones Matriciales** | Se despeja factorizando por izquierda/derecha. En $C X = C A^{-1} \implies X = A^{-1}$. |
-| **Inversa por Cofactores** | $A^{-1} = \frac{1}{\det A} \operatorname{Adj}(A)$. Para $k=-2$ en Control 1, $\det A = -15$. |
+| **Inversa por Cofactores** | $A^{-1} = \frac{1}{\det A} \mathrm{Adj}(A)$. Para $k=-2$ en Control 1, $\det A = -15$. |
 | **Escalar en Determinante** | $\det(k \cdot M) = k^n \det(M)$. Para $n=3$, $\det(3 M) = 27 \det(M)$. |
-| **Determinante Adjunta** | $\det(\operatorname{Adj} A) = (\det A)^{n-1}$. |
+| **Determinante Adjunta** | $\det(\mathrm{Adj} A) = (\det A)^{n-1}$. |
 
 ---
 
@@ -1064,7 +1064,7 @@ mindmap
 
 1. ¿Por qué en la ecuación $(B-I)X = A^T - C$ no se puede escribir $X = (A^T - C)(B-I)^{-1}$?
 2. Demuestra que si $B$ es una matriz antisimétrica de orden impar $n$, entonces $\det(B) = 0$.
-3. Calcula el valor de $\det(2 \operatorname{Adj}(A))$ para una matriz $A \in \mathcal{M}_3(\mathbb{R})$ con $\det(A) = 5$.
+3. Calcula el valor de $\det(2 \mathrm{Adj}(A))$ para una matriz $A \in \mathcal{M}_3(\mathbb{R})$ con $\det(A) = 5$.
 4. Resuelve el Control 1 Forma A paso a paso sin mirar la pauta.
 
 ---

@@ -50,7 +50,7 @@ $$
 \longrightarrow
 \text{operaciones por renglones}
 \longrightarrow
-\operatorname{RREF}
+\mathrm{RREF}
 \longrightarrow
 \text{clasificación de las soluciones}.
 $$
@@ -376,13 +376,13 @@ Después de reducir $[A\mid\mathbf b]$:
 | Sin contradicción y pivote en cada variable | Solución única |
 | Sin contradicción y al menos una variable libre | Infinitas soluciones |
 
-Si $r=\operatorname{rank}(A)$, la regla puede resumirse como
+Si $r=\mathrm{rank}(A)$, la regla puede resumirse como
 
 $$
 \begin{cases}
-r<\operatorname{rank}([A\mid\mathbf b]) &\Longrightarrow \text{inconsistente},\\
-r=\operatorname{rank}([A\mid\mathbf b])=n &\Longrightarrow \text{solución única},\\
-r=\operatorname{rank}([A\mid\mathbf b])<n &\Longrightarrow \text{infinitas soluciones}.
+r<\mathrm{rank}([A\mid\mathbf b]) &\Longrightarrow \text{inconsistente},\\
+r=\mathrm{rank}([A\mid\mathbf b])=n &\Longrightarrow \text{solución única},\\
+r=\mathrm{rank}([A\mid\mathbf b])<n &\Longrightarrow \text{infinitas soluciones}.
 \end{cases}
 $$
 
@@ -673,7 +673,7 @@ $$
 Una forma más completa de expresarlo es
 
 $$
-\operatorname{rank}(A)<n
+\mathrm{rank}(A)<n
 \quad\Longleftrightarrow\quad
 \text{existe al menos una variable libre}
 \quad\Longrightarrow\quad
@@ -684,7 +684,7 @@ Si $m\geq n$, todavía puede haber infinitas soluciones; la desigualdad $n>m$ es
 
 ### Demostración 3 — por qué $n>m$ fuerza soluciones no triviales
 
-Sea $r=\operatorname{rank}(A)$. El número de pivotes no puede superar el número de renglones, de modo que
+Sea $r=\mathrm{rank}(A)$. El número de pivotes no puede superar el número de renglones, de modo que
 
 $$
 r\leq m<n.
@@ -784,8 +784,8 @@ En un sistema homogéneo cuadrado $n\times n$:
 
 $$
 \begin{aligned}
-\operatorname{rank}(A)=n&\Longrightarrow\text{solución trivial única},\\
-\operatorname{rank}(A)<n&\Longrightarrow\text{infinitas soluciones}.
+\mathrm{rank}(A)=n&\Longrightarrow\text{solución trivial única},\\
+\mathrm{rank}(A)<n&\Longrightarrow\text{infinitas soluciones}.
 \end{aligned}
 $$
 
@@ -1437,7 +1437,7 @@ Así, \(B=A^{-1}\) cuando \(ad-bc\neq0\). La implicación inversa se obtiene del
 Dos matrices son equivalentes por renglones si una se obtiene de la otra mediante una sucesión finita de operaciones elementales. El teorema 2.4.6 afirma, para \(A\in\mathbb R^{n\times n}\), que las siguientes afirmaciones son equivalentes:
 
 1. \(A\) es invertible.
-2. \(A\) es equivalente por renglones a \(I_n\), es decir, \(\operatorname{rref}(A)=I_n\).
+2. \(A\) es equivalente por renglones a \(I_n\), es decir, \(\mathrm{rref}(A)=I_n\).
 3. \(A\mathbf x=\mathbf b\) tiene una solución única para cada \(\mathbf b\in\mathbb R^n\).
 4. La forma escalonada por renglones de \(A\) tiene \(n\) pivotes.
 
@@ -2210,7 +2210,7 @@ $$
 El paralelogramo generado por $u$ y $v$ tiene área
 
 $$
-\operatorname{Área}(u,v)=|ad-bc|=|\det A|.
+\text{Área}(u,v)=|ad-bc|=|\det A|.
 $$
 
 El valor absoluto elimina el signo porque un área es no negativa. El signo de $\det A$ conserva información de orientación: si se intercambian las columnas, el paralelogramo geométrico es el mismo, pero su recorrido cambia de orientación y el determinante cambia de signo.
@@ -2236,7 +2236,7 @@ $$
 **Paso 2. Interpretar el valor absoluto.**
 
 $$
-\operatorname{Área}=|\det A|=5.
+\text{Área}=|\det A|=5.
 $$
 
 **Paso 3. Interpretar el signo.** Como $\det A>0$, la base ordenada $(u,v)$ conserva la orientación positiva del plano. Si se toma $A'=[v\ u]$, entonces
@@ -2471,10 +2471,10 @@ $$
 La **adjunta clásica** —también llamada adjugada en algunos textos— es la transpuesta de la matriz de cofactores:
 
 $$
-\operatorname{adj}(A)=C(A)^{\mathsf T}.
+\mathrm{adj}(A)=C(A)^{\mathsf T}.
 $$
 
-La transposición es indispensable. El elemento $(i,j)$ de $\operatorname{adj}(A)$ es $C_{ji}$, no $C_{ij}$.
+La transposición es indispensable. El elemento $(i,j)$ de $\mathrm{adj}(A)$ es $C_{ji}$, no $C_{ij}$.
 
 ### 3.3.3 Desarrollo de Laplace
 
@@ -2497,13 +2497,13 @@ En la práctica se elige la fila o columna con más ceros, porque los términos 
 La identidad clave es
 
 $$
-A\,\operatorname{adj}(A)=(\det A)I.
+A\,\mathrm{adj}(A)=(\det A)I.
 $$
 
 Para la entrada $(i,j)$ del producto:
 
 $$
-\bigl(A\,\operatorname{adj}(A)\bigr)_{ij}=\sum_{k=1}^{n}a_{ik}C_{jk}.
+\bigl(A\,\mathrm{adj}(A)\bigr)_{ij}=\sum_{k=1}^{n}a_{ik}C_{jk}.
 $$
 
 Si $i=j$, esta suma es la expansión de $\det A$ por la fila $i$. Si $i\neq j$, se puede construir una matriz que coincide con $A$ salvo que su fila $j$ se reemplaza por la fila $i$; esa matriz tiene dos filas iguales y su determinante es cero. En consecuencia,
@@ -2521,7 +2521,7 @@ que es exactamente $(\det A)I$.
 Si $\det A\neq0$, se divide la identidad por $\det A$ y se obtiene
 
 $$
-\boxed{A^{-1}=\frac{1}{\det A}\operatorname{adj}(A)}.
+\boxed{A^{-1}=\frac{1}{\det A}\mathrm{adj}(A)}.
 $$
 
 ### Ejemplo 5: cofactores, adjunta e inversa paso a paso
@@ -2566,7 +2566,7 @@ $$
 
 Como $\det A=-4\neq0$, la matriz es invertible.
 
-**Paso 3. Transponer la matriz de cofactores.** En este ejemplo es simétrica, por lo que $\operatorname{adj}(A)=C(A)^{\mathsf T}=C(A)$.
+**Paso 3. Transponer la matriz de cofactores.** En este ejemplo es simétrica, por lo que $\mathrm{adj}(A)=C(A)^{\mathsf T}=C(A)$.
 
 **Paso 4. Aplicar la fórmula de la inversa.**
 
@@ -2587,7 +2587,7 @@ $$
 **Paso 5. Verificación estructural.**
 
 $$
-A\,\operatorname{adj}(A)=-4I,
+A\,\mathrm{adj}(A)=-4I,
 \qquad
 A A^{-1}=I.
 $$
@@ -2658,23 +2658,23 @@ $$
 Como $D\neq0$, la matriz es invertible y
 
 $$
-x=A^{-1}b=\frac{1}{D}\operatorname{adj}(A)b.
+x=A^{-1}b=\frac{1}{D}\mathrm{adj}(A)b.
 $$
 
-La componente $j$ de $\operatorname{adj}(A)b$ es
+La componente $j$ de $\mathrm{adj}(A)b$ es
 
 $$
-\bigl(\operatorname{adj}(A)b\bigr)_j
+\bigl(\mathrm{adj}(A)b\bigr)_j
 =C_{1j}b_1+C_{2j}b_2+\cdots+C_{nj}b_n.
 $$
 
 Al expandir $\det A_j$ por su columna $j$, los cofactores de los elementos $b_i$ son precisamente $C_{ij}$ de la matriz original $A$, porque al eliminar la columna reemplazada queda el mismo menor $M_{ij}$. Por tanto,
 
 $$
-D_j=\bigl(\operatorname{adj}(A)b\bigr)_j.
+D_j=\bigl(\mathrm{adj}(A)b\bigr)_j.
 $$
 
-La igualdad $x=\frac1D\operatorname{adj}(A)b$ entrega $x_j=D_j/D$ para cada componente.
+La igualdad $x=\frac1D\mathrm{adj}(A)b$ entrega $x_j=D_j/D$ para cada componente.
 
 ### Ejemplo 6: Cramer paso a paso
 
@@ -2775,7 +2775,7 @@ $$
 La definición inductiva da la expansión por la primera fila. Para hacer explícita la estructura de signos, usemos la forma analítica equivalente
 
 $$
-\det A=\sum_{\sigma\in S_n}\operatorname{sgn}(\sigma)\prod_{r=1}^{n}a_{r,\sigma(r)},
+\det A=\sum_{\sigma\in S_n}\mathrm{sgn}(\sigma)\prod_{r=1}^{n}a_{r,\sigma(r)},
 $$
 
 donde $S_n$ es el conjunto de permutaciones de $\{1,\ldots,n\}$.
@@ -2976,7 +2976,7 @@ SymPy conserva fracciones y símbolos, por lo que es apropiado para demostracion
 |---|---|
 | Aplicar Sarrus a una matriz $4\times4$ | Usar Laplace, operaciones elementales o LU/PLU. |
 | Olvidar el signo $(-1)^{i+j}$ | Escribir el tablero de signos antes de calcular cofactores. |
-| Llamar adjunta a la matriz de cofactores sin transponer | $\operatorname{adj}(A)=C(A)^{\mathsf T}$. |
+| Llamar adjunta a la matriz de cofactores sin transponer | $\mathrm{adj}(A)=C(A)^{\mathsf T}$. |
 | Cambiar de fila y conservar el determinante | Un intercambio introduce un factor $-1$. |
 | Escalar una fila y no registrar el factor | El determinante cambia por el mismo escalar. |
 | Suponer $\det(A+B)=\det A+\det B$ | La linealidad es fila a fila o columna a columna. |
@@ -3074,7 +3074,7 @@ $$
 Si $\mathbf{v}\neq\mathbf{0}$, su dirección es el ángulo $\theta\in[0,2\pi)$ medido desde el semieje positivo $x$. La forma robusta de calcularlo es
 
 $$
-\theta=\operatorname{atan2}(b,a)\pmod{2\pi}.
+\theta=\mathrm{atan2}(b,a)\pmod{2\pi}.
 $$
 
 La fórmula $\tan\theta=b/a$ necesita identificar además el cuadrante y no sirve directamente cuando $a=0$. Para un vector unitario, la representación polar es
@@ -3141,7 +3141,7 @@ Sean $P=(2,-1)$ y $Q=(-1,3)$. Calcular $\overrightarrow{PQ}$, su magnitud, direc
 3. **Dirección:** el vector está en el segundo cuadrante, por lo que
 
  $$
- \theta=\operatorname{atan2}(4,-3)=\pi-\arctan\left(\frac{4}{3}\right)\approx 2.2143\ \text{rad}.
+ \theta=\mathrm{atan2}(4,-3)=\pi-\arctan\left(\frac{4}{3}\right)\approx 2.2143\ \text{rad}.
  $$
 
 4. **Normalización:**
@@ -3239,24 +3239,24 @@ con igualdad exactamente cuando los vectores son paralelos.
 La proyección vectorial de $\mathbf{u}$ sobre $\mathbf{v}\neq\mathbf{0}$ es
 
 $$
-\operatorname{proy}_{\mathbf{v}}\mathbf{u}
+\mathrm{proy}_{\mathbf{v}}\mathbf{u}
 =\frac{\mathbf{u}\cdot\mathbf{v}}{\lVert\mathbf{v}\rVert^2}\,\mathbf{v}.
 $$
 
 La componente escalar de $\mathbf{u}$ en la dirección de $\mathbf{v}$ es
 
 $$
-\operatorname{comp}_{\mathbf{v}}\mathbf{u}
+\mathrm{comp}_{\mathbf{v}}\mathbf{u}
 =\frac{\mathbf{u}\cdot\mathbf{v}}{\lVert\mathbf{v}\rVert}.
 $$
 
 La proyección es paralela a $\mathbf{v}$ y el residuo es ortogonal:
 
 $$
-\mathbf{u}=\operatorname{proy}_{\mathbf{v}}\mathbf{u}
-+\left(\mathbf{u}-\operatorname{proy}_{\mathbf{v}}\mathbf{u}\right),
+\mathbf{u}=\mathrm{proy}_{\mathbf{v}}\mathbf{u}
++\left(\mathbf{u}-\mathrm{proy}_{\mathbf{v}}\mathbf{u}\right),
 \qquad
-\left(\mathbf{u}-\operatorname{proy}_{\mathbf{v}}\mathbf{u}\right)\cdot\mathbf{v}=0.
+\left(\mathbf{u}-\mathrm{proy}_{\mathbf{v}}\mathbf{u}\right)\cdot\mathbf{v}=0.
 $$
 
 ### Demostración central — Fórmula de la proyección
@@ -3298,14 +3298,14 @@ Sean $\mathbf{u}=(2,3)$ y $\mathbf{v}=(1,1)$. Calcular la proyección de $\mathb
 2. Proyección:
 
  $$
- \operatorname{proy}_{\mathbf{v}}\mathbf{u}
+ \mathrm{proy}_{\mathbf{v}}\mathbf{u}
  =\frac{5}{2}(1,1)=\left(\frac52,\frac52\right).
  $$
 
 3. Residuo:
 
  $$
- \mathbf{r}=\mathbf{u}-\operatorname{proy}_{\mathbf{v}}\mathbf{u}
+ \mathbf{r}=\mathbf{u}-\mathrm{proy}_{\mathbf{v}}\mathbf{u}
  =\left(2,3\right)-\left(\frac52,\frac52\right)
  =\left(-\frac12,\frac12\right).
  $$
@@ -3381,7 +3381,7 @@ $$
 $$
 
 $$
-\operatorname{dist}(P,Q)
+\mathrm{dist}(P,Q)
 =\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}.
 $$
 
@@ -3451,7 +3451,7 @@ Sean $P=(3,-1,6)$ y $Q=(-2,3,5)$.
 2. Distancia:
 
  $$
- \operatorname{dist}(P,Q)=\sqrt{(-5)^2+4^2+(-1)^2}=\sqrt{42}.
+ \mathrm{dist}(P,Q)=\sqrt{(-5)^2+4^2+(-1)^2}=\sqrt{42}.
  $$
 
 3. Un vector unitario en la dirección de $\overrightarrow{PQ}$ es
@@ -3827,14 +3827,14 @@ Sean $P=(1,2,1)$, $Q=(-2,3,-1)$ y $R=(1,0,4)$.
 - Si $L$ pasa por $P$ y tiene dirección $\mathbf{d}$, la distancia de un punto $M$ a $L$ es
 
  $$
- \operatorname{dist}(M,L)
+ \mathrm{dist}(M,L)
  =\frac{\lVert\overrightarrow{PM}\times\mathbf{d}\rVert}{\lVert\mathbf{d}\rVert}.
  $$
 
 - Si el plano $\pi$ es $ax+by+cz=d$ y $X=(x_0,y_0,z_0)$, entonces
 
  $$
- \operatorname{dist}(X,\pi)
+ \mathrm{dist}(X,\pi)
  =\frac{|ax_0+by_0+cz_0-d|}{\sqrt{a^2+b^2+c^2}}.
  $$
 
@@ -3843,7 +3843,7 @@ Sean $P=(1,2,1)$, $Q=(-2,3,-1)$ y $R=(1,0,4)$.
 Sea $Q$ un punto del plano $\pi$ y sea $\mathbf{n}$ una normal. El segmento perpendicular desde $X$ al plano es la componente de $\overrightarrow{QX}$ en la dirección de $\mathbf{n}$. Por la fórmula de proyección,
 
 $$
-\operatorname{proy}_{\mathbf{n}}\overrightarrow{QX}
+\mathrm{proy}_{\mathbf{n}}\overrightarrow{QX}
 =\frac{\overrightarrow{QX}\cdot\mathbf{n}}{\lVert\mathbf{n}\rVert^2}\mathbf{n}.
 $$
 
@@ -3851,7 +3851,7 @@ Su norma es
 
 $$
 \begin{aligned}
-\left\lVert\operatorname{proy}_{\mathbf{n}}\overrightarrow{QX}\right\rVert
+\left\lVert\mathrm{proy}_{\mathbf{n}}\overrightarrow{QX}\right\rVert
 &=\frac{|\overrightarrow{QX}\cdot\mathbf{n}|}{\lVert\mathbf{n}\rVert^2}\lVert\mathbf{n}\rVert\\
 &=\frac{|\overrightarrow{QX}\cdot\mathbf{n}|}{\lVert\mathbf{n}\rVert}.
 \end{aligned}
@@ -3879,7 +3879,7 @@ Calcular la distancia de $X=(3,1,2)$ al plano $x-2y+z=5$.
 4. Distancia:
 
  $$
- \operatorname{dist}(X,\pi)=\frac{2}{\sqrt{6}}\approx0.8165.
+ \mathrm{dist}(X,\pi)=\frac{2}{\sqrt{6}}\approx0.8165.
  $$
 
 ### Lectura geométrica final
@@ -3984,7 +3984,7 @@ Grossman sitúa el producto cruz en la tradición de Hamilton y Gibbs. En aplica
 | Norma en $\mathbb{R}^3$ | $\sqrt{a^2+b^2+c^2}$ | Longitud y distancia al origen |
 | Producto escalar | $\mathbf{u}\cdot\mathbf{v}=\sum u_iv_i$ | Ángulo, trabajo, ortogonalidad |
 | Ángulo | $\cos\varphi=\dfrac{\mathbf{u}\cdot\mathbf{v}}{\lVert\mathbf{u}\rVert\lVert\mathbf{v}\rVert}$ | Clasificar agudo/recto/obtuso |
-| Proyección | $\operatorname{proy}_{\mathbf{v}}\mathbf{u}=\dfrac{\mathbf{u}\cdot\mathbf{v}}{\lVert\mathbf{v}\rVert^2}\mathbf{v}$ | Componente paralela |
+| Proyección | $\mathrm{proy}_{\mathbf{v}}\mathbf{u}=\dfrac{\mathbf{u}\cdot\mathbf{v}}{\lVert\mathbf{v}\rVert^2}\mathbf{v}$ | Componente paralela |
 | Producto cruz | $\mathbf{u}\times\mathbf{v}$ | Vector normal y área |
 | Área de paralelogramo | $\lVert\mathbf{u}\times\mathbf{v}\rVert$ | Área |
 | Volumen | $\left\lvert\mathbf{u}\cdot(\mathbf{v}\times\mathbf{w})\right\rvert$ | Paralelepípedo y coplanaridad |
@@ -4032,9 +4032,9 @@ flowchart LR
 Salvo indicación contraria, los escalares pertenecen a $\mathbb{R}$. La misma teoría funciona sobre $\mathbb{C}$ o, más generalmente, sobre un campo $\mathbb{F}$.
 
 - $\mathbb{R}^n$: vectores columna de $n$ componentes reales.
-- $P_n$: polinomios reales de grado menor o igual que $n$; $\operatorname{dim} P_n=n+1$.
+- $P_n$: polinomios reales de grado menor o igual que $n$; $\dim P_n=n+1$.
 - $M_{m\times n}$: matrices reales de tamaño $m\times n$.
-- $\operatorname{gen}\{v_1,\dots,v_k}$: conjunto de todas las combinaciones lineales de los vectores dados. También se escribe $\operatorname{span}\}{v_1,\dots,v_k}$.
+- $\mathrm{gen}\{v_1,\dots,v_k}$: conjunto de todas las combinaciones lineales de los vectores dados. También se escribe $\mathrm{span}\}{v_1,\dots,v_k}$.
 - $[x]_B$: vector columna de coordenadas de $x$ respecto de la base ordenada $B$.
 
 La idea organizadora es pasar de objetos concretos, como vectores de $\mathbb{R}^n$, polinomios, funciones o matrices, a propiedades comunes que después pueden reutilizarse sin repetir una prueba para cada espacio.
@@ -4172,7 +4172,7 @@ Tomando $z=5t$:
 
 $$
 (x,y,z)=t(-1,-7,5),\qquad
-H_1\cap H_2=\operatorname{gen}\{(-1,-7,5)\}.
+H_1\cap H_2=\mathrm{gen}\{(-1,-7,5)\}.
 $$
 
 La intersección es una recta por el origen y, por el teorema 5.2.2, es subespacio.
@@ -4199,12 +4199,12 @@ $$a_1v_1+a_2v_2+\dots+a_kv_k.$$
 
 Los vectores $v_1,\dots,v_k$ **generan $V$** si cada $v\in V$ puede escribirse como una combinación lineal de ellos:
 
-$$V=\operatorname{gen}\{v_1,\dots,v_k\}.$$
+$$V=\mathrm{gen}\{v_1,\dots,v_k\}.$$
 
 El **espacio generado** por $v_1,\dots,v_k$ es el conjunto
 
 $$
-\operatorname{gen}\{v_1,\dots,v_k\}
+\mathrm{gen}\{v_1,\dots,v_k\}
 =\{a_1v_1+\dots+a_kv_k:a_i\in\mathbb{R}\}.
 $$
 
@@ -4217,7 +4217,7 @@ Sean $u=(1,2,4)$ y $v=(-1,-3,1)$. Para comprobar si $w=(3,7,7)$ está en su espa
 1. Planteamos $w=au+bv$.
 2. Probamos $a=2$ y $b=-1$:
  $$2u-v=2(1,2,4)-(-1,-3,1)=(3,7,7).$$
-3. Por tanto, $w\in\operatorname{gen}\{u,v\}$ y sus coeficientes respecto de esta expresión son $(2,-1)$.
+3. Por tanto, $w\in\mathrm{gen}\{u,v\}$ y sus coeficientes respecto de esta expresión son $(2,-1)$.
 
 En general, la pregunta se convierte en el sistema $[u\text{ }v]\begin{bmatrix}a\\b\end{bmatrix}=w$. Es consistente si y solo si $w$ pertenece al generado.
 
@@ -4243,7 +4243,7 @@ $$b=\frac{x+2y}{6},\qquad a=b-y.$$
 
 Entonces se recuperan $x$ e $y$, y la ecuación del plano recupera $z$. Por tanto,
 
-$$\operatorname{gen}\{(2,-1,4),(4,1,6)\}=\{(x,y,z):5x-2y-3z=0\}.$$
+$$\mathrm{gen}\{(2,-1,4),(4,1,6)\}=\{(x,y,z):5x-2y-3z=0\}.$$
 
 ### Ejemplos de generadores en otros espacios
 
@@ -4255,7 +4255,7 @@ $$\operatorname{gen}\{(2,-1,4),(4,1,6)\}=\{(x,y,z):5x-2y-3z=0\}.$$
 
 ### Teorema 5.3.1: el generado es subespacio
 
-Si $v_1,\dots,v_k\in V$, entonces $\operatorname{gen}\{v_1,\dots,v_k\}$ es un subespacio de $V$.
+Si $v_1,\dots,v_k\in V$, entonces $\mathrm{gen}\{v_1,\dots,v_k\}$ es un subespacio de $V$.
 
 **Demostración.** El vector cero pertenece al generado porque
 $$0=0v_1+\dots+0v_k.$$
@@ -4269,7 +4269,7 @@ por lo que se cumple el criterio de subespacio.
 
 Si $H$ es un subespacio que contiene a todos los $v_i$, entonces
 
-$$\operatorname{gen}\{v_1,\dots,v_k\}\subseteq H,$$
+$$\mathrm{gen}\{v_1,\dots,v_k\}\subseteq H,$$
 
 porque $H$ es cerrado bajo sumas y múltiplos escalares. Por eso el generado es el subespacio más pequeño que contiene a los vectores dados.
 
@@ -4322,7 +4322,7 @@ $$
 
 formamos $A=[v_1\text{ }v_2\text{ }v_3]$ y reducimos:
 
-$$\operatorname{rref}(A)=I_3.$$
+$$\mathrm{rref}(A)=I_3.$$
 
 El sistema $Ac=0$ solo tiene $c=0$; por tanto, los tres vectores son LI. Equivalentemente,
 
@@ -4432,9 +4432,9 @@ La base del espacio trivial es el conjunto vacío. En un espacio no trivial, una
 
 ### Bases canónicas y dimensiones conocidas
 
-- En $\mathbb{R}^n$, la base canónica es $E=\{e_1,\dots,e_n\}$, donde $e_i$ tiene un $1$ en la posición $i$ y ceros en las demás. Así, $\operatorname{dim}\mathbb{R}^n=n$.
-- En $P_n$, $\{1,x,x^2,\dots,x^n\}$ es base canónica y $\operatorname{dim}P_n=n+1$.
-- En $M_{m\times n}$, las matrices $E_{ij}$ con un $1$ en $(i,j)$ y ceros en las otras entradas forman una base. Por tanto, $\operatorname{dim}M_{m\times n}=mn$.
+- En $\mathbb{R}^n$, la base canónica es $E=\{e_1,\dots,e_n\}$, donde $e_i$ tiene un $1$ en la posición $i$ y ceros en las demás. Así, $\dim\mathbb{R}^n=n$.
+- En $P_n$, $\{1,x,x^2,\dots,x^n\}$ es base canónica y $\dimP_n=n+1$.
+- En $M_{m\times n}$, las matrices $E_{ij}$ con un $1$ en $(i,j)$ y ceros en las otras entradas forman una base. Por tanto, $\dimM_{m\times n}=mn$.
 - $P$, el espacio de todos los polinomios, tiene dimensión infinita: ningún conjunto finito genera todos los grados.
 
 ### Ejemplo 6: base de un plano en $\mathbb{R}^3$
@@ -4455,7 +4455,7 @@ $$
 
 **Paso 3.** Los vectores $(1,2,0)$ y $(0,3,1)$ no son múltiplos, luego son LI. Por tanto,
 
-$$B_H=\{(1,2,0),(0,3,1)\},\qquad \operatorname{dim}H=2.$$
+$$B_H=\{(1,2,0),(0,3,1)\},\qquad \dimH=2.$$
 
 ### Teorema 5.5.1: unicidad de coordenadas
 
@@ -4479,11 +4479,11 @@ Si $U=\{u_1,\dots,u_m\}$ y $B=\{v_1,\dots,v_n\}$ son bases del mismo espacio, en
 
 ### Definición 5.5.2: dimensión
 
-Si $V$ tiene una base finita, su **dimensión** $\operatorname{dim}V$ es el número de vectores de cualquier base. Si no tiene base finita, es de dimensión infinita. En particular, $\operatorname{dim}\{0\}=0$.
+Si $V$ tiene una base finita, su **dimensión** $\dimV$ es el número de vectores de cualquier base. Si no tiene base finita, es de dimensión infinita. En particular, $\dim\{0\}=0$.
 
 ### Teorema 5.5.3: límite para conjuntos LI
 
-Si $\operatorname{dim}V=n$ y $u_1,\dots,u_m$ son LI en $V$, entonces $m\le n$.
+Si $\dimV=n$ y $u_1,\dots,u_m$ son LI en $V$, entonces $m\le n$.
 
 **Demostración.** Si $m>n$, al escribir cada $u_i$ en una base de $n$ vectores se obtiene un sistema homogéneo de $n$ ecuaciones con $m$ incógnitas y una relación no trivial entre los $u_i$, contradicción.
 
@@ -4491,9 +4491,9 @@ Si $\operatorname{dim}V=n$ y $u_1,\dots,u_m$ son LI en $V$, entonces $m\le n$.
 
 Si $H$ es subespacio de un espacio $V$ de dimensión finita, entonces $H$ tiene dimensión finita y
 
-$$\operatorname{dim}H\le\operatorname{dim}V.$$
+$$\dimH\le\dimV.$$
 
-**Demostración.** Un conjunto LI en $H$ también es LI en $V$, por lo que tiene a lo más $\operatorname{dim}V$ elementos. Partiendo de un vector no nulo de $H$, se agregan vectores de $H$ que no estén en el generado anterior. El proceso termina por ese límite y produce una base de $H$.
+**Demostración.** Un conjunto LI en $H$ también es LI en $V$, por lo que tiene a lo más $\dimV$ elementos. Partiendo de un vector no nulo de $H$, se agregan vectores de $H$ que no estén en el generado anterior. El proceso termina por ese límite y produce una base de $H$.
 
 **Consecuencia en $\mathbb{R}^3$.** Los subespacios propios no triviales son exactamente rectas por el origen (dimensión $1$) y planos por el origen (dimensión $2$).
 
@@ -4615,19 +4615,19 @@ $$x_1,\dots,x_n\text{ son LI}\iff \det A\ne0.$$
 
 $$N_A=\{x\in\mathbb{R}^n:Ax=0\}.$$
 
-**Nulidad:** $n(A)=\operatorname{dim}N_A$.
+**Nulidad:** $n(A)=\dimN_A$.
 
 **Imagen:**
 
-$$\operatorname{im}A=\{y\in\mathbb{R}^m:\exists x\in\mathbb{R}^n,\ y=Ax\}.$$
+$$\mathrm{im}A=\{y\in\mathbb{R}^m:\exists x\in\mathbb{R}^n,\ y=Ax\}.$$
 
-**Rango:** $r(A)=\operatorname{dim}(\operatorname{im}A)$.
+**Rango:** $r(A)=\dim(\mathrm{im}A)$.
 
 **Espacio columna y espacio renglón:** si $c_1,\dots,c_n$ son columnas y $r_1,\dots,r_m$ son renglones,
 
 $$
-C_A=\operatorname{gen}\{c_1,\dots,c_n\}\subseteq\mathbb{R}^m,\qquad
-R_A=\operatorname{gen}\{r_1,\dots,r_m\}\subseteq\mathbb{R}^n.
+C_A=\mathrm{gen}\{c_1,\dots,c_n\}\subseteq\mathbb{R}^m,\qquad
+R_A=\mathrm{gen}\{r_1,\dots,r_m\}\subseteq\mathbb{R}^n.
 $$
 
 ### Teorema 5.7.1: invertibilidad y nulidad
@@ -4638,7 +4638,7 @@ Si $A$ es cuadrada, $A$ es invertible si y solo si $n(A)=0$.
 
 ### Teorema 5.7.2: la imagen es subespacio
 
-Para cualquier $A\in\mathbb{R}^{m\times n}$, $\operatorname{im}A$ es un subespacio de $\mathbb{R}^m$.
+Para cualquier $A\in\mathbb{R}^{m\times n}$, $\mathrm{im}A$ es un subespacio de $\mathbb{R}^m$.
 
 **Demostración.** Si $y_1=Ax_1$ y $y_2=Ax_2$, entonces
 $$y_1+y_2=A(x_1+x_2),\qquad ay_1=A(ax_1).$$
@@ -4646,17 +4646,17 @@ La imagen es no vacía porque $A0=0$ y cumple el criterio 5.2.1.
 
 ### Teorema 5.7.3: imagen y columnas
 
-$$C_A=\operatorname{im}A.$$
+$$C_A=\mathrm{im}A.$$
 
-**Demostración.** Si $y\in\operatorname{im}A$, entonces $y=Ax$ y el producto matriz-vector es una combinación lineal de las columnas de $A$; así $y\in C_A$. Recíprocamente, toda combinación lineal $\sum_j x_jc_j$ es $Ax$ con $x=(x_1,\dots,x_n)^T$; por tanto pertenece a la imagen.
+**Demostración.** Si $y\in\mathrm{im}A$, entonces $y=Ax$ y el producto matriz-vector es una combinación lineal de las columnas de $A$; así $y\in C_A$. Recíprocamente, toda combinación lineal $\sum_j x_jc_j$ es $Ax$ con $x=(x_1,\dots,x_n)^T$; por tanto pertenece a la imagen.
 
 ### Teorema 5.7.4: igualdad de dimensiones
 
 Para toda matriz $A$:
 
-$$\operatorname{dim}R_A=\operatorname{dim}C_A=\operatorname{dim}(\operatorname{im}A)=r(A).$$
+$$\dimR_A=\dimC_A=\dim(\mathrm{im}A)=r(A).$$
 
-**Demostración.** Sea $s_1,\dots,s_k$ una base de $R_A$. Cada renglón $r_i$ se escribe como combinación de los $s_\ell$. Al fijar una columna $j$ y agrupar sus componentes, se obtiene que cada columna de $A$ es combinación de $k$ vectores; por ello $\operatorname{dim}C_A\le k=\operatorname{dim}R_A$. Aplicando la misma desigualdad a $A^T$ se obtiene la desigualdad inversa. Por el teorema 5.7.3, $C_A=\operatorname{im}A$.
+**Demostración.** Sea $s_1,\dots,s_k$ una base de $R_A$. Cada renglón $r_i$ se escribe como combinación de los $s_\ell$. Al fijar una columna $j$ y agrupar sus componentes, se obtiene que cada columna de $A$ es combinación de $k$ vectores; por ello $\dimC_A\le k=\dimR_A$. Aplicando la misma desigualdad a $A^T$ se obtiene la desigualdad inversa. Por el teorema 5.7.3, $C_A=\mathrm{im}A$.
 
 ### Teorema 5.7.5: invariancia por operaciones de renglón
 
@@ -4688,26 +4688,26 @@ $$A=\begin{bmatrix}1&2&-1\\2&4&-2\\0&1&1\end{bmatrix}.$$
 
 **Paso 1: reducción.**
 
-$$\operatorname{rref}(A)=\begin{bmatrix}1&0&-3\\0&1&1\\0&0&0\end{bmatrix}.$$
+$$\mathrm{rref}(A)=\begin{bmatrix}1&0&-3\\0&1&1\\0&0&0\end{bmatrix}.$$
 
 Hay dos pivotes, luego $r(A)=2$.
 
 **Paso 2: espacio nulo y nulidad.** De $x_1-3x_3=0$ y $x_2+x_3=0$:
 
 $$
-x=t(3,-1,1),\qquad N_A=\operatorname{gen}\{(3,-1,1)\},\qquad n(A)=1.
+x=t(3,-1,1),\qquad N_A=\mathrm{gen}\{(3,-1,1)\},\qquad n(A)=1.
 $$
 
 Se verifica $2+1=3$, el número de columnas.
 
 **Paso 3: espacio renglón.** Una base se obtiene con los renglones no nulos de la RREF:
 
-$$R_A=\operatorname{gen}\{(1,0,-3),(0,1,1)\}.$$
+$$R_A=\mathrm{gen}\{(1,0,-3),(0,1,1)\}.$$
 
 **Paso 4: espacio columna e imagen.** Las columnas pivote son las columnas 1 y 2 de la matriz **original**, no las de la RREF:
 
 $$
-C_A=\operatorname{im}A=\operatorname{gen}\{\begin{bmatrix}1\\2\\0\end{bmatrix},\begin{bmatrix}2\\4\\1\end{bmatrix}\}.
+C_A=\mathrm{im}A=\mathrm{gen}\{\begin{bmatrix}1\\2\\0\end{bmatrix},\begin{bmatrix}2\\4\\1\end{bmatrix}\}.
 $$
 
 Por ejemplo, para $y=(5,10,2)^T$:
@@ -4934,7 +4934,7 @@ El índice real del capítulo es el siguiente:
 | Sección | Título en el PDF | Páginas impresas | Idea organizadora |
 |---|---|---:|---|
 | 6.1 | Bases ortonormales y proyecciones en $\mathbb{R}^n$ | 418–442 | Medir, ortogonalizar, proyectar y descomponer vectores. |
-| 6.2 | Aproximaciones por mínimos cuadrados | 443–463 | Convertir una aproximación en una proyección sobre $\operatorname{Col}(A)$. |
+| 6.2 | Aproximaciones por mínimos cuadrados | 443–463 | Convertir una aproximación en una proyección sobre $\mathrm{Col}(A)$. |
 | 6.3 | Espacios con producto interno y proyecciones | 464–477 | Extender la teoría desde $\mathbb{R}^n$ a $\mathbb{C}^n$, funciones y polinomios. |
 
 > [!warning] Límite de la numeración del PDF
@@ -4992,9 +4992,9 @@ Salvo indicación contraria, las secciones 6.1 y 6.2 trabajan sobre $\mathbb{R}$
 | $\langle u,v\rangle$ | Producto interno o producto punto. |
 | $\lVert v\rVert=\sqrt{\langle v,v\rangle}$ | Norma o longitud de $v$. |
 | $u\perp v$ | $\langle u,v\rangle=0$. |
-| $\operatorname{span}\{u_1,\ldots,u_k\}$ | Subespacio generado por los vectores. |
+| $\mathrm{span}\{u_1,\ldots,u_k\}$ | Subespacio generado por los vectores. |
 | $H^\perp$ | Complemento ortogonal de $H$. |
-| $\operatorname{proy}_H(v)$ | Proyección ortogonal de $v$ sobre $H$. |
+| $\mathrm{proy}_H(v)$ | Proyección ortogonal de $v$ sobre $H$. |
 | $A^\mathsf{T}$ | Transpuesta real de $A$; en el caso complejo se usa $A^*$, la transpuesta conjugada. |
 
 ---
@@ -5233,14 +5233,14 @@ Por tanto, una rotación no cambia longitudes ni ángulos. Este es el caso geom�
 Sea $H\subseteq\mathbb{R}^n$ un subespacio con base ortonormal $\{u_1,\ldots,u_k\}$. La proyección ortogonal de $v$ sobre $H$ es
 
 $$
-\operatorname{proy}_H(v)
+\mathrm{proy}_H(v)
  =\sum_{i=1}^{k}\langle v,u_i\rangle u_i.
 $$
 
 Cada coeficiente $\langle v,u_i\rangle$ mide cuánto de $v$ apunta en la dirección $u_i$. Si $B=[u_1\ \cdots\ u_k]$, entonces
 
 $$
-\operatorname{proy}_H(v)=BB^\mathsf{T}v,
+\mathrm{proy}_H(v)=BB^\mathsf{T}v,
 \qquad
 P_H=BB^\mathsf{T}.
 $$
@@ -5252,7 +5252,7 @@ P_H^2=P_H,
 \qquad
 P_H^\mathsf{T}=P_H,
 \qquad
-\operatorname{Im}(P_H)=H.
+\mathrm{Im}(P_H)=H.
 $$
 
 La primera identidad expresa que proyectar dos veces equivale a proyectar una sola vez; la segunda expresa que la proyección es ortogonal.
@@ -5279,7 +5279,7 @@ La proyección es
 
 $$
 \begin{aligned}
-h=\operatorname{proy}_H(v)
+h=\mathrm{proy}_H(v)
 &=\sqrt2u_1+0u_2\\
 &=(1,1,0).
 \end{aligned}
@@ -5328,14 +5328,14 @@ $$
 con
 
 $$
-h=\operatorname{proy}_H(v),
+h=\mathrm{proy}_H(v),
 \qquad
-p=v-\operatorname{proy}_H(v).
+p=v-\mathrm{proy}_H(v).
 $$
 
 #### Demostración de existencia y unicidad
 
-Tomemos $h=\operatorname{proy}_H(v)$ y $p=v-h$. Si $x\in H$, puede escribirse $x=\sum_i a_i u_i$. Entonces
+Tomemos $h=\mathrm{proy}_H(v)$ y $p=v-h$. Si $x\in H$, puede escribirse $x=\sum_i a_i u_i$. Entonces
 
 $$
 \begin{aligned}
@@ -5362,12 +5362,12 @@ El lado izquierdo pertenece a $H$ y el derecho a $H^\perp$, así que ambos perte
 La proyección es la mejor aproximación de $v$ por un elemento de $H$:
 
 $$
-\left\|v-\operatorname{proy}_H(v)\right\|
+\left\|v-\mathrm{proy}_H(v)\right\|
 \le \lVert v-h\rVert
 \qquad\text{para todo }h\in H.
 $$
 
-**Demostración.** Sea $h_0=\operatorname{proy}_H(v)$ y $r=v-h_0\in H^\perp$. Para cualquier $h\in H$,
+**Demostración.** Sea $h_0=\mathrm{proy}_H(v)$ y $r=v-h_0\in H^\perp$. Para cualquier $h\in H$,
 
 $$
 v-h=(v-h_0)+(h_0-h)=r+(h_0-h).
@@ -5379,7 +5379,7 @@ $$
 \lVert v-h\rVert^2
  =\lVert r\rVert^2+\lVert h_0-h\rVert^2
  \ge \lVert r\rVert^2
- =\left\|v-\operatorname{proy}_H(v)\right\|^2.
+ =\left\|v-\mathrm{proy}_H(v)\right\|^2.
 $$
 
 La igualdad ocurre únicamente cuando $h=h_0$. La proyección no es sólo una aproximación: es la única aproximación óptima.
@@ -5414,7 +5414,7 @@ La igualdad se da cuando $q(t)$ tiene una raíz doble, es decir, cuando $u$ y $v
 | Construir una base ortonormal | Aplicar Gram–Schmidt y normalizar cada residuo. |
 | Proyectar sobre $H$ | Usar $\sum_i\langle v,u_i\rangle u_i$ con una base ortonormal. |
 | Proyectar con matrices | Formar $B=[u_1\ \cdots\ u_k]$ y calcular $BB^\mathsf{T}v$. |
-| Hallar el componente perpendicular | Calcular $v-\operatorname{proy}_H(v)$. |
+| Hallar el componente perpendicular | Calcular $v-\mathrm{proy}_H(v)$. |
 | Probar optimalidad | Usar la descomposición ortogonal y Pitágoras. |
 
 ---
@@ -5453,10 +5453,10 @@ $$
  =\sum_{i=1}^{n}\bigl(y_i-(b+mx_i)\bigr)^2.
 $$
 
-La imagen de $A$ es el espacio columna $H=\operatorname{Col}(A)$. Como $Au\in H$, el problema es encontrar el punto de $H$ más cercano a $y$:
+La imagen de $A$ es el espacio columna $H=\mathrm{Col}(A)$. Como $Au\in H$, el problema es encontrar el punto de $H$ más cercano a $y$:
 
 $$
-A\widehat u=\operatorname{proy}_{\operatorname{Col}(A)}(y).
+A\widehat u=\mathrm{proy}_{\mathrm{Col}(A)}(y).
 $$
 
 El vector residual $r=y-A\widehat u$ es perpendicular a cada columna de $A$.
@@ -5505,7 +5505,7 @@ $$
 y-Au=r-Ad.
 $$
 
-El vector $r$ es ortogonal a $\operatorname{Col}(A)$ y $Ad\in\operatorname{Col}(A)$, luego
+El vector $r$ es ortogonal a $\mathrm{Col}(A)$ y $Ad\in\mathrm{Col}(A)$, luego
 
 $$
 \lVert y-Au\rVert^2
@@ -5613,12 +5613,12 @@ A_k=\begin{bmatrix}
 \end{bmatrix}.
 $$
 
-El procedimiento no cambia: proyectar $y$ sobre $\operatorname{Col}(A_k)$.
+El procedimiento no cambia: proyectar $y$ sobre $\mathrm{Col}(A_k)$.
 
 ### Interpretación geométrica y aplicada
 
 - El vector $y$ contiene las observaciones.
-- $\operatorname{Col}(A)$ contiene todas las predicciones que el modelo puede producir.
+- $\mathrm{Col}(A)$ contiene todas las predicciones que el modelo puede producir.
 - $A\widehat u$ es la predicción más cercana a los datos.
 - $r=y-A\widehat u$ es el error que el modelo no puede explicar.
 
@@ -5789,7 +5789,7 @@ La demostración de independencia es la misma de 6.1. En la demostración de ort
 Sea $H$ un subespacio de dimensión finita de $V$ con base ortonormal $\{u_1,\ldots,u_k\}$. Para $v\in V$,
 
 $$
-\operatorname{proy}_H(v)
+\mathrm{proy}_H(v)
  =\sum_{i=1}^{k}\langle v,u_i\rangle u_i.
 $$
 
@@ -5809,12 +5809,12 @@ h\in H,
 p\in H^\perp,
 $$
 
-con $h=\operatorname{proy}_H(v)$. Si $V$ tiene dimensión finita, además $p=\operatorname{proy}_{H^\perp}(v)$. Si $V$ es infinito-dimensional, $H$ sigue teniendo una proyección porque es finito-dimensional, pero $H^\perp$ puede no tener una base finita y no se debe escribir automáticamente $p=\operatorname{proy}_{H^\perp}(v)$.
+con $h=\mathrm{proy}_H(v)$. Si $V$ tiene dimensión finita, además $p=\mathrm{proy}_{H^\perp}(v)$. Si $V$ es infinito-dimensional, $H$ sigue teniendo una proyección porque es finito-dimensional, pero $H^\perp$ puede no tener una base finita y no se debe escribir automáticamente $p=\mathrm{proy}_{H^\perp}(v)$.
 
 La misma prueba de 6.1 entrega el teorema de aproximación:
 
 $$
-\left\|v-\operatorname{proy}_H(v)\right\|
+\left\|v-\mathrm{proy}_H(v)\right\|
 \le\lVert v-h\rVert
 \qquad(h\in H).
 $$
@@ -5831,7 +5831,7 @@ $$
 El polinomio que minimiza este error es la proyección:
 
 $$
-\boxed{p_n=\operatorname{proy}_{P_n}(f).}
+\boxed{p_n=\mathrm{proy}_{P_n}(f).}
 $$
 
 #### Ejemplo 9: aproximar $e^x$ por un polinomio en $P_2[0,1]$
@@ -5939,7 +5939,7 @@ $$
 N=\begin{bmatrix}2&0\\0&i\end{bmatrix}
 $$
 
-es normal porque es diagonal, pero no es unitaria porque $N^*N=\operatorname{diag}(4,1)\ne I$.
+es normal porque es diagonal, pero no es unitaria porque $N^*N=\mathrm{diag}(4,1)\ne I$.
 
 El teorema espectral complejo, como contexto externo, afirma que una matriz es normal si y sólo si puede diagonalizarse mediante una matriz unitaria:
 
@@ -6001,7 +6001,7 @@ print("norma del residual:", np.linalg.norm(r))
 
 ## Figura de síntesis
 
-El recurso visual se genera con `03_Transformaciones_Lineales/grossman_capitulo_6_figura.py` usando `matplotlib` con backend `Agg`. La imagen combina la identidad $v=\operatorname{proy}_H(v)+r$ con un ajuste lineal y su residual ortogonal.
+El recurso visual se genera con `03_Transformaciones_Lineales/grossman_capitulo_6_figura.py` usando `matplotlib` con backend `Agg`. La imagen combina la identidad $v=\mathrm{proy}_H(v)+r$ con un ajuste lineal y su residual ortogonal.
 
 ![grossman_capitulo_6_figura](figuras/grossman_capitulo_6_figura.png)
 
@@ -6057,7 +6057,7 @@ Sean $V$ y $W$ espacios vectoriales sobre el mismo cuerpo, principalmente $\math
 
 - **Dominio** $V$: espacio de entrada.
 - **Codominio** $W$: espacio declarado de salida.
-- **Imagen** $\operatorname{im}T$: salidas que efectivamente se alcanzan; puede ser un subespacio propio de $W$.
+- **Imagen** $\mathrm{im}T$: salidas que efectivamente se alcanzan; puede ser un subespacio propio de $W$.
 - **Linealidad**: compatibilidad exacta con la estructura de suma y multiplicación escalar.
 
 La pregunta central es:
@@ -6195,7 +6195,7 @@ $$
 **Proyección ortogonal.** Si $H$ tiene una base ortonormal $\{u_1,\ldots,u_k\}$,
 
 $$
-P_H(v)=\operatorname{proy}_H(v)
+P_H(v)=\mathrm{proy}_H(v)
 =
 \sum_{i=1}^{k}\langle v,u_i\rangle u_i.
 $$
@@ -6307,7 +6307,7 @@ $$
 $$
 
 $$
-\operatorname{im}T=\{w\in W:w=T(v)\text{ para algún }v\in V\}.
+\mathrm{im}T=\{w\in W:w=T(v)\text{ para algún }v\in V\}.
 $$
 
 El núcleo vive en el dominio y la imagen vive en el codominio. No se debe confundir el codominio $W$ con la imagen efectiva.
@@ -6317,7 +6317,7 @@ El núcleo vive en el dominio y la imagen vive en el codominio. No se debe confu
 $$
 \ker T\leq V,
 \qquad
-\operatorname{im}T\leq W.
+\mathrm{im}T\leq W.
 $$
 
 **Demostración.** Si $u,v\in\ker T$ y $\alpha$ es un escalar, entonces
@@ -6343,7 +6343,7 @@ por lo que la imagen también es un subespacio.
 Se define
 
 $$
-r(T)=\dim(\operatorname{im}T),
+r(T)=\dim(\mathrm{im}T),
 \qquad
 n(T)=\dim(\ker T).
 $$
@@ -6360,7 +6360,7 @@ $$
 \mathcal{B}=\{k_1,\ldots,k_q,v_{q+1},\ldots,v_n\}.
 $$
 
-Los vectores $T(v_{q+1}),\ldots,T(v_n)$ generan $\operatorname{im}T$, porque los términos $T(k_i)$ son cero. Además, son linealmente independientes: si
+Los vectores $T(v_{q+1}),\ldots,T(v_n)$ generan $\mathrm{im}T$, porque los términos $T(k_i)$ son cero. Además, son linealmente independientes: si
 
 $$
 \sum_{j=q+1}^{n}c_jT(v_j)=0,
@@ -6430,7 +6430,7 @@ $$
 Por tanto,
 
 $$
-\ker T=\operatorname{span}\{(1,1,-1)\},
+\ker T=\mathrm{span}\{(1,1,-1)\},
 \qquad
 n(T)=1.
 $$
@@ -6438,7 +6438,7 @@ $$
 **Imagen.** Las dos primeras columnas $(1,0)^T$ y $(-1,1)^T$ son independientes, de modo que generan $\mathbb{R}^2$:
 
 $$
-\operatorname{im}T=\mathbb{R}^2,
+\mathrm{im}T=\mathbb{R}^2,
 \qquad
 r(T)=2.
 $$
@@ -6471,9 +6471,9 @@ $$
 Entonces
 
 $$
-\ker P=\operatorname{span}\{(0,0,1)\},
+\ker P=\mathrm{span}\{(0,0,1)\},
 \qquad
-\operatorname{im}P=\{(x,y,0):x,y\in\mathbb{R}\},
+\mathrm{im}P=\{(x,y,0):x,y\in\mathbb{R}\},
 $$
 
 $$
@@ -6512,15 +6512,15 @@ $$
 La representación traduce directamente los espacios asociados:
 
 $$
-\operatorname{im}T=\operatorname{Col}(A_T),
+\mathrm{im}T=\mathrm{Col}(A_T),
 \qquad
-\ker T=\operatorname{Null}(A_T),
+\ker T=\mathrm{Null}(A_T),
 $$
 
 $$
-r(T)=\operatorname{rank}(A_T),
+r(T)=\mathrm{rank}(A_T),
 \qquad
-n(T)=\operatorname{nullity}(A_T).
+n(T)=\mathrm{nullity}(A_T).
 $$
 
 ### Bases arbitrarias y coordenadas
@@ -6620,7 +6620,7 @@ La matriz tiene tres columnas independientes. Así,
 $$
 \ker T=\{0\},
 \qquad
-\operatorname{im}T=\operatorname{span}\{x,x^2,x^3\},
+\mathrm{im}T=\mathrm{span}\{x,x^2,x^3\},
 \qquad
 r(T)=3,
 \qquad
@@ -6682,7 +6682,7 @@ $$
 Es **sobre** o **suprayectiva** sobre $W$ si
 
 $$
-\operatorname{im}T=W,
+\mathrm{im}T=W,
 $$
 
 es decir, cada $w\in W$ tiene al menos una preimagen.
@@ -7055,11 +7055,11 @@ figuras/grossman_capitulo_7_transformacion.png
 
 1. Verifica primero que $T(0)=0$ y las dos leyes de linealidad.
 2. Para hallar $\ker T$, resuelve $T(v)=0$.
-3. Para hallar $\operatorname{im}T$, genera las imágenes de una base del dominio.
+3. Para hallar $\mathrm{im}T$, genera las imágenes de una base del dominio.
 4. Calcula $r(T)$ y $n(T)$ y comprueba $r(T)+n(T)=\dim V$ cuando $V$ es finito-dimensional.
 5. En bases canónicas, forma $[T]$ poniendo $T(e_i)$ como columnas.
 6. Para cambiar de bases, usa $[T]_{C\leftarrow B}=P_C^{-1}AP_B$.
-7. Decide si es isomorfismo con $\ker T=\{0\}$ y $\operatorname{im}T=W$.
+7. Decide si es isomorfismo con $\ker T=\{0\}$ y $\mathrm{im}T=W$.
 8. Decide si una transformación cuadrada es isometría con $A^TA=I$.
 
 > [!success] Idea final
@@ -7166,7 +7166,7 @@ $$
 Si $\lambda$ es raíz de $p_A$ de orden $r$, entonces $r$ es su **multiplicidad algebraica** $m_a(\lambda)$. Su **multiplicidad geométrica** es
 
 $$
-m_g(\lambda)=\dim E_\lambda=\operatorname{nul}(A-\lambda I).
+m_g(\lambda)=\dim E_\lambda=\mathrm{nul}(A-\lambda I).
 $$
 
 Siempre se cumple
@@ -7235,7 +7235,7 @@ $$
 \quad\Longrightarrow\quad 3x+2y=0.
 $$
 
-Tomando $x=2$, se obtiene $v_1=(2,-3)^T$ y $E_1=\operatorname{span}\{v_1\}$.
+Tomando $x=2$, se obtiene $v_1=(2,-3)^T$ y $E_1=\mathrm{span}\{v_1\}$.
 
 **Paso 3: espacio propio para $\lambda_2=6$.**
 
@@ -7245,7 +7245,7 @@ $$
 \quad\Longrightarrow\quad y=x.
 $$
 
-Tomando $x=1$, $v_2=(1,1)^T$ y $E_6=\operatorname{span}\{v_2\}$.
+Tomando $x=1$, $v_2=(1,1)^T$ y $E_6=\mathrm{span}\{v_2\}$.
 
 Como los valores son distintos, $v_1,v_2$ son independientes. Con
 
@@ -7417,7 +7417,7 @@ Si $v_1,\ldots,v_n$ son esos vectores y $Av_i=\lambda_i v_i$, se forma
 $$
 C=[v_1\ v_2\ \cdots\ v_n],
 \qquad
-D=\operatorname{diag}(\lambda_1,\ldots,\lambda_n).
+D=\mathrm{diag}(\lambda_1,\ldots,\lambda_n).
 $$
 
 La independencia hace invertible a $C$ y, columna por columna,
@@ -7446,7 +7446,7 @@ La diagonalización simplifica potencias:
 $$
 A^m=CD^mC^{-1},
 \qquad
-D^m=\operatorname{diag}(\lambda_1^m,\ldots,\lambda_n^m).
+D^m=\mathrm{diag}(\lambda_1^m,\ldots,\lambda_n^m).
 $$
 
 Una raíz repetida no impide necesariamente diagonalizar: importa comparar multiplicidades geométrica y algebraica. Por ejemplo, $A=\lambda I$ sí es diagonalizable; en cambio, un bloque $\begin{bmatrix}\lambda&1\\0&\lambda\end{bmatrix}$ no lo es.
@@ -7582,7 +7582,7 @@ $$
 
 ### Ejes principales
 
-Como $A$ es simétrica, existe $Q$ ortogonal con $Q^TAQ=D=\operatorname{diag}(\lambda_1,\lambda_2)$. Introduciendo coordenadas principales
+Como $A$ es simétrica, existe $Q$ ortogonal con $Q^TAQ=D=\mathrm{diag}(\lambda_1,\lambda_2)$. Introduciendo coordenadas principales
 
 $$
 v'=\begin{bmatrix}x'\\y'\end{bmatrix}=Q^Tv,
@@ -7850,7 +7850,7 @@ Si $A=CDC^{-1}$, entonces
 $$
 e^{At}=Ce^{Dt}C^{-1},
 \qquad
-e^{Dt}=\operatorname{diag}(e^{\lambda_1t},\ldots,e^{\lambda_nt}).
+e^{Dt}=\mathrm{diag}(e^{\lambda_1t},\ldots,e^{\lambda_nt}).
 $$
 
 Si $J_k(\lambda)=\lambda I+N_k$ es un bloque de Jordan,
@@ -7942,7 +7942,7 @@ $$
 **Idea de demostración.** La identidad de la adjunta da
 
 $$
-\operatorname{adj}(A-\lambda I)(A-\lambda I)
+\mathrm{adj}(A-\lambda I)(A-\lambda I)
 =\det(A-\lambda I)I=p_A(\lambda)I.
 $$
 
@@ -8145,8 +8145,8 @@ Estas referencias complementan la exposición de Grossman sin sustituirla:
 > 6. El determinante de $A$ es no nulo: **$\det(A) \neq 0$**.
 > 7. Las columnas (y filas) de $A$ son **linealmente independientes** en $\mathbb{K}^n$.
 > 8. Las columnas (y filas) de $A$ **generan a $\mathbb{K}^n$** y constituyen una **base de $\mathbb{K}^n$**.
-> 9. El **rango** de $A$ es máximo: $\operatorname{rg}(A) = n$.
-> 10. La **nulidad** de $A$ es cero: $\operatorname{null}(A) = 0$.
+> 9. El **rango** de $A$ es máximo: $\mathrm{rg}(A) = n$.
+> 10. La **nulidad** de $A$ es cero: $\mathrm{null}(A) = 0$.
 > 11. El número $0$ **no es valor propio** de $A$ (todos los autovalores son no nulos).
 > 12. La transformación lineal $T_A(\mathbf{x}) = A\mathbf{x}$ es un **isomorfismo**.
 

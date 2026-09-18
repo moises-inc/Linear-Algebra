@@ -60,3 +60,4 @@ _Agent_Sync/
 system_prompt*.md
 Setup_Prompt*.md
 Prompt_*.md
+.playwright-cli/

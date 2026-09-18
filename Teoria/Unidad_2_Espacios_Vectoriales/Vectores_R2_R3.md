@@ -241,7 +241,7 @@ $$
 \mathbf{v} = \mathbf{p} + \mathbf{r}, \quad \text{donde } \mathbf{p} \parallel \mathbf{u} \text{ y } \mathbf{r} \perp \mathbf{u}
 $$
 
-El vector $\mathbf{p}$ se denomina **proyección ortogonal de $\mathbf{v}$ sobre $\mathbf{u}$**, denotado $\operatorname{proy}_{\mathbf{u}}\mathbf{v}$.
+El vector $\mathbf{p}$ se denomina **proyección ortogonal de $\mathbf{v}$ sobre $\mathbf{u}$**, denotado $\mathrm{proy}_{\mathbf{u}}\mathbf{v}$.
 
 **Derivación Rigurosa de las Fórmulas:**
 1. Dado que $\mathbf{p} \parallel \mathbf{u}$, debe existir un escalar único $c \in \mathbb{R}$ tal que:
@@ -261,16 +261,16 @@ El vector $\mathbf{p}$ se denomina **proyección ortogonal de $\mathbf{v}$ sobre
 Por lo tanto:
 
 $$
-\operatorname{proy}_{\mathbf{u}}\mathbf{v} = \left( \frac{\mathbf{v} \cdot \mathbf{u}}{\|\mathbf{u}\|^2} \right) \mathbf{u} = \left( \mathbf{v} \cdot \hat{\mathbf{u}} \right) \hat{\mathbf{u}}
+\mathrm{proy}_{\mathbf{u}}\mathbf{v} = \left( \frac{\mathbf{v} \cdot \mathbf{u}}{\|\mathbf{u}\|^2} \right) \mathbf{u} = \left( \mathbf{v} \cdot \hat{\mathbf{u}} \right) \hat{\mathbf{u}}
 $$
 
 La magnitud con signo de esta proyección sobre la dirección unitaria $\hat{\mathbf{u}}$ se denomina **componente escalar**:
 
 $$
-\operatorname{comp}_{\mathbf{u}}\mathbf{v} = \frac{\mathbf{v} \cdot \mathbf{u}}{\|\mathbf{u}\|} = \|\mathbf{v}\|\cos\theta
+\mathrm{comp}_{\mathbf{u}}\mathbf{v} = \frac{\mathbf{v} \cdot \mathbf{u}}{\|\mathbf{u}\|} = \|\mathbf{v}\|\cos\theta
 $$
 
-Notemos que $\operatorname{proy}_{\mathbf{u}}\mathbf{v} = (\operatorname{comp}_{\mathbf{u}}\mathbf{v}) \hat{\mathbf{u}}$.
+Notemos que $\mathrm{proy}_{\mathbf{u}}\mathbf{v} = (\mathrm{comp}_{\mathbf{u}}\mathbf{v}) \hat{\mathbf{u}}$.
 
 #### Diagrama Representativo de la Sección 2: Proyección Ortogonal y Cosenos Directores
 Ilustración bidimensional de la proyección ortogonal y residuo perpendicular, junto con la disposición tridimensional de los ángulos y cosenos directores $\alpha, \beta, \gamma$:
@@ -567,7 +567,7 @@ Consideremos el paralelogramo sustentado por el vector director $\mathbf{d}$ y e
 El vector perpendicular común a ambas direcciones es $\mathbf{n} = \mathbf{d}_1 \times \mathbf{d}_2$. La distancia entre las rectas equivale a proyectar ortogonalmente cualquier vector que una ambas rectas (como $\overrightarrow{P_1 P_2}$) sobre este vector normal unitario $\hat{\mathbf{n}}$:
 
 $$
-d(L_1, L_2) = |\operatorname{comp}_{\mathbf{n}}\overrightarrow{P_1 P_2}| = \frac{|\overrightarrow{P_1 P_2} \cdot \mathbf{n}|}{\|\mathbf{n}\|} = \frac{|\overrightarrow{P_1 P_2} \cdot (\mathbf{d}_1 \times \mathbf{d}_2)|}{\|\mathbf{d}_1 \times \mathbf{d}_2\|} \quad \blacksquare
+d(L_1, L_2) = |\mathrm{comp}_{\mathbf{n}}\overrightarrow{P_1 P_2}| = \frac{|\overrightarrow{P_1 P_2} \cdot \mathbf{n}|}{\|\mathbf{n}\|} = \frac{|\overrightarrow{P_1 P_2} \cdot (\mathbf{d}_1 \times \mathbf{d}_2)|}{\|\mathbf{d}_1 \times \mathbf{d}_2\|} \quad \blacksquare
 $$
 
 #### Diagrama Representativo de la Sección 4: Rectas en el Espacio y Rectas Alabeadas
@@ -622,7 +622,7 @@ Sea $P_0(x_0, y_0, z_0)$ un punto perteneciente al plano, de modo que satisface 
 El segmento perpendicular desde $P_1$ al plano es la proyección del vector $\overrightarrow{P_0 P_1} = (x_1 - x_0, y_1 - y_0, z_1 - z_0)$ sobre la dirección normal $\mathbf{n} = (a, b, c)$:
 
 $$
-d(P_1, \pi) = |\operatorname{comp}_{\mathbf{n}}\overrightarrow{P_0 P_1}| = \frac{|\overrightarrow{P_0 P_1} \cdot \mathbf{n}|}{\|\mathbf{n}\|}
+d(P_1, \pi) = |\mathrm{comp}_{\mathbf{n}}\overrightarrow{P_0 P_1}| = \frac{|\overrightarrow{P_0 P_1} \cdot \mathbf{n}|}{\|\mathbf{n}\|}
 $$
 
 Evaluando el producto escalar en el numerador:
@@ -674,9 +674,9 @@ a_3 & b_3 & c_3 & d_3
 \end{pmatrix}
 $$
 
-Conforme al **Teorema de Rouché-Frobenius** estudiado en `Matrices — Clasificación de Sistemas`, la configuración geométrica de los 3 planos queda completamente determinada por los rangos $\operatorname{rg}(A)$ y $\operatorname{rg}(A|B)$:
+Conforme al **Teorema de Rouché-Frobenius** estudiado en `Matrices — Clasificación de Sistemas`, la configuración geométrica de los 3 planos queda completamente determinada por los rangos $\mathrm{rg}(A)$ y $\mathrm{rg}(A|B)$:
 
-| $\operatorname{rg}(A)$ | $\operatorname{rg}(A|B)$ | Clasificación del Sistema | Configuración Geométrica en $\mathbb{R}^3$ |
+| $\mathrm{rg}(A)$ | $\mathrm{rg}(A|B)$ | Clasificación del Sistema | Configuración Geométrica en $\mathbb{R}^3$ |
 | :---: | :---: | :--- | :--- |
 | **$3$** | **$3$** | **SCD** (Solución única, $\det A \neq 0$) | Los 3 planos se intersecan en un **único punto** (vértice común). |
 | **$2$** | **$2$** | **SCI** ($1$ grado de libertad, $\infty$ sol.) | Los 3 planos se intersecan en una **recta común** (haz de planos) o dos coinciden y cortan al tercero en recta. |
@@ -992,7 +992,7 @@ Para garantizar la reproducibilidad científica y verificación simbólica de ca
 ### 7.1 Visualizaciones Espaciales Embebidas
 
 #### Figura 1: Proyección Ortogonal y Descomposición Vectorial en $\mathbb{R}^3$
-Visualiza la proyección ortogonal $\mathbf{p} = \operatorname{proy}_{\mathbf{u}}\mathbf{v}$, el residuo ortogonal $\mathbf{r} \perp \mathbf{u}$ y la verificación geométrica de la Desigualdad de Cauchy-Schwarz mediante triángulos rectángulos de Pitágoras.
+Visualiza la proyección ortogonal $\mathbf{p} = \mathrm{proy}_{\mathbf{u}}\mathbf{v}$, el residuo ortogonal $\mathbf{r} \perp \mathbf{u}$ y la verificación geométrica de la Desigualdad de Cauchy-Schwarz mediante triángulos rectángulos de Pitágoras.
 
 ![Figura 7: Proyección Ortogonal y Descomposición Vectorial en R3](figuras/Figura7_proyeccion_ortogonal_r3.png)
 

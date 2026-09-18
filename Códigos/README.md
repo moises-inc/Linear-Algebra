@@ -52,7 +52,7 @@ Todos los gráficos generados por los scripts `.py` y cuadernos `.ipynb` impleme
 | **USS Blue Principal** | `#00205B` | Ejes coordenados principales, vectores base $\mathbf{u}$, títulos, matrices canónicas, estructuras portantes. |
 | **USS Gold** | `#D4AF37` | Soluciones únicas, rectas de intersección $\Pi_1 \cap \Pi_2$, vectores resultantes $\mathbf{u} \times \mathbf{v}$, torques $\boldsymbol{\tau}$, resaltes analíticos. |
 | **Deep Blue / Secondary** | `#1B365D` | Planos primarios $\Pi_1$, vectores secundarios $\mathbf{v}$, contornos estructurales. |
-| **Light Blue Accent** | `#4A90E2` | Planos secundarios $\Pi_2$, proyecciones ortogonales $\operatorname{proy}_{\mathbf{v}}(\mathbf{u})$, componentes vectoriales. |
+| **Light Blue Accent** | `#4A90E2` | Planos secundarios $\Pi_2$, proyecciones ortogonales $\mathrm{proy}_{\mathbf{v}}(\mathbf{u})$, componentes vectoriales. |
 | **Alert / Inconsistencia** | `#C0392B` | Planos de inconsistencia (SI), puntos singulares críticos $k_{\text{crítico}}$, componentes ortogonales $\mathbf{u}_\perp$. |
 | **Teal / Subespacios** | `#16A085` | Planos terciarios $\Pi_3$, cables tensores, áreas de sustentación. |
 | **Dark Slate** | `#2C3E50` | Mallas espaciales de fondo, textos analíticos y marcos matriciales. |
@@ -120,10 +120,10 @@ Códigos/
 
 | # | Módulo | Concepto Central | Script CLI (`.py`) | Cuaderno Interactivo (`.ipynb`) | Modelado Matemático Clave | Salida Visual |
 | :-: | :--- | :--- | :--- | :--- | :--- | :--- |
-| **01** | **Gauss-Jordan & Rouché-Frobenius** | Rango matricial, OEF y consistencia 3D | `01_gauss_jordan_y_rouche_frobenius_3d.py` | `01_gauss_jordan_y_rouche_frobenius_3d.ipynb` | $\operatorname{rg}(A)$ vs $\operatorname{rg}(A\|B)$<br/>SCD, SCI, SI | 3 planos en $\mathbb{R}^3$, punto de corte, haz de planos o prisma triangular. |
+| **01** | **Gauss-Jordan & Rouché-Frobenius** | Rango matricial, OEF y consistencia 3D | `01_gauss_jordan_y_rouche_frobenius_3d.py` | `01_gauss_jordan_y_rouche_frobenius_3d.ipynb` | $\mathrm{rg}(A)$ vs $\mathrm{rg}(A\|B)$<br/>SCD, SCI, SI | 3 planos en $\mathbb{R}^3$, punto de corte, haz de planos o prisma triangular. |
 | **02** | **Sistemas Parametrizados $k$** | Determinantes y bifurcaciones espaciales | `02_sistemas_parametrizados_k.py` | `02_sistemas_parametrizados_k.ipynb` | $\det(A(k)) = 0$<br/>Raíces críticas $k_i$ | Gráfico $\det(A(k))$ vs $k$ y configuración 3D instantánea por caso. |
-| **03** | **Cofactores e Inversa Matricial** | Expansión de Laplace e inversión formal | `03_matrices_cofactores_e_inversa.py` | `03_matrices_cofactores_e_inversa.ipynb` | $A^{-1} = \frac{1}{\det(A)} \operatorname{Adj}(A)$<br/>$A \cdot A^{-1} = I_n$ | Mapas de calor matriciales con anotaciones numéricas y colores USS. |
-| **04** | **Vectores & Proyecciones $\mathbb{R}^2/\mathbb{R}^3$** | Cosenos directores y descomposición ortogonal | `04_vectores_fundamentos_y_proyecciones.py` | `04_vectores_fundamentos_y_proyecciones.ipynb` | $\mathbf{u} = \operatorname{proy}_{\mathbf{v}}(\mathbf{u}) + \mathbf{u}_\perp$<br/>Cauchy-Schwarz | Triángulo vectorial 2D y descomposición ortogonal tridimensional en $\mathbb{R}^3$. |
+| **03** | **Cofactores e Inversa Matricial** | Expansión de Laplace e inversión formal | `03_matrices_cofactores_e_inversa.py` | `03_matrices_cofactores_e_inversa.ipynb` | $A^{-1} = \frac{1}{\det(A)} \mathrm{Adj}(A)$<br/>$A \cdot A^{-1} = I_n$ | Mapas de calor matriciales con anotaciones numéricas y colores USS. |
+| **04** | **Vectores & Proyecciones $\mathbb{R}^2/\mathbb{R}^3$** | Cosenos directores y descomposición ortogonal | `04_vectores_fundamentos_y_proyecciones.py` | `04_vectores_fundamentos_y_proyecciones.ipynb` | $\mathbf{u} = \mathrm{proy}_{\mathbf{v}}(\mathbf{u}) + \mathbf{u}_\perp$<br/>Cauchy-Schwarz | Triángulo vectorial 2D y descomposición ortogonal tridimensional en $\mathbb{R}^3$. |
 | **05** | **Producto Cruz & Paralelepípedos** | Ortogonalidad vectorial y volúmenes 3D | `05_producto_cruz_y_paralelepipedos_3d.py` | `05_producto_cruz_y_paralelepipedos_3d.ipynb` | $V = \|\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})\|$<br/>Identidad de Lagrange | Paralelepípedo sólido 3D con caras semitransparentes y producto cruz normal. |
 | **06** | **Rectas en $\mathbb{R}^3$ & Alabeadas** | Posiciones relativas y mínima separación | `06_rectas_en_r3_y_rectas_alabeadas.py` | `06_rectas_en_r3_y_rectas_alabeadas.ipynb` | $d = \frac{\|(\mathbf{P}_2 - \mathbf{P}_1) \cdot (\mathbf{d}_1 \times \mathbf{d}_2)\|}{\|\mathbf{d}_1 \times \mathbf{d}_2\|}$ | Trayectorias de rectas en el espacio y segmento perpendicular de mínima separación. |
 | **07** | **Planos en $\mathbb{R}^3$ & Ángulo Diedro** | Ecuación general, distancia e intersección | `07_planos_en_r3_e_intersecciones.py` | `07_planos_en_r3_e_intersecciones.ipynb` | $\mathbf{d} = \mathbf{n}_1 \times \mathbf{n}_2$<br/>$d(P_0, \Pi) = \frac{\|A x_0 + B y_0 + C z_0 + D\|}{\sqrt{A^2 + B^2 + C^2}}$ | Planos secantes con recta de intersección y distancia ortogonal punto-plano. |
@@ -192,10 +192,10 @@ Códigos/
 * **Cuaderno:** `01_Sistemas_Lineales_y_Matrices/01_gauss_jordan_y_rouche_frobenius_3d.ipynb`
 * **Fundamento Matemático:**
   Dado el sistema lineal $A\mathbf{x} = \mathbf{b}$ con $A \in \mathcal{M}_{m \times n}(\mathbb{R})$ y matriz aumentada $(A|\mathbf{b})$:
-  $$ \operatorname{RREF}(A|\mathbf{b}) \implies \begin{cases}
-  \operatorname{rg}(A) < \operatorname{rg}(A|\mathbf{b}) & \implies \text{Sistema Incompatible (SI, } \emptyset\text{)} \\
-  \operatorname{rg}(A) = \operatorname{rg}(A|\mathbf{b}) = n & \implies \text{Sistema Compatible Determinado (SCD, solución única)} \\
-  \operatorname{rg}(A) = \operatorname{rg}(A|\mathbf{b}) < n & \implies \text{Sistema Compatible Indeterminado (SCI, } \infty\text{ soluciones)}
+  $$ \mathrm{RREF}(A|\mathbf{b}) \implies \begin{cases}
+  \mathrm{rg}(A) < \mathrm{rg}(A|\mathbf{b}) & \implies \text{Sistema Incompatible (SI, } \emptyset\text{)} \\
+  \mathrm{rg}(A) = \mathrm{rg}(A|\mathbf{b}) = n & \implies \text{Sistema Compatible Determinado (SCD, solución única)} \\
+  \mathrm{rg}(A) = \mathrm{rg}(A|\mathbf{b}) < n & \implies \text{Sistema Compatible Indeterminado (SCI, } \infty\text{ soluciones)}
   \end{cases} $$
 * **Interactividad en Jupyter:** Deslizadores de coeficientes independientes, selector desplegable de casos canónicos (SCD, SCI, SI) y rotación dinámica de perspectiva 3D.
 
@@ -207,7 +207,7 @@ Códigos/
 * **Fundamento Matemático:**
   Sea $A(k)$ una matriz cuadrada dependiente de $k \in \mathbb{R}$. La invertibilidad depende de las raíces del polinomio característico del determinante:
   $$ \det(A(k)) = 0 \implies k \in \{k_1, k_2, \dots, k_p\} $$
-  Para todo $k \notin \{k_1, \dots, k_p\}$, $\operatorname{rg}(A(k)) = n \implies \text{SCD}$. Para cada valor crítico $k_i$, se sustituye formalmente en $(A(k_i)|\mathbf{b}(k_i))$ y se computa la forma escalonada reducida por filas para discernir entre SCI y SI.
+  Para todo $k \notin \{k_1, \dots, k_p\}$, $\mathrm{rg}(A(k)) = n \implies \text{SCD}$. Para cada valor crítico $k_i$, se sustituye formalmente en $(A(k_i)|\mathbf{b}(k_i))$ y se computa la forma escalonada reducida por filas para discernir entre SCI y SI.
 * **Interactividad en Jupyter:** Slider continuo `FloatSlider` para $k \in [-5, 5]$ que calcula en tiempo real $\det(A(k))$, evalúa rangos simbólicos en SymPy y actualiza instantáneamente los tres planos tridimensionales.
 
 ---
@@ -217,8 +217,8 @@ Códigos/
 * **Cuaderno:** `01_Sistemas_Lineales_y_Matrices/03_matrices_cofactores_e_inversa.ipynb`
 * **Fundamento Matemático:**
   Dada $A \in \mathcal{M}_{n \times n}(\mathbb{R})$:
-  $$ C_{ij} = (-1)^{i+j} M_{ij}, \quad \operatorname{Cof}(A) = [C_{ij}], \quad \operatorname{Adj}(A) = [\operatorname{Cof}(A)]^T $$
-  $$ A \cdot \operatorname{Adj}(A) = \det(A) I_n \implies A^{-1} = \frac{1}{\det(A)} \operatorname{Adj}(A) \quad (\text{si } \det(A) \neq 0) $$
+  $$ C_{ij} = (-1)^{i+j} M_{ij}, \quad \mathrm{Cof}(A) = [C_{ij}], \quad \mathrm{Adj}(A) = [\mathrm{Cof}(A)]^T $$
+  $$ A \cdot \mathrm{Adj}(A) = \det(A) I_n \implies A^{-1} = \frac{1}{\det(A)} \mathrm{Adj}(A) \quad (\text{si } \det(A) \neq 0) $$
 * **Interactividad en Jupyter:** Entradas interactivas para modificar matrices, cálculo instantáneo de determinantes por expansión de Laplace y visualización de mapas de calor anotados.
 
 ---
@@ -229,8 +229,8 @@ Códigos/
 * **Fundamento Matemático:**
   Para $\mathbf{u}, \mathbf{v} \in \mathbb{R}^3$:
   $$ \mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos\theta, \quad \cos\theta = \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|} $$
-  $$ \operatorname{proy}_{\mathbf{v}}(\mathbf{u}) = \left(\frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{v}\|^2}\right)\mathbf{v}, \quad \mathbf{u}_\perp = \mathbf{u} - \operatorname{proy}_{\mathbf{v}}(\mathbf{u}) $$
-  Verificación de ortogonalidad formal: $\mathbf{u}_\perp \cdot \mathbf{v} = 0$, e identidad de Pitágoras vectorial: $\|\mathbf{u}\|^2 = \|\operatorname{proy}_{\mathbf{v}}(\mathbf{u})\|^2 + \|\mathbf{u}_\perp\|^2$.
+  $$ \mathrm{proy}_{\mathbf{v}}(\mathbf{u}) = \left(\frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{v}\|^2}\right)\mathbf{v}, \quad \mathbf{u}_\perp = \mathbf{u} - \mathrm{proy}_{\mathbf{v}}(\mathbf{u}) $$
+  Verificación de ortogonalidad formal: $\mathbf{u}_\perp \cdot \mathbf{v} = 0$, e identidad de Pitágoras vectorial: $\|\mathbf{u}\|^2 = \|\mathrm{proy}_{\mathbf{v}}(\mathbf{u})\|^2 + \|\mathbf{u}_\perp\|^2$.
 * **Interactividad en Jupyter:** Deslizadores de componentes vectoriales, visualización dual 2D/3D y cálculo de cosenos directores $\cos\alpha, \cos\beta, \cos\gamma$.
 
 ---

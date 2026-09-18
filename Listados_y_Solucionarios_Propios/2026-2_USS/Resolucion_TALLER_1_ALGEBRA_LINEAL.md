@@ -415,7 +415,7 @@ $$
 
 > [!important] Forma Escalonada por Filas (REF) y Clasificación
 > La matriz de coeficientes tiene 4 pivotes no nulos ($1, -2, -\frac{21}{2}, \frac{160}{21}$):
-> $$\operatorname{rango}(A) = \operatorname{rango}(A \mid \mathbf{b}) = 4 = n \text{ (número de incógnitas)}$$
+> $$\mathrm{rango}(A) = \mathrm{rango}(A \mid \mathbf{b}) = 4 = n \text{ (número de incógnitas)}$$
 > Según el **Teorema de Rouché-Frobenius**, el sistema es **Compatible Determinado** (solución única).
 
 #### Paso 4: Sustitución Regresiva (Fase de Jordan hacia RREF)
@@ -1043,7 +1043,7 @@ E^T = \begin{pmatrix} 1 & 0 & 1 \\ -1 & 3 & -1 \\ 2 & -4 & 2 \end{pmatrix}
 \begin{pmatrix} \mathbf{1} & 0 & 1 \\ 0 & \mathbf{3} & 0 \\ 0 & 0 & \mathbf{0} \end{pmatrix}
 $$
 
-La matriz $E^T$ tiene solo **2 pivotes no nulos** $\implies \operatorname{rango}(E^T) = 2 < 3$.
+La matriz $E^T$ tiene solo **2 pivotes no nulos** $\implies \mathrm{rango}(E^T) = 2 < 3$.
 
 Para que la ecuación matricial $E^T Y = B - D$ (donde $Y = XF$) sea compatible, cada columna de $B - D$ debe pertenecer al espacio columna de $E^T$.
 Calculamos $B - D$:
@@ -1077,7 +1077,7 @@ $$
 
 La tercera fila representa la ecuación $0y_1 + 0y_2 + 0y_3 = -7$ ($0 = -7$, absurdo).
 Por el **Teorema de Rouché-Frobenius**:
-$$\operatorname{rango}(E^T) = 2 < \operatorname{rango}(E^T \mid \mathbf{b}_1) = 3 \implies \textbf{Sistema Incompatible}$$
+$$\mathrm{rango}(E^T) = 2 < \mathrm{rango}(E^T \mid \mathbf{b}_1) = 3 \implies \textbf{Sistema Incompatible}$$
 
 > [!important] Conclusión
 > **No existe solución** $X \in \mathcal{M}_3(\mathbb{R})$ (conjunto vacío $\emptyset$, validado con SymPy: `EmptySet`).
@@ -1152,7 +1152,7 @@ $$
 > - Para la columna 2: $0x_{21} + 0x_{22} = 5 \implies 0 = 5$ (absurdo).
 >
 > Por el **Teorema de Rouché-Frobenius**:
-> $$\operatorname{rango}(M^T) = 1 < \operatorname{rango}(M^T \mid R^T) = 2 \implies \textbf{Sistema Incompatible}$$
+> $$\mathrm{rango}(M^T) = 1 < \mathrm{rango}(M^T \mid R^T) = 2 \implies \textbf{Sistema Incompatible}$$
 > Por lo tanto, **la ecuación no tiene solución** (validado con SymPy: `EmptySet`).
 
 ---
@@ -1190,17 +1190,17 @@ $$
 Para cada matriz cuadrada $M$:
 1. **Menor complementario $M_{ij}$:** determinante de la submatriz eliminando la fila $i$ y columna $j$.
 2. **Cofactor $C_{ij}$:** $(-1)^{i+j}M_{ij}$.
-3. **Matriz Adjunta $\operatorname{adj}(M)$:** traspuesta de la matriz de cofactores $[\operatorname{Cof}(M)]^T$.
-4. **Matriz Inversa $M^{-1}$:** $\frac{1}{\det M}\operatorname{adj}(M)$ (si $\det M \neq 0$).
+3. **Matriz Adjunta $\mathrm{adj}(M)$:** traspuesta de la matriz de cofactores $[\mathrm{Cof}(M)]^T$.
+4. **Matriz Inversa $M^{-1}$:** $\frac{1}{\det M}\mathrm{adj}(M)$ (si $\det M \neq 0$).
 
 ---
 
 ### 🔹 Matriz $A = \begin{pmatrix}4&-2\\-1&4\end{pmatrix}$
 
 - $\det A = 16 - 2 = 14 \neq 0$ (invertible).
-- **Menores:** $M_{11} = 4$, $M_{12} = -1$, $M_{21} = -2$, $M_{22} = 4 \implies \operatorname{Men}(A) = \begin{pmatrix}4&-1\\-2&4\end{pmatrix}$.
-- **Cofactores:** $C_{11} = 4$, $C_{12} = 1$, $C_{21} = 2$, $C_{22} = 4 \implies \operatorname{Cof}(A) = \begin{pmatrix}4&1\\2&4\end{pmatrix}$.
-- **Adjunta:** $\operatorname{adj}(A) = [\operatorname{Cof}(A)]^T = \begin{pmatrix}4&2\\1&4\end{pmatrix}$.
+- **Menores:** $M_{11} = 4$, $M_{12} = -1$, $M_{21} = -2$, $M_{22} = 4 \implies \mathrm{Men}(A) = \begin{pmatrix}4&-1\\-2&4\end{pmatrix}$.
+- **Cofactores:** $C_{11} = 4$, $C_{12} = 1$, $C_{21} = 2$, $C_{22} = 4 \implies \mathrm{Cof}(A) = \begin{pmatrix}4&1\\2&4\end{pmatrix}$.
+- **Adjunta:** $\mathrm{adj}(A) = [\mathrm{Cof}(A)]^T = \begin{pmatrix}4&2\\1&4\end{pmatrix}$.
 - **Inversa (Método de la Adjunta):**
  $$A^{-1} = \frac{1}{14}\begin{pmatrix}4&2\\1&4\end{pmatrix} = \begin{pmatrix}2/7&1/7\\1/14&2/7\end{pmatrix}$$
 
@@ -1249,9 +1249,9 @@ Ambos métodos coinciden con exactitud matemática ✓.
  - Fila 1: $M_{11} = \begin{vmatrix}4&5\\6&-9\end{vmatrix} = -66$, $M_{12} = \begin{vmatrix}-1&5\\-3&-9\end{vmatrix} = 24$, $M_{13} = \begin{vmatrix}-1&4\\-3&6\end{vmatrix} = 6$.
  - Fila 2: $M_{21} = \begin{vmatrix}-2&3\\6&-9\end{vmatrix} = 0$, $M_{22} = \begin{vmatrix}1&3\\-3&-9\end{vmatrix} = 0$, $M_{23} = \begin{vmatrix}1&-2\\-3&6\end{vmatrix} = 0$.
  - Fila 3: $M_{31} = \begin{vmatrix}-2&3\\4&5\end{vmatrix} = -22$, $M_{32} = \begin{vmatrix}1&3\\-1&5\end{vmatrix} = 8$, $M_{33} = \begin{vmatrix}1&-2\\-1&4\end{vmatrix} = 2$.
- $$\operatorname{Men}(B) = \begin{pmatrix}-66&24&6\\0&0&0\\-22&8&2\end{pmatrix}$$
-- **Cofactores:** $\operatorname{Cof}(B) = \begin{pmatrix}-66&-24&6\\0&0&0\\-22&-8&2\end{pmatrix}$.
-- **Adjunta:** $\operatorname{adj}(B) = [\operatorname{Cof}(B)]^T = \begin{pmatrix}-66&0&-22\\-24&0&-8\\6&0&2\end{pmatrix}$.
+ $$\mathrm{Men}(B) = \begin{pmatrix}-66&24&6\\0&0&0\\-22&8&2\end{pmatrix}$$
+- **Cofactores:** $\mathrm{Cof}(B) = \begin{pmatrix}-66&-24&6\\0&0&0\\-22&-8&2\end{pmatrix}$.
+- **Adjunta:** $\mathrm{adj}(B) = [\mathrm{Cof}(B)]^T = \begin{pmatrix}-66&0&-22\\-24&0&-8\\6&0&2\end{pmatrix}$.
 
 #### 🔍 Intento de Inversión por Gauss-Jordan $[B \mid I_3]$
 $$
@@ -1269,7 +1269,7 @@ $$
 $$
 
 > [!warning] Fila Nula en el Bloque Izquierdo
-> La Fila 3 del bloque de coeficientes es idénticamente nula ($[0\quad 0\quad 0]$), lo que demuestra que $\operatorname{rango}(B) = 2 < 3$. Es algebraicamente imposible obtener la matriz identidad $I_3$ a la izquierda.
+> La Fila 3 del bloque de coeficientes es idénticamente nula ($[0\quad 0\quad 0]$), lo que demuestra que $\mathrm{rango}(B) = 2 < 3$. Es algebraicamente imposible obtener la matriz identidad $I_3$ a la izquierda.
 > **Conclusión:** **$B^{-1}$ no existe** (matriz singular).
 
 ---
@@ -1277,9 +1277,9 @@ $$
 ### 🔹 Matriz $C = \begin{pmatrix}1&-2\\-1&4\end{pmatrix}$
 
 - $\det C = 4 - 2 = 2 \neq 0$ (invertible).
-- **Menores:** $\operatorname{Men}(C) = \begin{pmatrix}4&-1\\-2&1\end{pmatrix}$.
-- **Cofactores:** $\operatorname{Cof}(C) = \begin{pmatrix}4&1\\2&1\end{pmatrix}$.
-- **Adjunta:** $\operatorname{adj}(C) = [\operatorname{Cof}(C)]^T = \begin{pmatrix}4&2\\1&1\end{pmatrix}$.
+- **Menores:** $\mathrm{Men}(C) = \begin{pmatrix}4&-1\\-2&1\end{pmatrix}$.
+- **Cofactores:** $\mathrm{Cof}(C) = \begin{pmatrix}4&1\\2&1\end{pmatrix}$.
+- **Adjunta:** $\mathrm{adj}(C) = [\mathrm{Cof}(C)]^T = \begin{pmatrix}4&2\\1&1\end{pmatrix}$.
 - **Inversa (Método de la Adjunta):**
  $$C^{-1} = \frac{1}{2}\begin{pmatrix}4&2\\1&1\end{pmatrix} = \begin{pmatrix}2&1\\1/2&1/2\end{pmatrix}$$
 
@@ -1586,7 +1586,7 @@ $$
 
 > [!important] Resultado Clave
 > La matriz $A$ es **invertible** para todo $a \in \mathbb{R} \setminus \left\{\frac{1}{23}\right\}$.
-> Si $a = \frac{1}{23}$, el cuarto pivote se anula, $\operatorname{rango}(A) = 3 < 4$ y la matriz se vuelve singular.
+> Si $a = \frac{1}{23}$, el cuarto pivote se anula, $\mathrm{rango}(A) = 3 < 4$ y la matriz se vuelve singular.
 
 ---
 
