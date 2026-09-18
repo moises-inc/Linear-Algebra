@@ -31,14 +31,30 @@ El proyecto integra los siguientes componentes:
 
 ---
 
+## Stack Tecnológico y Ecosistema Científico en Python
+
+El proyecto implementa la arquitectura estándar de computación científica, modelado matricial y simulación geométrica en Python:
+
+<div align="center">
+
+<img src="assets/python_science_tech_diagram_1786110576794.png" alt="Python Scientific and Technical Computing Stack" width="95%" style="border-radius: 8px; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.12);"/>
+
+| Arquitectura de Álgebra Lineal en Python | Computación Vectorial y Visualización |
+| :---: | :---: |
+| <img src="assets/linear_algebra_python_diagram.png" width="450"/> | <img src="assets/matplotlib_numpy_visualization_diagram.png" width="450"/> |
+
+</div>
+
+---
+
 ## Diferenciación Histórica: UdeC vs. USS
 
 Para mantener la trazabilidad académica y contextualizar la evolución del código, el contenido se organiza en dos periodos principales:
 
 | Periodo | Institución | Enfoque Principal | Contenido Destacado |
 | :--- | :--- | :--- | :--- |
-| **2025-1** | **Universidad de Concepción (UdeC)** | Algoritmos iniciales en Python para Sistemas Lineales y reducción Gauss-Jordan con visualización de pasos elementales. | `01_Sistemas_Lineales/solucion_sistemas_lineales.py`<br/>`01_Sistemas_Lineales/solucion_sistemas_pasos.py` |
-| **2026-2** | **Universidad San Sebastián (USS — Patagonia)** | Suite completa de 8 simuladores 3D (`Códigos/`), cuadernos con `ipywidgets`, verificación simbólica avanzada (SymPy), galería de 19 figuras 3D individuales y paleta institucional USS (`#00205B` / `#D4AF37`). | `Códigos/`<br/>`05_Simulaciones_y_Visualizaciones/`<br/>`Listados_y_Solucionarios_Propios/2026-2_USS/` |
+| **2025-1** | **Universidad de Concepción (UdeC)** | Problemas y certámenes históricos resueltos de Álgebra Lineal (527108). | `Listados_y_Solucionarios_Propios/2025-1_UdeC/` |
+| **2026-2** | **Universidad San Sebastián (USS — Patagonia)** | Suite completa de 8 simuladores 3D (`Códigos/`), cuadernos con `ipywidgets`, verificación simbólica avanzada (SymPy), galería de 19 figuras 3D individuales y paleta institucional USS (`#00205B` / `#D4AF37`). | `Códigos/`<br/>`Teoria/`<br/>`Listados_y_Solucionarios_Propios/2026-2_USS/` |
 
 ---
 
@@ -147,20 +163,15 @@ Linear-Algebra/
 │   ├── axler_chapter_10_figura.py                          # Teorema Espectral y SVD (Axler Ch. 10)
 │   └── grossman_capitulo_7_figura.py                       # Diagonalización (Cap. 7 Grossman)
 │
-├── 05_Simulaciones_y_Visualizaciones/                      # Gráficos y figuras exportadas
-│   ├── generar_figuras_taller1.py                         # Generación de gráficos con paleta USS
-│   ├── Figura1_producto_matrices.png                      # Multiplicación de matrices
-│   ├── Figura2_sarrus_cofactores.png                      # Regla de Sarrus y cofactores
-│   └── Figura3_valores_propios.png                        # Transformación de autovectores
-│
 ├── Teoria/                                                 # Apuntes de teoría y notas de libros en Markdown
 │   ├── Unidad_1_Matrices_y_Sistemas/                       # Apunte completo de Matrices y Sistemas
+│   ├── Unidad_2_Espacios_Vectoriales/                      # Vectores en R2 y R3, Rectas y Planos (8 figuras)
 │   ├── Libros/Grossman/                                    # Nota maestra 8 capítulos (Grossman 7ª ed.)
 │   └── Libros/Axler/                                       # Nota maestra 10 capítulos (Axler 4ª ed.)
 │
 └── Listados_y_Solucionarios_Propios/                       # Solucionarios desarrollados en Markdown
     ├── 2025-1_UdeC/                                        # Ejercicios UdeC
-    └── 2026-2_USS/                                         # Solucionarios formales USS (Taller 1, etc.)
+    └── 2026-2_USS/                                         # Solucionarios formales USS (Talleres 1 y 2, Solemnes)
 ```
 
 ---

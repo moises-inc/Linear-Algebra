@@ -6,14 +6,14 @@ editorial: "Springer Nature Switzerland AG (2024)"
 tags: [universidad, uss, algebra-lineal, axler, nota-maestra, libro-completo, espacios-vectoriales, operadores-lineales, teorema-espectral, svd]
 ---
 
-# 📗 Linear Algebra Done Right — Nota Maestra del Libro (Sheldon Axler, 4th Edition)
+# Linear Algebra Done Right — Nota Maestra del Libro (Sheldon Axler, 4th Edition)
 
 > [!NOTE]
 > Esta es la **Nota Maestra Unificada** que consolida el contenido completo de los 10 capítulos del aclamado texto de **Sheldon Axler** (*Linear Algebra Done Right*, Springer, 528 páginas). Desarrolla la teoría abstracta de espacios vectoriales y operadores lineales sin depender de determinantes tempranos, e incluye teoremas demostrados, ejemplos resueltos, código Python (`sympy`/`numpy`) e ilustraciones vectoriales.
 
 ---
 
-## 🗂️ Índice General del Libro
+## Índice General del Libro
 
 - [Capítulo 1: Espacios Vectoriales](#capítulo-1-espacios-vectoriales)
 - [Capítulo 2: Espacios Vectoriales de Dimensión Finita](#capítulo-2-espacios-vectoriales-de-dimensión-finita)
@@ -63,7 +63,7 @@ $$
 
 ## 1B. Definición de Espacio Vectorial
 
-### 1.4 Definición de Espacio Vectorial 📖 [Axler 4ª Ed. §1B]
+### 1.4 Definición de Espacio Vectorial [Axler 4ª Ed. §1B]
 Un **espacio vectorial** sobre $\mathbb{F}$ es un conjunto $V$ junto con una operación de suma $V \times V \to V$ y una multiplicación por escalar $\mathbb{F} \times V \to V$ que satisfacen los siguientes 8 axiomas $\forall \, u, v, w \in V$ y $\forall \, \alpha, \beta \in \mathbb{F}$:
 
 1. **Conmutatividad de la suma:** $u + v = v + u$.
@@ -105,7 +105,7 @@ $$
 > [!tip]
 > La suma $U_1 + \dots + U_m$ es el **subespacio más pequeño** de $V$ que contiene a todos los $U_j$.
 
-### 1.7 Sumas Directas ($\oplus$) 📖 [Axler 4ª Ed. §1C]
+### 1.7 Sumas Directas ($\oplus$) [Axler 4ª Ed. §1C]
 La suma $U_1 + \dots + U_m$ se llama **suma directa**, denotada $U_1 \oplus \dots \oplus U_m$, si cada elemento de la suma se puede escribir de **una sola forma** como $u_1 + \dots + u_m$ con $u_j \in U_j$.
 
 ```mermaid
@@ -133,7 +133,7 @@ Figura Visualización de Suma Directa:
 
 ---
 
-## 🛠️ Verificación Computacional en Python (SymPy)
+## Verificación Computacional en Python (SymPy)
 
 ```python
 import sympy as sp
@@ -165,7 +165,7 @@ print(sol)
 
 ## 2A. Espacio Generado e Independencia Lineal
 
-### 2.1 Combinaciones Lineales y Espacio Generado (*Span*) 📖 [Axler 4ª Ed. §2A]
+### 2.1 Combinaciones Lineales y Espacio Generado (*Span*) [Axler 4ª Ed. §2A]
 Una **combinación lineal** de una lista de vectores $(v_1, \dots, v_m)$ en $V$ es un vector de la forma:
 
 $$
@@ -182,7 +182,7 @@ $$
 - Si $\operatorname{span}(v_1, \dots, v_m) = V$, decimos que $(v_1, \dots, v_m)$ **genera** a $V$.
 - Un espacio vectorial $V$ se dice de **dimensión finita** si está generado por alguna lista finita de vectores.
 
-### 2.2 Independencia Lineal 📖 [Axler 4ª Ed. §2A]
+### 2.2 Independencia Lineal [Axler 4ª Ed. §2A]
 Una lista de vectores $(v_1, \dots, v_m)$ en $V$ es **linealmente independiente** si la única elección de escalares $a_1, \dots, a_m \in \mathbb{F}$ que satisface:
 
 $$
@@ -210,7 +210,7 @@ es $a_1 = a_2 = \dots = a_m = 0$.
 
 ## 2B. Bases
 
-### 2.3 Definición de Base 📖 [Axler 4ª Ed. §2B]
+### 2.3 Definición de Base [Axler 4ª Ed. §2B]
 Una **base** de $V$ es una lista de vectores en $V$ que es **linealmente independiente y genera a $V$**.
 
 > [!theorem] Caracterización Única de la Base
@@ -253,7 +253,7 @@ $$
 
 ---
 
-## 🛠️ Verificación Computacional en Python (SymPy)
+## Verificación Computacional en Python (SymPy)
 
 ```python
 import sympy as sp
@@ -286,7 +286,7 @@ print("Dimensión del espacio generado (rango):", len(pivotes))
 
 ## 3A. Espacio Vectorial de Aplicaciones Lineales
 
-### 3.1 Definición de Aplicación Lineal 📖 [Axler 4ª Ed. §3A]
+### 3.1 Definición de Aplicación Lineal [Axler 4ª Ed. §3A]
 Una **aplicación lineal** (o mapa lineal) de $V$ en $W$ es una función $T: V \to W$ que satisface:
 - **Aditividad:** $T(u + v) = T(u) + T(v)$ para todo $u, v \in V$.
 - **Homogeneidad:** $T(\lambda v) = \lambda T(v)$ para todo $\lambda \in \mathbb{F}$ y $v \in V$.
@@ -300,7 +300,7 @@ $\mathcal{L}(V, W)$ es en sí mismo un **espacio vectorial** bajo las operacione
 
 ## 3B. Espacios Nulos e Imagen (Rango)
 
-### 3.3 Espacio Nulo e Inyectividad 📖 [Axler 4ª Ed. §3B]
+### 3.3 Espacio Nulo e Inyectividad [Axler 4ª Ed. §3B]
 Para $T \in \mathcal{L}(V, W)$, el **espacio nulo** (o núcleo) de $T$, denotado $\operatorname{null}(T)$, es el conjunto de vectores de $V$ que $T$ envía al cero:
 
 $$
@@ -320,7 +320,7 @@ $$
 - $\operatorname{range}(T)$ es un **subespacio** de $W$.
 - $T$ es **sobreyectiva** $\iff \operatorname{range}(T) = W$.
 
-### 3.5 Teorema Fundamental de las Aplicaciones Lineales 📖 [Axler 4ª Ed. §3B]
+### 3.5 Teorema Fundamental de las Aplicaciones Lineales [Axler 4ª Ed. §3B]
 > [!theorem] Teorema Fundamental de las Aplicaciones Lineales (Teorema Rango-Nulidad)
 > Sea $V$ un espacio vectorial de dimensión finita y $T \in \mathcal{L}(V, W)$. Entonces $\operatorname{range}(T)$ es de dimensión finita y:
 >
@@ -381,7 +381,7 @@ $$
 
 ---
 
-## 🛠️ Verificación Computacional en Python (SymPy)
+## Verificación Computacional en Python (SymPy)
 
 ```python
 import sympy as sp
@@ -418,7 +418,7 @@ print(f"Teorema Fundamental: {dim_V} = {len(null_space)} + {len(range_space)} ->
 
 ## 4.1 Raíces y Algoritmo de la División
 
-### 4.1 Notación de Polinomios 📖 [Axler 4ª Ed. Cap. 4]
+### 4.1 Notación de Polinomios [Axler 4ª Ed. Cap. 4]
 Un **polinomio** con coeficientes en $\mathbb{F}$ es una función $p: \mathbb{F} \to \mathbb{F}$ de la forma:
 
 $$
@@ -453,7 +453,7 @@ Un número $\lambda \in \mathbb{F}$ es un **cero** (o raíz) de $p \in \mathcal{
 
 ## 4.2 Factorización sobre $\mathbb{C}$ y $\mathbb{R}$
 
-### 4.4 Teorema Fundamental del Álgebra 📖 [Axler 4ª Ed. Cap. 4]
+### 4.4 Teorema Fundamental del Álgebra [Axler 4ª Ed. Cap. 4]
 > [!theorem] Teorema Fundamental del Álgebra
 > Todo polinomio no constante con coeficientes en $\mathbb{C}$ tiene al menos un cero en $\mathbb{C}$.
 
@@ -480,7 +480,7 @@ Figura Raíces de Polinomios:
 
 ---
 
-## 🛠️ Verificación Computacional en Python (SymPy)
+## Verificación Computacional en Python (SymPy)
 
 ```python
 import sympy as sp
@@ -514,7 +514,7 @@ print("Raíces complejas/reales:", raices)
 
 ## 5A. Subespacios Invariantes y Valores Propios
 
-### 5.1 Subespacios Invariantes 📖 [Axler 4ª Ed. §5A]
+### 5.1 Subespacios Invariantes [Axler 4ª Ed. §5A]
 Dado un operador $T \in \mathcal{L}(V)$, un subespacio $U \subseteq V$ se llama **invariante bajo $T$** si:
 
 $$
@@ -524,7 +524,7 @@ $$
 - Los subespacios triviales $\{0\}$ y $V$ son siempre invariantes bajo cualquier $T \in \mathcal{L}(V)$.
 - El espacio nulo $\operatorname{null}(T)$ y la imagen $\operatorname{range}(T)$ son invariantes bajo $T$.
 
-### 5.2 Valores Propios y Vectores Propios 📖 [Axler 4ª Ed. §5A]
+### 5.2 Valores Propios y Vectores Propios [Axler 4ª Ed. §5A]
 Un escalar $\lambda \in \mathbb{F}$ es un **valor propio** (autovalor) de $T \in \mathcal{L}(V)$ si existe un vector **no nulo** $v \in V$ tal que:
 
 $$
@@ -545,7 +545,7 @@ Figura Representación de Autovectores:
 
 ## 5B. Polinomio Mínimo
 
-### 5.3 Existencia de Valores Propios sobre Espacios Complejos 📖 [Axler 4ª Ed. §5B]
+### 5.3 Existencia de Valores Propios sobre Espacios Complejos [Axler 4ª Ed. §5B]
 > [!theorem] Existencia Global de Autovalores sobre $\mathbb{C}$
 > Todo operador lineal $T \in \mathcal{L}(V)$ sobre un espacio vectorial de dimensión finita **complejo y no nulo** ($V \neq \{0\}$ sobre $\mathbb{C}$) tiene al menos un valor propio.
 
@@ -589,7 +589,7 @@ $$
 
 ---
 
-## 🛠️ Verificación Computacional en Python (SymPy)
+## Verificación Computacional en Python (SymPy)
 
 ```python
 import sympy as sp
@@ -627,7 +627,7 @@ print("Matriz Diagonal D:\n", D)
 
 ## 6A. Productos Internos y Normas
 
-### 6.1 Definición de Producto Interno 📖 [Axler 4ª Ed. §6A]
+### 6.1 Definición de Producto Interno [Axler 4ª Ed. §6A]
 Un **producto interno** en $V$ es una función $\langle \cdot, \cdot \rangle: V \times V \to \mathbb{F}$ que asigna a cada par de vectores $u, v \in V$ un escalar $\langle u, v \rangle \in \mathbb{F}$ satisfaciendo:
 
 1. **Positividad:** $\langle v, v \rangle \ge 0$ para todo $v \in V$.
@@ -639,7 +639,7 @@ Un **producto interno** en $V$ es una función $\langle \cdot, \cdot \rangle: V 
 ### 6.2 Norma y Distancia
 La **norma** de un vector $v \in V$ se define por $\|v\| = \sqrt{\langle v, v \rangle}$.
 
-> [!theorem] Desigualdad de Cauchy-Schwarz 📖 [Axler 4th Ed. §6A]
+> [!theorem] Desigualdad de Cauchy-Schwarz [Axler 4th Ed. §6A]
 > Para todos los vectores $u, v \in V$:
 >
 > $$
@@ -659,7 +659,7 @@ La **norma** de un vector $v \in V$ se define por $\|v\| = \sqrt{\langle v, v \r
 
 ## 6B. Bases Ortonormales
 
-### 6.3 Listas Ortonormales y Gram-Schmidt 📖 [Axler 4ª Ed. §6B]
+### 6.3 Listas Ortonormales y Gram-Schmidt [Axler 4ª Ed. §6B]
 - Una lista de vectores $(e_1, \dots, e_m)$ es **ortogonal** si $\langle e_j, e_k \rangle = 0$ para todo $j \neq k$.
 - Es **ortonormal** si además $\|e_j\| = 1$ para todo $j$.
 
@@ -700,7 +700,7 @@ Para $T \in \mathcal{L}(V, W)$, la **pseudoinversa** (o inversa de Moore-Penrose
 
 ---
 
-## 🛠️ Verificación Computacional en Python (SymPy)
+## Verificación Computacional en Python (SymPy)
 
 ```python
 import sympy as sp
@@ -734,7 +734,7 @@ for e in ortho_basis:
 
 ## 7A. Operadores Autoadjuntos y Normales
 
-### 7.1 Adjunto de un Operador 📖 [Axler 4ª Ed. §7A]
+### 7.1 Adjunto de un Operador [Axler 4ª Ed. §7A]
 Dado $T \in \mathcal{L}(V, W)$, el **operador adjunto** $T^* \in \mathcal{L}(W, V)$ es el único operador que satisface:
 
 $$
@@ -761,11 +761,11 @@ $$
 
 ## 7B. Teorema Espectral
 
-### 7.4 Teorema Espectral Complejo 📖 [Axler 4ª Ed. §7B]
+### 7.4 Teorema Espectral Complejo [Axler 4ª Ed. §7B]
 > [!theorem] Teorema Espectral Complejo
 > Supóngase que $\mathbb{F} = \mathbb{C}$ y $V$ es un espacio con producto interno de dimensión finita. Un operador $T \in \mathcal{L}(V)$ es **normal** $\iff V$ tiene una **base ortonormal de autovectores** de $T$.
 
-### 7.5 Teorema Espectral Real 📖 [Axler 4ª Ed. §7B]
+### 7.5 Teorema Espectral Real [Axler 4ª Ed. §7B]
 > [!theorem] Teorema Espectral Real
 > Supóngase que $\mathbb{F} = \mathbb{R}$ y $V$ es un espacio con producto interno de dimensión finita. Un operador $T \in \mathcal{L}(V)$ es **autoadjunto** $\iff V$ tiene una **base ortonormal de autovectores** de $T$.
 
@@ -785,7 +785,7 @@ Un operador $S \in \mathcal{L}(V)$ es una **isometría** si preserva la norma: $
 
 ## 7E. Descomposición en Valores Singulares (SVD)
 
-### 7.8 Valores Singulares y Teorema SVD 📖 [Axler 4ª Ed. §7E]
+### 7.8 Valores Singulares y Teorema SVD [Axler 4ª Ed. §7E]
 Los **valores singulares** de $T \in \mathcal{L}(V, W)$ son las raíces cuadradas de los autovalores del operador autoadjunto y positivo $T^* T$:
 
 $$
@@ -808,7 +808,7 @@ Figura Descomposición en Valores Singulares (SVD):
 
 ---
 
-## 🛠️ Verificación Computacional en Python (SymPy / NumPy)
+## Verificación Computacional en Python (SymPy / NumPy)
 
 ```python
 import numpy as np
@@ -841,7 +841,7 @@ print("Valores singulares sigma_j:", S)
 
 ## 8A. Autovectores Generalizados
 
-### 8.1 Definición de Autovector Generalizado 📖 [Axler 4ª Ed. §8A]
+### 8.1 Definición de Autovector Generalizado [Axler 4ª Ed. §8A]
 Dado $T \in \mathcal{L}(V)$ y un valor propio $\lambda \in \mathbb{F}$, un vector $v \in V$ se llama **autovector generalizado** de $T$ correspondiente a $\lambda$ si:
 
 $$
@@ -868,7 +868,7 @@ $$
 
 ## 8B. Operadores Nilpotentes
 
-### 8.3 Definición de Operador Nilpotente 📖 [Axler 4ª Ed. §8B]
+### 8.3 Definición de Operador Nilpotente [Axler 4ª Ed. §8B]
 Un operador $N \in \mathcal{L}(V)$ se llama **nilpotente** si existe un entero $k \in \mathbb{Z}^+$ tal que:
 
 $$
@@ -887,7 +887,7 @@ Figura Forma Canónica de Jordan y Descomposición Nilpotente:
 
 ## 8D. Forma Canónica de Jordan
 
-### 8.4 Bloques de Jordan y Base de Jordan 📖 [Axler 4ª Ed. §8D]
+### 8.4 Bloques de Jordan y Base de Jordan [Axler 4ª Ed. §8D]
 Un **bloque de Jordan** de orden $k$ correspondiente al escalar $\lambda$, denotado $J_k(\lambda)$, es una matriz cuadrada $k \times k$ de la forma:
 
 $$
@@ -915,7 +915,7 @@ $$
 
 ---
 
-## 🛠️ Verificación Computacional en Python (SymPy)
+## Verificación Computacional en Python (SymPy)
 
 ```python
 import sympy as sp
@@ -945,7 +945,7 @@ print("Forma Canónica de Jordan J:\n", J)
 
 ## 9A. Formas Bilineales
 
-### 9.1 Definición de Forma Bilineal 📖 [Axler 4ª Ed. §9A]
+### 9.1 Definición de Forma Bilineal [Axler 4ª Ed. §9A]
 Una **forma bilineal** en $V$ es una función $\beta: V \times V \to \mathbb{F}$ que es lineal en cada entrada individualmente:
 - $\beta(u_1 + u_2, v) = \beta(u_1, v) + \beta(u_2, v)$
 - $\beta(\lambda u, v) = \lambda \beta(u, v)$
@@ -960,7 +960,7 @@ Una **forma bilineal** en $V$ es una función $\beta: V \times V \to \mathbb{F}$
 
 ## 9B. Formas Multilineales y Formas Alternadas
 
-### 9.3 Definición de Forma Multilineal 📖 [Axler 4ª Ed. §9B]
+### 9.3 Definición de Forma Multilineal [Axler 4ª Ed. §9B]
 Para $n \in \mathbb{Z}^+$, una **forma $n$-lineal** en $V$ es una función $f: V^n \to \mathbb{F}$ que es lineal en cada una de sus $n$ entradas.
 
 ### 9.4 Formas $n$-lineales Alternadas
@@ -973,7 +973,7 @@ Una forma $n$-lineal $f$ es **alternada** si $f(v_1, \dots, v_n) = 0$ siempre qu
 
 ## 9C. Determinantes mediante Formas Multilineales
 
-### 9.5 Construcción del Determinante 📖 [Axler 4ª Ed. §9C]
+### 9.5 Construcción del Determinante [Axler 4ª Ed. §9C]
 Sea $A \in \mathcal{M}_n(\mathbb{F})$ una matriz cuadrada cuyas columnas son $c_1, \dots, c_n \in \mathbb{F}^n$. El **determinante** de $A$, denotado $\det A$, es el único escalar obtenido al evaluar la única forma $n$-lineal alternada en $\mathbb{F}^n$ que asigna el valor $1$ a la matriz identidad $I_n$:
 
 $$
@@ -992,7 +992,7 @@ Figura Determinante como Forma Multilineal Alternada (Área/Volumen):
 
 ---
 
-## 🛠️ Verificación Computacional en Python (SymPy)
+## Verificación Computacional en Python (SymPy)
 
 ```python
 import sympy as sp
@@ -1023,7 +1023,7 @@ print("¿Es A invertible?:", det_A != 0)
 
 ## 10A. Traza de un Operador
 
-### 10.1 Definición de Traza 📖 [Axler 4ª Ed. §10A]
+### 10.1 Definición de Traza [Axler 4ª Ed. §10A]
 Supóngase que $\mathbb{F} = \mathbb{C}$ y $V$ es un espacio complejo de dimensión finita. Para $T \in \mathcal{L}(V)$ con valores propios distintos $\lambda_1, \dots, \lambda_m$ y multiplicidades algebraicas $d_1, \dots, d_m$ (dimensiones de los subespacios propios generalizados $G(\lambda_j, T)$), la **traza** de $T$, denotada $\operatorname{tr}(T)$, se define por:
 
 $$
@@ -1048,7 +1048,7 @@ $$
 
 ## 10B. Determinante de un Operador
 
-### 10.3 Definición de Determinante 📖 [Axler 4ª Ed. §10B]
+### 10.3 Definición de Determinante [Axler 4ª Ed. §10B]
 Supóngase que $\mathbb{F} = \mathbb{C}$ y $V$ es de dimensión finita. Para $T \in \mathcal{L}(V)$ con autovalores $\lambda_1, \dots, \lambda_m$ y multiplicidades algebraicas $d_1, \dots, d_m$, el **determinante** de $T$, denotado $\det(T)$, se define por:
 
 $$
@@ -1068,7 +1068,7 @@ Figura Traza y Determinante de un Operador Lineal:
 
 ---
 
-## 🛠️ Verificación Computacional en Python (SymPy)
+## Verificación Computacional en Python (SymPy)
 
 ```python
 import sympy as sp
@@ -1094,7 +1094,7 @@ print("Determinante det(A):", det_A)
 
 ---
 
-## ⚡ Enfoque Distintivo de Sheldon Axler (*"Done Right"*)
+## Enfoque Distintivo de Sheldon Axler (*"Done Right"*)
 
 > [!important] Principios Filosóficos de Axler
 > 1. **Evitación de Determinantes Tempranos:** A diferencia de los enfoques tradicionales, Axler introduce valores propios y subespacios invariantes usando el **polinomio mínimo** y vectores, demostrando que los autovalores existen sobre $\mathbb{C}$ sin recurrir a polinomios característicos pesados.
@@ -1103,7 +1103,7 @@ print("Determinante det(A):", det_A)
 
 ---
 
-## 🔗 Enlaces Relacionados
+## Enlaces Relacionados
 - [Nota Maestra — Stanley I. Grossman](../Grossman/Grossman_Algebra_Lineal.md)
 - [Nota Maestra — Matrices y Sistemas](../../Unidad_1_Matrices_y_Sistemas/Matrices.md)
 

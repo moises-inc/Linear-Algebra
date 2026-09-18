@@ -216,24 +216,24 @@ class LinearSystem3D:
             f"pi3: {self.A_np[2,0]:.0f}x + {self.A_np[2,1]:.0f}y + {self.A_np[2,2]:.0f}z = {self.b_np[2,0]:.0f}",
         ]
 
-        # Graficación de cada plano ax + by + cz = d con alpha=0.25
+        # Graficación de cada plano ax + by + cz = d con alpha=0.22 y contornos edgecolor='gray'
         for i in range(3):
             a, b_val, c = self.A_np[i]
             d = self.b_np[i, 0]
 
             if abs(c) >= 1e-4:
                 Z = (d - a * X - b_val * Y) / c
-                ax.plot_surface(X, Y, Z, color=colors[i], alpha=0.25, edgecolor='none', label=plane_labels[i])
+                ax.plot_surface(X, Y, Z, color=colors[i], alpha=0.22, edgecolor='gray', linewidth=0.3, label=plane_labels[i])
             elif abs(b_val) >= 1e-4:
                 z_grid = np.linspace(-5, 5, 35)
                 X_plane, Z_plane = np.meshgrid(x_grid, z_grid)
                 Y_plane = (d - a * X_plane - c * Z_plane) / b_val
-                ax.plot_surface(X_plane, Y_plane, Z_plane, color=colors[i], alpha=0.25, edgecolor='none', label=plane_labels[i])
+                ax.plot_surface(X_plane, Y_plane, Z_plane, color=colors[i], alpha=0.22, edgecolor='gray', linewidth=0.3, label=plane_labels[i])
             elif abs(a) >= 1e-4:
                 z_grid = np.linspace(-5, 5, 35)
                 Y_plane, Z_plane = np.meshgrid(y_grid, z_grid)
                 X_plane = (d - b_val * Y_plane - c * Z_plane) / a
-                ax.plot_surface(X_plane, Y_plane, Z_plane, color=colors[i], alpha=0.25, edgecolor='none', label=plane_labels[i])
+                ax.plot_surface(X_plane, Y_plane, Z_plane, color=colors[i], alpha=0.22, edgecolor='gray', linewidth=0.3, label=plane_labels[i])
 
         handles = [
             plt.Rectangle((0, 0), 1, 1, fc=colors[0], alpha=0.4),
@@ -249,21 +249,27 @@ class LinearSystem3D:
                 y_sol = float(np.linalg.solve(self.A_np, self.b_np.flatten())[1])
                 z_sol = float(np.linalg.solve(self.A_np, self.b_np.flatten())[2])
 
-                # Punto único P0 marcado con s=100
-                ax.scatter([x_sol], [y_sol], [z_sol], color=USS_ACCENT_RED, s=100, zorder=10,
-                           edgecolor='black', linewidth=1.2)
+                # Punto único P0 marcado y destacado
+                ax.scatter([x_sol], [y_sol], [z_sol], color=USS_ACCENT_RED, s=130, zorder=10,
+                           edgecolor='black', linewidth=1.5)
 
-                # Líneas guía discontinuas a los planos cartesianos
-                ax.plot([x_sol, x_sol], [y_sol, y_sol], [-5, z_sol], color=USS_ACCENT_RED, linestyle='--', alpha=0.6, linewidth=1.0)
-                ax.plot([x_sol, x_sol], [-5, y_sol], [z_sol, z_sol], color=USS_ACCENT_RED, linestyle='--', alpha=0.6, linewidth=1.0)
-                ax.plot([-5, x_sol], [y_sol, y_sol], [z_sol, z_sol], color=USS_ACCENT_RED, linestyle='--', alpha=0.6, linewidth=1.0)
+                # Líneas de proyección punteadas desde P0 hasta los planos coordenados
+                ax.plot([x_sol, x_sol], [y_sol, y_sol], [-5, z_sol], color=USS_ACCENT_RED, linestyle=':', alpha=0.8, linewidth=1.3)
+                ax.plot([x_sol, x_sol], [-5, y_sol], [z_sol, z_sol], color=USS_ACCENT_RED, linestyle=':', alpha=0.8, linewidth=1.3)
+                ax.plot([-5, x_sol], [y_sol, y_sol], [z_sol, z_sol], color=USS_ACCENT_RED, linestyle=':', alpha=0.8, linewidth=1.3)
 
-                ax.text(x_sol + 0.3, y_sol + 0.3, z_sol + 0.3,
+                # Marcadores en las proyecciones sobre planos coordenados
+                ax.scatter([x_sol], [y_sol], [-5], color=USS_DARK_GRAY, s=35, alpha=0.7, edgecolors='black', linewidths=0.8)
+                ax.scatter([x_sol], [-5], [z_sol], color=USS_DARK_GRAY, s=35, alpha=0.7, edgecolors='black', linewidths=0.8)
+                ax.scatter([-5], [y_sol], [z_sol], color=USS_DARK_GRAY, s=35, alpha=0.7, edgecolors='black', linewidths=0.8)
+
+                ax.text(x_sol + 0.35, y_sol + 0.35, z_sol + 0.35,
                         f"P0({x_sol:.1f}, {y_sol:.1f}, {z_sol:.1f})",
-                        color=USS_ACCENT_RED, fontweight='bold', fontsize=10)
+                        color=USS_ACCENT_RED, fontweight='bold', fontsize=10,
+                        bbox=dict(boxstyle="round,pad=0.25", fc="white", ec=USS_ACCENT_RED, lw=1.2, alpha=0.9))
 
                 p0_proxy = plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=USS_ACCENT_RED,
-                                      markeredgecolor='black', markersize=8)
+                                      markeredgecolor='black', markersize=9)
                 handles.append(p0_proxy)
                 labels.append(f"Solución única P0({x_sol:.1f}, {y_sol:.1f}, {z_sol:.1f})")
             except Exception:
@@ -283,6 +289,14 @@ class LinearSystem3D:
                     line_pts = np.array(line_pts)
                     ax.plot(line_pts[:, 0], line_pts[:, 1], line_pts[:, 2],
                             color=USS_ACCENT_RED, linewidth=3.5, label="Recta común L(t)")
+
+                    # Punto representativo sobre la recta L(t) y líneas de proyección
+                    p_mid = line_pts[len(line_pts)//2]
+                    ax.scatter([p_mid[0]], [p_mid[1]], [p_mid[2]], color=USS_ACCENT_RED, s=80,
+                               zorder=10, edgecolor='black', linewidth=1.2)
+                    ax.plot([p_mid[0], p_mid[0]], [p_mid[1], p_mid[1]], [-5, p_mid[2]], color=USS_ACCENT_RED, linestyle=':', alpha=0.7, linewidth=1.1)
+                    ax.plot([p_mid[0], p_mid[0]], [-5, p_mid[1]], [p_mid[2], p_mid[2]], color=USS_ACCENT_RED, linestyle=':', alpha=0.7, linewidth=1.1)
+                    ax.plot([-5, p_mid[0]], [p_mid[1], p_mid[1]], [p_mid[2], p_mid[2]], color=USS_ACCENT_RED, linestyle=':', alpha=0.7, linewidth=1.1)
 
                     line_proxy = plt.Line2D([0], [0], color=USS_ACCENT_RED, lw=3.5)
                     handles.append(line_proxy)

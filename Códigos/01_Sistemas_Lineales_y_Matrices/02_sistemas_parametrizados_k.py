@@ -197,74 +197,137 @@ class ParametricSystemAnalyzer:
             f"pi3: x + y + {k_val:.1f}z = 1"
         ]
 
-        # Graficar los 3 planos con alpha=0.25
-        for i in range(3):
-            a, b_c, c = A_num[i]
-            d = b_num[i]
-            if abs(c) >= 1e-4:
-                Z = (d - a * X - b_c * Y) / c
-                ax.plot_surface(X, Y, Z, color=colors[i], alpha=0.25, edgecolor='none', label=plane_labels[i])
-
-        handles = [
-            plt.Rectangle((0, 0), 1, 1, fc=colors[0], alpha=0.4),
-            plt.Rectangle((0, 0), 1, 1, fc=colors[1], alpha=0.4),
-            plt.Rectangle((0, 0), 1, 1, fc=colors[2], alpha=0.4),
-        ]
-        labels = list(plane_labels)
-
-        # Clasificación matemática según el valor de k
+        # Graficación según el caso geométrico
         if abs(k_val - 1.0) < 1e-4:
             # Caso SCI (k = 1): Planos coincidentes
+            # Graficar el plano común x + y + z = 1 con máxima elegancia
+            Z = 1.0 - X - Y
+            ax.plot_surface(X, Y, Z, color=USS_BLUE, alpha=0.25, edgecolor='gray', linewidth=0.3)
+
+            # Triángulo de trazas sobre los planos coordenados
+            pts_trazas = np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0], [1.0, 0.0, 0.0]])
+            ax.plot(pts_trazas[:, 0], pts_trazas[:, 1], pts_trazas[:, 2], color=USS_GOLD, linewidth=2.5,
+                    linestyle='-', label="Traza triangular en ejes cartesianos")
+            ax.scatter([1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [0.0, 0.0, 1.0], color=USS_GOLD, s=60, edgecolors='black')
+
+            # Vector normal unitario n = (1, 1, 1) erigido desde el baricentro (1/3, 1/3, 1/3)
+            p_bar = np.array([1/3, 1/3, 1/3])
+            ax.quiver(p_bar[0], p_bar[1], p_bar[2], 1.2, 1.2, 1.2, color=USS_ACCENT_RED,
+                      linewidth=3.0, arrow_length_ratio=0.18, label=r"$\vec{n} = (1, 1, 1)$ (Normal común)")
+
             title_str = (f"Rouché-Frobenius: Sistema Compatible Indeterminado (k = 1.0)\n"
                          f"rg(A) = 1, rg(A|b) = 1, n = 3 | 3 Planos coincidentes en x + y + z = 1")
-            ax.text(0, 0, 1.6, "Planos coincidentes\npi1 == pi2 == pi3\nx + y + z = 1",
-                    color=USS_BLUE, fontweight='bold', fontsize=10,
-                    bbox=dict(boxstyle="round,pad=0.3", fc="white", ec=USS_GOLD, lw=1.5))
+
+            handles = [
+                plt.Rectangle((0, 0), 1, 1, fc=USS_BLUE, alpha=0.35),
+                plt.Line2D([0], [0], color=USS_GOLD, lw=2.5),
+                plt.Line2D([0], [0], color=USS_ACCENT_RED, lw=3.0)
+            ]
+            labels = [
+                r"$\pi_1 \equiv \pi_2 \equiv \pi_3: x + y + z = 1$",
+                "Traza triangular (interceptos en 1)",
+                r"Normal común $\vec{n} = (1, 1, 1)$"
+            ]
+
+            ax.text(0, 0, 2.0, "Planos Coincidentes\npi1 == pi2 == pi3\nx + y + z = 1\n(2 Grados de libertad)",
+                    color=USS_BLUE, fontweight='bold', fontsize=9.5,
+                    bbox=dict(boxstyle="round,pad=0.3", fc="white", ec=USS_GOLD, lw=1.5, alpha=0.92))
 
         elif abs(k_val - (-2.0)) < 1e-4:
-            # Caso SI (k = -2): Prisma triangular
+            # Caso SI (k = -2): Prisma triangular hueco
+            # Graficar los 3 planos con alpha=0.22 y contornos grises
+            for i in range(3):
+                a, b_c, c = A_num[i]
+                d = b_num[i]
+                if abs(c) >= 1e-4:
+                    Z = (d - a * X - b_c * Y) / c
+                    ax.plot_surface(X, Y, Z, color=colors[i], alpha=0.22, edgecolor='gray', linewidth=0.3)
+
             title_str = (f"Rouché-Frobenius: Sistema Incompatible (k = -2.0)\n"
                          f"rg(A) = 2, rg(A|b) = 3, n = 3 | Prisma triangular sin punto común")
 
-            t = np.linspace(-2.5, 2.5, 50)
+            t = np.linspace(-2.5, 2.5, 60)
             # Recta r12: x=t, y=t, z=t+1
-            ax.plot(t, t, t + 1, color=USS_ACCENT_RED, linewidth=2.5, linestyle='-')
+            ax.plot(t, t, t + 1, color=USS_ACCENT_RED, linewidth=3.0, linestyle='-')
             # Recta r13: x=t, z=t, y=t+1
-            ax.plot(t, t + 1, t, color=USS_ACCENT_GREEN, linewidth=2.5, linestyle='-')
+            ax.plot(t, t + 1, t, color=USS_ACCENT_GREEN, linewidth=3.0, linestyle='-')
             # Recta r23: y=t, z=t, x=t+1
-            ax.plot(t + 1, t, t, color=USS_GOLD, linewidth=2.5, linestyle='-')
+            ax.plot(t + 1, t, t, color=USS_GOLD, linewidth=3.0, linestyle='-')
 
-            h_r12 = plt.Line2D([0], [0], color=USS_ACCENT_RED, lw=2.5)
-            h_r13 = plt.Line2D([0], [0], color=USS_ACCENT_GREEN, lw=2.5)
-            h_r23 = plt.Line2D([0], [0], color=USS_GOLD, lw=2.5)
-            handles.extend([h_r12, h_r13, h_r23])
-            labels.extend(["Intersección pi1 y pi2", "Intersección pi1 y pi3", "Intersección pi2 y pi3"])
+            # Secciones transversales triangulares del prisma en t = -1.2, 0.0, 1.2
+            for t_sec in [-1.2, 0.0, 1.2]:
+                v_tri = np.array([
+                    [t_sec, t_sec, t_sec + 1],
+                    [t_sec, t_sec + 1, t_sec],
+                    [t_sec + 1, t_sec, t_sec],
+                    [t_sec, t_sec, t_sec + 1]
+                ])
+                ax.plot(v_tri[:, 0], v_tri[:, 1], v_tri[:, 2], color=USS_DARK_GRAY,
+                        linestyle='--', linewidth=1.5, alpha=0.85)
+                ax.scatter(v_tri[:-1, 0], v_tri[:-1, 1], v_tri[:-1, 2], color=USS_DARK_GRAY, s=25, alpha=0.8)
 
-            ax.text(0, 0, 2.2, "3 Rectas paralelas disjuntas\n(Prisma triangular hueco)",
+            handles = [
+                plt.Rectangle((0, 0), 1, 1, fc=colors[0], alpha=0.35),
+                plt.Rectangle((0, 0), 1, 1, fc=colors[1], alpha=0.35),
+                plt.Rectangle((0, 0), 1, 1, fc=colors[2], alpha=0.35),
+                plt.Line2D([0], [0], color=USS_ACCENT_RED, lw=3.0),
+                plt.Line2D([0], [0], color=USS_ACCENT_GREEN, lw=3.0),
+                plt.Line2D([0], [0], color=USS_GOLD, lw=3.0),
+                plt.Line2D([0], [0], color=USS_DARK_GRAY, lw=1.5, linestyle='--')
+            ]
+            labels = [
+                plane_labels[0],
+                plane_labels[1],
+                plane_labels[2],
+                "Intersección pi1 y pi2: (t, t, t+1)",
+                "Intersección pi1 y pi3: (t, t+1, t)",
+                "Intersección pi2 y pi3: (t+1, t, t)",
+                "Secciones triangulares transversales"
+            ]
+
+            ax.text(0, 0, 2.2, "Prisma triangular hueco\n3 Rectas paralelas disjuntas\nVector director d = (1, 1, 1)",
                     color=USS_ACCENT_RED, fontweight='bold', fontsize=9.5,
-                    bbox=dict(boxstyle="round,pad=0.3", fc="white", ec=USS_ACCENT_RED, lw=1.5))
+                    bbox=dict(boxstyle="round,pad=0.3", fc="white", ec=USS_ACCENT_RED, lw=1.5, alpha=0.92))
 
         else:
             # Caso SCD (k != 1 y k != -2): Solución única P0
+            for i in range(3):
+                a, b_c, c = A_num[i]
+                d = b_num[i]
+                if abs(c) >= 1e-4:
+                    Z = (d - a * X - b_c * Y) / c
+                    ax.plot_surface(X, Y, Z, color=colors[i], alpha=0.22, edgecolor='gray', linewidth=0.3)
+
             sol = np.linalg.solve(A_num, b_num)
             title_str = (f"Rouché-Frobenius: Sistema Compatible Determinado (k = {k_val:.1f})\n"
                          f"rg(A) = 3, rg(A|b) = 3, n = 3 | Solución única P0({sol[0]:.2f}, {sol[1]:.2f}, {sol[2]:.2f})")
 
-            ax.scatter([sol[0]], [sol[1]], [sol[2]], color=USS_ACCENT_RED, s=100, zorder=10,
-                       edgecolor='black', linewidth=1.2)
-            ax.text(sol[0] + 0.2, sol[1] + 0.2, sol[2] + 0.2,
+            # Marcador destacado para P0
+            ax.scatter([sol[0]], [sol[1]], [sol[2]], color=USS_ACCENT_RED, s=130, zorder=10,
+                       edgecolor='black', linewidth=1.5)
+            ax.text(sol[0] + 0.25, sol[1] + 0.25, sol[2] + 0.25,
                     f"P0({sol[0]:.2f}, {sol[1]:.2f}, {sol[2]:.2f})",
-                    color=USS_ACCENT_RED, fontweight='bold', fontsize=10)
+                    color=USS_ACCENT_RED, fontweight='bold', fontsize=10,
+                    bbox=dict(boxstyle="round,pad=0.25", fc="white", ec=USS_ACCENT_RED, lw=1.2, alpha=0.9))
 
-            # Guías cartesianas
-            ax.plot([sol[0], sol[0]], [sol[1], sol[1]], [-3, sol[2]], color=USS_ACCENT_RED, linestyle='--', alpha=0.6, linewidth=1.0)
-            ax.plot([sol[0], sol[0]], [-3, sol[1]], [sol[2], sol[2]], color=USS_ACCENT_RED, linestyle='--', alpha=0.6, linewidth=1.0)
-            ax.plot([-3, sol[0]], [sol[1], sol[1]], [sol[2], sol[2]], color=USS_ACCENT_RED, linestyle='--', alpha=0.6, linewidth=1.0)
+            # Líneas de proyección punteadas a los planos coordenados
+            ax.plot([sol[0], sol[0]], [sol[1], sol[1]], [-3, sol[2]], color=USS_ACCENT_RED, linestyle=':', alpha=0.8, linewidth=1.3)
+            ax.plot([sol[0], sol[0]], [-3, sol[1]], [sol[2], sol[2]], color=USS_ACCENT_RED, linestyle=':', alpha=0.8, linewidth=1.3)
+            ax.plot([-3, sol[0]], [sol[1], sol[1]], [sol[2], sol[2]], color=USS_ACCENT_RED, linestyle=':', alpha=0.8, linewidth=1.3)
 
-            p0_proxy = plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=USS_ACCENT_RED,
-                                  markeredgecolor='black', markersize=8)
-            handles.append(p0_proxy)
-            labels.append(f"Solución P0({sol[0]:.2f}, {sol[1]:.2f}, {sol[2]:.2f})")
+            # Marcadores en las proyecciones
+            ax.scatter([sol[0]], [sol[1]], [-3], color=USS_DARK_GRAY, s=35, alpha=0.7, edgecolors='black', linewidths=0.8)
+            ax.scatter([sol[0]], [-3], [sol[2]], color=USS_DARK_GRAY, s=35, alpha=0.7, edgecolors='black', linewidths=0.8)
+            ax.scatter([-3], [sol[1]], [sol[2]], color=USS_DARK_GRAY, s=35, alpha=0.7, edgecolors='black', linewidths=0.8)
+
+            handles = [
+                plt.Rectangle((0, 0), 1, 1, fc=colors[0], alpha=0.35),
+                plt.Rectangle((0, 0), 1, 1, fc=colors[1], alpha=0.35),
+                plt.Rectangle((0, 0), 1, 1, fc=colors[2], alpha=0.35),
+                plt.Line2D([0], [0], marker='o', color='w', markerfacecolor=USS_ACCENT_RED,
+                           markeredgecolor='black', markersize=9)
+            ]
+            labels = list(plane_labels) + [f"Solución P0({sol[0]:.2f}, {sol[1]:.2f}, {sol[2]:.2f})"]
 
         ax.set_title(title_str, fontsize=11, fontweight='bold', color=USS_BLUE, pad=15)
         ax.set_xlabel('Eje X', fontsize=10, fontweight='bold', color=USS_DARK_GRAY)

@@ -6,14 +6,14 @@ editorial: "McGraw-Hill / Interamericana Editores (2012)"
 tags: [universidad, uss, algebra-lineal, grossman, nota-maestra, libro-completo, matrices, espacios-vectoriales, autovalores]
 ---
 
-# 📘 Álgebra Lineal — Nota Maestra del Libro (Stanley I. Grossman, 7ª Edición)
+# Álgebra Lineal — Nota Maestra del Libro (Stanley I. Grossman, 7ª Edición)
 
 > [!NOTE]
 > Esta es la **Nota Maestra Unificada** que consolida el contenido completo de los 8 capítulos del texto clásico de **Stanley I. Grossman y José Job Flores Godoy** (*Álgebra Lineal*, 7ª Edición, McGraw-Hill, 764 páginas). Incluye desarrollo teórico riguroso, teoremas demostrados, ejemplos resueltos paso a paso, código Python de verificación (`sympy`/`numpy`) e ilustraciones vectoriales.
 
 ---
 
-## 🗂️ Índice General del Libro
+## Índice General del Libro
 
 - [Capítulo 1: Sistemas de Ecuaciones Lineales](#capítulo-1-sistemas-de-ecuaciones-lineales)
 - [Capítulo 2: Vectores y Matrices](#capítulo-2-vectores-y-matrices)
@@ -33,9 +33,9 @@ tags: [universidad, uss, algebra-lineal, grossman, nota-maestra, libro-completo,
 
 
 > [!info] Leyenda de trazabilidad
-> - **📖 [Grossman 7ª Ed.]**: síntesis de las secciones 1.1–1.4 del PDF de Stanley I. Grossman, 7ª edición, pp. 1–44. Se conserva la organización conceptual y la numeración de los teoremas, pero la redacción y los ejemplos de comprobación son propios.
-> - **🌐 [Enriquecimiento Web / Referencias Externas]**: documentación oficial de SymPy, NumPy y Matplotlib para traducir el flujo de MATLAB a Python y distinguir cálculo exacto de cálculo numérico.
-> - **🧪 Verificación computacional propia**: el bloque Python combina SymPy para RREF exacta y NumPy para la comprobación numérica; el script de la figura usa backend `Agg`.
+> - **[Grossman 7ª Ed.]**: síntesis de las secciones 1.1–1.4 del PDF de Stanley I. Grossman, 7ª edición, pp. 1–44. Se conserva la organización conceptual y la numeración de los teoremas, pero la redacción y los ejemplos de comprobación son propios.
+> - **[Enriquecimiento Web / Referencias Externas]**: documentación oficial de SymPy, NumPy y Matplotlib para traducir el flujo de MATLAB a Python y distinguir cálculo exacto de cálculo numérico.
+> - **Verificación computacional propia**: el bloque Python combina SymPy para RREF exacta y NumPy para la comprobación numérica; el script de la figura usa backend `Agg`.
 
 **Fuente primaria:** PDF de Grossman, 7ª edición.
 
@@ -98,7 +98,7 @@ La figura visualiza los tres resultados geométricos de un sistema $2\times2$: u
 
 ---
 
-## 1.1 Dos ecuaciones lineales con dos incógnitas · 📖 [Grossman 7ª Ed.]
+## 1.1 Dos ecuaciones lineales con dos incógnitas · [Grossman 7ª Ed.]
 
 ### Modelo y lectura geométrica
 
@@ -280,7 +280,7 @@ Antes de hacer cálculos largos, conviene revisar si las ecuaciones son múltipl
 
 ---
 
-## 1.2 $m$ ecuaciones con $n$ incógnitas: Gauss-Jordan y gaussiana · 📖 [Grossman 7ª Ed.]
+## 1.2 $m$ ecuaciones con $n$ incógnitas: Gauss-Jordan y gaussiana · [Grossman 7ª Ed.]
 
 ### Sistema general y matriz aumentada
 
@@ -510,7 +510,7 @@ Los sistemas lineales modelan balances de recursos. Si $x_i$ representa la produ
 
 ---
 
-## 1.3 Introducción a MATLAB traducida a Python · 📖 [Grossman 7ª Ed.]
+## 1.3 Introducción a MATLAB traducida a Python · [Grossman 7ª Ed.]
 
 Grossman introduce MATLAB como una calculadora matricial interactiva. En Python se conserva la idea, pero se separan dos herramientas:
 
@@ -627,7 +627,7 @@ print("Base del espacio nulo de H:", null_basis)
 
 ---
 
-## 1.4 Sistemas homogéneos de ecuaciones · 📖 [Grossman 7ª Ed.]
+## 1.4 Sistemas homogéneos de ecuaciones · [Grossman 7ª Ed.]
 
 ### Definición
 
@@ -806,7 +806,7 @@ Esta lectura anticipa el estudio posterior de espacios vectoriales, combinación
 
 ---
 
-## 🌐 [Enriquecimiento Web / Referencias Externas]
+## [Enriquecimiento Web / Referencias Externas]
 
 La traducción computacional de este capítulo no es una sustitución mecánica de nombres de comandos; también exige distinguir exactitud simbólica, indexación y redondeo.
 
@@ -833,8 +833,8 @@ La consecuencia práctica es clara: usar SymPy para demostrar, parametrizar y ve
 
 ## Fuentes
 
-- **📖 [Grossman 7ª Ed.]**: Stanley I. Grossman y José Job Flores Godoy, *Álgebra lineal*, séptima edición, McGraw-Hill/Interamericana, capítulo 1, pp. 1–44. .
-- **🌐 [Enriquecimiento Web / Referencias Externas]**: documentación oficial de SymPy, NumPy y Matplotlib enlazada en la sección anterior.
+- **[Grossman 7ª Ed.]**: Stanley I. Grossman y José Job Flores Godoy, *Álgebra lineal*, séptima edición, McGraw-Hill/Interamericana, capítulo 1, pp. 1–44. .
+- **[Enriquecimiento Web / Referencias Externas]**: documentación oficial de SymPy, NumPy y Matplotlib enlazada en la sección anterior.
 
 ---
 
@@ -844,9 +844,9 @@ La consecuencia práctica es clara: usar SymPy para demostrar, parametrizar y ve
 # Capítulo 2: Vectores y matrices
 
 > [!info] Leyenda de trazabilidad
-> - 📖 [Grossman 7ª Ed.]: síntesis de las secciones 2.1–2.8 del PDF fuente, pp. 46–174. Las definiciones, hipótesis, teoremas y ejemplos del libro se reformulan; no se transcriben.
-> - 🌐 [Enriquecimiento Web / Referencias Externas]: documentación oficial de SymPy, NumPy y NetworkX, más una referencia institucional sobre Wassily Leontief.
-> - 🧪 [Verificación computacional propia]: los cálculos de los ejemplos y del bloque de código se pueden reproducir con SymPy y NumPy.
+> - [Grossman 7ª Ed.]: síntesis de las secciones 2.1–2.8 del PDF fuente, pp. 46–174. Las definiciones, hipótesis, teoremas y ejemplos del libro se reformulan; no se transcriben.
+> - [Enriquecimiento Web / Referencias Externas]: documentación oficial de SymPy, NumPy y NetworkX, más una referencia institucional sobre Wassily Leontief.
+> - [Verificación computacional propia]: los cálculos de los ejemplos y del bloque de código se pueden reproducir con SymPy y NumPy.
 
 **Fuente primaria:** Álgebra Lineal (7ª Edición), capítulo 2. Se conserva la numeración original de Grossman para facilitar la consulta cruzada.
 
@@ -895,7 +895,7 @@ flowchart LR
 
 ---
 
-## 2.1 Definiciones generales · 📖 [Grossman 7ª Ed.]
+## 2.1 Definiciones generales · [Grossman 7ª Ed.]
 
 ### Vectores y escalares
 
@@ -1010,7 +1010,7 @@ $$
 
 ---
 
-## 2.2 Productos vectorial y matricial · 📖 [Grossman 7ª Ed.]
+## 2.2 Productos vectorial y matricial · [Grossman 7ª Ed.]
 
 ### Producto escalar
 
@@ -1206,7 +1206,7 @@ La multiplicación matricial acumula todas las rutas de transición posibles, de
 
 ---
 
-## 2.3 Matrices y sistemas de ecuaciones lineales · 📖 [Grossman 7ª Ed.]
+## 2.3 Matrices y sistemas de ecuaciones lineales · [Grossman 7ª Ed.]
 
 ### Forma matricial
 
@@ -1297,7 +1297,7 @@ La segunda lectura es especialmente útil para distinguir existencia de solució
 
 ---
 
-## 2.4 Inversa de una matriz cuadrada · 📖 [Grossman 7ª Ed.]
+## 2.4 Inversa de una matriz cuadrada · [Grossman 7ª Ed.]
 
 ### Identidad e inversa
 
@@ -1488,7 +1488,7 @@ si \(I-A\) es invertible. La inversa incorpora las rondas indirectas de producci
 
 ---
 
-## 2.5 Transpuesta de una matriz · 📖 [Grossman 7ª Ed.]
+## 2.5 Transpuesta de una matriz · [Grossman 7ª Ed.]
 
 ### Definición
 
@@ -1562,7 +1562,7 @@ Esto conecta el producto escalar de la sección 2.2 con el producto matricial.
 
 ---
 
-## 2.6 Matrices elementales y matrices inversas · 📖 [Grossman 7ª Ed.]
+## 2.6 Matrices elementales y matrices inversas · [Grossman 7ª Ed.]
 
 ### Operaciones elementales como productos por la izquierda
 
@@ -1671,7 +1671,7 @@ Una matriz triangular superior satisface \(a_{ij}=0\) cuando \(i>j\). Una triang
 
 ---
 
-## 2.7 Factorizaciones LU de una matriz · 📖 [Grossman 7ª Ed.]
+## 2.7 Factorizaciones LU de una matriz · [Grossman 7ª Ed.]
 
 ### Idea de la factorización
 
@@ -1833,7 +1833,7 @@ En matrices singulares o rectangulares, la factorización puede no ser única.
 
 ---
 
-## 2.8 Teoría de gráficas: una aplicación de matrices · 📖 [Grossman 7ª Ed.]
+## 2.8 Teoría de gráficas: una aplicación de matrices · [Grossman 7ª Ed.]
 
 ### Gráficas dirigidas y matriz de incidencia
 
@@ -1911,7 +1911,7 @@ Las potencias también describen dominio indirecto: una arista codifica dominio 
 
 ---
 
-## Verificación computacional reproducible · 🧪 [Verificación computacional propia]
+## Verificación computacional reproducible · [Verificación computacional propia]
 
 El siguiente bloque usa aritmética exacta con SymPy y aritmética numérica con NumPy. Valida producto, transpuesta, inversa, LU, solución de \(A\mathbf x=\mathbf b\), y conteo de cadenas. SymPy documenta `Matrix`, `rref`, `T`, `inv` y `LUdecomposition`; NumPy documenta `@`/`matmul` y `numpy.linalg.solve` para matrices cuadradas de rango completo.
 
@@ -1968,7 +1968,7 @@ El script `/grossman_capitulo_2_figura.py` fue creado para esta nota y produce e
 
 La figura hace visible la idea de la sección 2.8: una arista se almacena en \(A\), mientras que una multiplicación \(A^2\) cuenta composiciones de dos aristas.
 
-## 🌐 [Enriquecimiento Web / Referencias Externas]
+## [Enriquecimiento Web / Referencias Externas]
 
 ### Conexiones conceptuales y aplicaciones
 
@@ -2015,11 +2015,13 @@ La figura hace visible la idea de la sección 2.8: una arista se almacena en \(A
 
 
 > [!info] Leyenda de trazabilidad
-> - 📖 [Grossman 7ª Ed.]: síntesis rigurosa de las secciones 3.1–3.5 del PDF fuente, pp. 175–228. Las definiciones, propiedades, teoremas y ejemplos se reformulan; no se transcribe el texto.
-> - 🌐 [Enriquecimiento Web / Referencias Externas]: precisiones históricas, formulación axiomatizada y documentación actual de SymPy/NumPy, separadas en su sección correspondiente.
-> - 🧪 [Verificación computacional propia]: los ejemplos exactos se comprueban con SymPy y los cálculos numéricos con NumPy.
+> - [Grossman 7ª Ed.]: síntesis rigurosa de las secciones 3.1–3.5 del PDF fuente, pp. 175–228. Las definiciones, propiedades, teoremas y ejemplos se reformulan; no se transcribe el texto.
+> - [Enriquecimiento Web / Referencias Externas]: precisiones históricas, formulación axiomatizada y documentación actual de SymPy/NumPy, separadas en su sección correspondiente.
+> - [Verificación computacional propia]: los ejemplos exactos se comprueban con SymPy y los cálculos numéricos con NumPy.
 
 **Fuente primaria:** Álgebra Lineal (7ª Edición), capítulo 3. La figura local se genera con `01_Sistemas_Lineales/grossman_capitulo_3_figura.py` y se guarda como `figuras/grossman_capitulo_3_figura.png`.
+
+![grossman_capitulo_3_figura](figuras/grossman_capitulo_3_figura.png)
 
 ## Idea central
 
@@ -2063,7 +2065,7 @@ flowchart TD
 
 ---
 
-## 3.1 Definiciones y cálculo básico · 📖 [Grossman 7ª Ed.]
+## 3.1 Definiciones y cálculo básico · [Grossman 7ª Ed.]
 
 ### 3.1.1 Qué es un determinante
 
@@ -2249,7 +2251,7 @@ En $\mathbb{R}^{3}$, el análogo es el volumen orientado del paralelepípedo gen
 
 ---
 
-## 3.2 Propiedades de los determinantes · 📖 [Grossman 7ª Ed.]
+## 3.2 Propiedades de los determinantes · [Grossman 7ª Ed.]
 
 La expansión recursiva es conceptualmente suficiente, pero su costo crece demasiado rápido. Una expansión ingenua de una matriz $n\times n$ exige, en esencia, explorar muchos órdenes de $n!$ términos. Las propiedades siguientes permiten triangularizar y calcular de forma eficiente.
 
@@ -2435,7 +2437,7 @@ La propiedad correcta es la linealidad en una sola fila o columna, no la aditivi
 
 ---
 
-## 3.3 Determinantes, cofactores e inversas · 📖 [Grossman 7ª Ed.]
+## 3.3 Determinantes, cofactores e inversas · [Grossman 7ª Ed.]
 
 ### 3.3.1 Determinante de la inversa
 
@@ -2618,7 +2620,7 @@ El determinante agrega el séptimo criterio a la cadena de equivalencias entre i
 
 ---
 
-## 3.4 Regla de Cramer · 📖 [Grossman 7ª Ed.]
+## 3.4 Regla de Cramer · [Grossman 7ª Ed.]
 
 Consideremos un sistema cuadrado
 
@@ -2755,7 +2757,7 @@ Aunque es una fórmula cerrada elegante, para un sistema $n\times n$ requiere ca
 
 ---
 
-## 3.5 Demostración de tres teoremas importantes · 📖 [Grossman 7ª Ed.]
+## 3.5 Demostración de tres teoremas importantes · [Grossman 7ª Ed.]
 
 Esta sección fija tres hechos estructurales que explican por qué la teoría funciona: expansión por cualquier fila o columna, equivalencia entre invertibilidad y determinante no nulo, y multiplicatividad.
 
@@ -2880,7 +2882,7 @@ $$
 
 Los dos casos cubren todas las posibilidades y prueban la identidad.
 
-### 3.5.4 Historia breve y contexto · 🌐 [Enriquecimiento Web / Referencias Externas]
+### 3.5.4 Historia breve y contexto · [Enriquecimiento Web / Referencias Externas]
 
 La historia de los determinantes precede a la teoría moderna de matrices y nació de problemas de sistemas lineales:
 
@@ -2898,7 +2900,7 @@ La formulación moderna permite ver una unidad que no siempre fue histórica: el
 
 ---
 
-## Verificación computacional · 🧪 [Verificación computacional propia]
+## Verificación computacional · [Verificación computacional propia]
 
 El siguiente bloque usa aritmética exacta para evitar redondeos en la teoría y NumPy para contrastar el flujo numérico. Se verifican Sarrus, propiedades, cofactores, adjunta, inversa, Cramer y la solución directa del sistema.
 
@@ -2983,11 +2985,11 @@ SymPy conserva fracciones y símbolos, por lo que es apropiado para demostracion
 
 ## Referencias
 
-### 📖 [Grossman 7ª Ed.]
+### [Grossman 7ª Ed.]
 
 - Grossman, Stanley I. *Álgebra Lineal*, 7ª edición, capítulo 3, pp. 175–230. Fuente local: PDF de la asignatura.
 
-### 🌐 [Enriquecimiento Web / Referencias Externas]
+### [Enriquecimiento Web / Referencias Externas]
 
 - J. J. O'Connor y E. F. Robertson, “Matrices and determinants”, [MacTutor History of Mathematics, University of St Andrews](https://mathshistory.st-andrews.ac.uk/HistTopics/Matrices_and_determinants/). Revisión histórica de métodos chinos, Seki, Leibniz, Cramer, Laplace, Gauss, Cauchy, Jacobi y Sylvester.
 - D. A. Suprunenko, “Determinant”, [Encyclopedia of Mathematics](https://encyclopediaofmath.org/wiki/Determinant). Formulación por multilinealidad, alternancia, expansión por cofactores, Binet–Cauchy e invertibilidad.
@@ -3009,8 +3011,8 @@ SymPy conserva fracciones y símbolos, por lo que es apropiado para demostracion
 
 ## Leyenda de Trazabilidad
 
-- **📖 [Grossman 7ª Ed.]**: definiciones, teoremas, ejemplos y organización conceptual sintetizados desde el capítulo 4 del PDF de Grossman, pp. 232–290. La redacción y los ejemplos de comprobación son propios; no se reproduce el texto fuente.
-- **🌐 [Enriquecimiento Web / Referencias Externas]**: conexiones académicas y documentación técnica consultadas después de la síntesis, separadas en su sección correspondiente.
+- **[Grossman 7ª Ed.]**: definiciones, teoremas, ejemplos y organización conceptual sintetizados desde el capítulo 4 del PDF de Grossman, pp. 232–290. La redacción y los ejemplos de comprobación son propios; no se reproduce el texto fuente.
+- **[Enriquecimiento Web / Referencias Externas]**: conexiones académicas y documentación técnica consultadas después de la síntesis, separadas en su sección correspondiente.
 - **Código**: las identidades se verifican con aritmética exacta de SymPy y operaciones numéricas de NumPy. La figura local se genera con `/grossman_capitulo_4_figura.py`.
 
 ## Mapa conceptual
@@ -3039,7 +3041,7 @@ La figura reúne una proyección en $\mathbb{R}^2$, un producto cruz, un plano c
 
 ## 4.1 Vectores en el plano
 
-**Fuente:** 📖 [Grossman 7ª Ed.] (pp. 232–246; síntesis propia).
+**Fuente:** [Grossman 7ª Ed.] (pp. 232–246; síntesis propia).
 
 ### 4.1.1 Dos lecturas del mismo vector
 
@@ -3180,7 +3182,7 @@ La independencia de $\mathbf{u}$ y $\mathbf{v}$ garantiza que los coeficientes s
 
 ## 4.2 Producto escalar y proyecciones en $\mathbb{R}^2$
 
-**Fuente:** 📖 [Grossman 7ª Ed.] (pp. 247–257; síntesis propia).
+**Fuente:** [Grossman 7ª Ed.] (pp. 247–257; síntesis propia).
 
 ### 4.2.1 Producto escalar
 
@@ -3336,7 +3338,7 @@ El producto negativo confirma antes del cálculo angular que el ángulo es obtus
 
 ## 4.3 Vectores en el espacio
 
-**Fuente:** 📖 [Grossman 7ª Ed.] (pp. 258–268; síntesis propia).
+**Fuente:** [Grossman 7ª Ed.] (pp. 258–268; síntesis propia).
 
 ### 4.3.1 Sistema cartesiano derecho
 
@@ -3464,7 +3466,7 @@ Sean $P=(3,-1,6)$ y $Q=(-2,3,5)$.
 
 ## 4.4 Producto cruz de dos vectores
 
-**Fuente:** 📖 [Grossman 7ª Ed.] (pp. 269–278; síntesis propia).
+**Fuente:** [Grossman 7ª Ed.] (pp. 269–278; síntesis propia).
 
 ### 4.4.1 Definición y cálculo
 
@@ -3657,7 +3659,7 @@ Sean $P=(1,3,-2)$, $Q=(2,1,4)$ y $R=(-3,1,6)$ vértices consecutivos.
 
 ## 4.5 Rectas y planos en $\mathbb{R}^3$
 
-**Fuente:** 📖 [Grossman 7ª Ed.] (pp. 279–290; síntesis propia).
+**Fuente:** [Grossman 7ª Ed.] (pp. 279–290; síntesis propia).
 
 ### 4.5.1 Recta determinada por un punto y una dirección
 
@@ -3958,7 +3960,7 @@ print("PASS: Chapter 4 identities verified")
 
 ---
 
-## 🌐 [Enriquecimiento Web / Referencias Externas]
+## [Enriquecimiento Web / Referencias Externas]
 
 Estas referencias complementan la exposición de Grossman; no sustituyen la fuente primaria del capítulo.
 
@@ -3997,15 +3999,15 @@ Grossman sitúa el producto cruz en la tradición de Hamilton y Gibbs. En aplica
 > 4. Olvidar que invertir el producto cruz cambia el signo.
 > 5. Normalizar el vector cero: $\mathbf{0}/\lVert\mathbf{0}\rVert$ no está definido.
 
-**Cierre de trazabilidad:** 📖 [Grossman 7ª Ed.] · 🌐 [Enriquecimiento Web / Referencias Externas] · ·
+**Cierre de trazabilidad:** [Grossman 7ª Ed.] · [Enriquecimiento Web / Referencias Externas] · ·
 
 ---
 
 # Capítulo 5: Espacios vectoriales
 
 > [!abstract] Leyenda de trazabilidad
-> **📖 [Grossman 7ª Ed.]**: definiciones, ejemplos, teoremas y demostraciones sintetizados desde el capítulo 5 del PDF de la 7ª edición, pp. 295–414.
-> **🌐 [Enriquecimiento Web / Referencias Externas]**: precisiones terminológicas, interpretación geométrica y documentación computacional complementaria. Estas aportaciones aparecen marcadas en bloques o en la sección de referencias.
+> **[Grossman 7ª Ed.]**: definiciones, ejemplos, teoremas y demostraciones sintetizados desde el capítulo 5 del PDF de la 7ª edición, pp. 295–414.
+> **[Enriquecimiento Web / Referencias Externas]**: precisiones terminológicas, interpretación geométrica y documentación computacional complementaria. Estas aportaciones aparecen marcadas en bloques o en la sección de referencias.
 
 
 Fuente primaria: PDF de Grossman, 7ª edición. El capítulo impreso comienza en la p. 295 y termina en la p. 416; la sección 5.8 es opcional en el texto.
@@ -4039,7 +4041,7 @@ La idea organizadora es pasar de objetos concretos, como vectores de $\mathbb{R}
 
 ## 5.1 Definición y propiedades básicas
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 > Esta sección corresponde a las pp. 296–303. El espacio vectorial abstrae las reglas que ya cumplen $\mathbb{R}^2$ y $\mathbb{R}^3$.
 
 ### Definición 5.1.1: espacio vectorial real
@@ -4112,7 +4114,7 @@ $$
 
 ## 5.2 Subespacios vectoriales
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 > Un subespacio hereda del espacio ambiente las mismas operaciones. Grossman usa este criterio para evitar verificar de nuevo los diez axiomas.
 
 ### Definición 5.2.1
@@ -4186,7 +4188,7 @@ Si $H_1$ y $H_2$ son subespacios de $V$, entonces $H_1\cap H_2$ es un subespacio
 
 ## 5.3 Combinación lineal y espacio generado
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 > En esta sección, pp. 315–330, la combinación lineal es la operación que conecta sistemas de ecuaciones, geometría y subespacios.
 
 ### Definiciones
@@ -4283,7 +4285,7 @@ también genera $V$.
 
 ## 5.4 Independencia lineal
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 > La independencia mide si un conjunto contiene redundancia. El criterio operativo es resolver un sistema homogéneo cuyas columnas son los vectores.
 
 ### Definición 5.4.1
@@ -4411,12 +4413,12 @@ Cualquier conjunto de $n$ vectores LI en $\mathbb{R}^n$ genera $\mathbb{R}^n$.
 
 **Lectura geométrica.** Tres vectores en $\mathbb{R}^3$ son LD si y solo si son coplanares; si los tres son LI, generan todo el espacio.
 
-> [!info] 🌐 [Enriquecimiento Web / Referencias Externas]
+> [!info] [Enriquecimiento Web / Referencias Externas]
 > La presentación de Georgia Tech relaciona explícitamente la independencia con pivotes en cada columna y advierte que una matriz ancha tiene columnas automáticamente dependientes. Véase [Interactive Linear Algebra, Linear Independence](https://textbooks.math.gatech.edu/ila/linear-independence.html).
 
 ## 5.5 Bases y dimensión
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 > Una base elimina la redundancia de un conjunto generador: genera todo el espacio y, a la vez, es LI.
 
 ### Definición 5.5.1: base
@@ -4503,7 +4505,7 @@ Todo conjunto de $n$ vectores LI en un espacio $V$ de dimensión $n$ es una base
 
 ## 5.6 Cambio de bases
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 > Una base es un sistema de coordenadas. El mismo vector físico o algebraico tiene coordenadas diferentes cuando cambia la base ordenada.
 
 Sean $B_1=\{u_1,\dots,u_n\}$ y $B_2=\{v_1,\dots,v_n\}$ bases de $V$. Si
@@ -4599,12 +4601,12 @@ $$x_1,\dots,x_n\text{ son LI}\iff \det A\ne0.$$
 
 **Demostración.** Una relación $\sum_j c_jx_j=0$ equivale, por unicidad de coordenadas, a $Ac=0$ en $\mathbb{R}^n$. La independencia equivale a que el sistema homogéneo tenga solo la solución trivial y, por el teorema 5.4.5, a $\det A\ne0$.
 
-> [!info] 🌐 [Enriquecimiento Web / Referencias Externas]
+> [!info] [Enriquecimiento Web / Referencias Externas]
 > Georgia Tech presenta las coordenadas de una base como instrucciones únicas para reconstruir un vector y recomienda resolver $[v_1\text{ }\dots\text{ }v_m\text{ }x]$ para hallar $[x]_B$. Véase [Bases as Coordinate Systems](https://textbooks.math.gatech.edu/ila/bases-as-coord-systems.html).
 
 ## 5.7 Rango, nulidad, espacio renglón y espacio columna
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 > Sea $A\in\mathbb{R}^{m\times n}$. Esta sección conecta la reducción por renglones con los subespacios que codifican la imagen y las soluciones homogéneas.
 
 ### Definiciones
@@ -4753,12 +4755,12 @@ Para una matriz cuadrada $A\in M_{n\times n}$ son equivalentes:
 
 Si ninguna de estas condiciones se cumple, para un $b$ dado el sistema $Ax=b$ no tiene solución o tiene infinitas soluciones. En el caso singular, si es consistente, tiene infinitas soluciones.
 
-> [!info] 🌐 [Enriquecimiento Web / Referencias Externas]
+> [!info] [Enriquecimiento Web / Referencias Externas]
 > El texto abierto de Georgia Tech formula el mismo teorema como la suma de dimensiones del espacio columna y del espacio nulo, y explica que pivotes y variables libres son los dos conteos complementarios. Véase [The Rank Theorem](https://textbooks.math.gatech.edu/ila/rank-thm.html).
 
 ## 5.8 Fundamentos: existencia de una base (opcional)
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 > Grossman presenta esta sección como opcional porque usa teoría de conjuntos y el lema de Zorn. La conclusión es que incluso un espacio vectorial abstracto posee una base, aunque esta no tenga por qué ser finita.
 
 ### Orden parcial y cadenas
@@ -4895,7 +4897,7 @@ El script `02_Espacios_Vectoriales/grossman_capitulo_5_figura.py` genera una vis
 | 5.7 | Teoremas 5.7.1–5.7.10 | Nulidad, imagen, rango, pivotes, rango-nulidad, consistencia y teorema de resumen. |
 | 5.8 | Teoremas 5.8.1–5.8.2 | Base como LI maximal y existencia mediante Zorn. |
 
-## 🌐 [Enriquecimiento Web / Referencias Externas]
+## [Enriquecimiento Web / Referencias Externas]
 
 1. **Georgia Institute of Technology — Dan Margalit y Joseph Rabinoff.** *Interactive Linear Algebra* (2019). Se consultaron las secciones sobre [vectores y combinaciones](https://textbooks.math.gatech.edu/ila/vectors.html), [span](https://textbooks.math.gatech.edu/ila/spans.html), [subespacios](https://textbooks.math.gatech.edu/ila/subspaces.html), [independencia](https://textbooks.math.gatech.edu/ila/linear-independence.html), [base y dimensión](https://textbooks.math.gatech.edu/ila/dimension.html), [coordenadas](https://textbooks.math.gatech.edu/ila/bases-as-coord-systems.html) y [teorema del rango](https://textbooks.math.gatech.edu/ila/rank-thm.html). Aportan una lectura geométrica, el criterio de pivotes, la advertencia sobre columnas originales y la interpretación de variables libres.
 2. **Encyclopedia of Mathematics — European Mathematical Society / Springer.** [Vector space](https://encyclopediaofmath.org/wiki/Vector_space). Aporta la formulación sobre campos, combinaciones lineales con soporte finito, subespacios, bases maximales y dimensión cardinal; también conecta los espacios vectoriales con módulos sobre un campo.
@@ -4919,9 +4921,9 @@ $$
 
 
 > [!abstract] Leyenda de trazabilidad
-> **📖 [Grossman 7ª Ed.]**: definiciones, resultados, demostraciones centrales y ejemplos sintetizados desde el capítulo 6 del PDF de la 7ª edición, pp. 418–477. La redacción y las comprobaciones son propias; no se reproduce literalmente el texto fuente.
+> **[Grossman 7ª Ed.]**: definiciones, resultados, demostraciones centrales y ejemplos sintetizados desde el capítulo 6 del PDF de la 7ª edición, pp. 418–477. La redacción y las comprobaciones son propias; no se reproduce literalmente el texto fuente.
 >
-> **🌐 [Enriquecimiento Web / Referencias Externas]**: precisiones sobre implementación numérica, estabilidad computacional y matrices complejas unitarias/normales. Estas aportaciones están separadas de la exposición de Grossman.
+> **[Enriquecimiento Web / Referencias Externas]**: precisiones sobre implementación numérica, estabilidad computacional y matrices complejas unitarias/normales. Estas aportaciones están separadas de la exposición de Grossman.
 
 ## Fuente y alcance
 
@@ -4936,7 +4938,7 @@ El índice real del capítulo es el siguiente:
 | 6.3 | Espacios con producto interno y proyecciones | 464–477 | Extender la teoría desde $\mathbb{R}^n$ a $\mathbb{C}^n$, funciones y polinomios. |
 
 > [!warning] Límite de la numeración del PDF
-> El capítulo no tiene una sección autónoma 6.4. Grossman sí define **matrices ortogonales** dentro de 6.1 y menciona matrices unitarias en ejercicios de 6.3, pero **matrices unitarias y matrices normales no constituyen secciones autónomas de este PDF**. Por eso, su tratamiento específico aparece más adelante, marcado como **🌐 [Enriquecimiento Web / Referencias Externas]**, y no se atribuye a una sección 6.4 inexistente.
+> El capítulo no tiene una sección autónoma 6.4. Grossman sí define **matrices ortogonales** dentro de 6.1 y menciona matrices unitarias en ejercicios de 6.3, pero **matrices unitarias y matrices normales no constituyen secciones autónomas de este PDF**. Por eso, su tratamiento específico aparece más adelante, marcado como **[Enriquecimiento Web / Referencias Externas]**, y no se atribuye a una sección 6.4 inexistente.
 
 ## Mapa conceptual
 
@@ -5898,7 +5900,7 @@ El producto interno resuelve de forma directa la minimización de $E_2$, no nece
 
 ---
 
-## 🌐 Enriquecimiento: matrices unitarias y normales
+## Enriquecimiento: matrices unitarias y normales
 
 > [!important] Demarcación de fuente
 > Esta subsección **no es una sección autónoma del capítulo 6 del PDF**. Grossman introduce la matriz ortogonal en 6.1 y deja una matriz unitaria como problema de 6.3; la matriz normal no aparece como sección numerada del capítulo. Las definiciones siguientes se incluyen como conexión externa con la teoría de espacios con producto interno.
@@ -6005,11 +6007,11 @@ El recurso visual se genera con `03_Transformaciones_Lineales/grossman_capitulo_
 
 ## Referencias y enriquecimiento web
 
-- **📖 [Grossman 7ª Ed.]** Grossman, Stanley I. y Flores Godoy, José Job. *Álgebra Lineal*, 7ª edición, McGraw-Hill/Interamericana, 2012, capítulo 6, pp. 418–477. Fuente local: PDF.
-- **📖 [Grossman 7ª Ed.]** usada para cotejar el índice real, las ecuaciones numeradas y los ejemplos del capítulo.
-- **🌐 [Enriquecimiento Web / Referencias Externas]** NumPy Developers. [`numpy.linalg.lstsq`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html): resolución de $Ax\approx b$, rango y residual mediante mínimos cuadrados. Consulta: 2026-08-20.
-- **🌐 [Enriquecimiento Web / Referencias Externas]** SymPy Development Team. [Documentación de matrices y `GramSchmidt`](https://docs.sympy.org/latest/modules/matrices/matrices.html): verificación simbólica de ortogonalidad y normalización. Consulta: 2026-08-20.
-- **🌐 [Enriquecimiento Web / Referencias Externas]** [Matriz unitaria](https://en.wikipedia.org/wiki/Unitary_matrix) y [matriz normal](https://en.wikipedia.org/wiki/Normal_matrix): definiciones $U^*U=I$ y $N^*N=NN^*$, relación con el teorema espectral y contexto de aplicaciones complejas. Consulta: 2026-08-20.
+- **[Grossman 7ª Ed.]** Grossman, Stanley I. y Flores Godoy, José Job. *Álgebra Lineal*, 7ª edición, McGraw-Hill/Interamericana, 2012, capítulo 6, pp. 418–477. Fuente local: PDF.
+- **[Grossman 7ª Ed.]** usada para cotejar el índice real, las ecuaciones numeradas y los ejemplos del capítulo.
+- **[Enriquecimiento Web / Referencias Externas]** NumPy Developers. [`numpy.linalg.lstsq`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html): resolución de $Ax\approx b$, rango y residual mediante mínimos cuadrados. Consulta: 2026-08-20.
+- **[Enriquecimiento Web / Referencias Externas]** SymPy Development Team. [Documentación de matrices y `GramSchmidt`](https://docs.sympy.org/latest/modules/matrices/matrices.html): verificación simbólica de ortogonalidad y normalización. Consulta: 2026-08-20.
+- **[Enriquecimiento Web / Referencias Externas]** [Matriz unitaria](https://en.wikipedia.org/wiki/Unitary_matrix) y [matriz normal](https://en.wikipedia.org/wiki/Normal_matrix): definiciones $U^*U=I$ y $N^*N=NN^*$, relación con el teorema espectral y contexto de aplicaciones complejas. Consulta: 2026-08-20.
 
 ## Lista de comprobación
 
@@ -6030,9 +6032,9 @@ El recurso visual se genera con `03_Transformaciones_Lineales/grossman_capitulo_
 
 
 > [!info] Leyenda de trazabilidad
-> **📖 [Grossman 7ª Ed.]**: definiciones, resultados, ejemplos y organización conceptual sintetizados del capítulo 7 del PDF de Grossman, 7ª edición, pp. 479–539 impresas. No es una transcripción literal.
+> **[Grossman 7ª Ed.]**: definiciones, resultados, ejemplos y organización conceptual sintetizados del capítulo 7 del PDF de Grossman, 7ª edición, pp. 479–539 impresas. No es una transcripción literal.
 >
-> **🌐 [Enriquecimiento Web / Referencias Externas]**: precisiones computacionales, contexto académico y referencias de documentación oficial de NumPy, SymPy y MIT OpenCourseWare. Estas aportaciones se identifican de forma separada.
+> **[Enriquecimiento Web / Referencias Externas]**: precisiones computacionales, contexto académico y referencias de documentación oficial de NumPy, SymPy y MIT OpenCourseWare. Estas aportaciones se identifican de forma separada.
 
 > [!abstract] Fuente y alcance
 > Fuente primaria: PDF relativo de Grossman.. El índice real del capítulo es 7.1–7.5; no se reemplaza por la numeración de otros manuales.
@@ -6049,7 +6051,7 @@ El recurso visual se genera con `03_Transformaciones_Lineales/grossman_capitulo_
 
 ## 0. Marco conceptual
 
-**📖 [Grossman 7ª Ed.]**
+**[Grossman 7ª Ed.]**
 
 Sean $V$ y $W$ espacios vectoriales sobre el mismo cuerpo, principalmente $\mathbb{R}$ en este capítulo. Una función $T:V\to W$ tiene:
 
@@ -6078,7 +6080,7 @@ $$
 
 ## 7.1 Definición y ejemplos
 
-**📖 [Grossman 7ª Ed.]**
+**[Grossman 7ª Ed.]**
 
 ### Definición
 
@@ -6250,7 +6252,7 @@ La función $T(x,y)=(x^2,y)$ tampoco es lineal: el término $x^2$ no preserva la
 
 ## 7.2 Propiedades de las transformaciones lineales: imagen y núcleo
 
-**📖 [Grossman 7ª Ed.]**
+**[Grossman 7ª Ed.]**
 
 ### Propiedades básicas
 
@@ -6489,7 +6491,7 @@ Geométricamente, la dirección $z$ se elimina y el plano $xy$ permanece fijo. A
 
 ## 7.3 Representación matricial de una transformación lineal
 
-**📖 [Grossman 7ª Ed.]**
+**[Grossman 7ª Ed.]**
 
 ### Bases canónicas
 
@@ -6667,7 +6669,7 @@ La misma transformación tiene una matriz densa en la base canónica y una matri
 
 ## 7.4 Isomorfismos
 
-**📖 [Grossman 7ª Ed.]**
+**[Grossman 7ª Ed.]**
 
 ### Inyectividad y sobreyectividad
 
@@ -6818,7 +6820,7 @@ Este es el punto de vista de transformaciones lineales del teorema de resumen de
 
 ## 7.5 Isometrías
 
-**📖 [Grossman 7ª Ed.]**
+**[Grossman 7ª Ed.]**
 
 ### Producto interno, norma e identidad de la transpuesta
 
@@ -6997,9 +6999,9 @@ porque ambas bases son ortonormales.
 
 ## Verificación computacional reproducible
 
-**📖 [Grossman 7ª Ed.]**: los objetos verificados son el núcleo, la imagen, la matriz relativa a una base y la ortogonalidad desarrollados en las secciones 7.2–7.5.
+**[Grossman 7ª Ed.]**: los objetos verificados son el núcleo, la imagen, la matriz relativa a una base y la ortogonalidad desarrollados en las secciones 7.2–7.5.
 
-**🌐 [Enriquecimiento Web / Referencias Externas]**: SymPy permite calcular rango, `nullspace()` y productos matriciales exactamente; NumPy permite contrastar la preservación de norma con aritmética de punto flotante. La implementación completa que además genera la figura está en `04_Valores_y_Vectores_Propios/grossman_capitulo_7_figura.py`.
+**[Enriquecimiento Web / Referencias Externas]**: SymPy permite calcular rango, `nullspace()` y productos matriciales exactamente; NumPy permite contrastar la preservación de norma con aritmética de punto flotante. La implementación completa que además genera la figura está en `04_Valores_y_Vectores_Propios/grossman_capitulo_7_figura.py`.
 
 ```python
 import numpy as np
@@ -7040,7 +7042,7 @@ figuras/grossman_capitulo_7_transformacion.png
 
 ## Enriquecimiento y referencias externas
 
-**🌐 [Enriquecimiento Web / Referencias Externas]**
+**[Enriquecimiento Web / Referencias Externas]**
 
 - **NumPy, `numpy.linalg.matrix_rank`**: calcula el rango mediante valores singulares y usa una tolerancia para distinguir valores singulares numéricamente pequeños de cero. Esto es relevante al diferenciar el rango exacto de SymPy del rango efectivo de datos con redondeo.
 - **NumPy, `numpy.linalg.norm`**: permite evaluar normas vectoriales y matriciales; `np.linalg.norm(Q @ x)` sirve para una comprobación numérica de isometría, siempre interpretando el resultado con tolerancia.
@@ -7049,7 +7051,7 @@ figuras/grossman_capitulo_7_transformacion.png
 
 ## Resumen operativo
 
-**📖 [Grossman 7ª Ed.]**
+**[Grossman 7ª Ed.]**
 
 1. Verifica primero que $T(0)=0$ y las dos leyes de linealidad.
 2. Para hallar $\ker T$, resuelve $T(v)=0$.
@@ -7065,19 +7067,19 @@ figuras/grossman_capitulo_7_transformacion.png
 
 ## Referencias
 
-- **📖 [Grossman 7ª Ed.]** Stanley I. Grossman, José Job Flores Godoy, *Álgebra lineal*, 7ª edición, McGraw-Hill/Interamericana, 2012, capítulo 7, pp. 479–539. Fuente local: .
-- **🌐 [Enriquecimiento Web / Referencias Externas]** NumPy Developers, [`numpy.linalg.matrix_rank`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.matrix_rank.html), documentación oficial, consultada el 2026-08-20.
-- **🌐 [Enriquecimiento Web / Referencias Externas]** NumPy Developers, [`numpy.linalg.norm`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html), documentación oficial, consultada el 2026-08-20.
-- **🌐 [Enriquecimiento Web / Referencias Externas]** SymPy Development Team, [Matrices (linear algebra)](https://docs.sympy.org/latest/modules/matrices/matrices.html), documentación oficial, consultada el 2026-08-20.
-- **🌐 [Enriquecimiento Web / Referencias Externas]** MIT OpenCourseWare, [Linear Transformations and their Matrices](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/linear-transformations-and-their-matrices/) y [Change of Basis; Image Compression](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/change-of-basis-image-compression/), curso 18.06SC, consultado el 2026-08-20.
+- **[Grossman 7ª Ed.]** Stanley I. Grossman, José Job Flores Godoy, *Álgebra lineal*, 7ª edición, McGraw-Hill/Interamericana, 2012, capítulo 7, pp. 479–539. Fuente local: .
+- **[Enriquecimiento Web / Referencias Externas]** NumPy Developers, [`numpy.linalg.matrix_rank`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.matrix_rank.html), documentación oficial, consultada el 2026-08-20.
+- **[Enriquecimiento Web / Referencias Externas]** NumPy Developers, [`numpy.linalg.norm`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html), documentación oficial, consultada el 2026-08-20.
+- **[Enriquecimiento Web / Referencias Externas]** SymPy Development Team, [Matrices (linear algebra)](https://docs.sympy.org/latest/modules/matrices/matrices.html), documentación oficial, consultada el 2026-08-20.
+- **[Enriquecimiento Web / Referencias Externas]** MIT OpenCourseWare, [Linear Transformations and their Matrices](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/linear-transformations-and-their-matrices/) y [Change of Basis; Image Compression](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/positive-definite-matrices-and-applications/change-of-basis-image-compression/), curso 18.06SC, consultado el 2026-08-20.
 
 ---
 
 # Capítulo 8: Valores y vectores propios
 
 > [!abstract] Alcance y trazabilidad
-> - `📖 [Grossman 7ª Ed.]`: síntesis de las secciones 8.1 a 8.8 del capítulo 8, páginas impresas 546-643. La fuente primaria es el PDF de Grossman 7ª edición.
-> - `🌐 [Enriquecimiento Web / Referencias Externas]`: documentación oficial de SymPy y SciPy, más material académico de MIT OpenCourseWare. Estas fuentes se mantienen separadas de la exposición del libro.
+> - `[Grossman 7ª Ed.]`: síntesis de las secciones 8.1 a 8.8 del capítulo 8, páginas impresas 546-643. La fuente primaria es el PDF de Grossman 7ª edición.
+> - `[Enriquecimiento Web / Referencias Externas]`: documentación oficial de SymPy y SciPy, más material académico de MIT OpenCourseWare. Estas fuentes se mantienen separadas de la exposición del libro.
 > - Convención: Grossman usa $p_A(\lambda)=\det(A-\lambda I)$; algunas bibliotecas usan $\det(\lambda I-A)$. Para una matriz $n\times n$ sólo cambia el factor $(-1)^n$, por lo que las raíces son las mismas.
 
 > [!important] Idea unificadora
@@ -7102,7 +7104,7 @@ flowchart TD
 
 ## 8.1 Valores característicos y vectores característicos
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 > En la terminología del texto, valores/vectores **característicos** y valores/vectores **propios** son sinónimos de eigenvalues/eigenvectors.
 
 ### Definiciones fundamentales
@@ -7261,7 +7263,7 @@ $$
 
 ## 8.2 Un modelo de crecimiento de población
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 > La sección es opcional en Grossman, pero muestra de forma concreta cómo el valor propio dominante controla una dinámica discreta.
 
 ### Modelo escalar y modelo por edades
@@ -7369,7 +7371,7 @@ donde $T_n=p_{j,n}+p_{a,n}$. La población total crece aproximadamente un $6.4\%
 
 ## 8.3 Matrices semejantes y diagonalización
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 
 ### Semejanza
 
@@ -7451,7 +7453,7 @@ Una raíz repetida no impide necesariamente diagonalizar: importa comparar multi
 
 ## 8.4 Matrices simétricas y diagonalización ortogonal
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 
 Una matriz real es simétrica si $A^T=A$. El teorema espectral de esta sección afirma:
 
@@ -7543,7 +7545,7 @@ La transformación escala por $3$ la dirección $u_1$ y por $1$ la dirección $u
 
 ## 8.5 Formas cuadráticas y secciones cónicas
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 
 ### Representación matricial
 
@@ -7669,7 +7671,7 @@ y una rotación ortogonal elimina simultáneamente todos los productos cruzados.
 
 ## 8.6 Forma canónica de Jordan
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 
 ### Bloques de Jordan
 
@@ -7784,7 +7786,7 @@ se tiene $AC=CJ$ y, por consiguiente, $C^{-1}AC=J$. El uno sobre la diagonal sup
 
 ## 8.7 Una aplicación importante: forma matricial de ecuaciones diferenciales
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 > Grossman marca esta sección como dependiente de cálculo. La parte algebraica es la reducción a Jordan; la derivada aparece al verificar la solución.
 
 ### Del modelo escalar al sistema
@@ -7915,7 +7917,7 @@ Los valores propios son $1\pm i$: la parte real $1$ controla el crecimiento glob
 
 ## 8.8 Una perspectiva diferente: los teoremas de Cayley-Hamilton y Gershgorin
 
-> [!note] 📖 [Grossman 7ª Ed.]
+> [!note] [Grossman 7ª Ed.]
 
 ### Polinomios de matrices y Cayley-Hamilton
 
@@ -8099,7 +8101,7 @@ El recurso se genera con [`grossman_capitulo_8_figura.py`](/grossman_capitulo_8_
 
 La figura compara una forma cuadrática en coordenadas originales con sus ejes propios; visualmente, la diagonalización ortogonal elimina el término cruzado y alinea la elipse con los autovectores.
 
-## 🌐 [Enriquecimiento Web / Referencias Externas]
+## [Enriquecimiento Web / Referencias Externas]
 
 Estas referencias complementan la exposición de Grossman sin sustituirla:
 
@@ -8131,7 +8133,7 @@ Estas referencias complementan la exposición de Grossman sin sustituirla:
 
 ---
 
-## ⚡ Teorema de Resumen Global (Sistemas, Inversas y Rangos)
+## Teorema de Resumen Global (Sistemas, Inversas y Rangos)
 
 > [!theorem] Teorema de Resumen Unificado (Grossman 7ª Ed.)
 > Sea $A \in \mathcal{M}_n(\mathbb{K})$ una matriz cuadrada de orden $n$. Las siguientes afirmaciones son equivalentes:
@@ -8150,7 +8152,7 @@ Estas referencias complementan la exposición de Grossman sin sustituirla:
 
 ---
 
-## 🔗 Enlaces Relacionados
+## Enlaces Relacionados
 - [Nota Maestra — Sheldon Axler](../Axler/Axler_Linear_Algebra_Done_Right.md)
 - [Nota Maestra — Matrices y Sistemas](../../Unidad_1_Matrices_y_Sistemas/Matrices.md)
 

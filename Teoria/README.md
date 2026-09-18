@@ -5,7 +5,7 @@ Colección de apuntes de teoría en Markdown, sintetizados y verificados computa
 | Carpeta | Contenido | Estado |
 | :--- | :--- | :--- |
 | [`Unidad_1_Matrices_y_Sistemas/`](Unidad_1_Matrices_y_Sistemas/Matrices.md) | Matrices, determinantes, OEF, Cramer y Rouché–Frobenius | ✅ Completo |
-| `Unidad_2_Espacios_Vectoriales/` | Espacios vectoriales, bases y dimensión | ⬜ En preparación |
+| [`Unidad_2_Espacios_Vectoriales/`](Unidad_2_Espacios_Vectoriales/Vectores_R2_R3.md) | Espacios vectoriales, vectores en $\mathbb{R}^2$ y $\mathbb{R}^3$, rectas y planos | ✅ Completo |
 | `Unidad_3_Transformaciones_Lineales/` | Transformaciones lineales, núcleo e imagen | ⬜ En preparación |
 | `Unidad_4_Valores_y_Vectores_Propios/` | Autovalores, diagonalización y SVD | ⬜ En preparación |
 

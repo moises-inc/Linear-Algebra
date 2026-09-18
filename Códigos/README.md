@@ -370,6 +370,6 @@ Universidad San Sebastián — Sede De la Patagonia
 
 ---
 ## Conexiones
-- [[Home|Panel de Control Unificado]]
-- [[algebra_lineal_dashboard|Dashboard de Álgebra Lineal]]
-- [[Task_Board|Task Board]]
+- [README Principal](../README.md)
+- [Teoría y Notas de Álgebra Lineal](../Teoria/README.md)
+- [Solucionarios de Talleres](../Listados_y_Solucionarios_Propios/2026-2_USS/Resolucion_TALLER_1_ALGEBRA_LINEAL.md)

@@ -161,7 +161,7 @@ $$
 > Comparando d) con h): $(AB)^T = B^T A^T = \begin{pmatrix}9&4&11\\17&24&25\\-1&-6&10\end{pmatrix}$ ✓
 > Comparando i) con j): son idénticas ✓ (verificado numéricamente con SymPy, `True` para ambas).
 
-![Figura1_producto_matrices](../../05_Simulaciones_y_Visualizaciones/Figura1_producto_matrices.png)
+![Figura1_producto_matrices](figuras/Figura1_producto_matrices.png)
 
 ---
 
@@ -598,7 +598,7 @@ Antes de aplicar las propiedades algebraicas, calculamos el determinante de cada
 > [!important] Verificación Numérica
 > Todos los resultados anteriores fueron verificados de forma exacta mediante SymPy (`verificar_taller1.py`), confirmando 100% de consistencia algebraica.
 
-![Figura2_sarrus_cofactores](../../05_Simulaciones_y_Visualizaciones/Figura2_sarrus_cofactores.png)
+![Figura2_sarrus_cofactores](figuras/Figura2_sarrus_cofactores.png)
 
 ---
 
@@ -786,7 +786,7 @@ $$
 > En $\mathbb{R}$ (como pide el enunciado: $\lambda\in\mathbb{R}$), la única solución es $\mathbf{\lambda = 1}$.
 > **Contexto:** el polinomio $\det(A-\lambda I)$ se llama **polinomio característico**; sus raíces son los valores propios. Cauchy (1826) los estudió al diagonalizar formas cuadráticas, y D'Alembert (1747) los usó antes, en el movimiento de cuerdas con masas (MacTutor).
 
-![Figura3_valores_propios](../../05_Simulaciones_y_Visualizaciones/Figura3_valores_propios.png)
+![Figura3_valores_propios](figuras/Figura3_valores_propios.png)
 
 ---
 
@@ -1603,11 +1603,11 @@ Todo el taller se validó con el script `01_Sistemas_Lineales/verificar_taller1.
 
 | Archivo | Ruta |
 |:---|:---|
-| Verificación SymPy | `01_Sistemas_Lineales/verificar_taller1.py` |
-| Figuras Matplotlib | `05_Simulaciones_y_Visualizaciones/generar_figuras_taller1.py` |
-| Figura 1 — producto de matrices | `05_Simulaciones_y_Visualizaciones/Figura1_producto_matrices.png` |
-| Figura 2 — Sarrus y cofactores | `05_Simulaciones_y_Visualizaciones/Figura2_sarrus_cofactores.png` |
-| Figura 3 — valores propios | `05_Simulaciones_y_Visualizaciones/Figura3_valores_propios.png` |
+| Verificación SymPy | Verificación simbólica formal con SymPy |
+| Figuras Matplotlib | Paleta oficial USS en `figuras/` |
+| Figura 1 — producto de matrices | `figuras/Figura1_producto_matrices.png` |
+| Figura 2 — Sarrus y cofactores | `figuras/Figura2_sarrus_cofactores.png` |
+| Figura 3 — valores propios | `figuras/Figura3_valores_propios.png` |
 
 ---
 
