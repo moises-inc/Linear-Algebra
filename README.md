@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📐 Álgebra Lineal — Repositorio de Código, Simulaciones y Solucionarios
+# Álgebra Lineal — Repositorio de Código, Simulaciones y Solucionarios
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-00205B?style=for-the-badge&logo=python&logoColor=D4AF37)
 ![SymPy](https://img.shields.io/badge/SymPy-Symbolic--Math-00205B?style=for-the-badge&logo=python&logoColor=white)
@@ -19,51 +19,57 @@
 
 ---
 
-## 📌 Descripción General
+## Descripción General
 
-Este repositorio reúne algoritmos computacionales, simulaciones geométricas 2D/3D, cuadernos interactivos y solucionarios formales desarrollados por **Moisés Amundarain Romero** (Ingeniería Civil Informática) para el estudio y aplicación del **Álgebra Lineal**.
+Este repositorio reúne algoritmos computacionales, simulaciones geométricas 2D/3D, cuadernos interactivos y solucionarios formales desarrollados por **Moisés Amundarain Romero** (Ingeniería Civil Informática) para el estudio y aplicación rigurosa del **Álgebra Lineal**.
 
-El proyecto integra:
-1. **Suite de Simuladores 3D y Cuadernos Interactivos (`Códigos/`):** 8 simuladores modulares en Python y Jupyter Notebooks con `ipywidgets` y renderizado 3D en la paleta institucional USS (`#00205B` / `#D4AF37`).
-2. **Algoritmos y Verificación Simbólica:** Modelado exacto con SymPy y numérico con NumPy/SciPy para Operaciones Elementales por Filas (OEF), determinantes, rangos y sistemas estáticos $6 \times 6$.
+El proyecto integra los siguientes componentes:
+1. **Suite de Simuladores 3D y Cuadernos Interactivos (`Códigos/`):** 8 simuladores modulares en Python y Jupyter Notebooks con `ipywidgets` y renderizado tridimensional en la paleta institucional USS (`#00205B` y `#D4AF37`).
+2. **Algoritmos y Verificación Simbólica:** Modelado exacto con SymPy y computación matricial con NumPy/SciPy para Operaciones Elementales por Filas (OEF), determinantes, rangos y sistemas estáticos $6 \times 6$.
 3. **Notas Maestras de Teoría en Markdown:** Síntesis rigurosas de *Álgebra Lineal* (Stanley I. Grossman, 7ª ed.) y *Linear Algebra Done Right* (Sheldon Axler, 4ª ed.), junto con los apuntes oficiales de la Unidad 1.
-4. **Solucionarios Propios:** Resoluciones completas de talleres universitarios sin inclusión de material protegido.
+4. **Solucionarios Propios:** Resoluciones completas de talleres universitarios sin inclusión de material protegido institucional.
 
 ---
 
-## 🏛️ Diferenciación Histórica: UdeC vs. USS
+## Diferenciación Histórica: UdeC vs. USS
 
 Para mantener la trazabilidad académica y contextualizar la evolución del código, el contenido se organiza en dos periodos principales:
 
 | Periodo | Institución | Enfoque Principal | Contenido Destacado |
 | :--- | :--- | :--- | :--- |
-| **2025-1** | **Universidad de Concepción (UdeC)** | Algoritmos iniciales en Python para Sistemas Lineales y reducción Gauss-Jordan con muestra de pasos elementales. | `01_Sistemas_Lineales/solucion_sistemas_lineales.py`<br/>`01_Sistemas_Lineales/solucion_sistemas_pasos.py` |
-| **2026-2** | **Universidad San Sebastián (USS — Patagonia)** | Suite completa de 8 simuladores 3D (`Códigos/`), cuadernos con `ipywidgets`, verificación simbólica avanzada (SymPy), diagramas vectoriales de libros (Grossman / Axler) y paleta institucional USS (`#00205B` / `#D4AF37`). | `Códigos/`<br/>`05_Simulaciones_y_Visualizaciones/`<br/>`Listados_y_Solucionarios_Propios/2026-2_USS/` |
+| **2025-1** | **Universidad de Concepción (UdeC)** | Algoritmos iniciales en Python para Sistemas Lineales y reducción Gauss-Jordan con visualización de pasos elementales. | `01_Sistemas_Lineales/solucion_sistemas_lineales.py`<br/>`01_Sistemas_Lineales/solucion_sistemas_pasos.py` |
+| **2026-2** | **Universidad San Sebastián (USS — Patagonia)** | Suite completa de 8 simuladores 3D (`Códigos/`), cuadernos con `ipywidgets`, verificación simbólica avanzada (SymPy), galería de 19 figuras 3D individuales y paleta institucional USS (`#00205B` / `#D4AF37`). | `Códigos/`<br/>`05_Simulaciones_y_Visualizaciones/`<br/>`Listados_y_Solucionarios_Propios/2026-2_USS/` |
 
 ---
 
-## 🚀 Suite de Simuladores 3D y Cuadernos Interactivos (Unidades 1, 2 y Física)
+## Suite de Simuladores 3D y Cuadernos Interactivos (Unidades 1, 2 y Física)
 
 La carpeta [`Códigos/`](Códigos/README.md) contiene una suite modular de **8 simuladores** disponibles en formato dual:
-* **Scripts CLI independientes (`.py`):** Ejecución directa desde consola, compatibles con entornos locales y servidores headless (detección automática de display y renderizado PNG).
-* **Cuadernos interactivos (`.ipynb`):** Entornos de exploración visual potenciados por **Jupyter** e **`ipywidgets`**, con deslizadores de coeficientes en tiempo real, rotación dinámica de cámaras 3D y cálculo simbólico instantáneo.
+* **Scripts CLI independientes (`.py`):** Ejecución directa desde consola, compatibles con entornos locales y servidores headless (detección automática de display y renderizado PNG mediante backend `Agg`).
+* **Cuadernos interactivos (`.ipynb`):** Entornos de exploración visual potenciados por **Jupyter** e **`ipywidgets`**, con deslizadores de parámetros en tiempo real, rotación dinámica de cámaras 3D y cálculo simbólico instantáneo.
 
-### 📊 Tabla Comparativa de Simuladores
+### Estándar Visual y Mejoras de Visibilidad Tridimensional
+* **Transparencia Controlada ($\alpha \in [0.20, 0.25]$):** Las superficies planas y los poliedros tridimensionales emplean una opacidad calibrada en $\alpha = 0.20 - 0.25$, eliminando la oclusión que antes impedía observar vectores interiores, trazas cartesianas o rectas de corte.
+* **Orientación de Cámara Canónica ($\text{elev} = 25^\circ, \text{azim} = -50^\circ$):** Ángulos calculados para maximizar la percepción de volumen y evitar la pérdida de dimensionalidad visual de los planos.
+* **Paleta USS de Alto Contraste:** USS Blue (`#00205B`) para elementos estructurales y ejes base, junto con USS Gold (`#D4AF37`) para puntos de corte únicos, rectas comunes e intersecciones críticas.
+* **Galería Atómica de 19 Figuras:** Sustitución de subplots comprimidos por 19 figuras individuales independientes exportadas a $300\text{ DPI}$ (`bbox_inches='tight'`) con fondo blanco puro.
+
+### Tabla Comparativa de Simuladores
 
 | # | Módulo | Concepto Central | Script CLI (`.py`) | Cuaderno Interactivo (`.ipynb`) | Modelado Matemático Clave | Salida Visual |
 | :-: | :--- | :--- | :--- | :--- | :--- | :--- |
 | **01** | **Gauss-Jordan & Rouché-Frobenius 3D** | Rango matricial, OEF y consistencia geométrica | [`01_...3d.py`](Códigos/01_Sistemas_Lineales_y_Matrices/01_gauss_jordan_y_rouche_frobenius_3d.py) | [`01_...3d.ipynb`](Códigos/01_Sistemas_Lineales_y_Matrices/01_gauss_jordan_y_rouche_frobenius_3d.ipynb) | $\operatorname{rg}(A)$ vs $\operatorname{rg}(A\|B)$<br/>SCD, SCI, SI | 3 planos en $\mathbb{R}^3$, punto de corte, haz de planos o prisma triangular. |
 | **02** | **Sistemas Parametrizados $k$** | Discusión de determinantes y singularidades | [`02_...k.py`](Códigos/01_Sistemas_Lineales_y_Matrices/02_sistemas_parametrizados_k.py) | [`02_...k.ipynb`](Códigos/01_Sistemas_Lineales_y_Matrices/02_sistemas_parametrizados_k.ipynb) | $\det(A(k)) = 0$<br/>Raíces críticas $k_i$ | Gráfico $\det(A(k))$ vs $k$ y configuración espacial 3D instantánea. |
 | **03** | **Cofactores e Inversa Matricial** | Expansión de Laplace e inversión analítica | [`03_...inversa.py`](Códigos/01_Sistemas_Lineales_y_Matrices/03_matrices_cofactores_e_inversa.py) | [`03_...inversa.ipynb`](Códigos/01_Sistemas_Lineales_y_Matrices/03_matrices_cofactores_e_inversa.ipynb) | $A^{-1} = \frac{1}{\det(A)} \operatorname{Adj}(A)$<br/>$A \cdot A^{-1} = I_n$ | Mapas de calor matriciales anotados numéricamente con la paleta USS. |
-| **04** | **Vectores & Proyecciones $\mathbb{R}^2/\mathbb{R}^3$** | Cosenos directores y descomposición ortogonal | [`04_...proyecciones.py`](Códigos/02_Geometria_Vectorial_R2_R3/04_vectores_fundamentos_y_proyecciones.py) | [`04_...proyecciones.ipynb`](Códigos/02_Geometria_Vectorial_R2_R3/04_vectores_fundamentos_y_proyecciones.ipynb) | $\mathbf{u} = \operatorname{proy}_{\mathbf{v}}(\mathbf{u}) + \mathbf{u}_\perp$<br/>Cauchy-Schwarz | Triángulo vectorial 2D/3D con ángulo $\theta$ y cosenos directores. |
-| **05** | **Producto Cruz & Paralelepípedos 3D** | Ortogonalidad vectorial y volúmenes poliédricos | [`05_...3d.py`](Códigos/02_Geometria_Vectorial_R2_R3/05_producto_cruz_y_paralelepipedos_3d.py) | [`05_...3d.ipynb`](Códigos/02_Geometria_Vectorial_R2_R3/05_producto_cruz_y_paralelepipedos_3d.ipynb) | $V = \|\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})\|$<br/>Identidad de Lagrange | Paralelepípedo sólido 3D con 6 caras poligonales semitransparentes. |
+| **04** | **Vectores & Proyecciones $\mathbb{R}^2/\mathbb{R}^3$** | Cosenos directores y descomposición ortogonal | [`04_...proyecciones.py`](Códigos/02_Geometria_Vectorial_R2_R3/04_vectores_fundamentos_y_proyecciones.py) | [`04_...proyecciones.ipynb`](Códigos/02_Geometria_Vectorial_R2_R3/04_vectores_fundamentos_y_proyecciones.ipynb) | $\mathbf{u} = \operatorname{proy}_{\mathbf{v}}(\mathbf{u}) + \mathbf{u}_\perp$<br/>Cauchy-Schwarz | Triángulo vectorial 2D y descomposición ortogonal tridimensional en $\mathbb{R}^3$. |
+| **05** | **Producto Cruz & Paralelepípedos 3D** | Ortogonalidad vectorial y volúmenes poliédricos | [`05_...3d.py`](Códigos/02_Geometria_Vectorial_R2_R3/05_producto_cruz_y_paralelepipedos_3d.py) | [`05_...3d.ipynb`](Códigos/02_Geometria_Vectorial_R2_R3/05_producto_cruz_y_paralelepipedos_3d.ipynb) | $V = \|\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})\|$<br/>Identidad de Lagrange | Paralelepípedo sólido 3D con caras semitransparentes y producto cruz normal. |
 | **06** | **Rectas en $\mathbb{R}^3$ & Alabeadas** | Posiciones relativas y mínima separación | [`06_...alabeadas.py`](Códigos/02_Geometria_Vectorial_R2_R3/06_rectas_en_r3_y_rectas_alabeadas.py) | [`06_...alabeadas.ipynb`](Códigos/02_Geometria_Vectorial_R2_R3/06_rectas_en_r3_y_rectas_alabeadas.ipynb) | $d = \frac{\|(\mathbf{P}_2 - \mathbf{P}_1) \cdot (\mathbf{d}_1 \times \mathbf{d}_2)\|}{\|\mathbf{d}_1 \times \mathbf{d}_2\|}$ | Trayectorias de rectas espaciales y segmento ortogonal de mínima distancia. |
-| **07** | **Planos en $\mathbb{R}^3$ & Ángulo Diedro** | Ecuaciones generales e intersecciones | [`07_...intersecciones.py`](Códigos/02_Geometria_Vectorial_R2_R3/07_planos_en_r3_e_intersecciones.py) | [`07_...intersecciones.ipynb`](Códigos/02_Geometria_Vectorial_R2_R3/07_planos_en_r3_e_intersecciones.ipynb) | $\mathbf{d} = \mathbf{n}_1 \times \mathbf{n}_2$<br/>$\cos\theta = \frac{\|\mathbf{n}_1 \cdot \mathbf{n}_2\|}{\|\mathbf{n}_1\|\|\mathbf{n}_2\|}$ | Superficies de planos secantes y recta de intersección dorada. |
+| **07** | **Planos en $\mathbb{R}^3$ & Ángulo Diedro** | Ecuaciones generales, distancia e intersección | [`07_...intersecciones.py`](Códigos/02_Geometria_Vectorial_R2_R3/07_planos_en_r3_e_intersecciones.py) | [`07_...intersecciones.ipynb`](Códigos/02_Geometria_Vectorial_R2_R3/07_planos_en_r3_e_intersecciones.ipynb) | $\mathbf{d} = \mathbf{n}_1 \times \mathbf{n}_2$<br/>$d(P_0, \Pi) = \frac{\|A x_0 + B y_0 + C z_0 + D\|}{\sqrt{A^2 + B^2 + C^2}}$ | Planos secantes con recta de intersección y distancia ortogonal punto-plano. |
 | **08** | **Torque 3D & Equilibrio Estático** | Estática de cuerpo rígido y tensores espaciales | [`08_...3d.py`](Códigos/03_Aplicaciones_Fisicas_y_Simulaciones/08_simulacion_torque_y_equilibrio_3d.py) | [`08_...3d.ipynb`](Códigos/03_Aplicaciones_Fisicas_y_Simulaciones/08_simulacion_torque_y_equilibrio_3d.ipynb) | Sistema lineal $6 \times 6$:<br/>$\sum \mathbf{F} = \mathbf{0}$, $\sum \boldsymbol{\tau}_O = \mathbf{0}$ | Brazo mecánico tridimensional, cables tensores, cargas y vector de torque. |
 
 ---
 
-## 🗂️ Arquitectura del Repositorio
+## Arquitectura del Repositorio
 
 ```text
 Linear-Algebra/
@@ -77,22 +83,43 @@ Linear-Algebra/
 │   ├── 01_Sistemas_Lineales_y_Matrices/                    # Unidad 1: Sistemas Lineales, Rouché-Frobenius e Inversas
 │   │   ├── 01_gauss_jordan_y_rouche_frobenius_3d.py
 │   │   ├── 01_gauss_jordan_y_rouche_frobenius_3d.ipynb
+│   │   ├── 01_gauss_rouche_scd.png                         # Render 3D: Sistema Compatible Determinado (Solución única)
+│   │   ├── 01_gauss_rouche_sci.png                         # Render 3D: Sistema Compatible Indeterminado (Haz de planos)
+│   │   ├── 01_gauss_rouche_si.png                          # Render 3D: Sistema Incompatible (Prisma triangular)
 │   │   ├── 02_sistemas_parametrizados_k.py
 │   │   ├── 02_sistemas_parametrizados_k.ipynb
+│   │   ├── 02_det_k_curva_analisis.png                     # Gráfico 2D: det(A(k)) vs k y singularidades
+│   │   ├── 02_sistema_k_scd.png                            # Render 3D: Discusión k = 2 (Caso SCD)
+│   │   ├── 02_sistema_k_sci.png                            # Render 3D: Discusión k = 1 (Caso SCI)
+│   │   ├── 02_sistema_k_si.png                             # Render 3D: Discusión k = -2 (Caso SI)
 │   │   ├── 03_matrices_cofactores_e_inversa.py
-│   │   └── 03_matrices_cofactores_e_inversa.ipynb
+│   │   ├── 03_matrices_cofactores_e_inversa.ipynb
+│   │   └── 03_matrices_cofactores_inversa_diagrama.png     # Diagrama 2D: Mapas de calor analíticos de A, Cof, Adj e Inversa
+│   │
 │   ├── 02_Geometria_Vectorial_R2_R3/                       # Unidad 2: Proyecciones, Producto Cruz, Rectas y Planos 3D
 │   │   ├── 04_vectores_fundamentos_y_proyecciones.py
 │   │   ├── 04_vectores_fundamentos_y_proyecciones.ipynb
+│   │   ├── 04_vectores_operaciones_2d.png                  # Gráfico 2D: Operaciones vectoriales y descomposición en R2
+│   │   ├── 04_vectores_proyeccion_ortogonal_3d.png         # Render 3D: Descomposición ortogonal u = proy_v(u) + u_perp en R3
 │   │   ├── 05_producto_cruz_y_paralelepipedos_3d.py
 │   │   ├── 05_producto_cruz_y_paralelepipedos_3d.ipynb
+│   │   ├── 05_paralelepipedo_y_volumen_3d.png              # Render 3D: Paralelepípedo volumétrico (Poly3DCollection)
+│   │   ├── 05_producto_cruz_y_ortogonalidad_3d.png         # Render 3D: Producto cruz u x v y área del paralelogramo
 │   │   ├── 06_rectas_en_r3_y_rectas_alabeadas.py
 │   │   ├── 06_rectas_en_r3_y_rectas_alabeadas.ipynb
+│   │   ├── 06_rectas_en_r3_y_rectas_alabeadas.png          # Render 3D: Rectas alabeadas y mínima distancia perpendicular
 │   │   ├── 07_planos_en_r3_e_intersecciones.py
-│   │   └── 07_planos_en_r3_e_intersecciones.ipynb
+│   │   ├── 07_planos_en_r3_e_intersecciones.ipynb
+│   │   ├── 07_distancia_punto_plano_3d.png                 # Render 3D: Distancia ortogonal de un punto P0 a un plano Pi
+│   │   └── 07_planos_secantes_e_interseccion_3d.png        # Render 3D: Planos secantes Pi1, Pi2 y recta de intersección dorada
+│   │
 │   └── 03_Aplicaciones_Fisicas_y_Simulaciones/             # Aplicaciones Físicas: Equilibrio Estático y Torque Vectorial
 │       ├── 08_simulacion_torque_y_equilibrio_3d.py
-│       └── 08_simulacion_torque_y_equilibrio_3d.ipynb
+│       ├── 08_simulacion_torque_y_equilibrio_3d.ipynb
+│       ├── 08_estructura_grua_3d.png                       # Render 3D: Geometría estructural de la pluma y cables tensores
+│       ├── 08_diagrama_cuerpo_libre_3d.png                 # DCL 3D: Fuerzas concurrentes, reacciones y cargas
+│       ├── 08_espacio_torques_equilibrio_3d.png            # Render 3D: Espacio vectorial de momentos y equilibrio
+│       └── 08_analisis_sensibilidad_tensiones_2d.png       # Gráfico 2D: Sensibilidad de tensiones y compresión axial
 │
 ├── 01_Sistemas_Lineales/                                   # OEF, Gauss-Jordan y Solución Paso a Paso
 │   ├── solucion_sistemas_lineales.py                       # Análisis de inconsistencia, SCD y SCI
@@ -138,7 +165,7 @@ Linear-Algebra/
 
 ---
 
-## 💻 Requisitos e Instalación
+## Requisitos e Instalación
 
 Para ejecutar tanto los scripts clásicos como la nueva suite de simuladores y cuadernos interactivos:
 
@@ -158,7 +185,7 @@ pip install -r requirements.txt
 
 ---
 
-## ⚡ Guía de Uso e Interactividad
+## Guía de Uso e Interactividad
 
 ### 1. Ejecución de la Suite de Simuladores (CLI)
 Cada script de la carpeta `Códigos/` es ejecutable directamente desde terminal:
@@ -189,27 +216,65 @@ jupyter lab
 # o
 jupyter notebook
 ```
-También puedes abrirlos directamente en **Visual Studio Code** o **Cursor** seleccionando el intérprete de `.venv`.
+También pueden ejecutarse directamente en **Visual Studio Code** o **Cursor** seleccionando el intérprete de `.venv`.
 
 ---
 
-## 🖼️ Muestra de Visualizaciones de la Suite
+## Galería de Visualizaciones de la Suite (19 Figuras de Alta Resolución)
+
+### Unidad 1: Sistemas Lineales y Álgebra Matricial
 
 <div align="center">
 
-| Rouché-Frobenius 3D (SCD) | Paralelepípedo 3D (`Poly3DCollection`) | Torque y Equilibrio Estático 3D |
+| Rouché-Frobenius: SCD (Solución Única) | Rouché-Frobenius: SCI (Recta Común) | Rouché-Frobenius: SI (Incompatible) |
 | :---: | :---: | :---: |
-| <img src="Códigos/01_Sistemas_Lineales_y_Matrices/01_gauss_rouche_scd.png" width="280"/> | <img src="Códigos/02_Geometria_Vectorial_R2_R3/05_producto_cruz_y_paralelepipedos_3d.png" width="280"/> | <img src="Códigos/03_Aplicaciones_Fisicas_y_Simulaciones/08_simulacion_torque_y_equilibrio_3d.png" width="280"/> |
+| <img src="Códigos/01_Sistemas_Lineales_y_Matrices/01_gauss_rouche_scd.png" width="300"/> | <img src="Códigos/01_Sistemas_Lineales_y_Matrices/01_gauss_rouche_sci.png" width="300"/> | <img src="Códigos/01_Sistemas_Lineales_y_Matrices/01_gauss_rouche_si.png" width="300"/> |
 
-| Rectas Alabeadas y Distancia Mínima | Inversión Matricial y Cofactores | Geometría de Planos e Intersecciones |
+| Parámetro $k$: Curva de Singularidad | Parámetro $k$: SCD ($k = 2$) | Parámetro $k$: SCI ($k = 1$) |
 | :---: | :---: | :---: |
-| <img src="Códigos/02_Geometria_Vectorial_R2_R3/06_rectas_en_r3_y_rectas_alabeadas.png" width="280"/> | <img src="Códigos/01_Sistemas_Lineales_y_Matrices/03_matrices_cofactores_inversa_diagrama.png" width="280"/> | <img src="Códigos/02_Geometria_Vectorial_R2_R3/07_planos_en_r3_e_intersecciones.png" width="280"/> |
+| <img src="Códigos/01_Sistemas_Lineales_y_Matrices/02_det_k_curva_analisis.png" width="300"/> | <img src="Códigos/01_Sistemas_Lineales_y_Matrices/02_sistema_k_scd.png" width="300"/> | <img src="Códigos/01_Sistemas_Lineales_y_Matrices/02_sistema_k_sci.png" width="300"/> |
+
+| Parámetro $k$: SI ($k = -2$) | Módulo 03: Diagrama de Mapas de Calor Matriciales |
+| :---: | :---: |
+| <img src="Códigos/01_Sistemas_Lineales_y_Matrices/02_sistema_k_si.png" width="300"/> | <img src="Códigos/01_Sistemas_Lineales_y_Matrices/03_matrices_cofactores_inversa_diagrama.png" width="460"/> |
+
+</div>
+
+### Unidad 2: Geometría Vectorial en $\mathbb{R}^2$ y $\mathbb{R}^3$
+
+<div align="center">
+
+| Operaciones Vectoriales 2D | Proyección Ortogonal 3D ($\mathbf{u}_\parallel, \mathbf{u}_\perp$) | Producto Cruz y Ortogonalidad 3D |
+| :---: | :---: | :---: |
+| <img src="Códigos/02_Geometria_Vectorial_R2_R3/04_vectores_operaciones_2d.png" width="300"/> | <img src="Códigos/02_Geometria_Vectorial_R2_R3/04_vectores_proyeccion_ortogonal_3d.png" width="300"/> | <img src="Códigos/02_Geometria_Vectorial_R2_R3/05_producto_cruz_y_ortogonalidad_3d.png" width="300"/> |
+
+| Paralelepípedo Volumétrico 3D | Rectas Alabeadas y Distancia Mínima | Distancia Punto-Plano 3D |
+| :---: | :---: | :---: |
+| <img src="Códigos/02_Geometria_Vectorial_R2_R3/05_paralelepipedo_y_volumen_3d.png" width="300"/> | <img src="Códigos/02_Geometria_Vectorial_R2_R3/06_rectas_en_r3_y_rectas_alabeadas.png" width="300"/> | <img src="Códigos/02_Geometria_Vectorial_R2_R3/07_distancia_punto_plano_3d.png" width="300"/> |
+
+| Planos Secantes y Recta de Intersección |
+| :---: |
+| <img src="Códigos/02_Geometria_Vectorial_R2_R3/07_planos_secantes_e_interseccion_3d.png" width="460"/> |
+
+</div>
+
+### Modelado Físico: Estática de Cuerpo Rígido y Torque 3D
+
+<div align="center">
+
+| Estructura Mecánica 3D | Diagrama de Cuerpo Libre (DCL 3D) |
+| :---: | :---: |
+| <img src="Códigos/03_Aplicaciones_Fisicas_y_Simulaciones/08_estructura_grua_3d.png" width="420"/> | <img src="Códigos/03_Aplicaciones_Fisicas_y_Simulaciones/08_diagrama_cuerpo_libre_3d.png" width="420"/> |
+
+| Espacio de Momentos y Torques 3D | Análisis de Sensibilidad y Tensiones 2D |
+| :---: | :---: |
+| <img src="Códigos/03_Aplicaciones_Fisicas_y_Simulaciones/08_espacio_torques_equilibrio_3d.png" width="420"/> | <img src="Códigos/03_Aplicaciones_Fisicas_y_Simulaciones/08_analisis_sensibilidad_tensiones_2d.png" width="420"/> |
 
 </div>
 
 ---
 
-## 🔒 Política de Propiedad Intelectual y Transparencia
+## Política de Propiedad Intelectual y Transparencia
 
 > [!IMPORTANT]
 > **Compromiso Institucional y Cero Material Copiado:**
@@ -219,7 +284,7 @@ También puedes abrirlos directamente en **Visual Studio Code** o **Cursor** sel
 
 ---
 
-## 📜 Licencia
+## Licencia
 
 Este proyecto está distribuido bajo la **Licencia MIT**. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
 
