@@ -75,17 +75,17 @@ donde $a_{ij}$ es el elemento ubicado en la **fila $i$** y la **columna $j$**, c
 
 | Tipo | Orden | Característica | Ejemplo |
 |:---|:---:|:---|:---|
-| **Nula** $\mathbf{0}$ | cualquiera | todos sus elementos son 0 | $\begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$ |
-| **Cuadrada** | $n\times n$ | $m = n$ | $\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ |
-| **Diagonal** | $n\times n$ | $a_{ij} = 0$ si $i \neq j$ | $\begin{pmatrix} 1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & -1 \end{pmatrix}$ |
-| **Identidad** $I_n$ | $n\times n$ | diagonal con $a_{ii} = 1$ | $\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ |
-| **Triangular superior** | $n\times n$ | $a_{ij} = 0$ si $i > j$ | $\begin{pmatrix} 4 & 2 & 1 \\ 0 & 0 & 3 \\ 0 & 0 & 1 \end{pmatrix}$ |
-| **Triangular inferior** | $n\times n$ | $a_{ij} = 0$ si $i < j$ | $\begin{pmatrix} 4 & 0 & 0 \\ 2 & 1 & 0 \\ 1 & 2 & 3 \end{pmatrix}$ |
-| **Simétrica** | $n\times n$ | $A = A^T$ | $\begin{pmatrix} -1 & 2 \\ 2 & 0 \end{pmatrix}$ |
-| **Antisimétrica** | $n\times n$ | $A = -A^T$ (diagonal nula $a_{ii} = 0$) | $\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$ |
-| **Ortogonal** | $n\times n$ | $A^T = A^{-1}$ (o $AA^T = A^TA = I_n$) | $\begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$ |
-| **Idempotente** | $n\times n$ | $A^2 = A$ | $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ |
-| **Nilpotente** (de índice $k$) | $n\times n$ | $\exists\, k \in \mathbb{Z}^+$: $A^k = \mathbf{0}$ | $\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ (índice 2) |
+| **Nula** $\mathbf{0}$ | cualquiera | todos sus elementos son 0 | $\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \end{pmatrix}$ |
+| **Cuadrada** | $n\times n$ | $m = n$ | $\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \end{pmatrix}$ |
+| **Diagonal** | $n\times n$ | $a_{ij} = 0$ si $i \neq j$ | $\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & -1 \end{pmatrix}$ |
+| **Identidad** $I_n$ | $n\times n$ | diagonal con $a_{ii} = 1$ | $\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \end{pmatrix}$ |
+| **Triangular superior** | $n\times n$ | $a_{ij} = 0$ si $i > j$ | $\begin{pmatrix} 4 & 2 & 1 \\\\ 0 & 0 & 3 \\\\ 0 & 0 & 1 \end{pmatrix}$ |
+| **Triangular inferior** | $n\times n$ | $a_{ij} = 0$ si $i < j$ | $\begin{pmatrix} 4 & 0 & 0 \\\\ 2 & 1 & 0 \\\\ 1 & 2 & 3 \end{pmatrix}$ |
+| **Simétrica** | $n\times n$ | $A = A^T$ | $\begin{pmatrix} -1 & 2 \\\\ 2 & 0 \end{pmatrix}$ |
+| **Antisimétrica** | $n\times n$ | $A = -A^T$ (diagonal nula $a_{ii} = 0$) | $\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \end{pmatrix}$ |
+| **Ortogonal** | $n\times n$ | $A^T = A^{-1}$ (o $AA^T = A^TA = I_n$) | $\begin{pmatrix} \cos\theta & -\sin\theta \\\\ \sin\theta & \cos\theta \end{pmatrix}$ |
+| **Idempotente** | $n\times n$ | $A^2 = A$ | $\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \end{pmatrix}$ |
+| **Nilpotente** (de índice $k$) | $n\times n$ | $\exists\, k \in \mathbb{Z}^+$: $A^k = \mathbf{0}$ | $\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \end{pmatrix}$ (índice 2) |
 
 **Diagonal principal:** los elementos $a_{ii}$ con $i = j$.
 
@@ -994,7 +994,7 @@ $$
    $$
 5. **Resultado Final:**
    $$
-   \mathbf{\det\left(3 A^{-1} A^T B^2\right) = 675}
+   \det\left(3 A^{-1} A^T B^2\right) = 675
    $$
 
 ---

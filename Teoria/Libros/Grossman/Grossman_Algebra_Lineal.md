@@ -6563,12 +6563,12 @@ El orden importa: primero actúa $T$ y después $S$, por eso la matriz de $T$ ap
 
 | Transformación | Regla | Matriz |
 |---|---|---|
-| Expansión/compresión en $x$ | $(x,y)\mapsto(cx,y)$ | $\begin{bmatrix}c&0\\0&1\end{bmatrix}$ |
-| Expansión/compresión en $y$ | $(x,y)\mapsto(x,cy)$ | $\begin{bmatrix}1&0\\0&c\end{bmatrix}$ |
-| Reflexión en eje $x$ | $(x,y)\mapsto(x,-y)$ | $\begin{bmatrix}1&0\\0&-1\end{bmatrix}$ |
-| Reflexión en eje $y$ | $(x,y)\mapsto(-x,y)$ | $\begin{bmatrix}-1&0\\0&1\end{bmatrix}$ |
-| Reflexión en $y=x$ | $(x,y)\mapsto(y,x)$ | $\begin{bmatrix}0&1\\1&0\end{bmatrix}$ |
-| Corte horizontal | $(x,y)\mapsto(x+cy,y)$ | $\begin{bmatrix}1&c\\0&1\end{bmatrix}$ |
+| Expansión/compresión en $x$ | $(x,y)\mapsto(cx,y)$ | $\begin{bmatrix}c&0\\\\0&1\end{bmatrix}$ |
+| Expansión/compresión en $y$ | $(x,y)\mapsto(x,cy)$ | $\begin{bmatrix}1&0\\\\0&c\end{bmatrix}$ |
+| Reflexión en eje $x$ | $(x,y)\mapsto(x,-y)$ | $\begin{bmatrix}1&0\\\\0&-1\end{bmatrix}$ |
+| Reflexión en eje $y$ | $(x,y)\mapsto(-x,y)$ | $\begin{bmatrix}-1&0\\\\0&1\end{bmatrix}$ |
+| Reflexión en $y=x$ | $(x,y)\mapsto(y,x)$ | $\begin{bmatrix}0&1\\\\1&0\end{bmatrix}$ |
+| Corte horizontal | $(x,y)\mapsto(x+cy,y)$ | $\begin{bmatrix}1&c\\\\0&1\end{bmatrix}$ |
 | Rotación | $(x,y)\mapsto R_\theta(x,y)$ | $R_\theta$ |
 
 Una matriz invertible de $2\times2$ puede descomponerse, mediante eliminación, en un producto de matrices elementales asociadas a expansiones, compresiones, cortes y reflexiones. Al aplicar el producto a un vector, las operaciones geométricas se ejecutan de derecha a izquierda.

@@ -180,23 +180,23 @@ $$
 
 | Ítem | Operación | Resultado |
 |:---:|:---|:---|
-| a) | $3A$ | $\begin{pmatrix}-3&6\\6&9\end{pmatrix}$ |
+| a) | $3A$ | $\begin{pmatrix}-3&6\\\\6&9\end{pmatrix}$ |
 | **b)** | $A + C$ | ❌ **No definida**: $2\times2 + 2\times3$ |
-| c) | $CD$ | $\begin{pmatrix}1&-3\\8&11\end{pmatrix}$ ($2\times3 \cdot 3\times2$) |
-| d) | $A - B$ | $\begin{pmatrix}-2&2\\2&2\end{pmatrix}$ |
-| e) | $3A + 4B$ | $\begin{pmatrix}-3&6\\6&9\end{pmatrix} + \begin{pmatrix}4&0\\0&4\end{pmatrix} = \begin{pmatrix}1&6\\6&13\end{pmatrix}$ |
-| f) | $AB + CD$ | $\begin{pmatrix}-1&2\\2&3\end{pmatrix} + \begin{pmatrix}1&-3\\8&11\end{pmatrix} = \begin{pmatrix}0&-1\\10&14\end{pmatrix}$ |
-| g) | $7A$ | $\begin{pmatrix}-7&14\\14&21\end{pmatrix}$ |
-| h) | $kE$ | $\begin{pmatrix}k&k\\-k&k\end{pmatrix}$ |
-| i) | $8A + E$ | $\begin{pmatrix}-7&17\\15&25\end{pmatrix}$ |
-| j) | $AE$ | $\begin{pmatrix}-3&1\\-1&5\end{pmatrix}$ |
+| c) | $CD$ | $\begin{pmatrix}1&-3\\\\8&11\end{pmatrix}$ ($2\times3 \cdot 3\times2$) |
+| d) | $A - B$ | $\begin{pmatrix}-2&2\\\\2&2\end{pmatrix}$ |
+| e) | $3A + 4B$ | $\begin{pmatrix}-3&6\\\\6&9\end{pmatrix} + \begin{pmatrix}4&0\\\\0&4\end{pmatrix} = \begin{pmatrix}1&6\\\\6&13\end{pmatrix}$ |
+| f) | $AB + CD$ | $\begin{pmatrix}-1&2\\\\2&3\end{pmatrix} + \begin{pmatrix}1&-3\\\\8&11\end{pmatrix} = \begin{pmatrix}0&-1\\\\10&14\end{pmatrix}$ |
+| g) | $7A$ | $\begin{pmatrix}-7&14\\\\14&21\end{pmatrix}$ |
+| h) | $kE$ | $\begin{pmatrix}k&k\\\\-k&k\end{pmatrix}$ |
+| i) | $8A + E$ | $\begin{pmatrix}-7&17\\\\15&25\end{pmatrix}$ |
+| j) | $AE$ | $\begin{pmatrix}-3&1\\\\-1&5\end{pmatrix}$ |
 | **k)** | $A(B+C)$ | ❌ **No definida**: $B+C$ ( $2\times2+2\times3$ ) |
 | **l)** | $AB + AC$ | ❌ **No definida**: $AC$ es $2\times2 \cdot 2\times3$ |
-| m) | $A+B$ | $\begin{pmatrix}0&2\\2&4\end{pmatrix}$ |
-| n) | $B+A$ | $\begin{pmatrix}0&2\\2&4\end{pmatrix}$ (igual a m), conmutatividad de la suma ✓) |
-| ñ) | $AA = A^2$ | $\begin{pmatrix}1+4&-2+6\\-2+6&4+9\end{pmatrix} = \begin{pmatrix}5&4\\4&13\end{pmatrix}$ |
-| o) | $EE$ | $\begin{pmatrix}1-1&1+1\\-1-1&-1+1\end{pmatrix} = \begin{pmatrix}0&2\\-2&0\end{pmatrix}$ |
-| p) | $(AB)C$ | $AB = A$; luego $\begin{pmatrix}-1&2\\2&3\end{pmatrix}\begin{pmatrix}1&0&-1\\2&1&3\end{pmatrix} = \begin{pmatrix}3&2&7\\8&3&7\end{pmatrix}$ |
+| m) | $A+B$ | $\begin{pmatrix}0&2\\\\2&4\end{pmatrix}$ |
+| n) | $B+A$ | $\begin{pmatrix}0&2\\\\2&4\end{pmatrix}$ (igual a m), conmutatividad de la suma ✓) |
+| ñ) | $AA = A^2$ | $\begin{pmatrix}1+4&-2+6\\\\-2+6&4+9\end{pmatrix} = \begin{pmatrix}5&4\\\\4&13\end{pmatrix}$ |
+| o) | $EE$ | $\begin{pmatrix}1-1&1+1\\\\-1-1&-1+1\end{pmatrix} = \begin{pmatrix}0&2\\\\-2&0\end{pmatrix}$ |
+| p) | $(AB)C$ | $AB = A$; luego $\begin{pmatrix}-1&2\\\\2&3\end{pmatrix}\begin{pmatrix}1&0&-1\\\\2&1&3\end{pmatrix} = \begin{pmatrix}3&2&7\\\\8&3&7\end{pmatrix}$ |
 
 > [!example] Verificación Algebraica
 > En ñ): $AA_{11} = (-1)(-1) + 2\cdot 2 = 5$; $AA_{12} = (-1)(2) + 2\cdot 3 = 4$; $AA_{22} = 2\cdot 2 + 3\cdot 3 = 13$. En o): $EE_{12} = 1\cdot 1 + 1\cdot 1 = 2$; $EE_{21} = (-1)(1) + 1(-1) = -2$.
@@ -461,10 +461,10 @@ Fórmula: $\det\begin{pmatrix}a&b\\c&d\end{pmatrix} = ad - bc$.
 
 | Ítem | Matriz | Cálculo | Resultado |
 |:---:|:---|:---|:---:|
-| a) | $\begin{pmatrix}3&4\\2&5\end{pmatrix}$ | $3\cdot 5 - 4\cdot 2 = 15 - 8$ | $\mathbf{7}$ |
-| b) | $\begin{pmatrix}0&3\\-1&7\end{pmatrix}$ | $0\cdot 7 - 3(-1) = 0 + 3$ | $\mathbf{3}$ |
-| c) | $\begin{pmatrix}5&7\\6&2\end{pmatrix}$ | $5\cdot 2 - 7\cdot 6 = 10 - 42$ | $\mathbf{-32}$ |
-| d) | $\begin{pmatrix}a&b\\2a&2b\end{pmatrix}$ | $a\cdot 2b - b\cdot 2a = 2ab - 2ab$ | $\mathbf{0}$ |
+| a) | $\begin{pmatrix}3&4\\\\2&5\end{pmatrix}$ | $3\cdot 5 - 4\cdot 2 = 15 - 8$ | $\mathbf{7}$ |
+| b) | $\begin{pmatrix}0&3\\\\-1&7\end{pmatrix}$ | $0\cdot 7 - 3(-1) = 0 + 3$ | $\mathbf{3}$ |
+| c) | $\begin{pmatrix}5&7\\\\6&2\end{pmatrix}$ | $5\cdot 2 - 7\cdot 6 = 10 - 42$ | $\mathbf{-32}$ |
+| d) | $\begin{pmatrix}a&b\\\\2a&2b\end{pmatrix}$ | $a\cdot 2b - b\cdot 2a = 2ab - 2ab$ | $\mathbf{0}$ |
 
 > [!example] d) — por propiedad
 > La fila 2 es $2\times$ la fila 1 ($F_2 = 2F_1$): **fila proporcional $\Rightarrow \det = 0$**. No hay que calcular nada.

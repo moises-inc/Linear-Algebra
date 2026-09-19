@@ -674,9 +674,9 @@ a_3 & b_3 & c_3 & d_3
 \end{pmatrix}
 $$
 
-Conforme al **Teorema de Rouché-Frobenius** estudiado en `Matrices — Clasificación de Sistemas`, la configuración geométrica de los 3 planos queda completamente determinada por los rangos $\mathrm{rg}(A)$ y $\mathrm{rg}(A|B)$:
+Conforme al **Teorema de Rouché-Frobenius** estudiado en `Matrices — Clasificación de Sistemas`, la configuración geométrica de los 3 planos queda completamente determinada por los rangos $\mathrm{rg}(A)$ y $\mathrm{rg}(A \mid B)$:
 
-| $\mathrm{rg}(A)$ | $\mathrm{rg}(A|B)$ | Clasificación del Sistema | Configuración Geométrica en $\mathbb{R}^3$ |
+| $\mathrm{rg}(A)$ | $\mathrm{rg}(A \mid B)$ | Clasificación del Sistema | Configuración Geométrica en $\mathbb{R}^3$ |
 | :---: | :---: | :--- | :--- |
 | **$3$** | **$3$** | **SCD** (Solución única, $\det A \neq 0$) | Los 3 planos se intersecan en un **único punto** (vértice común). |
 | **$2$** | **$2$** | **SCI** ($1$ grado de libertad, $\infty$ sol.) | Los 3 planos se intersecan en una **recta común** (haz de planos) o dos coinciden y cortan al tercero en recta. |

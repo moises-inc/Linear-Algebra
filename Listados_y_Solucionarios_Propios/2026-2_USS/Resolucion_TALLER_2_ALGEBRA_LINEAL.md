@@ -36,7 +36,7 @@ requires_orchestration: true
 
 ## 🗺️ Mapa General de Respuestas
 
-| Ejercicio | Tipo de Sistema | Rango $r(A)$ | Rango $r(A|b)$ | Solución Final |
+| Ejercicio | Tipo de Sistema | Rango $r(A)$ | Rango $r(A \mid b)$ | Solución Final |
 | :--- | :--- | :---: | :---: | :--- |
 | **1.a** | Compatible Determinado | $3$ | $3$ | $(x, y, z) = (2, -3, 1)$ |
 | **1.b** | Compatible Determinado | $3$ | $3$ | $(x, y, z) = (-4, 7, 1/2)$ |
@@ -122,7 +122,7 @@ $$
 - De $F_1$: $x - 2(-3) + 3(1) = 11 \implies x + 6 + 3 = 11 \implies x = 2$.
 
 $$
-r(A) = 3 = r(A|b) = n \implies \mathbf{(x, y, z) = (2, -3, 1)}
+r(A) = 3 = r(A|b) = n \implies \mathbf{x} = (x, y, z) = (2, -3, 1)
 $$
 
 ---
@@ -166,7 +166,7 @@ $$
 - De $F_1$: $x + 3(7) - 4\left(\frac{1}{2}\right) = 15 \implies x + 21 - 2 = 15 \implies x = -4$.
 
 $$
-r(A) = 3 = r(A|b) \implies \mathbf{(x, y, z) = \left(-4, 7, \frac{1}{2}\right)}
+r(A) = 3 = r(A|b) \implies \mathbf{x} = (x, y, z) = \left(-4, 7, \frac{1}{2}\right)
 $$
 
 ---
@@ -204,7 +204,7 @@ Tomando $z = t$ ($t \in \mathbb{R}$):
 - De $F_1$: $x + 2\left(\frac{8}{9}t\right) - 2t = 3 \implies x + \frac{16}{9}t - \frac{18}{9}t = 3 \implies x = 3 + \frac{2}{9}t$.
 
 $$
-\mathbf{(x, y, z) = \left(3 + \frac{2}{9}t, \; \frac{8}{9}t, \; t\right), \quad t \in \mathbb{R}}
+(x, y, z) = \left(3 + \frac{2{9}t, \; \frac{8}{9}t, \; t\right), \quad t \in \mathbb{R}}
 $$
 
 ---
@@ -259,7 +259,7 @@ $$
 4. De $F_1$: $x + 30 - 14 = 7 \implies x + 16 = 7 \implies x = -9$.
 
 $$
-r(A) = 3 = r(A|b) \implies \mathbf{(x, y, z) = (-9, 30, 14)}
+r(A) = 3 = r(A|b) \implies \mathbf{x} = (x, y, z) = (-9, 30, 14)
 $$
 
 ---
@@ -290,7 +290,7 @@ Haciendo $z = t$:
 - $x + \frac{24 + 9t}{5} - t = 7 \implies x + \frac{24 + 4t}{5} = \frac{35}{5} \implies x = \frac{11 - 4t}{5}$.
 
 $$
-\mathbf{(x, y, z) = \left(\frac{11 - 4t}{5}, \; \frac{24 + 9t}{5}, \; t\right), \quad t \in \mathbb{R}}
+(x, y, z) = \left(\frac{11 - 4t{5}, \; \frac{24 + 9t}{5}, \; t\right), \quad t \in \mathbb{R}}
 $$
 
 ---
@@ -336,7 +336,7 @@ $$
 
 Como $\det(A) \neq 0$ en un sistema homogéneo $A\vec{x} = \vec{0}$, el rango es máximo ($r(A) = 3$) y la única solución es la **Trivial**:
 $$
-\mathbf{(x, y, z) = (0, 0, 0)}
+\mathbf{x} = (x, y, z) = (0, 0, 0)
 $$
 
 ---
@@ -362,7 +362,7 @@ Tomando $z = t$: $-5y = -9t \implies y = \frac{9}{5}t$.
 $x + \frac{9}{5}t - t = 0 \implies x + \frac{4}{5}t = 0 \implies x = -\frac{4}{5}t$.
 
 $$
-\mathbf{(x, y, z) = \left(-\frac{4}{5}t, \; \frac{9}{5}t, \; t\right), \quad t \in \mathbb{R}}
+(x, y, z) = \left(-\frac{4{5}t, \; \frac{9}{5}t, \; t\right), \quad t \in \mathbb{R}}
 $$
 
 ---
@@ -394,7 +394,7 @@ $$
 5. De $F_1$: $x - 2\left(\frac{11}{3}\right) = 4 \implies x = \frac{12}{3} + \frac{22}{3} = \frac{34}{3}$.
 
 $$
-r(A) = 3 = r(A|b) \implies \mathbf{(x, y, z) = \left(\frac{34}{3}, \; -\frac{37}{6}, \; \frac{11}{3}\right)}
+r(A) = 3 = r(A|b) \implies \mathbf{x} = (x, y, z) = \left(\frac{34}{3}, \; -\frac{37}{6}, \; \frac{11}{3}\right)
 $$
 
 ---
@@ -488,7 +488,7 @@ $$
 4. $x_1 + 4\left(\frac{8}{5}\right) = 7 \implies x_1 + \frac{32}{5} = \frac{35}{5} \implies x_1 = \frac{3}{5}$.
 
 $$
-r(A) = 3 = r(A|b) \implies \mathbf{(x_1, x_2, x_3) = \left(\frac{3}{5}, \; \frac{8}{5}, \; \frac{4}{5}\right)}
+r(A) = 3 = r(A|b) \implies \mathbf{x} = (x_1, x_2, x_3) = \left(\frac{3}{5}, \; \frac{8}{5}, \; \frac{4}{5}\right)
 $$
 
 ---

@@ -190,94 +190,169 @@ Códigos/
 ### Módulo 01: Sistemas de Ecuaciones Lineales y Rouché-Frobenius 3D
 * **Archivo CLI:** `01_Sistemas_Lineales_y_Matrices/01_gauss_jordan_y_rouche_frobenius_3d.py`
 * **Cuaderno:** `01_Sistemas_Lineales_y_Matrices/01_gauss_jordan_y_rouche_frobenius_3d.ipynb`
-* **Fundamento Matemático:**
-  Dado el sistema lineal $A\mathbf{x} = \mathbf{b}$ con $A \in \mathcal{M}_{m \times n}(\mathbb{R})$ y matriz aumentada $(A|\mathbf{b})$:
-  $$ \mathrm{RREF}(A|\mathbf{b}) \implies \begin{cases}
-  \mathrm{rg}(A) < \mathrm{rg}(A|\mathbf{b}) & \implies \text{Sistema Incompatible (SI, } \emptyset\text{)} \\
-  \mathrm{rg}(A) = \mathrm{rg}(A|\mathbf{b}) = n & \implies \text{Sistema Compatible Determinado (SCD, solución única)} \\
-  \mathrm{rg}(A) = \mathrm{rg}(A|\mathbf{b}) < n & \implies \text{Sistema Compatible Indeterminado (SCI, } \infty\text{ soluciones)}
-  \end{cases} $$
 * **Interactividad en Jupyter:** Deslizadores de coeficientes independientes, selector desplegable de casos canónicos (SCD, SCI, SI) y rotación dinámica de perspectiva 3D.
+
+**Fundamento Matemático:**  
+Dado el sistema lineal $A\mathbf{x} = \mathbf{b}$ con $A \in \mathcal{M}_{m \times n}(\mathbb{R})$ y matriz aumentada $(A|\mathbf{b})$:
+
+$$
+\mathrm{RREF}(A|\mathbf{b}) \implies \begin{cases}
+\mathrm{rg}(A) < \mathrm{rg}(A|\mathbf{b}) & \implies \text{Sistema Incompatible (SI, } \emptyset\text{)} \\
+\mathrm{rg}(A) = \mathrm{rg}(A|\mathbf{b}) = n & \implies \text{Sistema Compatible Determinado (SCD, solución única)} \\
+\mathrm{rg}(A) = \mathrm{rg}(A|\mathbf{b}) < n & \implies \text{Sistema Compatible Indeterminado (SCI, } \infty\text{ soluciones)}
+\end{cases}
+$$
 
 ---
 
 ### Módulo 02: Discusión de Sistemas Parametrizados con Parámetro $k$
 * **Archivo CLI:** `01_Sistemas_Lineales_y_Matrices/02_sistemas_parametrizados_k.py`
 * **Cuaderno:** `01_Sistemas_Lineales_y_Matrices/02_sistemas_parametrizados_k.ipynb`
-* **Fundamento Matemático:**
-  Sea $A(k)$ una matriz cuadrada dependiente de $k \in \mathbb{R}$. La invertibilidad depende de las raíces del polinomio característico del determinante:
-  $$ \det(A(k)) = 0 \implies k \in \{k_1, k_2, \dots, k_p\} $$
-  Para todo $k \notin \{k_1, \dots, k_p\}$, $\mathrm{rg}(A(k)) = n \implies \text{SCD}$. Para cada valor crítico $k_i$, se sustituye formalmente en $(A(k_i)|\mathbf{b}(k_i))$ y se computa la forma escalonada reducida por filas para discernir entre SCI y SI.
 * **Interactividad en Jupyter:** Slider continuo `FloatSlider` para $k \in [-5, 5]$ que calcula en tiempo real $\det(A(k))$, evalúa rangos simbólicos en SymPy y actualiza instantáneamente los tres planos tridimensionales.
+
+**Fundamento Matemático:**  
+Sea $A(k)$ una matriz cuadrada dependiente de $k \in \mathbb{R}$. La invertibilidad depende de las raíces del polinomio característico del determinante:
+
+$$
+\det(A(k)) = 0 \implies k \in \{k_1, k_2, \dots, k_p\}
+$$
+
+Para todo $k \notin \{k_1, \dots, k_p\}$, $\mathrm{rg}(A(k)) = n \implies \text{SCD}$. Para cada valor crítico $k_i$, se sustituye formalmente en $(A(k_i)|\mathbf{b}(k_i))$ y se computa la forma escalonada reducida por filas para discernir entre SCI y SI.
 
 ---
 
 ### Módulo 03: Menores, Cofactores, Matriz Adjunta e Inversa
 * **Archivo CLI:** `01_Sistemas_Lineales_y_Matrices/03_matrices_cofactores_e_inversa.py`
 * **Cuaderno:** `01_Sistemas_Lineales_y_Matrices/03_matrices_cofactores_e_inversa.ipynb`
-* **Fundamento Matemático:**
-  Dada $A \in \mathcal{M}_{n \times n}(\mathbb{R})$:
-  $$ C_{ij} = (-1)^{i+j} M_{ij}, \quad \mathrm{Cof}(A) = [C_{ij}], \quad \mathrm{Adj}(A) = [\mathrm{Cof}(A)]^T $$
-  $$ A \cdot \mathrm{Adj}(A) = \det(A) I_n \implies A^{-1} = \frac{1}{\det(A)} \mathrm{Adj}(A) \quad (\text{si } \det(A) \neq 0) $$
 * **Interactividad en Jupyter:** Entradas interactivas para modificar matrices, cálculo instantáneo de determinantes por expansión de Laplace y visualización de mapas de calor anotados.
+
+**Fundamento Matemático:**  
+Dada $A \in \mathcal{M}_{n \times n}(\mathbb{R})$:
+
+$$
+C_{ij} = (-1)^{i+j} M_{ij}, \quad \mathrm{Cof}(A) = [C_{ij}], \quad \mathrm{Adj}(A) = [\mathrm{Cof}(A)]^T
+$$
+
+$$
+A \cdot \mathrm{Adj}(A) = \det(A) I_n \implies A^{-1} = \frac{1}{\det(A)} \mathrm{Adj}(A) \quad (\text{si } \det(A) \neq 0)
+$$
 
 ---
 
 ### Módulo 04: Vectores en $\mathbb{R}^2/\mathbb{R}^3$, Cosenos Directores y Proyecciones
 * **Archivo CLI:** `02_Geometria_Vectorial_R2_R3/04_vectores_fundamentos_y_proyecciones.py`
 * **Cuaderno:** `02_Geometria_Vectorial_R2_R3/04_vectores_fundamentos_y_proyecciones.ipynb`
-* **Fundamento Matemático:**
-  Para $\mathbf{u}, \mathbf{v} \in \mathbb{R}^3$:
-  $$ \mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos\theta, \quad \cos\theta = \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|} $$
-  $$ \mathrm{proy}_{\mathbf{v}}(\mathbf{u}) = \left(\frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{v}\|^2}\right)\mathbf{v}, \quad \mathbf{u}_\perp = \mathbf{u} - \mathrm{proy}_{\mathbf{v}}(\mathbf{u}) $$
-  Verificación de ortogonalidad formal: $\mathbf{u}_\perp \cdot \mathbf{v} = 0$, e identidad de Pitágoras vectorial: $\|\mathbf{u}\|^2 = \|\mathrm{proy}_{\mathbf{v}}(\mathbf{u})\|^2 + \|\mathbf{u}_\perp\|^2$.
 * **Interactividad en Jupyter:** Deslizadores de componentes vectoriales, visualización dual 2D/3D y cálculo de cosenos directores $\cos\alpha, \cos\beta, \cos\gamma$.
+
+**Fundamento Matemático:**  
+Para $\mathbf{u}, \mathbf{v} \in \mathbb{R}^3$:
+
+$$
+\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos\theta, \quad \cos\theta = \frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|}
+$$
+
+$$
+\mathrm{proy}_{\mathbf{v}}(\mathbf{u}) = \left(\frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{v}\|^2}\right)\mathbf{v}, \quad \mathbf{u}_\perp = \mathbf{u} - \mathrm{proy}_{\mathbf{v}}(\mathbf{u})
+$$
+
+Verificación de ortogonalidad formal: $\mathbf{u}_\perp \cdot \mathbf{v} = 0$, e identidad de Pitágoras vectorial: $\|\mathbf{u}\|^2 = \|\mathrm{proy}_{\mathbf{v}}(\mathbf{u})\|^2 + \|\mathbf{u}_\perp\|^2$.
 
 ---
 
 ### Módulo 05: Producto Cruz, Identidad de Lagrange y Paralelepípedos 3D
 * **Archivo CLI:** `02_Geometria_Vectorial_R2_R3/05_producto_cruz_y_paralelepipedos_3d.py`
 * **Cuaderno:** `02_Geometria_Vectorial_R2_R3/05_producto_cruz_y_paralelepipedos_3d.ipynb`
-* **Fundamento Matemático:**
-  $$ \mathbf{u} \times \mathbf{v} = \begin{vmatrix} \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\ u_x & u_y & u_z \\ v_x & v_y & v_z \end{vmatrix}, \quad \|\mathbf{u} \times \mathbf{v}\|^2 = \|\mathbf{u}\|^2\|\mathbf{v}\|^2 - (\mathbf{u}\cdot\mathbf{v})^2 \quad (\text{Lagrange}) $$
-  $$ V_{\text{paralelepípedo}} = |[\mathbf{u}, \mathbf{v}, \mathbf{w}]| = |\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})| = |\det([\mathbf{u}, \mathbf{v}, \mathbf{w}])| $$
 * **Interactividad en Jupyter:** Creación de sólidos 3D con `Poly3DCollection`, control de factor de transparencia $\alpha$, cálculo de áreas y volúmenes, y demostración de anticonmutatividad.
+
+**Fundamento Matemático:**
+
+$$
+\mathbf{u} \times \mathbf{v} = \begin{vmatrix} \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\ u_x & u_y & u_z \\ v_x & v_y & v_z \end{vmatrix}, \quad \|\mathbf{u} \times \mathbf{v}\|^2 = \|\mathbf{u}\|^2\|\mathbf{v}\|^2 - (\mathbf{u}\cdot\mathbf{v})^2 \quad (\text{Lagrange})
+$$
+
+$$
+V_{\text{paralelepípedo}} = |[\mathbf{u}, \mathbf{v}, \mathbf{w}]| = |\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})| = |\det([\mathbf{u}, \mathbf{v}, \mathbf{w}])|
+$$
 
 ---
 
 ### Módulo 06: Rectas en $\mathbb{R}^3$, Posiciones Relativas y Distancia entre Rectas Alabeadas
 * **Archivo CLI:** `02_Geometria_Vectorial_R2_R3/06_rectas_en_r3_y_rectas_alabeadas.py`
 * **Cuaderno:** `02_Geometria_Vectorial_R2_R3/06_rectas_en_r3_y_rectas_alabeadas.ipynb`
-* **Fundamento Matemático:**
-  Dadas las rectas $L_1: \mathbf{r}_1(t) = \mathbf{P}_1 + t\mathbf{d}_1$ y $L_2: \mathbf{r}_2(s) = \mathbf{P}_2 + s\mathbf{d}_2$:
-  $$ d(L_1, L_2) = \frac{|(\mathbf{P}_2 - \mathbf{P}_1) \cdot (\mathbf{d}_1 \times \mathbf{d}_2)|}{\|\mathbf{d}_1 \times \mathbf{d}_2\|} $$
-  Los puntos de máxima proximidad $Q_1 \in L_1$ y $Q_2 \in L_2$ se determinan resolviendo el sistema lineal inducido por la condición de ortogonalidad simultánea:
-  $$ \begin{cases} (Q_2 - Q_1) \cdot \mathbf{d}_1 = 0 \\ (Q_2 - Q_1) \cdot \mathbf{d}_2 = 0 \end{cases} $$
 * **Interactividad en Jupyter:** Configuración de puntos de paso y vectores directores, clasificación topológica y trazado del segmento ortogonal de mínima separación.
+
+**Fundamento Matemático:**  
+Dadas las rectas $L_1: \mathbf{r}_1(t) = \mathbf{P}_1 + t\mathbf{d}_1$ y $L_2: \mathbf{r}_2(s) = \mathbf{P}_2 + s\mathbf{d}_2$:
+
+$$
+d(L_1, L_2) = \frac{|(\mathbf{P}_2 - \mathbf{P}_1) \cdot (\mathbf{d}_1 \times \mathbf{d}_2)|}{\|\mathbf{d}_1 \times \mathbf{d}_2\|}
+$$
+
+Los puntos de máxima proximidad $Q_1 \in L_1$ y $Q_2 \in L_2$ se determinan resolviendo el sistema lineal inducido por la condición de ortogonalidad simultánea:
+
+$$
+\begin{cases}
+(Q_2 - Q_1) \cdot \mathbf{d}_1 = 0 \\
+(Q_2 - Q_1) \cdot \mathbf{d}_2 = 0
+\end{cases}
+$$
 
 ---
 
 ### Módulo 07: Planos en $\mathbb{R}^3$, Ángulo Diedro e Intersección
 * **Archivo CLI:** `02_Geometria_Vectorial_R2_R3/07_planos_en_r3_e_intersecciones.py`
 * **Cuaderno:** `02_Geometria_Vectorial_R2_R3/07_planos_en_r3_e_intersecciones.ipynb`
-* **Fundamento Matemático:**
-  Para los planos $\Pi_1: A_1 x + B_1 y + C_1 z + D_1 = 0$ y $\Pi_2: A_2 x + B_2 y + C_2 z + D_2 = 0$:
-  $$ \mathbf{d} = \mathbf{n}_1 \times \mathbf{n}_2, \quad \cos\theta = \frac{|\mathbf{n}_1 \cdot \mathbf{n}_2|}{\|\mathbf{n}_1\| \|\mathbf{n}_2\|} $$
-  Distancia ortogonal de un punto $P_0(x_0, y_0, z_0)$ a un plano $\Pi$:
-  $$ d(P_0, \Pi) = \frac{|A x_0 + B y_0 + C z_0 + D|}{\sqrt{A^2 + B^2 + C^2}} $$
 * **Interactividad en Jupyter:** Ajuste de coeficientes de planos, determinación analítica de la recta de intersección y renderizado con vectores normales unitarios.
+
+**Fundamento Matemático:**  
+Para los planos $\Pi_1: A_1 x + B_1 y + C_1 z + D_1 = 0$ y $\Pi_2: A_2 x + B_2 y + C_2 z + D_2 = 0$:
+
+$$
+\mathbf{d} = \mathbf{n}_1 \times \mathbf{n}_2, \quad \cos\theta = \frac{|\mathbf{n}_1 \cdot \mathbf{n}_2|}{\|\mathbf{n}_1\| \|\mathbf{n}_2\|}
+$$
+
+Distancia ortogonal de un punto $P_0(x_0, y_0, z_0)$ a un plano $\Pi$:
+
+$$
+d(P_0, \Pi) = \frac{|A x_0 + B y_0 + C z_0 + D|}{\sqrt{A^2 + B^2 + C^2}}
+$$
 
 ---
 
 ### Módulo 08: Torque Vectorial 3D y Equilibrio Estático de Cuerpo Rígido
 * **Archivo CLI:** `03_Aplicaciones_Fisicas_y_Simulaciones/08_simulacion_torque_y_equilibrio_3d.py`
 * **Cuaderno:** `03_Aplicaciones_Fisicas_y_Simulaciones/08_simulacion_torque_y_equilibrio_3d.ipynb`
-* **Fundamento Matemático y Mecánico:**
-  Pluma mecánica articulada en el origen $O$ con rótula esférica y sustentada por cables tensores anclados en el espacio:
-  $$ \sum \mathbf{F}_i = \mathbf{R}_O + \mathbf{T}_1 + \mathbf{T}_2 + \mathbf{W}_{\text{pluma}} + \mathbf{W}_{\text{carga}} = \mathbf{0} $$
-  $$ \sum \boldsymbol{\tau}_{O, i} = \mathbf{r}_{T_1} \times \mathbf{T}_1 + \mathbf{r}_{T_2} \times \mathbf{T}_2 + \mathbf{r}_{G} \times \mathbf{W}_{\text{pluma}} + \mathbf{r}_{\text{extremo}} \times \mathbf{W}_{\text{carga}} = \mathbf{0} $$
-  Formulación en sistema matricial $6 \times 6$:
-  $$ \begin{pmatrix} I_3 & \hat{\mathbf{u}}_{T_1} & \hat{\mathbf{u}}_{T_2} \\ 0_{3 \times 3} & [\mathbf{r}_{T_1}]_\times \hat{\mathbf{u}}_{T_1} & [\mathbf{r}_{T_2}]_\times \hat{\mathbf{u}}_{T_2} \end{pmatrix} \begin{pmatrix} \mathbf{R}_O \\ T_1 \\ T_2 \end{pmatrix} = \begin{pmatrix} -\mathbf{W}_{\text{total}} \\ -\boldsymbol{\tau}_{O, \text{cargas}} \end{pmatrix} $$
+* **Interactividad en Jupyter:** Modificación en tiempo real de masas de carga, ángulo de inclinación de la pluma y posiciones de anclaje, con cálculo dinámico de tensiones y reacciones.
+
+**Fundamento Matemático y Mecánico:**  
+Pluma mecánica articulada en el origen $O$ con rótula esférica y sustentada por cables tensores anclados en el espacio:
+
+$$
+\sum \mathbf{F}_i = \mathbf{R}_O + \mathbf{T}_1 + \mathbf{T}_2 + \mathbf{W}_{\text{pluma}} + \mathbf{W}_{\text{carga}} = \mathbf{0}
+$$
+
+$$
+\sum \boldsymbol{\tau}_{O, i} = \mathbf{r}_{T_1} \times \mathbf{T}_1 + \mathbf{r}_{T_2} \times \mathbf{T}_2 + \mathbf{r}_{G} \times \mathbf{W}_{\text{pluma}} + \mathbf{r}_{\text{extremo}} \times \mathbf{W}_{\text{carga}} = \mathbf{0}
+$$
+
+Formulación en sistema matricial $6 \times 6$:
+
+$$
+\begin{pmatrix}
+I_3 & \hat{\mathbf{u}}_{T_1} & \hat{\mathbf{u}}_{T_2} \\
+0_{3 \times 3} & [\mathbf{r}_{T_1}]_\times \hat{\mathbf{u}}_{T_1} & [\mathbf{r}_{T_2}]_\times \hat{\mathbf{u}}_{T_2}
+\end{pmatrix}
+\begin{pmatrix}
+\mathbf{R}_O \\
+T_1 \\
+T_2
+\end{pmatrix}
+=
+\begin{pmatrix}
+-\mathbf{W}_{\text{total}} \\
+-\boldsymbol{\tau}_{O, \text{cargas}}
+\end{pmatrix}
+$$
 * **Interactividad en Jupyter:** Modificación en tiempo real de masas de carga, ángulo de inclinación de la pluma y posiciones de anclaje, con cálculo dinámico de tensiones y reacciones.
 
 ---

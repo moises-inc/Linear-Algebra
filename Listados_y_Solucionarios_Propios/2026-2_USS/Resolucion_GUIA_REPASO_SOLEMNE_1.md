@@ -35,8 +35,8 @@ status: completado
 | **5** | Selección Múltiple | Ecuaciones y Trasposición | $X = \frac{1}{3}(B^{-1} + A)$ | **Opción d** |
 | **6.a** | Desarrollo | Regularidad de Matriz | $A$ es regular $\iff m \neq 3$ | $(\det A = 3-m)$ |
 | **6.b** | Desarrollo | Parámetro No Solución Única | $m = 3$ | $(\det A = 0)$ |
-| **6.c** | Desarrollo | Conjunto Solución ($m=3$) | $S = \left\{\left(1 - \frac{1}{3}t, -\frac{8}{3}t, t\right) : t \in \mathbb{R}\right\}$ | Infinitas Sol. |
-| **6.d** | Desarrollo | Inversa por Adjunta ($m=-1$) | $A^{-1} = \frac{1}{4} \begin{bmatrix} 1 & 1 & -1 \\ -4 & 0 & -8 \\ 1 & 1 & 3 \end{bmatrix}$ | Inversa Exacta |
+| **6.c** | Desarrollo | Conjunto Solución ($m=3$) | $S = \{ (1 - \frac{1}{3}t, \, -\frac{8}{3}t, \, t) : t \in \mathbb{R} \}$ | Infinitas Sol. |
+| **6.d** | Desarrollo | Inversa por Adjunta ($m=-1$) | $A^{-1} = \frac{1}{4} \begin{bmatrix} 1 & 1 & -1 \\\\ -4 & 0 & -8 \\\\ 1 & 1 & 3 \end{bmatrix}$ | Inversa Exacta |
 
 ---
 
@@ -200,36 +200,88 @@ $$\det(A) = 0 \iff 3 - m = 0 \iff \mathbf{m = 3}$$
 
 #### **c) Conjunto solución del sistema para $m = 3$**
 Sustituimos $m = 3$ en la matriz aumentada $[A|B]$:
-$$[A|B] = \begin{bmatrix} 2 & -1 & -2 & \mid & 2 \\ 1 & 1 & 3 & \mid & 1 \\ 3 & 0 & 1 & \mid & 3 \end{bmatrix}$$
+
+$$
+[A|B] = \left[\begin{array}{ccc|c}
+2 & -1 & -2 & 2 \\
+1 & 1 & 3 & 1 \\
+3 & 0 & 1 & 3
+\end{array}\right]
+$$
 
 Aplicamos Eliminación Gaussiana (OEF):
+
 1. Intercambiamos $F_1 \leftrightarrow F_2$:
-$$\begin{bmatrix} 1 & 1 & 3 & \mid & 1 \\ 2 & -1 & -2 & \mid & 2 \\ 3 & 0 & 1 & \mid & 3 \end{bmatrix}$$
+
+$$
+\left[\begin{array}{ccc|c}
+1 & 1 & 3 & 1 \\
+2 & -1 & -2 & 2 \\
+3 & 0 & 1 & 3
+\end{array}\right]
+$$
 
 2. $F_2 \leftarrow F_2 - 2F_1$ y $F_3 \leftarrow F_3 - 3F_1$:
+
 $$F_2 \leftarrow [2-2, \, -1-2, \, -2-6 \mid 2-2] = [0, \, -3, \, -8 \mid 0]$$
 $$F_3 \leftarrow [3-3, \, 0-3, \, 1-9 \mid 3-3] = [0, \, -3, \, -8 \mid 0]$$
 
 La matriz queda:
-$$\begin{bmatrix} 1 & 1 & 3 & \mid & 1 \\ 0 & -3 & -8 & \mid & 0 \\ 0 & -3 & -8 & \mid & 0 \end{bmatrix}$$
+
+$$
+\left[\begin{array}{ccc|c}
+1 & 1 & 3 & 1 \\
+0 & -3 & -8 & 0 \\
+0 & -3 & -8 & 0
+\end{array}\right]
+$$
 
 3. $F_3 \leftarrow F_3 - F_2$:
-$$\begin{bmatrix} 1 & 1 & 3 & \mid & 1 \\ 0 & -3 & -8 & \mid & 0 \\ 0 & 0 & 0 & \mid & 0 \end{bmatrix}$$
+
+$$
+\left[\begin{array}{ccc|c}
+1 & 1 & 3 & 1 \\
+0 & -3 & -8 & 0 \\
+0 & 0 & 0 & 0
+\end{array}\right]
+$$
 
 4. Escalamos $F_2 \leftarrow -\frac{1}{3}F_2$:
-$$\begin{bmatrix} 1 & 1 & 3 & \mid & 1 \\ 0 & 1 & \frac{8}{3} & \mid & 0 \\ 0 & 0 & 0 & \mid & 0 \end{bmatrix}$$
+
+$$
+\left[\begin{array}{ccc|c}
+1 & 1 & 3 & 1 \\
+0 & 1 & \frac{8}{3} & 0 \\
+0 & 0 & 0 & 0
+\end{array}\right]
+$$
 
 5. $F_1 \leftarrow F_1 - F_2$:
-$$F_1 \leftarrow \left[1-0, \, 1-1, \, 3 - \frac{8}{3} \mid 1 - 0\right] = \left[1, \, 0, \, \frac{1}{3} \mid 1\right]$$
+
+$$F_1 \leftarrow \left[1-0, \, 1-1, \, 3 - \frac{8}{3} \;\middle|\; 1 - 0\right] = \left[1, \, 0, \, \frac{1}{3} \;\middle|\; 1\right]$$
 
 Matriz en Forma Escalonada Reducida por Filas (RREF):
-$$\begin{bmatrix} 1 & 0 & \frac{1}{3} & \mid & 1 \\ 0 & 1 & \frac{8}{3} & \mid & 0 \\ 0 & 0 & 0 & \mid & 0 \end{bmatrix}$$
+
+$$
+\left[\begin{array}{ccc|c}
+1 & 0 & \frac{1}{3} & 1 \\
+0 & 1 & \frac{8}{3} & 0 \\
+0 & 0 & 0 & 0
+\end{array}\right]
+$$
 
 Parametrización tomando la variable libre $z = t \in \mathbb{R}$:
-$$\begin{cases} x + \frac{1}{3}t = 1 \implies x = 1 - \frac{1}{3}t \\ y + \frac{8}{3}t = 0 \implies y = -\frac{8}{3}t \\ z = t \end{cases}$$
+
+$$
+\begin{cases}
+x + \frac{1}{3}t = 1 \implies x = 1 - \frac{1}{3}t \\
+y + \frac{8}{3}t = 0 \implies y = -\frac{8}{3}t \\
+z = t
+\end{cases}
+$$
 
 > [!example] **Conjunto Solución Formal:**
-> $$\mathbf{S = \left\{ \left( 1 - \frac{1}{3}t, \, -\frac{8}{3}t, \, t \right) : t \in \mathbb{R} \right\}}$$
+> $$ \mathbf{S} = \left\{ \left( 1 - \frac{1}{3}t, \, -\frac{8}{3}t, \, t \right) : t \in \mathbb{R} \right\} $$
 
 ---
 
