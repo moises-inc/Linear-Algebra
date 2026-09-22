@@ -12,748 +12,672 @@ status: completado
 
 > [!info] Leyenda de Trazabilidad de Fuentes
 > Con el fin de garantizar la máxima rigurosidad académica, trazabilidad y procedencia conceptual en la carrera de Ingeniería Civil Informática de la Universidad San Sebastián (USS), cada sección, definición y teorema incluye distintivos explícitos:
-> - 🎓 `[Cátedra USS / Diapositivas Docente Carol Asencio]`: Contenido curricular directo, deducciones analíticas, definiciones y banco completo de 17 ejercicios de cátedra extraídos de las diapositivas oficiales de Carol Asencio González (Álgebra Lineal DCEX0007, USS Patagonia).
+> - 🎓 `[Cátedra USS / Diapositivas Docente Carol Asencio]`: Contenido curricular directo, deducciones analíticas, definiciones y banco completo de ejercicios y ejemplos resueltos en estricto orden cronológico 1:1 según las 44 diapositivas oficiales de Carol Asencio González (Álgebra Lineal DCEX0007, Sede Patagonia).
 > - 📖 `[Texto Guía — Grossman / Axler / Aranda]`: Fundamentación teórica formal, demostraciones matemáticas rigurosas y propiedades algebraicas avanzadas (*Grossman 7ª Ed.*, *Axler 4ª Ed.* y *Aranda - Álgebra Lineal con Python*).
 > - 🌐 `[Enriquecimiento Web / Computación Gráfica / Historia]`: Génesis histórica del análisis vectorial (Hamilton, Gibbs, Heaviside), reducción de ecuaciones de Maxwell, y algoritmos clave en computación gráfica 3D (Möller-Trumbore ray-triangle, backface culling, reflexión para shaders PBR) junto con verificación computacional.
 
 ---
 
-## 📌 1. Introducción y Fundamentos de $\mathbb{R}^2$ y $\mathbb{R}^3$
+> [!important] Resultado de Aprendizaje Oficial (Slide 2) 🎓 `[Cátedra USS]`
+> **Analiza rectas y planos en el espacio identificando sus distancias y posiciones relativas.**
+> 
+> *Recursos conceptuales del syllabus:* Vectores en $\mathbb{R}^2$ y $\mathbb{R}^3$, operaciones básicas y axiomas, producto punto (escalar), norma euclidiana y distancia, ángulo entre vectores y Ley de Cosenos, ortogonalidad y paralelismo, proyecciones ortogonales, producto cruz (vectorial), áreas y volúmenes, ecuaciones de rectas en el espacio, ecuaciones de planos, posiciones relativas, intersección recta-plano y distancias euclídeas mínimas.
 
-### 1.1 Definición Formal de Vector en $\mathbb{R}^n$ ($n=2,3$) 🎓 `[Cátedra USS / Programa Oficial]`
-Desde la perspectiva algebraica, el espacio euclídeo $n$-dimensional $\mathbb{R}^n$ se define como el conjunto de todas las $n$-tuplas ordenadas de números reales:
+---
+
+## 📌 1. Vectores (Slides 3–4) 🎓 `[Cátedra USS]`
+
+### Vector $(a,b)$ en $\mathbb{R}^2$ (Slide 3) 🎓 `[Cátedra USS]`
+Un vector en el plano bidimensional se define como un par ordenado de números reales:
 
 $$
-\mathbb{R}^n = \left\{ \mathbf{v} = (v_1, v_2, \dots, v_n) : v_i \in \mathbb{R},\ i=1,\dots,n \right\}
+\mathbf{v} = (a, b) \in \mathbb{R}^2
 $$
 
-En particular, para el plano cartesiano ($n=2$) y el espacio tridimensional ($n=3$):
-- En $\mathbb{R}^2$: $\mathbf{v} = (v_1, v_2) = v_1 \mathbf{i} + v_2 \mathbf{j}$, donde $\mathbf{i} = (1,0)$ y $\mathbf{j} = (0,1)$.
-- En $\mathbb{R}^3$: $\mathbf{v} = (v_1, v_2, v_3) = v_1 \mathbf{i} + v_2 \mathbf{j} + v_3 \mathbf{k}$, donde $\mathbf{i} = (1,0,0)$, $\mathbf{j} = (0,1,0)$ y $\mathbf{k} = (0,0,1)$ constituyen la **base canónica ortonormal**.
+donde $a$ representa la componente horizontal (abscisa) y $b$ la componente vertical (ordenada). Se puede expresar en términos de la base canónica como $\mathbf{v} = a\mathbf{i} + b\mathbf{j}$, con $\mathbf{i} = (1,0)$ y $\mathbf{j} = (0,1)$.
 
-Geométricamente, un vector es una clase de equivalencia de **segmentos de recta dirigidos** (vectores libres) caracterizados por tres atributos invariantes:
-1. **Magnitud (o módulo):** la longitud del segmento.
-2. **Dirección:** la recta de soporte o inclinación espacial.
-3. **Sentido:** la orientación señalada por la punta de la flecha.
+Geométricamente, un vector representa un segmento de recta dirigido que parte desde el origen $O(0,0)$ hasta el punto $(a,b)$, o bien un vector libre que traslada cualquier punto inicial $P(x_1, y_1)$ al punto final $Q(x_2, y_2)$ con componentes $a = x_2 - x_1$ y $b = y_2 - y_1$.
 
-Si fijamos el punto inicial en el origen de coordenadas $O(0,0,0)$ y el punto final en $P(v_1, v_2, v_3)$, decimos que $\mathbf{v} = \overrightarrow{OP}$ es el **vector de posición** del punto $P$. Dados dos puntos arbitrarios en el espacio, $P(x_P, y_P, z_P)$ y $Q(x_Q, y_Q, z_Q)$, el vector geométrico dirigido desde $P$ hacia $Q$ viene dado por la diferencia:
+### Vector $(a,b,c)$ en $\mathbb{R}^3$ (Slide 4) 🎓 `[Cátedra USS]`
+En el espacio euclídeo tridimensional, un vector es una terna ordenada de números reales:
+
+$$
+\mathbf{v} = (a, b, c) \in \mathbb{R}^3
+$$
+
+donde $a, b, c$ corresponden a las coordenadas respecto a los ejes ortogonales $X$, $Y$ y $Z$. En la base canónica tridimensional:
+
+$$
+\mathbf{v} = a\mathbf{i} + b\mathbf{j} + c\mathbf{k}
+$$
+
+con $\mathbf{i} = (1,0,0)$, $\mathbf{j} = (0,1,0)$ y $\mathbf{k} = (0,0,1)$.
+
+Dados dos puntos arbitrarios en el espacio, $P(x_P, y_P, z_P)$ y $Q(x_Q, y_Q, z_Q)$, el vector libre $\overrightarrow{PQ}$ dirigido de $P$ a $Q$ se obtiene mediante la sustracción de coordenadas:
 
 $$
 \overrightarrow{PQ} = Q - P = (x_Q - x_P,\ y_Q - y_P,\ z_Q - z_P)
 $$
 
-### 1.2 Operaciones Algebraicas y Propiedades de Espacio Vectorial 📖 `[Texto Guía — Grossman / Axler]`
-Sean $\mathbf{u} = (u_1, u_2, u_3), \mathbf{v} = (v_1, v_2, v_3) \in \mathbb{R}^3$ y $\lambda \in \mathbb{R}$ un escalar. Se definen las dos operaciones fundamentales:
+---
 
-1. **Suma Vectorial:**
-   $$
-   \mathbf{u} + \mathbf{v} = (u_1 + v_1,\ u_2 + v_2,\ u_3 + v_3)
-   $$
-   *Interpretación geométrica:* Regla del paralelogramo o ley del triángulo (concatenación cabeza-cola).
+## ➕ 1.1 Operaciones Básicas entre Vectores (Slides 5–8) 🎓 `[Cátedra USS]`
 
-2. **Multiplicación por Escalar:**
-   $$
-   \lambda \mathbf{v} = (\lambda v_1,\ \lambda v_2,\ \lambda v_3)
-   $$
-   *Interpretación geométrica:* Dilatación ($\lambda > 1$), contracción ($0 < \lambda < 1$), inversión de sentido ($\lambda < 0$) o colapso al vector nulo $\mathbf{0} = (0,0,0)$ si $\lambda = 0$.
+### Igualdad de Vectores (Slide 5) 🎓 `[Cátedra USS]`
+> **Definición de Cátedra:** Dos vectores son iguales si tienen, en el mismo orden, los mismos componentes.
+> 
+> En $\mathbb{R}^2$: $(u_1, u_2) = (v_1, v_2) \iff u_1 = v_1 \quad \text{y} \quad u_2 = v_2$.
+> 
+> En $\mathbb{R}^3$: $(u_1, u_2, u_3) = (v_1, v_2, v_3) \iff u_1 = v_1,\ u_2 = v_2 \quad \text{y} \quad u_3 = v_3$.
 
-> [!important] Estructura de Espacio Vectorial 📖 [Axler §1A]
-> El conjunto $(\mathbb{R}^3, +, \cdot)$ dotado de estas operaciones satisface los 8 axiomas de espacio vectorial sobre el cuerpo $\mathbb{R}$:
-> - Conmutatividad: $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$.
-> - Asociatividad: $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$.
-> - Elemento neutro aditivo: $\exists\,\mathbf{0} = (0,0,0)$ tal que $\mathbf{v} + \mathbf{0} = \mathbf{v}$.
-> - Elemento opuesto aditivo: $\exists\,(-\mathbf{v}) = (-v_1, -v_2, -v_3)$ tal que $\mathbf{v} + (-\mathbf{v}) = \mathbf{0}$.
-> - Distributividad escalar sobre suma vectorial: $\lambda(\mathbf{u} + \mathbf{v}) = \lambda\mathbf{u} + \lambda\mathbf{v}$.
-> - Distributividad de la suma de escalares: $(\lambda + \mu)\mathbf{v} = \lambda\mathbf{v} + \mu\mathbf{v}$.
-> - Compatibilidad de escalares: $\lambda(\mu\mathbf{v}) = (\lambda\mu)\mathbf{v}$.
-> - Identidad multiplicativa: $1\mathbf{v} = \mathbf{v}$.
+### Suma Vectorial (Slide 6) 🎓 `[Cátedra USS]`
+La adición de vectores se realiza componente a componente:
 
-### 1.3 Norma Euclídea, Distancia y Vector Unitario 📖 `[Grossman Cap. 4]`
+$$
+\mathbf{u} + \mathbf{v} = (u_1 + v_1,\ u_2 + v_2,\ u_3 + v_3)
+$$
 
-> [!theorem] Definición de Norma Euclídea
-> La **norma euclídea** (o longitud) de un vector $\mathbf{v} = (v_1, v_2, v_3) \in \mathbb{R}^3$ se define como:
+*Interpretación geométrica:* Regla del paralelogramo (hacer coincidir orígenes y trazar el paralelogramo cuya diagonal principal es $\mathbf{u}+\mathbf{v}$) o regla del triángulo (hacer coincidir el origen de $\mathbf{v}$ con el extremo de $\mathbf{u}$).
+
+### Multiplicación por un Escalar (Slide 7) 🎓 `[Cátedra USS]`
+Dado un escalar real $\alpha \in \mathbb{R}$ y un vector $\mathbf{v} = (v_1, v_2, v_3)$:
+
+$$
+\alpha\mathbf{v} = (\alpha v_1,\ \alpha v_2,\ \alpha v_3)
+$$
+
+*Efecto geométrico:*
+- Si $\alpha > 1$: dilata la longitud conservando la dirección y sentido.
+- Si $0 < \alpha < 1$: contrae la longitud conservando dirección y sentido.
+- Si $\alpha < 0$: invierte el sentido original del vector ($180^\circ$).
+- Si $\alpha = 0$: produce el vector nulo $\mathbf{0} = (0,0,0)$.
+
+### Ejemplos de Cátedra y Combinaciones Lineales (Slide 8) 🎓 `[Cátedra USS]`
+
+#### Ejercicio 1 (Slide 8): Combinación Lineal y Operaciones Básicas en $\mathbb{R}^3$
+> [!example] Enunciado
+> Sean los vectores $\mathbf{v} = (1, -2, 0)$ y $\mathbf{w} = (3, 4, -1)$ en $\mathbb{R}^3$. Determine analíticamente el vector resultante de la combinación lineal:
 > 
 > $$
-> \|\mathbf{v}\| = \sqrt{v_1^2 + v_2^2 + v_3^2}
+> \mathbf{u} = 2\mathbf{v} - 3\mathbf{w}
 > $$
-> 
-> Satisface rigurosamente las propiedades axiomáticas de toda norma:
-> 1. No negatividad: $\|\mathbf{v}\| \ge 0$, y $\|\mathbf{v}\| = 0 \iff \mathbf{v} = \mathbf{0}$.
-> 2. Homogeneidad absoluta: $\|\lambda \mathbf{v}\| = |\lambda| \|\mathbf{v}\|$ para todo $\lambda \in \mathbb{R}$.
-> 3. Desigualdad triangular: $\|\mathbf{u} + \mathbf{v}\| \le \|\mathbf{u}\| + \|\mathbf{v}\|$.
 
-**Deducción de la Distancia Euclídea por Teorema de Pitágoras:**
-Sean $P(x_1, y_1, z_1)$ y $Q(x_2, y_2, z_2)$. Consideremos el punto intermedio en el plano horizontal $R(x_2, y_2, z_1)$:
-1. El segmento $PR$ yace en un plano paralelo a $xy$. Por el Teorema de Pitágoras bidimensional:
+**Resolución Paso a Paso:**
+1. Aplicamos la multiplicación por escalar componente a componente:
    $$
-   PR^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2
+   2\mathbf{v} = 2(1, -2, 0) = (2(1), 2(-2), 2(0)) = (2, -4, 0)
    $$
-2. El segmento $RQ$ es estrictamente vertical (paralelo al eje $z$) con longitud $|z_2 - z_1|$, y es ortogonal al segmento $PR$. Aplicando nuevamente el Teorema de Pitágoras en el triángulo rectángulo $\triangle PRQ$:
    $$
-   PQ^2 = PR^2 + RQ^2 = (x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2
+   3\mathbf{w} = 3(3, 4, -1) = (3(3), 3(4), 3(-1)) = (9, 12, -3)
    $$
-3. Extrayendo la raíz cuadrada positiva se obtiene la distancia métrica:
+2. Efectuamos la resta vectorial componente a componente:
    $$
-   d(P, Q) = \|\overrightarrow{PQ}\| = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2}
+   \mathbf{u} = 2\mathbf{v} - 3\mathbf{w} = (2 - 9,\ -4 - 12,\ 0 - (-3)) = (-7, -16, 3)
    $$
-
-**Normalización de Vectores:**
-Para cualquier vector no nulo $\mathbf{v} \neq \mathbf{0}$, el **vector unitario** (o versor) con idéntica dirección y sentido es:
-
-$$
-\hat{\mathbf{v}} = \frac{\mathbf{v}}{\|\mathbf{v}\|}, \qquad \text{verificando que } \|\hat{\mathbf{v}}\| = \left\|\frac{\mathbf{v}}{\|\mathbf{v}\|}\right\| = \frac{1}{\|\mathbf{v}\|}\|\mathbf{v}\| = 1
-$$
-
-### 1.4 Conexión Bidireccional con Matrices 🔗 `[Álgebra Matricial]`
-En el formalismo del Álgebra Lineal, todo vector $\mathbf{v} \in \mathbb{R}^3$ es canónicamente isomorfo al espacio de matrices columna $\mathcal{M}_{3 \times 1}(\mathbb{R})$:
-
-$$
-\mathbf{v} = (v_1, v_2, v_3) \iff \mathbf{v} = \begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix} \in \mathcal{M}_{3 \times 1}(\mathbb{R})
-$$
-
-Bajo esta correspondencia:
-- La adición de vectores equivale exactamente a la suma matricial en $\mathcal{M}_{3 \times 1}(\mathbb{R})$.
-- El producto por un escalar equivale a la ponderación matricial $\lambda A$.
-- Toda combinación lineal de vectores $\{ \mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3 \}$ con ponderadores $c_1, c_2, c_3$ se expresa matricialmente mediante el producto matriz-vector:
-  $$
-  c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + c_3 \mathbf{v}_3 = \begin{pmatrix} \mathbf{v}_1 & \mathbf{v}_2 & \mathbf{v}_3 \end{pmatrix} \begin{pmatrix} c_1 \\ c_2 \\ c_3 \end{pmatrix} = A \mathbf{c}
-  $$
-  donde $A \in \mathcal{M}_{3 \times 3}(\mathbb{R})$ tiene a los vectores como sus columnas (ver estudio sistemático en [Unidad 1: Matrices](../Unidad_1_Matrices_y_Sistemas/Matrices.md)).
-
-#### Diagrama Representativo de la Sección 1: Fundamentos de Vectores en $\mathbb{R}^2$ y $\mathbb{R}^3$
-Representación gráfica bidimensional (regla del paralelogramo para la suma vectorial) y tridimensional (vector de posición y sus 3 componentes cartesianas):
-
-![Figura 10: Fundamentos de Vectores en R2 y R3](figuras/Figura10_vectores_r2_r3_fundamentos.png)
+*Resultado Verificado:* $\mathbf{u} = (-7, -16, 3)$.
 
 ---
 
-## 📐 2. Producto Escalar (Punto) y Ortogonalidad
-
-### 2.1 Definiciones Algebraica y Geométrica 📖 `[Grossman §4.2]`
-
-> [!theorem] Definición Algebraica del Producto Escalar
-> Dados $\mathbf{u} = (u_1, u_2, u_3)$ y $\mathbf{v} = (v_1, v_2, v_3)$ en $\mathbb{R}^3$, su **producto escalar** (o producto punto) es la función $\cdot : \mathbb{R}^3 \times \mathbb{R}^3 \to \mathbb{R}$ dada por:
-> 
-> $$
-> \mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^{3} u_i v_i = u_1 v_1 + u_2 v_2 + u_3 v_3 = \mathbf{u}^T \mathbf{v}
-> $$
-
-> [!theorem] Definición Geométrica del Producto Escalar
-> Si $\theta \in [0, \pi]$ es el ángulo convexo entre los vectores no nulos $\mathbf{u}$ y $\mathbf{v}$, entonces:
-> 
-> $$
-> \mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos\theta
-> $$
-
-**Deducción de la Equivalencia mediante la Ley del Coseno:**
-Consideremos el triángulo formado por los vectores $\mathbf{u}$, $\mathbf{v}$ y el vector de cierre $\mathbf{w} = \mathbf{u} - \mathbf{v}$.
-Por la Ley del Coseno sobre las longitudes de los lados:
-
-$$
-\|\mathbf{u} - \mathbf{v}\|^2 = \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 - 2\|\mathbf{u}\| \|\mathbf{v}\| \cos\theta
-$$
-
-Desarrollando el lado izquierdo mediante la definición algebraica y sus propiedades bilineales:
-
-$$
-\begin{aligned}
-\|\mathbf{u} - \mathbf{v}\|^2 &= (\mathbf{u} - \mathbf{v}) \cdot (\mathbf{u} - \mathbf{v}) \\
-&= \mathbf{u} \cdot \mathbf{u} - 2(\mathbf{u} \cdot \mathbf{v}) + \mathbf{v} \cdot \mathbf{v} \\
-&= \|\mathbf{u}\|^2 - 2(\mathbf{u} \cdot \mathbf{v}) + \|\mathbf{v}\|^2
-\end{aligned}
-$$
-
-Igualando ambas expresiones:
-
-$$
-\|\mathbf{u}\|^2 - 2(\mathbf{u} \cdot \mathbf{v}) + \|\mathbf{v}\|^2 = \|\mathbf{u}\|^2 + \|\mathbf{v}\|^2 - 2\|\mathbf{u}\| \|\mathbf{v}\| \cos\theta
-$$
-
-Cancelando $\|\mathbf{u}\|^2 + \|\mathbf{v}\|^2$ y dividiendo por $-2$:
-
-$$
-\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos\theta \quad \blacksquare
-$$
-
-Como consecuencia directa, el coseno del ángulo entre dos vectores se despeja como:
-
-$$
-\cos\theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \|\mathbf{v}\|} = \frac{u_1 v_1 + u_2 v_2 + u_3 v_3}{\sqrt{u_1^2 + u_2^2 + u_3^2}\sqrt{v_1^2 + v_2^2 + v_3^2}}
-$$
-
-### 2.2 Criterios de Ortogonalidad y Paralelismo 🎓 `[Cátedra USS]`
-1. **Ortogonalidad (Perpendicularidad):** Dos vectores $\mathbf{u}$ y $\mathbf{v}$ son ortogonales ($\mathbf{u} \perp \mathbf{v}$) si y solo si:
-   $$
-   \mathbf{u} \cdot \mathbf{v} = 0
-   $$
-   *(Para vectores no nulos, esto equivale a $\cos\theta = 0 \iff \theta = \frac{\pi}{2}$).*
-2. **Paralelismo (Colinealidad):** $\mathbf{u}$ y $\mathbf{v}$ son paralelos ($\mathbf{u} \parallel \mathbf{v}$) si y solo si:
-   $$
-   |\mathbf{u} \cdot \mathbf{v}| = \|\mathbf{u}\| \|\mathbf{v}\| \iff \cos\theta = \pm 1 \iff \mathbf{u} = c\mathbf{v} \quad (c \in \mathbb{R})
-   $$
-3. **Signo del Producto Escalar:**
-   - $\mathbf{u} \cdot \mathbf{v} > 0 \iff \theta \in \left[0, \frac{\pi}{2}\right)$ (ángulo agudo).
-   - $\mathbf{u} \cdot \mathbf{v} = 0 \iff \theta = \frac{\pi}{2}$ (vectores perpendiculares).
-   - $\mathbf{u} \cdot \mathbf{v} < 0 \iff \theta \in \left(\frac{\pi}{2}, \pi\right]$ (ángulo obtuso).
-
-### 2.3 Cosenos Directores en $\mathbb{R}^3$ 📖 `[Grossman §4.3]`
-Sea $\mathbf{v} = (v_1, v_2, v_3) \in \mathbb{R}^3$ con $\mathbf{v} \neq \mathbf{0}$. Se definen los **ángulos directores** $\alpha, \beta, \gamma \in [0, \pi]$ como los ángulos que forma $\mathbf{v}$ con los semiejes positivos $x$, $y$, $z$, correspondientes a los vectores canónicos $\mathbf{i} = (1,0,0)$, $\mathbf{j} = (0,1,0)$ y $\mathbf{k} = (0,0,1)$.
-
-Aplicando la fórmula geométrica del producto escalar:
-
-$$
-\cos\alpha = \frac{\mathbf{v} \cdot \mathbf{i}}{\|\mathbf{v}\| \|\mathbf{i}\|} = \frac{v_1}{\|\mathbf{v}\|}, \qquad
-\cos\beta = \frac{\mathbf{v} \cdot \mathbf{j}}{\|\mathbf{v}\| \|\mathbf{j}\|} = \frac{v_2}{\|\mathbf{v}\|}, \qquad
-\cos\gamma = \frac{\mathbf{v} \cdot \mathbf{k}}{\|\mathbf{v}\| \|\mathbf{k}\|} = \frac{v_3}{\|\mathbf{v}\|}
-$$
-
-> [!theorem] Teorema de la Suma de Cuadrados de Cosenos Directores
-> Para todo vector no nulo $\mathbf{v} \in \mathbb{R}^3$, se verifica idénticamente:
-> 
-> $$
-> \cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1
-> $$
-
-*Demostración Formal:*
-Sustituimos directamente los cocientes en la suma de los cuadrados:
-
-$$
-\cos^2\alpha + \cos^2\beta + \cos^2\gamma = \left( \frac{v_1}{\|\mathbf{v}\|} \right)^2 + \left( \frac{v_2}{\|\mathbf{v}\|} \right)^2 + \left( \frac{v_3}{\|\mathbf{v}\|} \right)^2 = \frac{v_1^2 + v_2^2 + v_3^2}{\|\mathbf{v}\|^2}
-$$
-
-Puesto que por definición $\|\mathbf{v}\|^2 = v_1^2 + v_2^2 + v_3^2$, se tiene:
-
-$$
-\cos^2\alpha + \cos^2\beta + \cos^2\gamma = \frac{\|\mathbf{v}\|^2}{\|\mathbf{v}\|^2} = 1 \quad \blacksquare
-$$
-
-*Consecuencia geométrica:* Las componentes del vector unitario $\hat{\mathbf{v}}$ coinciden exactamente con los cosenos directores de $\mathbf{v}$:
-
-$$
-\hat{\mathbf{v}} = \frac{\mathbf{v}}{\|\mathbf{v}\|} = (\cos\alpha, \cos\beta, \cos\gamma)
-$$
-
-### 2.4 Proyección Ortogonal y Componente Escalar 📖 `[Grossman / Axler]`
-
-Dado un vector $\mathbf{v}$ y una dirección no nula $\mathbf{u} \neq \mathbf{0}$, nos proponemos descomponer $\mathbf{v}$ en la suma de dos vectores mutuamente ortogonales:
-
-$$
-\mathbf{v} = \mathbf{p} + \mathbf{r}, \quad \text{donde } \mathbf{p} \parallel \mathbf{u} \text{ y } \mathbf{r} \perp \mathbf{u}
-$$
-
-El vector $\mathbf{p}$ se denomina **proyección ortogonal de $\mathbf{v}$ sobre $\mathbf{u}$**, denotado $\mathrm{proy}_{\mathbf{u}}\mathbf{v}$.
-
-**Derivación Rigurosa de las Fórmulas:**
-1. Dado que $\mathbf{p} \parallel \mathbf{u}$, debe existir un escalar único $c \in \mathbb{R}$ tal que:
-   $$
-   \mathbf{p} = c\mathbf{u}
-   $$
-2. El residuo ortogonal es $\mathbf{r} = \mathbf{v} - \mathbf{p} = \mathbf{v} - c\mathbf{u}$.
-3. Imponiendo la condición de perpendicularidad $\mathbf{r} \perp \mathbf{u}$:
-   $$
-   (\mathbf{v} - c\mathbf{u}) \cdot \mathbf{u} = 0 \implies \mathbf{v} \cdot \mathbf{u} - c(\mathbf{u} \cdot \mathbf{u}) = 0
-   $$
-4. Como $\mathbf{u} \neq \mathbf{0}$, $\mathbf{u} \cdot \mathbf{u} = \|\mathbf{u}\|^2 > 0$. Despejando $c$:
-   $$
-   c = \frac{\mathbf{v} \cdot \mathbf{u}}{\|\mathbf{u}\|^2}
-   $$
-
-Por lo tanto:
-
-$$
-\mathrm{proy}_{\mathbf{u}}\mathbf{v} = \left( \frac{\mathbf{v} \cdot \mathbf{u}}{\|\mathbf{u}\|^2} \right) \mathbf{u} = \left( \mathbf{v} \cdot \hat{\mathbf{u}} \right) \hat{\mathbf{u}}
-$$
-
-La magnitud con signo de esta proyección sobre la dirección unitaria $\hat{\mathbf{u}}$ se denomina **componente escalar**:
-
-$$
-\mathrm{comp}_{\mathbf{u}}\mathbf{v} = \frac{\mathbf{v} \cdot \mathbf{u}}{\|\mathbf{u}\|} = \|\mathbf{v}\|\cos\theta
-$$
-
-Notemos que $\mathrm{proy}_{\mathbf{u}}\mathbf{v} = (\mathrm{comp}_{\mathbf{u}}\mathbf{v}) \hat{\mathbf{u}}$.
-
-#### Diagrama Representativo de la Sección 2: Proyección Ortogonal y Cosenos Directores
-Ilustración bidimensional de la proyección ortogonal y residuo perpendicular, junto con la disposición tridimensional de los ángulos y cosenos directores $\alpha, \beta, \gamma$:
-
-![Figura 11: Proyección Ortogonal y Cosenos Directores](figuras/Figura11_producto_punto_cosenos_directores.png)
-
-### 2.5 Teorema: Desigualdad de Cauchy-Schwarz 📖 `[Axler §6A]`
-
-> [!theorem] Desigualdad de Cauchy-Schwarz
-> Para cualesquiera vectores $\mathbf{u}, \mathbf{v} \in \mathbb{R}^n$, se cumple:
-> 
-> $$
-> |\mathbf{u} \cdot \mathbf{v}| \le \|\mathbf{u}\| \|\mathbf{v}\|
-> $$
-> 
-> La igualdad se cumple si y solo si $\mathbf{u}$ y $\mathbf{v}$ son linealmente dependientes (es decir, uno es múltiplo escalar del otro).
-
-**Demostración Geométrica Elegante (Método de Axler):**
-- Si $\mathbf{v} = \mathbf{0}$, ambos miembros valen $0$, verificándose trivialmente la igualdad.
-- Supongamos $\mathbf{v} \neq \mathbf{0}$. Descomponemos $\mathbf{u}$ en su proyección sobre $\mathbf{v}$ y un residuo ortogonal $\mathbf{w}$:
-  $$
-  \mathbf{u} = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|^2} \mathbf{v} + \mathbf{w}
-  $$
-  donde $\mathbf{w} = \mathbf{u} - \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|^2}\mathbf{v}$. Verificamos que $\mathbf{w}$ es ortogonal a $\mathbf{v}$:
-  $$
-  \mathbf{w} \cdot \mathbf{v} = \left( \mathbf{u} - \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|^2}\mathbf{v} \right) \cdot \mathbf{v} = \mathbf{u} \cdot \mathbf{v} - \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|^2}(\mathbf{v} \cdot \mathbf{v}) = \mathbf{u} \cdot \mathbf{v} - \mathbf{u} \cdot \mathbf{v} = 0
-  $$
-  Puesto que $\frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|^2}\mathbf{v}$ y $\mathbf{w}$ son ortogonales, aplicamos el **Teorema de Pitágoras**:
-  $$
-  \|\mathbf{u}\|^2 = \left\| \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|^2}\mathbf{v} \right\|^2 + \|\mathbf{w}\|^2 = \frac{|\mathbf{u} \cdot \mathbf{v}|^2}{\|\mathbf{v}\|^4}\|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 = \frac{|\mathbf{u} \cdot \mathbf{v}|^2}{\|\mathbf{v}\|^2} + \|\mathbf{w}\|^2
-  $$
-  Dado que la norma siempre es no negativa ($\|\mathbf{w}\|^2 \ge 0$), se deduce la desigualdad:
-  $$
-  \|\mathbf{u}\|^2 \ge \frac{|\mathbf{u} \cdot \mathbf{v}|^2}{\|\mathbf{v}\|^2}
-  $$
-  Multiplicando ambos lados por $\|\mathbf{v}\|^2 > 0$:
-  $$
-  \|\mathbf{u}\|^2 \|\mathbf{v}\|^2 \ge |\mathbf{u} \cdot \mathbf{v}|^2
-  $$
-  Extrayendo la raíz cuadrada positiva a ambos miembros:
-  $$
-  |\mathbf{u} \cdot \mathbf{v}| \le \|\mathbf{u}\| \|\mathbf{v}\| \quad \blacksquare
-  $$
-  *Condición de igualdad:* Se alcanza la igualdad estricta $\iff \|\mathbf{w}\|^2 = 0 \iff \mathbf{w} = \mathbf{0} \iff \mathbf{u} = \left(\frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{v}\|^2}\right)\mathbf{v}$, lo que significa que $\mathbf{u}$ es múltiplo escalar de $\mathbf{v}$ (linealmente dependientes).
 
 ---
 
-## ✖️ 3. Producto Cruz (Vectorial) y Triple Producto Escalar
+## 🏛️ Propiedades de las Operaciones entre Vectores (Slide 9) 🎓 `[Cátedra USS]`
 
-### 3.1 Definición Formal y Regla Mnemotécnica $3 \times 3$ 🎓 `[Cátedra USS]`
-El **producto cruz** (o vectorial) es una operación definida exclusivamente en el espacio tridimensional $\mathbb{R}^3$, que asocia a dos vectores $\mathbf{u}$ y $\mathbf{v}$ un tercer vector $\mathbf{u} \times \mathbf{v} \in \mathbb{R}^3$.
+Sean $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^3$ vectores arbitrarios y $\alpha, \beta \in \mathbb{R}$ escalares. Se verifican estrictamente los **8 axiomas de espacio vectorial**:
 
-> [!theorem] Definición del Producto Cruz
-> Sean $\mathbf{u} = (u_1, u_2, u_3)$ y $\mathbf{v} = (v_1, v_2, v_3)$. El producto cruz se define como:
-> 
-> $$
-> \mathbf{u} \times \mathbf{v} = (u_2 v_3 - u_3 v_2,\ u_3 v_1 - u_1 v_3,\ u_1 v_2 - u_2 v_1)
-> $$
-> 
-> Se calcula mnemotécnicamente expandiendo por la primera fila el siguiente arreglo simbólico de orden $3 \times 3$:
-> 
-> $$
-> \mathbf{u} \times \mathbf{v} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \end{vmatrix} = \begin{vmatrix} u_2 & u_3 \\ v_2 & v_3 \end{vmatrix}\mathbf{i} - \begin{vmatrix} u_1 & u_3 \\ v_1 & v_3 \end{vmatrix}\mathbf{j} + \begin{vmatrix} u_1 & u_2 \\ v_1 & v_2 \end{vmatrix}\mathbf{k}
-> $$
-
-### 3.2 Propiedades Fundamentales y Ortogonalidad Cruzada 📖 `[Grossman §4.4]`
-1. **Anticonmutatividad:** $\mathbf{u} \times \mathbf{v} = -(\mathbf{v} \times \mathbf{u})$ (al permutar dos filas en un determinante se invierte el signo).
-2. **Distributividad sobre la suma:** $\mathbf{u} \times (\mathbf{v} + \mathbf{w}) = (\mathbf{u} \times \mathbf{v}) + (\mathbf{u} \times \mathbf{w})$.
-3. **Homogeneidad con escalares:** $(\lambda\mathbf{u}) \times \mathbf{v} = \mathbf{u} \times (\lambda\mathbf{v}) = \lambda(\mathbf{u} \times \mathbf{v})$.
-4. **Auto-anulación:** $\mathbf{u} \times \mathbf{u} = \mathbf{0}$ para todo $\mathbf{u} \in \mathbb{R}^3$.
-5. **Ortogonalidad Simultánea:** $\mathbf{u} \cdot (\mathbf{u} \times \mathbf{v}) = 0$ y $\mathbf{v} \cdot (\mathbf{u} \times \mathbf{v}) = 0$.
-
-*Demostración Analítica de la Ortogonalidad:*
-Evaluamos el producto escalar entre $\mathbf{u}$ y $\mathbf{u} \times \mathbf{v}$:
-
-$$
-\begin{aligned}
-\mathbf{u} \cdot (\mathbf{u} \times \mathbf{v}) &= u_1(u_2 v_3 - u_3 v_2) + u_2(u_3 v_1 - u_1 v_3) + u_3(u_1 v_2 - u_2 v_1) \\
-&= u_1 u_2 v_3 - u_1 u_3 v_2 + u_2 u_3 v_1 - u_2 u_1 v_3 + u_3 u_1 v_2 - u_3 u_2 v_1 \\
-&= (u_1 u_2 v_3 - u_2 u_1 v_3) + (-u_1 u_3 v_2 + u_3 u_1 v_2) + (u_2 u_3 v_1 - u_3 u_2 v_1) \\
-&= 0 + 0 + 0 = 0 \quad \blacksquare
-\end{aligned}
-$$
-
-Idéntico desarrollo confirma que $\mathbf{v} \cdot (\mathbf{u} \times \mathbf{v}) = 0$. En consecuencia, $\mathbf{u} \times \mathbf{v}$ es perpendicular tanto a $\mathbf{u}$ como a $\mathbf{v}$ (y por tanto normal al plano generado por ellos), orientándose según la **regla de la mano derecha**.
-
-### 3.3 Teorema: Identidad de Lagrange y Magnitud Geométrica 📖 `[Grossman §4.4]`
-
-> [!theorem] Identidad de Lagrange
-> Para cualesquiera vectores $\mathbf{u}, \mathbf{v} \in \mathbb{R}^3$, se verifica algebraicamente:
-> 
-> $$
-> \|\mathbf{u} \times \mathbf{v}\|^2 = \|\mathbf{u}\|^2 \|\mathbf{v}\|^2 - (\mathbf{u} \cdot \mathbf{v})^2
-> $$
-
-**Demostración Analítica Término a Término:**
-Expandimos el término izquierdo a partir de las componentes de $\mathbf{u} \times \mathbf{v}$:
-
-$$
-\begin{aligned}
-\|\mathbf{u} \times \mathbf{v}\|^2 &= (u_2 v_3 - u_3 v_2)^2 + (u_3 v_1 - u_1 v_3)^2 + (u_1 v_2 - u_2 v_1)^2 \\
-&= (u_2^2 v_3^2 - 2 u_2 u_3 v_2 v_3 + u_3^2 v_2^2) \\
-&\quad + (u_3^2 v_1^2 - 2 u_3 u_1 v_3 v_1 + u_1^2 v_3^2) \\
-&\quad + (u_1^2 v_2^2 - 2 u_1 u_2 v_1 v_2 + u_2^2 v_1^2) \quad \text{--- (Expresión 1)}
-\end{aligned}
-$$
-
-Por otra parte, desarrollamos el segundo miembro $\|\mathbf{u}\|^2 \|\mathbf{v}\|^2 - (\mathbf{u} \cdot \mathbf{v})^2$:
-
-$$
-\|\mathbf{u}\|^2 \|\mathbf{v}\|^2 = (u_1^2 + u_2^2 + u_3^2)(v_1^2 + v_2^2 + v_3^2) = \sum_{i=1}^3 \sum_{j=1}^3 u_i^2 v_j^2
-$$
-
-El cuadrado del producto escalar es:
-
-$$
-(\mathbf{u} \cdot \mathbf{v})^2 = (u_1 v_1 + u_2 v_2 + u_3 v_3)^2 = \sum_{i=1}^3 u_i^2 v_i^2 + 2(u_1 u_2 v_1 v_2 + u_1 u_3 v_1 v_3 + u_2 u_3 v_2 v_3)
-$$
-
-Restando ambas sumas, los tres términos diagonales idénticos $u_1^2 v_1^2 + u_2^2 v_2^2 + u_3^2 v_3^2$ se anulan exactamente, quedando:
-
-$$
-\begin{aligned}
-\|\mathbf{u}\|^2 \|\mathbf{v}\|^2 - (\mathbf{u} \cdot \mathbf{v})^2 &= (u_1^2 v_2^2 + u_1^2 v_3^2 + u_2^2 v_1^2 + u_2^2 v_3^2 + u_3^2 v_1^2 + u_3^2 v_2^2) \\
-&\quad - 2(u_1 u_2 v_1 v_2 + u_1 u_3 v_1 v_3 + u_2 u_3 v_2 v_3)
-\end{aligned}
-$$
-
-Agrupando los términos por binomios al cuadrado, vemos que coincide exactamente con la (Expresión 1). Por ende:
-
-$$
-\|\mathbf{u} \times \mathbf{v}\|^2 = \|\mathbf{u}\|^2 \|\mathbf{v}\|^2 - (\mathbf{u} \cdot \mathbf{v})^2 \quad \blacksquare
-$$
-
-**Consecuencia Geométrica Inmediata:**
-Sustituyendo la definición geométrica $\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \|\mathbf{v}\| \cos\theta$:
-
-$$
-\|\mathbf{u} \times \mathbf{v}\|^2 = \|\mathbf{u}\|^2 \|\mathbf{v}\|^2 - \|\mathbf{u}\|^2 \|\mathbf{v}\|^2 \cos^2\theta = \|\mathbf{u}\|^2 \|\mathbf{v}\|^2 (1 - \cos^2\theta) = \|\mathbf{u}\|^2 \|\mathbf{v}\|^2 \sin^2\theta
-$$
-
-Dado que $\theta \in [0, \pi]$, se tiene $\sin\theta \ge 0$. Extrayendo raíz cuadrada:
-
-$$
-\|\mathbf{u} \times \mathbf{v}\| = \|\mathbf{u}\| \|\mathbf{v}\| \sin\theta
-$$
-
-> [!tip] Interpretación Geométrica de Áreas
-> 1. **Área del Paralelogramo:** sustentado por los vectores $\mathbf{u}$ y $\mathbf{v}$:
->    $$
->    \text{Área}_{\text{paralelogramo}} = \text{base} \times \text{altura} = \|\mathbf{u}\| (\|\mathbf{v}\|\sin\theta) = \|\mathbf{u} \times \mathbf{v}\|
->    $$
-> 2. **Área del Triángulo:** determinado por los vértices del paralelogramo:
->    $$
->    \text{Área}_{\triangle} = \frac{1}{2} \|\mathbf{u} \times \mathbf{v}\|
->    $$
-> 3. **Criterio de Paralelismo:** Para vectores no nulos, $\mathbf{u} \parallel \mathbf{v} \iff \theta \in \{0, \pi\} \iff \sin\theta = 0 \iff \mathbf{u} \times \mathbf{v} = \mathbf{0}$.
-
-### 3.4 Triple Producto Escalar (Mixto) y Volumen 📖 `[Grossman §4.4]`
-
-> [!theorem] Definición del Triple Producto Escalar
-> Sean $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^3$. El **triple producto escalar** (o producto mixto) se define como:
-> 
-> $$
-> [\mathbf{u}, \mathbf{v}, \mathbf{w}] = \mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})
-> $$
-> 
-> Coincide exactamente con el determinante de la matriz cuyas filas son las componentes de los tres vectores:
-> 
-> $$
-> \mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) = \det\begin{pmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{pmatrix}
-> $$
-
-**Interpretación Geométrica del Volumen:**
-El valor absoluto del triple producto escalar representa el volumen del **paralelepípedo** tridimensional cuyas aristas concurrentes son $\mathbf{u}, \mathbf{v}, \mathbf{w}$:
-
-$$
-V_{\text{paralelepípedo}} = | \mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) | = |\det(\mathbf{u}, \mathbf{v}, \mathbf{w})|
-$$
-
-*Justificación:* El área de la base es $A = \|\mathbf{v} \times \mathbf{w}\|$. La altura $h$ es la proyección de $\mathbf{u}$ sobre la dirección normal a la base $\mathbf{n} = \mathbf{v} \times \mathbf{w}$, esto es $h = \|\mathbf{u}\| |\cos\phi|$. Por ende:
-$$
-V = A \cdot h = \|\mathbf{v} \times \mathbf{w}\| \|\mathbf{u}\| |\cos\phi| = | \mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) |
-$$
-
-Para un **tetraedro** con aristas $\mathbf{u}, \mathbf{v}, \mathbf{w}$:
-
-$$
-V_{\text{tetraedro}} = \frac{1}{6} | \mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) |
-$$
-
-> [!important] Criterio de Coplanaridad
-> Tres vectores $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^3$ son **coplanares** (yacen en un mismo plano o en planos paralelos) si y solo si el paralelepípedo colapsa (volumen nulo):
-> 
-> $$
-> \mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) = 0 \iff \det\begin{pmatrix} \mathbf{u} \\ \mathbf{v} \\ \mathbf{w} \end{pmatrix} = 0
-> $$
-> 
-> Conexión directa: esto equivale a que las tres filas/vectores sean **linealmente dependientes** en $\mathbb{R}^3$ (ver `Matrices — Determinantes`).
-
-#### Diagrama Representativo de la Sección 3: Producto Cruz, Área y Torque 3D
-Representación del paralelogramo sustentado por $\mathbf{u}$ y $\mathbf{v}$ en $\mathbb{R}^3$ con su vector normal de producto cruz, y la aplicación física del vector de torsión $\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F}$:
-
-![Figura 12: Producto Cruz, Área y Torque 3D](figuras/Figura12_producto_cruz_torque_3d.png)
+1. **Conmutatividad de la suma:**
+   $$
+   \mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}
+   $$
+2. **Asociatividad de la suma:**
+   $$
+   (\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})
+   $$
+3. **Existencia del elemento neutro aditivo:**
+   $$
+   \mathbf{u} + \mathbf{0} = \mathbf{u},\quad \text{con } \mathbf{0} = (0,0,0)
+   $$
+4. **Existencia del opuesto aditivo:**
+   $$
+   \mathbf{u} + (-\mathbf{u}) = \mathbf{0},\quad \text{donde } -\mathbf{u} = (-u_1, -u_2, -u_3)
+   $$
+5. **Identidad del escalar unidad:**
+   $$
+   1\mathbf{u} = \mathbf{u}
+   $$
+6. **Asociatividad mixta escalar:**
+   $$
+   \alpha(\beta\mathbf{u}) = (\alpha\beta)\mathbf{u}
+   $$
+7. **Distributividad del escalar sobre la suma vectorial:**
+   $$
+   \alpha(\mathbf{u} + \mathbf{v}) = \alpha\mathbf{u} + \alpha\mathbf{v}
+   $$
+8. **Distributividad del vector sobre la suma de escalares:**
+   $$
+   (\alpha + \beta)\mathbf{u} = \alpha\mathbf{u} + \beta\mathbf{u}
+   $$
 
 ---
 
-## 📏 4. Rectas en el Espacio $\mathbb{R}^3$
+## 🔘 1.2 Producto Punto (Escalar) (Slides 10–11) 🎓 `[Cátedra USS]`
 
-### 4.1 Ecuaciones de la Recta 🎓 `[Cátedra USS / Diapositivas]`
-Una recta $L$ en $\mathbb{R}^3$ queda unívocamente determinada cuando se especifica:
-- Un punto conocido por donde pasa: $P_0(x_0, y_0, z_0)$ con vector de posición $\mathbf{r}_0 = (x_0, y_0, z_0)$.
-- Un vector director no nulo que fija su orientación: $\mathbf{d} = (a, b, c) \neq \mathbf{0}$.
-
-#### 1. Ecuación Vectorial:
-Un punto arbitrario $P(x,y,z)$ con vector de posición $\mathbf{r} = (x,y,z)$ pertenece a la recta $L$ si y solo si el vector desplazamiento $\overrightarrow{P_0 P}$ es colineal con $\mathbf{d}$:
-
-$$
-\mathbf{r}(t) = \mathbf{r}_0 + t \mathbf{d}, \quad t \in \mathbb{R}
-$$
-
-O en coordenadas: $(x, y, z) = (x_0, y_0, z_0) + t(a, b, c)$.
-
-#### 2. Ecuaciones Paramétricas:
-Igualando componente a componente:
-
-$$
-\begin{cases}
-x = x_0 + a t \\
-y = y_0 + b t \\
-z = z_0 + c t
-\end{cases} \quad (t \in \mathbb{R})
-$$
-
-#### 3. Ecuaciones Simétricas (o Continuas):
-Si todos los números directores son no nulos ($a \neq 0, b \neq 0, c \neq 0$), despejamos el parámetro escalar $t$:
-
-$$
-\frac{x - x_0}{a} = \frac{y - y_0}{b} = \frac{z - z_0}{c}
-$$
-
-*Caso particular:* Si uno de los directores es nulo, por ejemplo $b = 0$ con $a \neq 0, c \neq 0$, la variable $y$ permanece constante y las ecuaciones simétricas se expresan:
-$$
-\frac{x - x_0}{a} = \frac{z - z_0}{c}, \qquad y = y_0
-$$
-
-### 4.2 Posiciones Relativas de Dos Rectas en $\mathbb{R}^3$ 📖 `[Grossman §4.5]`
-Dadas dos rectas $L_1: \mathbf{r}_1(s) = P_1 + s\mathbf{d}_1$ y $L_2: \mathbf{r}_2(t) = P_2 + t\mathbf{d}_2$:
-
-```mermaid
-flowchart TD
-    A["Analizar vectores directores: ¿d1 || d2?"] -->|Sí: d1 x d2 = 0| B["¿P1 pertenece a L2?"]
-    B -->|Sí| C["Rectas Coincidentes (L1 = L2)"]
-    B -->|No| D["Rectas Paralelas Disjuntas (L1 || L2)"]
-    A -->|No: d1 x d2 != 0| E["Triple producto: [P1P2, d1, d2]"]
-    E -->|Igual a 0| F["Rectas Secantes (se cortan en 1 punto)"]
-    E -->|Distinto de 0| G["Rectas Alabeadas / Cruzadas (en planos paralelos)"]
-```
-
-1. **Coincidentes:** $\mathbf{d}_1 \parallel \mathbf{d}_2$ ($\mathbf{d}_1 \times \mathbf{d}_2 = \mathbf{0}$) y el punto $P_1$ satisface las ecuaciones de $L_2$.
-2. **Paralelas Disjuntas:** $\mathbf{d}_1 \parallel \mathbf{d}_2$ ($\mathbf{d}_1 \times \mathbf{d}_2 = \mathbf{0}$) pero $P_1 \notin L_2$.
-3. **Secantes:** $\mathbf{d}_1 \nparallel \mathbf{d}_2$, son coplanares ($[\overrightarrow{P_1P_2}, \mathbf{d}_1, \mathbf{d}_2] = 0$) y existe un único par $(s_0, t_0)$ tal que $\mathbf{r}_1(s_0) = \mathbf{r}_2(t_0)$.
-4. **Alabeadas (o Cruzadas):** No son paralelas ($\mathbf{d}_1 \times \mathbf{d}_2 \neq \mathbf{0}$) y no se intersecan, situándose en planos espaciales distintos ($[\overrightarrow{P_1P_2}, \mathbf{d}_1, \mathbf{d}_2] \neq 0$).
-
-### 4.3 Distancia de un Punto a una Recta 📖 `[Grossman §4.5]`
-
-> [!theorem] Distancia de un Punto a una Recta
-> La distancia euclídea mínima desde un punto $Q(x_1, y_1, z_1)$ a una recta $L$ que pasa por $P_0$ con dirección $\mathbf{d}$ viene dada por:
+> **Definición de Cátedra (Slide 10):** El producto punto (o producto escalar) es una operación entre dos vectores que devuelve un **escalar** (número real). Para $\mathbf{v} = (v_1, v_2, \dots, v_n)$ y $\mathbf{w} = (w_1, w_2, \dots, w_n)$:
 > 
 > $$
-> d(Q, L) = \frac{\|\mathbf{d} \times \overrightarrow{P_0 Q}\|}{\|\mathbf{d}\|}
+> \mathbf{v} \cdot \mathbf{w} = \sum_{i=1}^n v_i w_i = v_1 w_1 + v_2 w_2 + \dots + v_n w_n \in \mathbb{R}
 > $$
 
-**Demostración Geométrica:**
-Consideremos el paralelogramo sustentado por el vector director $\mathbf{d}$ y el vector $\overrightarrow{P_0 Q}$.
-- La base del paralelogramo tiene longitud $b = \|\mathbf{d}\|$.
-- El área del paralelogramo es $A = \|\mathbf{d} \times \overrightarrow{P_0 Q}\|$.
-- La altura $h$ perpendicular a la base corresponde con la distancia mínima desde $Q$ hasta la recta $L$:
-  $$
-  A = \text{base} \times \text{altura} \implies \|\mathbf{d} \times \overrightarrow{P_0 Q}\| = \|\mathbf{d}\| \cdot d(Q, L)
-  $$
-- Despejando $d(Q, L)$ se obtiene la fórmula directa $\blacksquare$.
 
-### 4.4 Distancia Mínima entre Dos Rectas Alabeadas 🌐 `[UdeC / Grossman]`
+#### Ejercicio 2 (Slide 10): Producto Punto en $\mathbb{R}^3$ y $\mathbb{R}^2$
+> [!example] Enunciado
+> Calcule el producto escalar euclídeo para cada uno de los siguientes pares de vectores:
+> 1. $\mathbf{v} = (2, -1, 3)$ y $\mathbf{w} = (-1, 0, 4)$ en $\mathbb{R}^3$.
+> 2. $\mathbf{v} = (1, 4)$ y $\mathbf{w} = (-2, 3)$ en $\mathbb{R}^2$.
 
-> [!theorem] Distancia entre Rectas Alabeadas
-> Sean $L_1(P_1, \mathbf{d}_1)$ y $L_2(P_2, \mathbf{d}_2)$ dos rectas alabeadas en $\mathbb{R}^3$. La distancia mínima entre ambas es:
-> 
-> $$
-> d(L_1, L_2) = \frac{|\overrightarrow{P_1 P_2} \cdot (\mathbf{d}_1 \times \mathbf{d}_2)|}{\|\mathbf{d}_1 \times \mathbf{d}_2\|}
-> $$
-
-**Deducción:**
-El vector perpendicular común a ambas direcciones es $\mathbf{n} = \mathbf{d}_1 \times \mathbf{d}_2$. La distancia entre las rectas equivale a proyectar ortogonalmente cualquier vector que una ambas rectas (como $\overrightarrow{P_1 P_2}$) sobre este vector normal unitario $\hat{\mathbf{n}}$:
-
-$$
-d(L_1, L_2) = |\mathrm{comp}_{\mathbf{n}}\overrightarrow{P_1 P_2}| = \frac{|\overrightarrow{P_1 P_2} \cdot \mathbf{n}|}{\|\mathbf{n}\|} = \frac{|\overrightarrow{P_1 P_2} \cdot (\mathbf{d}_1 \times \mathbf{d}_2)|}{\|\mathbf{d}_1 \times \mathbf{d}_2\|} \quad \blacksquare
-$$
-
-#### Diagrama Representativo de la Sección 4: Rectas en el Espacio y Rectas Alabeadas
-Visualización tridimensional de la ecuación vectorial de una recta $\mathbf{r}(t) = P_0 + t\mathbf{d}$ y la disposición de dos rectas alabeadas con su vector perpendicular común:
-
-![Figura 13: Rectas en el Espacio y Rectas Alabeadas](figuras/Figura13_rectas_alabeadas_distancia_r3.png)
+**Resolución Paso a Paso:**
+1. Para el par tridimensional en $\mathbb{R}^3$:
+   $$
+   \mathbf{v} \cdot \mathbf{w} = v_1 w_1 + v_2 w_2 + v_3 w_3 = 2(-1) + (-1)(0) + 3(4) = -2 + 0 + 12 = 10
+   $$
+2. Para el par bidimensional en $\mathbb{R}^2$:
+   $$
+   \mathbf{v} \cdot \mathbf{w} = v_1 w_1 + v_2 w_2 = 1(-2) + 4(3) = -2 + 12 = 10
+   $$
+*Conclusión:* Ambos pares arrojan un producto punto estrictamente positivo ($10 > 0$), indicando que en ambos casos los vectores forman un ángulo convexo agudo ($\theta < 90^\circ$).
 
 ---
 
-## 🔲 5. Planos en el Espacio $\mathbb{R}^3$
 
-### 5.1 Ecuación Vectorial, Normal y Cartesiana 🎓 `[Cátedra USS]`
-Un plano $\pi$ en $\mathbb{R}^3$ queda determinado por:
-- Un punto contenido en él: $P_0(x_0, y_0, z_0)$.
-- Un vector normal ortogonal al plano: $\mathbf{n} = (a, b, c) \neq \mathbf{0}$.
+### Propiedades del Producto Punto (Slide 11) 🎓 `[Cátedra USS]`
+Para cualesquiera vectores $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^n$ y cualquier escalar $\alpha \in \mathbb{R}$:
 
-#### 1. Ecuación Vectorial Normal:
-Un punto $P(x,y,z)$ pertenece al plano $\pi$ si y solo si el vector desplazamiento $\overrightarrow{P_0 P} = (x - x_0, y - y_0, z - z_0)$ es ortogonal al vector normal $\mathbf{n}$:
-
-$$
-\mathbf{n} \cdot (\mathbf{r} - \mathbf{r}_0) = 0
-$$
-
-#### 2. Ecuación Cartesiana (General o Implícita):
-Desarrollando el producto escalar:
-
-$$
-a(x - x_0) + b(y - y_0) + c(z - z_0) = 0 \implies ax + by + cz + d = 0
-$$
-
-donde el término independiente es $d = -(a x_0 + b y_0 + c z_0)$.
-
-> [!note] Plano por Tres Puntos No Colineales
-> Dados tres puntos no alineados $P, Q, R \in \mathbb{R}^3$, construimos dos vectores coplanares al plano: $\mathbf{u} = \overrightarrow{PQ} = Q - P$ y $\mathbf{v} = \overrightarrow{PR} = R - P$.
-> El vector normal del plano se determina mediante el producto cruz:
-> 
-> $$
-> \mathbf{n} = \overrightarrow{PQ} \times \overrightarrow{PR}
-> $$
-
-### 5.2 Distancia de un Punto a un Plano 📖 `[Grossman §4.5]`
-
-> [!theorem] Distancia de un Punto a un Plano
-> La distancia desde un punto arbitrario $P_1(x_1, y_1, z_1)$ al plano $\pi: ax + by + cz + d = 0$ es:
-> 
-> $$
-> d(P_1, \pi) = \frac{|a x_1 + b y_1 + c z_1 + d|}{\sqrt{a^2 + b^2 + c^2}}
-> $$
-
-**Demostración por Proyección Ortogonal:**
-Sea $P_0(x_0, y_0, z_0)$ un punto perteneciente al plano, de modo que satisface $a x_0 + b y_0 + c z_0 + d = 0 \implies d = -(a x_0 + b y_0 + c z_0)$.
-El segmento perpendicular desde $P_1$ al plano es la proyección del vector $\overrightarrow{P_0 P_1} = (x_1 - x_0, y_1 - y_0, z_1 - z_0)$ sobre la dirección normal $\mathbf{n} = (a, b, c)$:
-
-$$
-d(P_1, \pi) = |\mathrm{comp}_{\mathbf{n}}\overrightarrow{P_0 P_1}| = \frac{|\overrightarrow{P_0 P_1} \cdot \mathbf{n}|}{\|\mathbf{n}\|}
-$$
-
-Evaluando el producto escalar en el numerador:
-
-$$
-\overrightarrow{P_0 P_1} \cdot \mathbf{n} = a(x_1 - x_0) + b(y_1 - y_0) + c(z_1 - z_0) = (a x_1 + b y_1 + c z_1) - (a x_0 + b y_0 + c z_0)
-$$
-
-Sustituyendo el valor de $d$:
-
-$$
-\overrightarrow{P_0 P_1} \cdot \mathbf{n} = a x_1 + b y_1 + c z_1 + d
-$$
-
-Como $\|\mathbf{n}\| = \sqrt{a^2 + b^2 + c^2}$, reemplazando en el cociente se concluye:
-
-$$
-d(P_1, \pi) = \frac{|a x_1 + b y_1 + c z_1 + d|}{\sqrt{a^2 + b^2 + c^2}} \quad \blacksquare
-$$
-
-### 5.3 Ángulo Diedro y Recta de Intersección entre Planos 🎓 `[Cátedra USS / Diapositivas]`
-
-Sean dos planos $\pi_1$ y $\pi_2$ con vectores normales $\mathbf{n}_1 = (a_1, b_1, c_1)$ y $\mathbf{n}_2 = (a_2, b_2, c_2)$ respectivamente:
-
-1. **Planos Paralelos:**
+1. **Definido Positivo:**
    $$
-   \pi_1 \parallel \pi_2 \iff \mathbf{n}_1 \parallel \mathbf{n}_2 \iff \mathbf{n}_1 = k \mathbf{n}_2 \quad (k \neq 0) \iff \mathbf{n}_1 \times \mathbf{n}_2 = \mathbf{0}
+   \mathbf{u} \cdot \mathbf{u} \ge 0,\quad \text{y} \quad \mathbf{u} \cdot \mathbf{u} = 0 \iff \mathbf{u} = \mathbf{0}
    $$
-2. **Planos Perpendiculares:**
+2. **Conmutatividad (Simetría):**
    $$
-   \pi_1 \perp \pi_2 \iff \mathbf{n}_1 \cdot \mathbf{n}_2 = 0
+   \mathbf{u} \cdot \mathbf{v} = \mathbf{v} \cdot \mathbf{u}
    $$
-3. **Ángulo Diedro Agudo ($\theta \in [0, \pi/2]$):**
+3. **Distributividad respecto a la suma vectorial:**
    $$
-   \cos\theta = \frac{|\mathbf{n}_1 \cdot \mathbf{n}_2|}{\|\mathbf{n}_1\| \|\mathbf{n}_2\|}
+   \mathbf{u} \cdot (\mathbf{v} + \mathbf{w}) = \mathbf{u} \cdot \mathbf{v} + \mathbf{u} \cdot \mathbf{w}
    $$
-4. **Recta de Intersección entre Planos Secantes:**
-   Si $\mathbf{n}_1 \nparallel \mathbf{n}_2$, la intersección $\pi_1 \cap \pi_2$ define una recta $L$ en $\mathbb{R}^3$. El vector director de dicha recta es perpendicular a ambas normales simultáneamente:
+4. **Homogeneidad con respecto a escalares:**
    $$
-   \mathbf{d}_L = \mathbf{n}_1 \times \mathbf{n}_2
+   \alpha(\mathbf{u} \cdot \mathbf{v}) = (\alpha\mathbf{u}) \cdot \mathbf{v} = \mathbf{u} \cdot (\alpha\mathbf{v})
    $$
-   Para obtener las ecuaciones paramétricas completas de $L$, se fija una coordenada constante (por ejemplo $z=0$) y se resuelve el sistema $2 \times 2$ resultante para hallar un punto $P_0 \in \pi_1 \cap \pi_2$.
-
-### 5.4 Intersección entre Recta y Plano 🎓 `[Cátedra USS / Diapositivas]`
-
-Dada una recta $L: \mathbf{r}(t) = P_0 + t\mathbf{d}$ con ecuaciones paramétricas $x = x_0 + a t$, $y = y_0 + b t$, $z = z_0 + c t$, y un plano cartesiano $\pi: A x + B y + C z = D$:
-
-- **Método Sistemático por Sustitución:** Se sustituyen directamente las expresiones paramétricas en la ecuación general del plano:
-  $$
-  A(x_0 + a t) + B(y_0 + b t) + C(z_0 + c t) = D
-  $$
-  $$
-  (A x_0 + B y_0 + C z_0) + t(A a + B b + C c) = D \implies t (\mathbf{n} \cdot \mathbf{d}) = D - \mathbf{n} \cdot P_0
-  $$
-
-- **Clasificación Topológica de Soluciones:**
-  1. **Solución Única ($\mathbf{n} \cdot \mathbf{d} \neq 0$):** La recta corta al plano en un **único punto** $P = \mathbf{r}(t^*)$.
-  2. **Infinitas Soluciones ($\mathbf{n} \cdot \mathbf{d} = 0$ y $D - \mathbf{n} \cdot P_0 = 0$):** La recta está **completamente contenida** en el plano ($L \subset \pi$).
-  3. **Sin Solución ($\mathbf{n} \cdot \mathbf{d} = 0$ y $D - \mathbf{n} \cdot P_0 \neq 0$):** La recta es **estrictamente paralela y disjunta** al plano ($L \parallel \pi$, $L \cap \pi = \emptyset$).
-
-### 5.5 Distancias Euclídeas de Cátedra: Recta-Plano, Plano-Plano y Rectas Paralelas 🎓 `[Cátedra USS]`
-
-1. **Distancia entre Recta y Plano Paralelos ($L \parallel \pi$):**
-   Si $\mathbf{d} \cdot \mathbf{n} = 0$, todos los puntos de la recta equidistan del plano. Tomando un punto arbitrario $P_0 \in L$:
-   $$
-   d(L, \pi) = d(P_0, \pi) = \frac{|A x_0 + B y_0 + C z_0 - D|}{\sqrt{A^2 + B^2 + C^2}}
-   $$
-
-2. **Distancia entre Dos Planos Paralelos ($\pi_1 \parallel \pi_2$):**
-   Sean $\pi_1: A x + B y + C z = D_1$ y $\pi_2: A x + B y + C z = D_2$ con coeficientes normales normalizados o idénticos. La distancia mínima viene dada por:
-   $$
-   d(\pi_1, \pi_2) = \frac{|D_2 - D_1|}{\sqrt{A^2 + B^2 + C^2}} = \frac{|D_2 - D_1|}{\|\mathbf{n}\|}
-   $$
-
-3. **Distancia entre Dos Rectas Paralelas ($L_1 \parallel L_2$):**
-   Sean $L_1$ que pasa por $P_1$ con director $\mathbf{d}$, y $L_2$ que pasa por $P_2$ con el mismo director $\mathbf{d}$. La distancia entre ambas rectas es la altura del paralelogramo sustentado por $\mathbf{d}$ y $\overrightarrow{P_1 P_2}$:
-   $$
-   d(L_1, L_2) = \frac{\|\mathbf{d} \times \overrightarrow{P_1 P_2}\|}{\|\mathbf{d}\|}
-   $$
-
-### 5.6 Intersección de Tres Planos y Conexión con el Teorema de Rouché-Frobenius 🔗 `[Matrices]`
-
-La intersección simultánea de tres planos en el espacio tridimensional:
-
-$$
-\begin{cases}
-\pi_1: a_1 x + b_1 y + c_1 z = d_1 \\
-\pi_2: a_2 x + b_2 y + c_2 z = d_2 \\
-\pi_3: a_3 x + b_3 y + c_3 z = d_3
-\end{cases}
-$$
-
-se formula matricialmente como el sistema lineal $A \mathbf{x} = \mathbf{b}$:
-
-$$
-\begin{pmatrix}
-a_1 & b_1 & c_1 \\
-a_2 & b_2 & c_2 \\
-a_3 & b_3 & c_3
-\end{pmatrix}
-\begin{pmatrix} x \\ y \\ z \end{pmatrix}
-=
-\begin{pmatrix} d_1 \\ d_2 \\ d_3 \end{pmatrix},
-\qquad
-(A|B) = \begin{pmatrix}
-a_1 & b_1 & c_1 & d_1 \\
-a_2 & b_2 & c_2 & d_2 \\
-a_3 & b_3 & c_3 & d_3
-\end{pmatrix}
-$$
-
-Conforme al **Teorema de Rouché-Frobenius** estudiado en `Matrices — Clasificación de Sistemas`, la configuración geométrica de los 3 planos queda completamente determinada por los rangos $\mathrm{rg}(A)$ y $\mathrm{rg}(A \mid B)$:
-
-| $\mathrm{rg}(A)$ | $\mathrm{rg}(A \mid B)$ | Clasificación del Sistema | Configuración Geométrica en $\mathbb{R}^3$ |
-| :---: | :---: | :--- | :--- |
-| **$3$** | **$3$** | **SCD** (Solución única, $\det A \neq 0$) | Los 3 planos se intersecan en un **único punto** (vértice común). |
-| **$2$** | **$2$** | **SCI** ($1$ grado de libertad, $\infty$ sol.) | Los 3 planos se intersecan en una **recta común** (haz de planos) o dos coinciden y cortan al tercero en recta. |
-| **$1$** | **$1$** | **SCI** ($2$ grados de libertad, $\infty$ sol.) | Los 3 planos son **completamente coincidentes** (el mismo plano). |
-| **$2$** | **$3$** | **SI** (Incompatible, sin solución) | **Prisma triangular** (se cortan dos a dos en 3 rectas paralelas) o dos son paralelos cortados por el tercero. |
-| **$1$** | **$2$** | **SI** (Incompatible, sin solución) | Los 3 planos son **estrictamente paralelos disjuntos** (o dos coincidentes y uno paralelo). |
-
-#### Diagrama Representativo de la Sección 5: Planos en el Espacio e Intersección de 3 Planos
-Visualización tridimensional de la ecuación general del plano con su vector normal $\mathbf{n}$, y la clasificación geométrica de la intersección de 3 planos según el Teorema de Rouché-Frobenius:
-
-![Figura 14: Planos en el Espacio e Intersección de 3 Planos](figuras/Figura14_planos_interseccion_rouche_frobenius_3d.png)
 
 ---
 
-## 💡 6. Ejercicios Resueltos Detallados y Casos Prácticos
+## 📏 1.3 Norma Euclidiana y Distancia (Slides 12–15) 🎓 `[Cátedra USS]`
 
-### 6.1 Caso Práctico 1: Momento de Torsión (Torque 3D) 🌐 `[UdeC Mecánica Vectorial]`
+> **Definición de Cátedra (Slide 12):** La norma euclidiana (o módulo) de un vector $\mathbf{v} = (v_1, v_2, v_3)$ es la raíz cuadrada de su producto punto consigo mismo:
+> 
+> $$
+> \|\mathbf{v}\| = \sqrt{\mathbf{v} \cdot \mathbf{v}} = \sqrt{v_1^2 + v_2^2 + v_3^2}
+> $$
+> 
+> **Distancia euclidiana entre dos puntos $A$ y $B$:**
+> $$
+> d(A,B) = \|\overrightarrow{AB}\| = \|B - A\| = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}
+> $$
+> 
+> **Vector unitario (versor normalizado):**
+> Dado $\mathbf{v} \neq \mathbf{0}$, el vector unitario en la misma dirección y sentido es:
+> $$
+> \mathbf{u} = \frac{\mathbf{v}}{\|\mathbf{v}\|},\quad \text{satisfaciendo } \|\mathbf{u}\| = 1
+> $$
+
+### Propiedades de la Norma (Slide 13) 🎓 `[Cátedra USS]`
+1. $\|\mathbf{v}\| \ge 0$, y $\|\mathbf{v}\| = 0 \iff \mathbf{v} = \mathbf{0}$.
+2. Homogeneidad absoluta: $\|\alpha\mathbf{v}\| = |\alpha| \|\mathbf{v}\|$.
+3. **Desigualdad Triangular:** $\|\mathbf{u} + \mathbf{v}\| \le \|\mathbf{u}\| + \|\mathbf{v}\|$.
+4. **Desigualdad de Cauchy-Schwarz:** $|\mathbf{u} \cdot \mathbf{v}| \le \|\mathbf{u}\| \|\mathbf{v}\|$.
+
+> [!tip] Demostración Rigurosa: Desigualdad de Cauchy-Schwarz 📖 `[Axler §6A]`
+> Para cualquier $t \in \mathbb{R}$, consideremos la función cuadrática:
+> $$
+> p(t) = \|\mathbf{u} + t\mathbf{v}\|^2 = (\mathbf{u} + t\mathbf{v}) \cdot (\mathbf{u} + t\mathbf{v}) = \|\mathbf{u}\|^2 + 2t(\mathbf{u}\cdot\mathbf{v}) + t^2\|\mathbf{v}\|^2 \ge 0
+> $$
+> Dado que $p(t) \ge 0$ para todo $t \in \mathbb{R}$, el discriminante $\Delta$ del polinomio cuadrático $At^2 + Bt + C$ (con $A = \|\mathbf{v}\|^2$, $B = 2(\mathbf{u}\cdot\mathbf{v})$, $C = \|\mathbf{u}\|^2$) debe ser no positivo:
+> $$
+> \Delta = B^2 - 4AC = 4(\mathbf{u}\cdot\mathbf{v})^2 - 4\|\mathbf{v}\|^2\|\mathbf{u}\|^2 \le 0
+> $$
+> Dividiendo entre 4 y extrayendo raíz cuadrada a ambos miembros:
+> $$
+> (\mathbf{u}\cdot\mathbf{v})^2 \le \|\mathbf{u}\|^2\|\mathbf{v}\|^2 \implies |\mathbf{u}\cdot\mathbf{v}| \le \|\mathbf{u}\| \|\mathbf{v}\| \quad \blacksquare
+> $$
+
+### Ejemplos de Norma y Dirección en los Cuatro Cuadrantes (Slides 14–15) 🎓 `[Cátedra USS]`
+
+#### Ejercicio 3 (Slide 14): Módulo y Dirección Analítica en los Cuatro Cuadrantes
+> [!example] Enunciado
+> Calcule la norma $\|\mathbf{v}\|$ y el ángulo director polar $\theta \in [0, 2\pi)$ medido desde el semieje positivo de las abscisas para cada uno de los siguientes vectores de $\mathbb{R}^2$:
+> 1. $\mathbf{v}_1 = (2, 2)$
+> 2. $\mathbf{v}_2 = (2, 2\sqrt{3})$
+> 3. $\mathbf{v}_3 = (-3, -3)$
+> 4. $\mathbf{v}_4 = (0, 3)$
+
+**Resolución Paso a Paso:**
+1. **Para $\mathbf{v}_1 = (2, 2)$ (Cuadrante I):**
+   - Norma: $\|\mathbf{v}_1\| = \sqrt{2^2 + 2^2} = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2}$.
+   - Dirección: Al estar en el primer cuadrante ($x > 0, y > 0$), $\tan\theta = \frac{2}{2} = 1 \implies \theta = \arctan(1) = \frac{\pi}{4}\ (45^\circ)$.
+2. **Para $\mathbf{v}_2 = (2, 2\sqrt{3})$ (Cuadrante I):**
+   - Norma: $\|\mathbf{v}_2\| = \sqrt{2^2 + (2\sqrt{3})^2} = \sqrt{4 + 12} = \sqrt{16} = 4$.
+   - Dirección: $\tan\theta = \frac{2\sqrt{3}}{2} = \sqrt{3} \implies \theta = \arctan(\sqrt{3}) = \frac{\pi}{3}\ (60^\circ)$.
+3. **Para $\mathbf{v}_3 = (-3, -3)$ (Cuadrante III):**
+   - Norma: $\|\mathbf{v}_3\| = \sqrt{(-3)^2 + (-3)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2}$.
+   - Dirección: Al encontrarse en el tercer cuadrante ($x < 0, y < 0$), el ángulo se ajusta sumando $\pi$:
+     $$
+     \theta = \pi + \arctan\left(\frac{-3}{-3}\right) = \pi + \frac{\pi}{4} = \frac{5\pi}{4}\ (225^\circ)
+     $$
+4. **Para $\mathbf{v}_4 = (0, 3)$ (Sobre el semieje positivo $y$):**
+   - Norma: $\|\mathbf{v}_4\| = \sqrt{0^2 + 3^2} = \sqrt{9} = 3$.
+   - Dirección: Con $x = 0$ e $y > 0$, el vector apunta verticalmente hacia arriba: $\theta = \frac{\pi}{2}\ (90^\circ)$.
+
+---
+
+
+---
+
+## 📐 1.4 Ángulo entre Vectores y Ley de Cosenos (Slides 16–18) 🎓 `[Cátedra USS]`
+
+> **Teorema y Deducción Geométrica (Slide 16):**
+> A partir de la Ley de los Cosenos en el triángulo formado por los vectores $\mathbf{v}$, $\mathbf{w}$ y $\mathbf{v}-\mathbf{w}$:
+> 
+> $$
+> \|\mathbf{v} - \mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 - 2\|\mathbf{v}\|\|\mathbf{w}\|\cos\theta
+> $$
+> 
+> Desarrollando el miembro izquierdo mediante el producto escalar:
+> $$
+> \|\mathbf{v} - \mathbf{w}\|^2 = (\mathbf{v} - \mathbf{w}) \cdot (\mathbf{v} - \mathbf{w}) = \|\mathbf{v}\|^2 - 2(\mathbf{v}\cdot\mathbf{w}) + \|\mathbf{w}\|^2
+> $$
+> Igualando ambas expresiones:
+> $$
+> \|\mathbf{v}\|^2 - 2(\mathbf{v}\cdot\mathbf{w}) + \|\mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 - 2\|\mathbf{v}\|\|\mathbf{w}\|\cos\theta
+> $$
+> Cancelando términos idénticos y dividiendo entre $-2$:
+> $$
+> \mathbf{v} \cdot \mathbf{w} = \|\mathbf{v}\| \|\mathbf{w}\| \cos\theta
+> $$
+> Despejando el coseno del ángulo $\theta \in [0, \pi]$:
+> $$
+> \cos\theta = \frac{\mathbf{v} \cdot \mathbf{w}}{\|\mathbf{v}\| \|\mathbf{w}\|}
+> $$
+
+### Clasificación Geométrica según el Signo de $\mathbf{v} \cdot \mathbf{w}$
+- **Ángulo Agudo ($0^\circ \le \theta < 90^\circ$):** $\mathbf{v} \cdot \mathbf{w} > 0$.
+- **Ángulo Recto (Ortogonales, $\theta = 90^\circ$):** $\mathbf{v} \cdot \mathbf{w} = 0$.
+- **Ángulo Obtuso ($90^\circ < \theta \le 180^\circ$):** $\mathbf{v} \cdot \mathbf{w} < 0$.
+
+### Ejemplos y Ejercicios de Ángulo entre Vectores (Slides 17–18) 🎓 `[Cátedra USS]`
+
+#### Ejercicio 4 (Slides 16–17): Deducción de $\mathbf{v}\cdot\mathbf{w} = \|\mathbf{v}\|\|\mathbf{w}\|\cos\theta$ y Ángulo entre Vectores
+> [!example] Enunciado
+> 1. Demuestre analíticamente mediante la Ley de Cosenos que $\mathbf{v} \cdot \mathbf{w} = \|\mathbf{v}\| \|\mathbf{w}\| \cos\theta$.
+> 2. Determine el ángulo convexo $\theta$ formado por los vectores $\mathbf{v} = (2, 3)$ y $\mathbf{w} = (-1, 2)$ en $\mathbb{R}^2$.
+> 3. Determine el ángulo convexo $\theta$ formado por $\mathbf{v} = (1, 0, -1)$ y $\mathbf{w} = (1, 1, 0)$ en $\mathbb{R}^3$.
+
+**Resolución Paso a Paso:**
+1. **Deducción por Ley de Cosenos:**
+   En el triángulo formado por los lados $\mathbf{v}$, $\mathbf{w}$ y el lado opuesto $\mathbf{v} - \mathbf{w}$, la Ley de Cosenos establece:
+   $$
+   \|\mathbf{v} - \mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 - 2\|\mathbf{v}\| \|\mathbf{w}\| \cos\theta
+   $$
+   Desarrollando algebraicamente el cuadrado de la norma por producto interno:
+   $$
+   \|\mathbf{v} - \mathbf{w}\|^2 = (\mathbf{v} - \mathbf{w}) \cdot (\mathbf{v} - \mathbf{w}) = \|\mathbf{v}\|^2 - 2(\mathbf{v} \cdot \mathbf{w}) + \|\mathbf{w}\|^2
+   $$
+   Igualando miembro a miembro:
+   $$
+   \|\mathbf{v}\|^2 - 2(\mathbf{v} \cdot \mathbf{w}) + \|\mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 - 2\|\mathbf{v}\| \|\mathbf{w}\| \cos\theta
+   $$
+   Cancelando $\|\mathbf{v}\|^2 + \|\mathbf{w}\|^2$ y dividiendo por $-2$, se concluye:
+   $$
+   \mathbf{v} \cdot \mathbf{w} = \|\mathbf{v}\| \|\mathbf{w}\| \cos\theta \implies \cos\theta = \frac{\mathbf{v} \cdot \mathbf{w}}{\|\mathbf{v}\| \|\mathbf{w}\|} \quad \blacksquare
+   $$
+2. **Cálculo para $\mathbf{v} = (2, 3)$ y $\mathbf{w} = (-1, 2)$:**
+   - $\mathbf{v} \cdot \mathbf{w} = 2(-1) + 3(2) = -2 + 6 = 4$.
+   - $\|\mathbf{v}\| = \sqrt{2^2 + 3^2} = \sqrt{13}$.
+   - $\|\mathbf{w}\| = \sqrt{(-1)^2 + 2^2} = \sqrt{5}$.
+   - Coseno: $\cos\theta = \frac{4}{\sqrt{13}\sqrt{5}} = \frac{4}{\sqrt{65}}$.
+   - Ángulo: $\theta = \arccos\left(\frac{4}{\sqrt{65}}\right) \approx 60.255^\circ\ (1.05165\,\text{rad})$.
+3. **Cálculo para $\mathbf{v} = (1, 0, -1)$ y $\mathbf{w} = (1, 1, 0)$:**
+   - $\mathbf{v} \cdot \mathbf{w} = 1(1) + 0(1) + (-1)(0) = 1$.
+   - $\|\mathbf{v}\| = \sqrt{1^2 + 0^2 + (-1)^2} = \sqrt{2}$.
+   - $\|\mathbf{w}\| = \sqrt{1^2 + 1^2 + 0^2} = \sqrt{2}$.
+   - Coseno: $\cos\theta = \frac{1}{\sqrt{2}\sqrt{2}} = \frac{1}{2}$.
+   - Ángulo notable exacto: $\theta = \arccos\left(\frac{1}{2}\right) = \frac{\pi}{3} = 60^\circ$.
+
+---
+
+
+### Cosenos Directores en $\mathbb{R}^3$ 📖 `[Grossman §4.3]`
+Si un vector no nulo $\mathbf{v} = (v_1, v_2, v_3)$ forma ángulos $\alpha, \beta, \gamma \in [0, \pi]$ con los semiejes positivos $X$, $Y$ y $Z$:
+$$
+\cos\alpha = \frac{v_1}{\|\mathbf{v}\|},\quad \cos\beta = \frac{v_2}{\|\mathbf{v}\|},\quad \cos\gamma = \frac{v_3}{\|\mathbf{v}\|}
+$$
+Verificándose idénticamente:
+$$
+\cos^2\alpha + \cos^2\beta + \cos^2\gamma = \frac{v_1^2 + v_2^2 + v_3^2}{\|\mathbf{v}\|^2} = 1
+$$
+
+---
+
+## ⊥ 1.7 Vectores Ortogonales (Perpendiculares) (Slide 19) 🎓 `[Cátedra USS]`
+
+> **Criterio de Cátedra:** Dos vectores $\mathbf{v}$ y $\mathbf{w}$ son **ortogonales** (o perpendiculares, $\mathbf{v} \perp \mathbf{w}$) si y sólo si su producto punto es idénticamente nulo:
+> 
+> $$
+> \mathbf{v} \perp \mathbf{w} \iff \mathbf{v} \cdot \mathbf{w} = 0
+> $$
+
+
+#### Ejercicio 5 (Slide 19): Verificación de Vectores Ortogonales y Búsqueda de Complementos
+> [!example] Enunciado
+> 1. Verifique si los vectores $\mathbf{v} = (1, -2, 3)$ y $\mathbf{w} = (4, 5, 2)$ son ortogonales entre sí.
+> 2. Proponga un vector no nulo en $\mathbb{R}^2$ perpendicular a $\mathbf{a} = (3, -2)$.
+> 3. Proponga un vector no nulo en $\mathbb{R}^3$ perpendicular a $\mathbf{b} = (1, 2, -3)$.
+
+**Resolución Paso a Paso:**
+1. **Comprobación de Ortogonalidad:**
+   Dos vectores son ortogonales si y solo si su producto escalar es nulo:
+   $$
+   \mathbf{v} \cdot \mathbf{w} = 1(4) + (-2)(5) + 3(2) = 4 - 10 + 6 = 0
+   $$
+   Dado que $\mathbf{v} \cdot \mathbf{w} = 0$, los vectores son **estrictamente ortogonales** ($\mathbf{v} \perp \mathbf{w}$).
+2. **Vector ortogonal a $\mathbf{a} = (3, -2)$:**
+   Buscamos $\mathbf{u} = (x, y)$ tal que $3x - 2y = 0 \implies 3x = 2y$.
+   Tomando $x = 2$, se tiene $y = 3$. Por ende, $\mathbf{u} = (2, 3)$ satisface:
+   $$
+   (3, -2) \cdot (2, 3) = 6 - 6 = 0 \implies \mathbf{u} = (2, 3) \perp \mathbf{a}
+   $$
+3. **Vector ortogonal a $\mathbf{b} = (1, 2, -3)$:**
+   Buscamos $(x, y, z)$ tal que $x + 2y - 3z = 0$.
+   Fijando $y = 0$ y $z = 1$, obtenemos $x = 3$. Así, el vector $\mathbf{w}_1 = (3, 0, 1)$ cumple:
+   $$
+   1(3) + 2(0) - 3(1) = 0 \implies \mathbf{w}_1 = (3, 0, 1) \perp \mathbf{b}
+   $$
+   (Otra solución válida fijando $z = 0$ y $y = 1$ es $\mathbf{w}_2 = (-2, 1, 0)$).
+
+---
+
+
+---
+
+## ⏸️ 1.8 Vectores Paralelos (Slide 20) 🎓 `[Cátedra USS]`
+
+> **Criterio de Cátedra:** Dos vectores no nulos $\mathbf{v}$ y $\mathbf{w}$ son **paralelos** ($\mathbf{v} \parallel \mathbf{w}$) si existe un escalar $c \in \mathbb{R} \setminus \{0\}$ tal que:
+> 
+> $$
+> \mathbf{v} = c\mathbf{w}
+> $$
+> - Si $c > 0$, tienen el **mismo sentido**.
+> - Si $c < 0$, tienen **sentido opuesto**.
+> - En coordenadas, sus componentes homólogas son proporcionales: $\frac{v_1}{w_1} = \frac{v_2}{w_2} = \frac{v_3}{w_3} = c$.
+
+
+#### Ejercicio 6 (Slide 20): Discusión del Parámetro $\alpha$ para Ortogonalidad y Paralelismo
+> [!example] Enunciado
+> Sean los vectores $\mathbf{u} = 3\mathbf{i} + 4\mathbf{j} = (3, 4)$ y $\mathbf{v} = \mathbf{i} + \alpha\mathbf{j} = (1, \alpha)$ en $\mathbb{R}^2$. Determine el valor real del parámetro $\alpha$ tal que:
+> 1. $\mathbf{u} \perp \mathbf{v}$ (vectores ortogonales).
+> 2. $\mathbf{u} \parallel \mathbf{v}$ (vectores paralelos).
+
+**Resolución Paso a Paso:**
+1. **Condición de Ortogonalidad ($\mathbf{u} \perp \mathbf{v}$):**
+   Se requiere que su producto escalar sea idénticamente nulo:
+   $$
+   \mathbf{u} \cdot \mathbf{v} = 0 \iff 3(1) + 4(\alpha) = 0 \iff 3 + 4\alpha = 0 \iff \alpha = -\frac{3}{4}
+   $$
+2. **Condición de Paralelismo ($\mathbf{u} \parallel \mathbf{v}$):**
+   Dos vectores en $\mathbb{R}^2$ son paralelos si y solo si sus componentes son proporcionales (o su determinante $2 \times 2$ es nulo):
+   $$
+   \frac{u_x}{v_x} = \frac{u_y}{v_y} \iff \frac{3}{1} = \frac{4}{\alpha} \iff 3\alpha = 4 \iff \alpha = \frac{4}{3}
+   $$
+   *Comprobación:* Si $\alpha = 4/3$, entonces $\mathbf{u} = (3, 4) = 3(1, 4/3) = 3\mathbf{v}$, confirmando que son colineales con igual sentido ($c = 3 > 0$).
+
+---
+
+
+---
+
+## 🎯 2. Proyección Ortogonal (Slides 21–23) 🎓 `[Cátedra USS]`
+
+> **Deducción de Cátedra (Slide 21):**
+> Dado un vector $\mathbf{v}$ que se desea descomponer sobre la dirección de un vector no nulo $\mathbf{w}$:
+> $$
+> \mathbf{v} = \mathbf{p} + \mathbf{q},\quad \text{donde } \mathbf{p} = c\mathbf{w} \parallel \mathbf{w} \quad \text{y} \quad \mathbf{q} \perp \mathbf{w}
+> $$
+> Multiplicando escalarmente por $\mathbf{w}$:
+> $$
+> \mathbf{v} \cdot \mathbf{w} = (c\mathbf{w} + \mathbf{q}) \cdot \mathbf{w} = c(\mathbf{w}\cdot\mathbf{w}) + \mathbf{q}\cdot\mathbf{w} = c\|\mathbf{w}\|^2 + 0
+> $$
+> Despejando la constante escalar $c$:
+> $$
+> c = \frac{\mathbf{v} \cdot \mathbf{w}}{\|\mathbf{w}\|^2}
+> $$
+> Por consiguiente, la **proyección ortogonal** de $\mathbf{v}$ sobre $\mathbf{w}$ viene dada por:
+> $$
+> \mathrm{proy}_{\mathbf{w}}\mathbf{v} = \left( \frac{\mathbf{v} \cdot \mathbf{w}}{\|\mathbf{w}\|^2} \right) \mathbf{w}
+> $$
+> Y la componente ortogonal complementaria (vector residual) es:
+> $$
+> \mathbf{q} = \mathbf{v} - \mathrm{proy}_{\mathbf{w}}\mathbf{v}
+> $$
+
+### Ejemplos Comparativos de Cátedra (Slides 22–23) 🎓 `[Cátedra USS]`
+
+#### Ejercicio 7 (Slides 22–23): Cálculo Comparativo de Proyecciones Ortogonales Cruzadas
+> [!example] Enunciado
+> Sean los vectores en $\mathbb{R}^3$:
+> 
+> $$
+> \mathbf{v} = (2, 3, 1) \qquad \text{y} \qquad \mathbf{w} = (1, 2, -1)
+> $$
+> 
+> 1. Determine el vector proyección ortogonal de $\mathbf{v}$ sobre $\mathbf{w}$ ($\mathrm{proy}_{\mathbf{w}}\mathbf{v}$).
+> 2. Determine el vector proyección ortogonal de $\mathbf{w}$ sobre $\mathbf{v}$ ($\mathrm{proy}_{\mathbf{v}}\mathbf{w}$).
+
+**Resolución Paso a Paso:**
+1. **Cálculo de $\mathrm{proy}_{\mathbf{w}}\mathbf{v}$:**
+   - Producto escalar: $\mathbf{v} \cdot \mathbf{w} = 2(1) + 3(2) + 1(-1) = 2 + 6 - 1 = 7$.
+   - Norma al cuadrado de $\mathbf{w}$: $\|\mathbf{w}\|^2 = 1^2 + 2^2 + (-1)^2 = 1 + 4 + 1 = 6$.
+   - Proyección:
+     $$
+     \mathrm{proy}_{\mathbf{w}}\mathbf{v} = \left( \frac{\mathbf{v} \cdot \mathbf{w}}{\|\mathbf{w}\|^2} \right) \mathbf{w} = \frac{7}{6}(1, 2, -1) = \left( \frac{7}{6},\ \frac{7}{3},\ -\frac{7}{6} \right)
+     $$
+2. **Cálculo de $\mathrm{proy}_{\mathbf{v}}\mathbf{w}$:**
+   - El producto escalar es conmutativo: $\mathbf{w} \cdot \mathbf{v} = 7$.
+   - Norma al cuadrado de $\mathbf{v}$: $\|\mathbf{v}\|^2 = 2^2 + 3^2 + 1^2 = 4 + 9 + 1 = 14$.
+   - Proyección:
+     $$
+     \mathrm{proy}_{\mathbf{v}}\mathbf{w} = \left( \frac{\mathbf{w} \cdot \mathbf{v}}{\|\mathbf{v}\|^2} \right) \mathbf{v} = \frac{7}{14}(2, 3, 1) = \frac{1}{2}(2, 3, 1) = \left( 1,\ \frac{3}{2},\ \frac{1}{2} \right)
+     $$
+*Observación Conceptual:* Se comprueba empíricamente que la proyección ortogonal no es conmutativa ni simétrica: $\mathrm{proy}_{\mathbf{w}}\mathbf{v} \neq \mathrm{proy}_{\mathbf{v}}\mathbf{w}$, pues las direcciones de proyección $\mathbf{w}$ y $\mathbf{v}$ son distintas.
+
+---
+
+
+---
+
+## ✖️ 3. Producto Cruz o Producto Vectorial (Slides 24–29) 🎓 `[Cátedra USS]`
+
+> **Definición de Cátedra (Slide 24):** El producto cruz (o vectorial) es una operación definida **exclusivamente en $\mathbb{R}^3$** que toma dos vectores $\mathbf{v} = (v_1, v_2, v_3)$ y $\mathbf{w} = (w_1, w_2, w_3)$ y produce un **nuevo vector** ortogonal a ambos simultáneamente.
+> 
+> Simbólicamente, se calcula mediante el determinante formal $3 \times 3$:
+> 
+> $$
+> \mathbf{v} \times \mathbf{w} = \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix} = \begin{vmatrix} v_2 & v_3 \\ w_2 & w_3 \end{vmatrix} \mathbf{i} - \begin{vmatrix} v_1 & v_3 \\ w_1 & w_3 \end{vmatrix} \mathbf{j} + \begin{vmatrix} v_1 & v_2 \\ w_1 & w_2 \end{vmatrix} \mathbf{k}
+> $$
+> Desarrollando los menores $2 \times 2$:
+> $$
+> \mathbf{v} \times \mathbf{w} = (v_2 w_3 - v_3 w_2,\ v_3 w_1 - v_1 w_3,\ v_1 w_2 - v_2 w_1)
+> $$
+
+### Ejemplos de Producto Cruz (Slide 25) 🎓 `[Cátedra USS]`
+
+#### Ejercicio 8 (Slide 25): Producto Cruz Simbólico y Verificación de Ortogonalidad
+> [!example] Enunciado
+> Sean $\mathbf{v} = (1, 2, -1)$ y $\mathbf{w} = (2, -1, 3)$ en $\mathbb{R}^3$.
+> 1. Calcule el producto vectorial $\mathbf{u} = \mathbf{v} \times \mathbf{w}$ mediante el determinante formal.
+> 2. Verifique analíticamente que $\mathbf{u} \perp \mathbf{v}$ y $\mathbf{u} \perp \mathbf{w}$.
+
+**Resolución Paso a Paso:**
+1. **Desarrollo por Cofactores en la primera fila:**
+   $$
+   \mathbf{v} \times \mathbf{w} = \begin{vmatrix}
+   \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+   1 & 2 & -1 \\
+   2 & -1 & 3
+   \end{vmatrix}
+   = \mathbf{i}\begin{vmatrix} 2 & -1 \\ -1 & 3 \end{vmatrix} - \mathbf{j}\begin{vmatrix} 1 & -1 \\ 2 & 3 \end{vmatrix} + \mathbf{k}\begin{vmatrix} 1 & 2 \\ 2 & -1 \end{vmatrix}
+   $$
+   - Componente $\mathbf{i}$: $2(3) - (-1)(-1) = 6 - 1 = 5$.
+   - Componente $\mathbf{j}$: $- [ 1(3) - (-1)(2) ] = - [ 3 + 2 ] = -5$.
+   - Componente $\mathbf{k}$: $1(-1) - 2(2) = -1 - 4 = -5$.
+   $$
+   \mathbf{u} = \mathbf{v} \times \mathbf{w} = (5, -5, -5)
+   $$
+2. **Verificación de Ortogonalidad Doble:**
+   $$
+   \mathbf{u} \cdot \mathbf{v} = 5(1) + (-5)(2) + (-5)(-1) = 5 - 10 + 5 = 0 \implies \mathbf{u} \perp \mathbf{v}
+   $$
+   $$
+   \mathbf{u} \cdot \mathbf{w} = 5(2) + (-5)(-1) + (-5)(3) = 10 + 5 - 15 = 0 \implies \mathbf{u} \perp \mathbf{w}
+   $$
+*Resultado Verificado:* $\mathbf{v} \times \mathbf{w} = (5, -5, -5)$.
+
+---
+
+
+### Propiedades Algebraicas y Geométricas (Slide 26) 🎓 `[Cátedra USS]`
+1. **Anticonmutatividad:** $\mathbf{v} \times \mathbf{w} = -(\mathbf{w} \times \mathbf{v})$.
+2. **Ortogonalidad Simultánea:** $\mathbf{v} \cdot (\mathbf{v} \times \mathbf{w}) = 0$ y $\mathbf{w} \cdot (\mathbf{v} \times \mathbf{w}) = 0$.
+3. **Paralelismo:** $\mathbf{v} \times \mathbf{w} = \mathbf{0} \iff \mathbf{v} \parallel \mathbf{w}$ (incluyendo $\mathbf{v} \times \mathbf{v} = \mathbf{0}$).
+4. **Distributividad respecto a la suma:** $\mathbf{u} \times (\mathbf{v} + \mathbf{w}) = (\mathbf{u} \times \mathbf{v}) + (\mathbf{u} \times \mathbf{w})$.
+5. **Homogeneidad escalar:** $\alpha(\mathbf{v} \times \mathbf{w}) = (\alpha\mathbf{v}) \times \mathbf{w} = \mathbf{v} \times (\alpha\mathbf{w})$.
+6. **Identidad de Lagrange:**
+   $$
+   \|\mathbf{v} \times \mathbf{w}\|^2 = \|\mathbf{v}\|^2 \|\mathbf{w}\|^2 - (\mathbf{v} \cdot \mathbf{w})^2
+   $$
+
+> [!important] Demostración: Magnitud Geométrica del Producto Cruz (Slide 27) 🎓 `[Cátedra USS]`
+> De la Identidad de Lagrange, sustituyendo $\mathbf{v} \cdot \mathbf{w} = \|\mathbf{v}\| \|\mathbf{w}\| \cos\theta$:
+> $$
+> \|\mathbf{v} \times \mathbf{w}\|^2 = \|\mathbf{v}\|^2 \|\mathbf{w}\|^2 - \|\mathbf{v}\|^2 \|\mathbf{w}\|^2 \cos^2\theta = \|\mathbf{v}\|^2 \|\mathbf{w}\|^2 (1 - \cos^2\theta) = \|\mathbf{v}\|^2 \|\mathbf{w}\|^2 \sin^2\theta
+> $$
+> Extrayendo raíz cuadrada (recordando que para $\theta \in [0, \pi]$, $\sin\theta \ge 0$):
+> $$
+> \|\mathbf{v} \times \mathbf{w}\| = \|\mathbf{v}\| \|\mathbf{w}\| \sin\theta
+> $$
+> **Interpretación:** $\|\mathbf{v} \times \mathbf{w}\|$ es exactamente igual al **área del paralelogramo** sustentado por $\mathbf{v}$ y $\mathbf{w}$.
+> 
+> **Área del Triángulo (Slide 28):**
+> $$
+> \mathrm{\acute{A}rea}_{\triangle} = \frac{1}{2} \|\mathbf{v} \times \mathbf{w}\|
+> $$
+
+
+#### Ejercicio 9 (Slide 28): Área de un Triángulo 3D en el Espacio
+> [!example] Enunciado
+> Calcule el área del triángulo cuyos vértices en el espacio tridimensional son:
+> 
+> $$
+> P(1, 3, -2), \qquad Q(2, 1, 4), \qquad R(-3, 1, 6)
+> $$
+
+**Resolución Paso a Paso:**
+1. **Construcción de los vectores arista concurrentes en $P$:**
+   $$
+   \overrightarrow{PQ} = Q - P = (2 - 1,\ 1 - 3,\ 4 - (-2)) = (1, -2, 6)
+   $$
+   $$
+   \overrightarrow{PR} = R - P = (-3 - 1,\ 1 - 3,\ 6 - (-2)) = (-4, -2, 8)
+   $$
+2. **Producto Cruz $\overrightarrow{PQ} \times \overrightarrow{PR}$:**
+   $$
+   \overrightarrow{PQ} \times \overrightarrow{PR} = \begin{vmatrix}
+   \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+   1 & -2 & 6 \\
+   -4 & -2 & 8
+   \end{vmatrix}
+   $$
+   - Componente $\mathbf{i}$: $(-2)(8) - (6)(-2) = -16 + 12 = -4$.
+   - Componente $\mathbf{j}$: $- [ 1(8) - (6)(-4) ] = - [ 8 + 24 ] = -32$.
+   - Componente $\mathbf{k}$: $1(-2) - (-2)(-4) = -2 - 8 = -10$.
+   $$
+   \overrightarrow{PQ} \times \overrightarrow{PR} = (-4, -32, -10)
+   $$
+3. **Norma del Producto Cruz:**
+   $$
+   \|\overrightarrow{PQ} \times \overrightarrow{PR}\| = \sqrt{(-4)^2 + (-32)^2 + (-10)^2} = \sqrt{16 + 1024 + 100} = \sqrt{1140}
+   $$
+   Factorizando el radicando: $1140 = 4 \times 285 \implies \sqrt{1140} = 2\sqrt{285}$.
+4. **Área del Triángulo:**
+   $$
+   \text{Área}_{\triangle} = \frac{1}{2} \|\overrightarrow{PQ} \times \overrightarrow{PR}\| = \frac{1}{2} (2\sqrt{285}) = \sqrt{285} \approx 16.8819\,\text{u}^2
+   $$
+
+---
+
+
+### Triple Producto Escalar y Volumen del Paralelepípedo (Slide 29) 🎓 `[Cátedra USS]`
+Dados tres vectores $\mathbf{u}, \mathbf{v}, \mathbf{w} \in \mathbb{R}^3$, el triple producto escalar (o producto mixto) se define como:
+
+$$
+[\mathbf{u}, \mathbf{v}, \mathbf{w}] = \mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) = \det \begin{pmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{pmatrix}
+$$
+
+El **volumen del paralelepípedo** sustentado por los tres vectores viene dado por el valor absoluto del triple producto:
+
+$$
+V = |\mathbf{u} \cdot (\mathbf{v} \times \mathbf{w})| = |\det(\mathbf{u}, \mathbf{v}, \mathbf{w})|
+$$
+
+Y el volumen del **tetraedro** determinado por dichos vértices es $V_{\text{tetraedro}} = \frac{1}{6} V$.
+
+
+#### Ejercicio 10 (Slide 29): Volumen de Paralelepípedo por Triple Producto Escalar
+> [!example] Enunciado
+> Determine el volumen del paralelepípedo cuyas tres aristas concurrentes vienen dadas por los vectores:
+> 
+> $$
+> \mathbf{u} = (1, 3, -2), \qquad \mathbf{v} = (2, 1, 4), \qquad \mathbf{w} = (-3, 1, 6)
+> $$
+
+**Resolución Paso a Paso:**
+1. **Formulación del Triple Producto Escalar como Determinante $3 \times 3$:**
+   $$
+   V = | \mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) | = \left| \det\begin{pmatrix}
+   1 & 3 & -2 \\
+   2 & 1 & 4 \\
+   -3 & 1 & 6
+   \end{pmatrix} \right|
+   $$
+2. **Evaluación por Expansión de Laplace en la primera fila:**
+   $$
+   \det = 1 \begin{vmatrix} 1 & 4 \\ 1 & 6 \end{vmatrix} - 3 \begin{vmatrix} 2 & 4 \\ -3 & 6 \end{vmatrix} + (-2) \begin{vmatrix} 2 & 1 \\ -3 & 1 \end{vmatrix}
+   $$
+   - Primer menor: $1(6) - 4(1) = 6 - 4 = 2$.
+   - Segundo menor: $2(6) - 4(-3) = 12 + 12 = 24$.
+   - Tercer menor: $2(1) - 1(-3) = 2 + 3 = 5$.
+   $$
+   \det = 1(2) - 3(24) - 2(5) = 2 - 72 - 10 = -80
+   $$
+3. **Cálculo del Volumen Físico:**
+   $$
+   V = |-80| = 80\,\text{u}^3
+   $$
+*Resultado Verificado:* $V = 80\,\text{u}^3$.
+
+---
+
+
+
+#### Aplicación Práctica 1: Momento de Torsión (Torque 3D en Robótica) 🌐 `[UdeC Mecánica Vectorial]`
 > [!example] Enunciado
 > En una estructura robótica articulada, se aplica una fuerza $\mathbf{F} = (10, 20, -5)\,\text{N}$ en el extremo de un brazo posicionado en $\mathbf{r} = (2, -1, 3)\,\text{m}$ con respecto al origen de giro $O$.
 > 1. Calcular el vector momento de torsión (torque) $\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F}$.
@@ -810,7 +734,9 @@ Visualización tridimensional de la ecuación general del plano con su vector no
 
 ---
 
-### 6.2 Caso Práctico 2: Equilibrio Estático Tridimensional de un Nodo 🌐 `[Mecánica de Sólidos]`
+
+
+#### Aplicación Práctica 2: Equilibrio Estático Tridimensional de un Nodo 🌐 `[Mecánica de Sólidos]`
 > [!example] Enunciado
 > Un anillo central de izaje ubicado en el origen $O(0,0,0)$ sostiene una carga vertical hacia abajo de peso $\mathbf{W} = (0, 0, -1140)\,\text{N}$. Para mantener el equilibrio estático ($\sum \mathbf{F} = \mathbf{0}$), se fijan tres cables tensores $A, B, C$ anclados en los puntos $A(1, 2, 2)$, $B(-2, 1, 2)$ y $C(0, -3, 4)$.
 > Determinar las tensiones escalares $T_A, T_B, T_C$ que experimentan cada uno de los cables.
@@ -879,7 +805,9 @@ Visualización tridimensional de la ecuación general del plano con su vector no
 
 ---
 
-### 6.3 Caso Práctico 3: Geometría Espacial — Paralelepípedo y Tetraedro 📖 `[Grossman Cap. 4]`
+
+
+#### Aplicación Práctica 3: Geometría Espacial — Volumen de Paralelepípedo y Tetraedro 📖 `[Grossman Cap. 4]`
 > [!example] Enunciado
 > Sean los puntos en el espacio $P(1, 0, 2)$, $Q(3, 2, 1)$, $R(2, 4, 5)$ y $S(1, 3, 6)$.
 > 1. Determinar los vectores arista $\mathbf{u} = \overrightarrow{PQ}$, $\mathbf{v} = \overrightarrow{PR}$ y $\mathbf{w} = \overrightarrow{PS}$.
@@ -933,416 +861,29 @@ Visualización tridimensional de la ecuación general del plano con su vector no
 
 ---
 
-### 6.4 Ejercicio Tipo Certamen 1 (UdeC): Posición Relativa y Distancia entre Rectas Alabeadas 🌐 `[Certamen Álgebra Lineal UdeC]`
-> [!example] Enunciado
-> Dadas las rectas en $\mathbb{R}^3$:
-> $$
-> L_1: \frac{x - 1}{2} = \frac{y + 1}{3} = z - 2, \qquad L_2: \mathbf{r}_2(t) = (2, 0, -1) + t(1, -1, 2)
-> $$
-> 1. Demostrar rigurosamente que $L_1$ y $L_2$ son rectas alabeadas (cruzadas).
-> 2. Calcular la distancia mínima que las separa en el espacio.
-> 3. Determinar la ecuación general del plano $\pi$ que contiene a $L_1$ y es estrictamente paralelo a $L_2$.
-
-**Resolución Paso a Paso:**
-
-1. **Extracción de Elementos Geométricos:**
-   - Para $L_1$: Pasa por $P_1(1, -1, 2)$ con vector director $\mathbf{d}_1 = (2, 3, 1)$.
-   - Para $L_2$: Pasa por $P_2(2, 0, -1)$ con vector director $\mathbf{d}_2 = (1, -1, 2)$.
-   - Vector entre puntos: $\overrightarrow{P_1 P_2} = P_2 - P_1 = (2-1, 0-(-1), -1-2) = (1, 1, -3)$.
-
-2. **Comprobación de Rectas Alabeadas:**
-   - *Verificación de paralelismo:*
-     $$
-     \mathbf{d}_1 \times \mathbf{d}_2 = \begin{vmatrix}
-     \mathbf{i} & \mathbf{j} & \mathbf{k} \\
-     2 & 3 & 1 \\
-     1 & -1 & 2
-     \end{vmatrix}
-     = \mathbf{i}(6 - (-1)) - \mathbf{j}(4 - 1) + \mathbf{k}(-2 - 3) = (7, -3, -5) \neq \mathbf{0}
-     $$
-     Al ser $\mathbf{d}_1 \times \mathbf{d}_2 \neq \mathbf{0}$, las rectas **no son paralelas ni coincidentes**.
-   - *Verificación de coplanaridad (Triple Producto Escalar):*
-     $$
-     [\overrightarrow{P_1 P_2}, \mathbf{d}_1, \mathbf{d}_2] = \overrightarrow{P_1 P_2} \cdot (\mathbf{d}_1 \times \mathbf{d}_2) = 1(7) + 1(-3) + (-3)(-5) = 7 - 3 + 15 = 19 \neq 0
-     $$
-     Puesto que el triple producto escalar no es nulo, los vectores no son coplanares. En consecuencia, las rectas **no se cortan y son estrictamente alabeadas**.
-
-3. **Cálculo de la Distancia Mínima:**
-   $$
-   \|\mathbf{d}_1 \times \mathbf{d}_2\| = \sqrt{7^2 + (-3)^2 + (-5)^2} = \sqrt{49 + 9 + 25} = \sqrt{83}
-   $$
-   $$
-   d(L_1, L_2) = \frac{|\overrightarrow{P_1 P_2} \cdot (\mathbf{d}_1 \times \mathbf{d}_2)|}{\|\mathbf{d}_1 \times \mathbf{d}_2\|} = \frac{19}{\sqrt{83}} = \frac{19\sqrt{83}}{83} \approx 2.0855\,\text{u}
-   $$
-
-4. **Plano $\pi$ que contiene a $L_1$ y es paralelo a $L_2$:**
-   - El plano pasa por $P_1(1, -1, 2)$ y tiene por vector normal a $\mathbf{n} = \mathbf{d}_1 \times \mathbf{d}_2 = (7, -3, -5)$.
-   - Ecuación del plano:
-     $$
-     7(x - 1) - 3(y + 1) - 5(z - 2) = 0
-     $$
-     $$
-     7x - 7 - 3y - 3 - 5z + 10 = 0 \implies 7x - 3y - 5z = 0
-     $$
-   *Verificación adicional:* Calculamos la distancia de $P_2(2, 0, -1) \in L_2$ a este plano $\pi$:
-   $$
-   d(P_2, \pi) = \frac{|7(2) - 3(0) - 5(-1)|}{\sqrt{7^2 + (-3)^2 + (-5)^2}} = \frac{|14 + 5|}{\sqrt{83}} = \frac{19}{\sqrt{83}}
-   $$
-   El resultado coincide exactamente con la distancia entre ambas rectas.
 
 ---
 
-### 6.5 Ejercicio Tipo Certamen 2 (UdeC): Plano Perpendicular a Dos Planos y Distancia Punto-Plano 🌐 `[Certamen Álgebra Lineal UdeC]`
-> [!example] Enunciado
-> Determinar la ecuación general del plano $\pi$ que pasa por el punto $M(1, -2, 4)$ y es perpendicular simultáneamente a los planos:
-> $$
-> \pi_1: 2x - y + 3z = 4, \qquad \pi_2: x + 2y - z = 1
-> $$
-> Posteriormente, calcular la distancia euclídea exacta desde el punto $K(3, 1, 2)$ al plano obtenido $\pi$.
+## 📏 4. Rectas y Planos en el Espacio (Slides 30–44) 🎓 `[Cátedra USS]`
 
-**Resolución Paso a Paso:**
+### Ecuación de la Recta que pasa por Dos Puntos (Slide 30) 🎓 `[Cátedra USS]`
+Una recta $L$ en $\mathbb{R}^3$ queda unívocamente determinada conociendo un punto $P_0(x_0, y_0, z_0)$ por el que pasa y un vector director $\mathbf{d} = (d_1, d_2, d_3) \neq \mathbf{0}$ paralelo a la misma:
 
-1. **Vectores Normales de los Planos Dados:**
-   - Para $\pi_1$: $\mathbf{n}_1 = (2, -1, 3)$.
-   - Para $\pi_2$: $\mathbf{n}_2 = (1, 2, -1)$.
+1. **Ecuación Vectorial:**
+   $$
+   \mathbf{r}(t) = P_0 + t\mathbf{d},\quad t \in \mathbb{R}
+   $$
+2. **Ecuaciones Paramétricas:**
+   $$
+   \begin{cases} x = x_0 + t d_1 \\ y = y_0 + t d_2 \\ z = z_0 + t d_3 \end{cases},\quad t \in \mathbb{R}
+   $$
+3. **Ecuaciones Simétricas (Continuas):**
+   Despejando $t$:
+   $$
+   \frac{x - x_0}{d_1} = \frac{y - y_0}{d_2} = \frac{z - z_0}{d_3}
+   $$
+   *Nota de Cátedra:* Si alguna componente directriz es nula (ej. $d_3 = 0$), la igualdad de las componentes no nulas se mantiene y se explicita la constante aparte: $\frac{x - x_0}{d_1} = \frac{y - y_0}{d_2},\ z = z_0$.
 
-2. **Construcción del Vector Normal de $\pi$:**
-   Para que el plano buscado sea perpendicular a $\pi_1$ y a $\pi_2$, su vector normal $\mathbf{n}_\pi$ debe ser simultáneamente ortogonal a $\mathbf{n}_1$ y a $\mathbf{n}_2$. Por lo tanto:
-   $$
-   \mathbf{n}_\pi = \mathbf{n}_1 \times \mathbf{n}_2 = \begin{vmatrix}
-   \mathbf{i} & \mathbf{j} & \mathbf{k} \\
-   2 & -1 & 3 \\
-   1 & 2 & -1
-   \end{vmatrix}
-   = \mathbf{i}(1 - 6) - \mathbf{j}(-2 - 3) + \mathbf{k}(4 - (-1)) = (-5, 5, 5)
-   $$
-   Podemos simplificar el vector normal multiplicando por el escalar $\frac{1}{5}$:
-   $$
-   \mathbf{n}'_\pi = (-1, 1, 1) \quad \text{o equivalentemente } (1, -1, -1)
-   $$
-
-3. **Ecuación Cartesiana del Plano $\pi$:**
-   Haciendo uso de $\mathbf{n}'_\pi = (1, -1, -1)$ y el punto $M(1, -2, 4)$:
-   $$
-   1(x - 1) - 1(y - (-2)) - 1(z - 4) = 0
-   $$
-   $$
-   x - 1 - (y + 2) - (z - 4) = 0 \implies x - y - z + 1 = 0
-   $$
-   *Comprobación en $M$:* $1 - (-2) - 4 + 1 = 1 + 2 - 4 + 1 = 0$.
-
-4. **Distancia desde $K(3, 1, 2)$ al Plano $\pi$:**
-   Aplicando la fórmula de distancia punto-plano para $\pi: x - y - z + 1 = 0$:
-   $$
-   d(K, \pi) = \frac{|1(3) - 1(1) - 1(2) + 1|}{\sqrt{1^2 + (-1)^2 + (-1)^2}} = \frac{|3 - 1 - 2 + 1|}{\sqrt{1 + 1 + 1}} = \frac{|1|}{\sqrt{3}} = \frac{\sqrt{3}}{3} \approx 0.5774\,\text{u}
-   $$
-
----
-
----
-
-### 6.6 Banco Canónico de 17 Ejercicios y Ejemplos de Cátedra USS (Slides 1 a 44 — Carol Asencio) 🎓 `[Cátedra USS / Diapositivas Docente]`
-
-Este compendio reúne y resuelve paso a paso con máxima rigurosidad analítica los **17 problemas y ejemplos oficiales** presentados en las 44 diapositivas de la asignatura por la docente **Carol Asencio González**, verificados simbólicamente con SymPy.
-
-#### Ejercicio 1 (Slide 8): Combinación Lineal y Operaciones Básicas en $\mathbb{R}^3$
-> [!example] Enunciado
-> Sean los vectores $\mathbf{v} = (1, -2, 0)$ y $\mathbf{w} = (3, 4, -1)$ en $\mathbb{R}^3$. Determine analíticamente el vector resultante de la combinación lineal:
-> 
-> $$
-> \mathbf{u} = 2\mathbf{v} - 3\mathbf{w}
-> $$
-
-**Resolución Paso a Paso:**
-1. Aplicamos la multiplicación por escalar componente a componente:
-   $$
-   2\mathbf{v} = 2(1, -2, 0) = (2(1), 2(-2), 2(0)) = (2, -4, 0)
-   $$
-   $$
-   3\mathbf{w} = 3(3, 4, -1) = (3(3), 3(4), 3(-1)) = (9, 12, -3)
-   $$
-2. Efectuamos la resta vectorial componente a componente:
-   $$
-   \mathbf{u} = 2\mathbf{v} - 3\mathbf{w} = (2 - 9,\ -4 - 12,\ 0 - (-3)) = (-7, -16, 3)
-   $$
-*Resultado Verificado:* $\mathbf{u} = (-7, -16, 3)$.
-
----
-
-#### Ejercicio 2 (Slide 10): Producto Punto en $\mathbb{R}^3$ y $\mathbb{R}^2$
-> [!example] Enunciado
-> Calcule el producto escalar euclídeo para cada uno de los siguientes pares de vectores:
-> 1. $\mathbf{v} = (2, -1, 3)$ y $\mathbf{w} = (-1, 0, 4)$ en $\mathbb{R}^3$.
-> 2. $\mathbf{v} = (1, 4)$ y $\mathbf{w} = (-2, 3)$ en $\mathbb{R}^2$.
-
-**Resolución Paso a Paso:**
-1. Para el par tridimensional en $\mathbb{R}^3$:
-   $$
-   \mathbf{v} \cdot \mathbf{w} = v_1 w_1 + v_2 w_2 + v_3 w_3 = 2(-1) + (-1)(0) + 3(4) = -2 + 0 + 12 = 10
-   $$
-2. Para el par bidimensional en $\mathbb{R}^2$:
-   $$
-   \mathbf{v} \cdot \mathbf{w} = v_1 w_1 + v_2 w_2 = 1(-2) + 4(3) = -2 + 12 = 10
-   $$
-*Conclusión:* Ambos pares arrojan un producto punto estrictamente positivo ($10 > 0$), indicando que en ambos casos los vectores forman un ángulo convexo agudo ($\theta < 90^\circ$).
-
----
-
-#### Ejercicio 3 (Slide 14): Módulo y Dirección Analítica en los Cuatro Cuadrantes
-> [!example] Enunciado
-> Calcule la norma $\|\mathbf{v}\|$ y el ángulo director polar $\theta \in [0, 2\pi)$ medido desde el semieje positivo de las abscisas para cada uno de los siguientes vectores de $\mathbb{R}^2$:
-> 1. $\mathbf{v}_1 = (2, 2)$
-> 2. $\mathbf{v}_2 = (2, 2\sqrt{3})$
-> 3. $\mathbf{v}_3 = (-3, -3)$
-> 4. $\mathbf{v}_4 = (0, 3)$
-
-**Resolución Paso a Paso:**
-1. **Para $\mathbf{v}_1 = (2, 2)$ (Cuadrante I):**
-   - Norma: $\|\mathbf{v}_1\| = \sqrt{2^2 + 2^2} = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2}$.
-   - Dirección: Al estar en el primer cuadrante ($x > 0, y > 0$), $\tan\theta = \frac{2}{2} = 1 \implies \theta = \arctan(1) = \frac{\pi}{4}\ (45^\circ)$.
-2. **Para $\mathbf{v}_2 = (2, 2\sqrt{3})$ (Cuadrante I):**
-   - Norma: $\|\mathbf{v}_2\| = \sqrt{2^2 + (2\sqrt{3})^2} = \sqrt{4 + 12} = \sqrt{16} = 4$.
-   - Dirección: $\tan\theta = \frac{2\sqrt{3}}{2} = \sqrt{3} \implies \theta = \arctan(\sqrt{3}) = \frac{\pi}{3}\ (60^\circ)$.
-3. **Para $\mathbf{v}_3 = (-3, -3)$ (Cuadrante III):**
-   - Norma: $\|\mathbf{v}_3\| = \sqrt{(-3)^2 + (-3)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2}$.
-   - Dirección: Al encontrarse en el tercer cuadrante ($x < 0, y < 0$), el ángulo se ajusta sumando $\pi$:
-     $$
-     \theta = \pi + \arctan\left(\frac{-3}{-3}\right) = \pi + \frac{\pi}{4} = \frac{5\pi}{4}\ (225^\circ)
-     $$
-4. **Para $\mathbf{v}_4 = (0, 3)$ (Sobre el semieje positivo $y$):**
-   - Norma: $\|\mathbf{v}_4\| = \sqrt{0^2 + 3^2} = \sqrt{9} = 3$.
-   - Dirección: Con $x = 0$ e $y > 0$, el vector apunta verticalmente hacia arriba: $\theta = \frac{\pi}{2}\ (90^\circ)$.
-
----
-
-#### Ejercicio 4 (Slides 16–17): Deducción de $\mathbf{v}\cdot\mathbf{w} = \|\mathbf{v}\|\|\mathbf{w}\|\cos\theta$ y Ángulo entre Vectores
-> [!example] Enunciado
-> 1. Demuestre analíticamente mediante la Ley de Cosenos que $\mathbf{v} \cdot \mathbf{w} = \|\mathbf{v}\| \|\mathbf{w}\| \cos\theta$.
-> 2. Determine el ángulo convexo $\theta$ formado por los vectores $\mathbf{v} = (2, 3)$ y $\mathbf{w} = (-1, 2)$ en $\mathbb{R}^2$.
-> 3. Determine el ángulo convexo $\theta$ formado por $\mathbf{v} = (1, 0, -1)$ y $\mathbf{w} = (1, 1, 0)$ en $\mathbb{R}^3$.
-
-**Resolución Paso a Paso:**
-1. **Deducción por Ley de Cosenos:**
-   En el triángulo formado por los lados $\mathbf{v}$, $\mathbf{w}$ y el lado opuesto $\mathbf{v} - \mathbf{w}$, la Ley de Cosenos establece:
-   $$
-   \|\mathbf{v} - \mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 - 2\|\mathbf{v}\| \|\mathbf{w}\| \cos\theta
-   $$
-   Desarrollando algebraicamente el cuadrado de la norma por producto interno:
-   $$
-   \|\mathbf{v} - \mathbf{w}\|^2 = (\mathbf{v} - \mathbf{w}) \cdot (\mathbf{v} - \mathbf{w}) = \|\mathbf{v}\|^2 - 2(\mathbf{v} \cdot \mathbf{w}) + \|\mathbf{w}\|^2
-   $$
-   Igualando miembro a miembro:
-   $$
-   \|\mathbf{v}\|^2 - 2(\mathbf{v} \cdot \mathbf{w}) + \|\mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 - 2\|\mathbf{v}\| \|\mathbf{w}\| \cos\theta
-   $$
-   Cancelando $\|\mathbf{v}\|^2 + \|\mathbf{w}\|^2$ y dividiendo por $-2$, se concluye:
-   $$
-   \mathbf{v} \cdot \mathbf{w} = \|\mathbf{v}\| \|\mathbf{w}\| \cos\theta \implies \cos\theta = \frac{\mathbf{v} \cdot \mathbf{w}}{\|\mathbf{v}\| \|\mathbf{w}\|} \quad \blacksquare
-   $$
-2. **Cálculo para $\mathbf{v} = (2, 3)$ y $\mathbf{w} = (-1, 2)$:**
-   - $\mathbf{v} \cdot \mathbf{w} = 2(-1) + 3(2) = -2 + 6 = 4$.
-   - $\|\mathbf{v}\| = \sqrt{2^2 + 3^2} = \sqrt{13}$.
-   - $\|\mathbf{w}\| = \sqrt{(-1)^2 + 2^2} = \sqrt{5}$.
-   - Coseno: $\cos\theta = \frac{4}{\sqrt{13}\sqrt{5}} = \frac{4}{\sqrt{65}}$.
-   - Ángulo: $\theta = \arccos\left(\frac{4}{\sqrt{65}}\right) \approx 60.255^\circ\ (1.05165\,\text{rad})$.
-3. **Cálculo para $\mathbf{v} = (1, 0, -1)$ y $\mathbf{w} = (1, 1, 0)$:**
-   - $\mathbf{v} \cdot \mathbf{w} = 1(1) + 0(1) + (-1)(0) = 1$.
-   - $\|\mathbf{v}\| = \sqrt{1^2 + 0^2 + (-1)^2} = \sqrt{2}$.
-   - $\|\mathbf{w}\| = \sqrt{1^2 + 1^2 + 0^2} = \sqrt{2}$.
-   - Coseno: $\cos\theta = \frac{1}{\sqrt{2}\sqrt{2}} = \frac{1}{2}$.
-   - Ángulo notable exacto: $\theta = \arccos\left(\frac{1}{2}\right) = \frac{\pi}{3} = 60^\circ$.
-
----
-
-#### Ejercicio 5 (Slide 19): Verificación de Vectores Ortogonales y Búsqueda de Complementos
-> [!example] Enunciado
-> 1. Verifique si los vectores $\mathbf{v} = (1, -2, 3)$ y $\mathbf{w} = (4, 5, 2)$ son ortogonales entre sí.
-> 2. Proponga un vector no nulo en $\mathbb{R}^2$ perpendicular a $\mathbf{a} = (3, -2)$.
-> 3. Proponga un vector no nulo en $\mathbb{R}^3$ perpendicular a $\mathbf{b} = (1, 2, -3)$.
-
-**Resolución Paso a Paso:**
-1. **Comprobación de Ortogonalidad:**
-   Dos vectores son ortogonales si y solo si su producto escalar es nulo:
-   $$
-   \mathbf{v} \cdot \mathbf{w} = 1(4) + (-2)(5) + 3(2) = 4 - 10 + 6 = 0
-   $$
-   Dado que $\mathbf{v} \cdot \mathbf{w} = 0$, los vectores son **estrictamente ortogonales** ($\mathbf{v} \perp \mathbf{w}$).
-2. **Vector ortogonal a $\mathbf{a} = (3, -2)$:**
-   Buscamos $\mathbf{u} = (x, y)$ tal que $3x - 2y = 0 \implies 3x = 2y$.
-   Tomando $x = 2$, se tiene $y = 3$. Por ende, $\mathbf{u} = (2, 3)$ satisface:
-   $$
-   (3, -2) \cdot (2, 3) = 6 - 6 = 0 \implies \mathbf{u} = (2, 3) \perp \mathbf{a}
-   $$
-3. **Vector ortogonal a $\mathbf{b} = (1, 2, -3)$:**
-   Buscamos $(x, y, z)$ tal que $x + 2y - 3z = 0$.
-   Fijando $y = 0$ y $z = 1$, obtenemos $x = 3$. Así, el vector $\mathbf{w}_1 = (3, 0, 1)$ cumple:
-   $$
-   1(3) + 2(0) - 3(1) = 0 \implies \mathbf{w}_1 = (3, 0, 1) \perp \mathbf{b}
-   $$
-   (Otra solución válida fijando $z = 0$ y $y = 1$ es $\mathbf{w}_2 = (-2, 1, 0)$).
-
----
-
-#### Ejercicio 6 (Slide 20): Discusión del Parámetro $\alpha$ para Ortogonalidad y Paralelismo
-> [!example] Enunciado
-> Sean los vectores $\mathbf{u} = 3\mathbf{i} + 4\mathbf{j} = (3, 4)$ y $\mathbf{v} = \mathbf{i} + \alpha\mathbf{j} = (1, \alpha)$ en $\mathbb{R}^2$. Determine el valor real del parámetro $\alpha$ tal que:
-> 1. $\mathbf{u} \perp \mathbf{v}$ (vectores ortogonales).
-> 2. $\mathbf{u} \parallel \mathbf{v}$ (vectores paralelos).
-
-**Resolución Paso a Paso:**
-1. **Condición de Ortogonalidad ($\mathbf{u} \perp \mathbf{v}$):**
-   Se requiere que su producto escalar sea idénticamente nulo:
-   $$
-   \mathbf{u} \cdot \mathbf{v} = 0 \iff 3(1) + 4(\alpha) = 0 \iff 3 + 4\alpha = 0 \iff \alpha = -\frac{3}{4}
-   $$
-2. **Condición de Paralelismo ($\mathbf{u} \parallel \mathbf{v}$):**
-   Dos vectores en $\mathbb{R}^2$ son paralelos si y solo si sus componentes son proporcionales (o su determinante $2 \times 2$ es nulo):
-   $$
-   \frac{u_x}{v_x} = \frac{u_y}{v_y} \iff \frac{3}{1} = \frac{4}{\alpha} \iff 3\alpha = 4 \iff \alpha = \frac{4}{3}
-   $$
-   *Comprobación:* Si $\alpha = 4/3$, entonces $\mathbf{u} = (3, 4) = 3(1, 4/3) = 3\mathbf{v}$, confirmando que son colineales con igual sentido ($c = 3 > 0$).
-
----
-
-#### Ejercicio 7 (Slides 22–23): Cálculo Comparativo de Proyecciones Ortogonales Cruzadas
-> [!example] Enunciado
-> Sean los vectores en $\mathbb{R}^3$:
-> 
-> $$
-> \mathbf{v} = (2, 3, 1) \qquad \text{y} \qquad \mathbf{w} = (1, 2, -1)
-> $$
-> 
-> 1. Determine el vector proyección ortogonal de $\mathbf{v}$ sobre $\mathbf{w}$ ($\mathrm{proy}_{\mathbf{w}}\mathbf{v}$).
-> 2. Determine el vector proyección ortogonal de $\mathbf{w}$ sobre $\mathbf{v}$ ($\mathrm{proy}_{\mathbf{v}}\mathbf{w}$).
-
-**Resolución Paso a Paso:**
-1. **Cálculo de $\mathrm{proy}_{\mathbf{w}}\mathbf{v}$:**
-   - Producto escalar: $\mathbf{v} \cdot \mathbf{w} = 2(1) + 3(2) + 1(-1) = 2 + 6 - 1 = 7$.
-   - Norma al cuadrado de $\mathbf{w}$: $\|\mathbf{w}\|^2 = 1^2 + 2^2 + (-1)^2 = 1 + 4 + 1 = 6$.
-   - Proyección:
-     $$
-     \mathrm{proy}_{\mathbf{w}}\mathbf{v} = \left( \frac{\mathbf{v} \cdot \mathbf{w}}{\|\mathbf{w}\|^2} \right) \mathbf{w} = \frac{7}{6}(1, 2, -1) = \left( \frac{7}{6},\ \frac{7}{3},\ -\frac{7}{6} \right)
-     $$
-2. **Cálculo de $\mathrm{proy}_{\mathbf{v}}\mathbf{w}$:**
-   - El producto escalar es conmutativo: $\mathbf{w} \cdot \mathbf{v} = 7$.
-   - Norma al cuadrado de $\mathbf{v}$: $\|\mathbf{v}\|^2 = 2^2 + 3^2 + 1^2 = 4 + 9 + 1 = 14$.
-   - Proyección:
-     $$
-     \mathrm{proy}_{\mathbf{v}}\mathbf{w} = \left( \frac{\mathbf{w} \cdot \mathbf{v}}{\|\mathbf{v}\|^2} \right) \mathbf{v} = \frac{7}{14}(2, 3, 1) = \frac{1}{2}(2, 3, 1) = \left( 1,\ \frac{3}{2},\ \frac{1}{2} \right)
-     $$
-*Observación Conceptual:* Se comprueba empíricamente que la proyección ortogonal no es conmutativa ni simétrica: $\mathrm{proy}_{\mathbf{w}}\mathbf{v} \neq \mathrm{proy}_{\mathbf{v}}\mathbf{w}$, pues las direcciones de proyección $\mathbf{w}$ y $\mathbf{v}$ son distintas.
-
----
-
-#### Ejercicio 8 (Slide 25): Producto Cruz Simbólico y Verificación de Ortogonalidad
-> [!example] Enunciado
-> Sean $\mathbf{v} = (1, 2, -1)$ y $\mathbf{w} = (2, -1, 3)$ en $\mathbb{R}^3$.
-> 1. Calcule el producto vectorial $\mathbf{u} = \mathbf{v} \times \mathbf{w}$ mediante el determinante formal.
-> 2. Verifique analíticamente que $\mathbf{u} \perp \mathbf{v}$ y $\mathbf{u} \perp \mathbf{w}$.
-
-**Resolución Paso a Paso:**
-1. **Desarrollo por Cofactores en la primera fila:**
-   $$
-   \mathbf{v} \times \mathbf{w} = \begin{vmatrix}
-   \mathbf{i} & \mathbf{j} & \mathbf{k} \\
-   1 & 2 & -1 \\
-   2 & -1 & 3
-   \end{vmatrix}
-   = \mathbf{i}\begin{vmatrix} 2 & -1 \\ -1 & 3 \end{vmatrix} - \mathbf{j}\begin{vmatrix} 1 & -1 \\ 2 & 3 \end{vmatrix} + \mathbf{k}\begin{vmatrix} 1 & 2 \\ 2 & -1 \end{vmatrix}
-   $$
-   - Componente $\mathbf{i}$: $2(3) - (-1)(-1) = 6 - 1 = 5$.
-   - Componente $\mathbf{j}$: $- [ 1(3) - (-1)(2) ] = - [ 3 + 2 ] = -5$.
-   - Componente $\mathbf{k}$: $1(-1) - 2(2) = -1 - 4 = -5$.
-   $$
-   \mathbf{u} = \mathbf{v} \times \mathbf{w} = (5, -5, -5)
-   $$
-2. **Verificación de Ortogonalidad Doble:**
-   $$
-   \mathbf{u} \cdot \mathbf{v} = 5(1) + (-5)(2) + (-5)(-1) = 5 - 10 + 5 = 0 \implies \mathbf{u} \perp \mathbf{v}
-   $$
-   $$
-   \mathbf{u} \cdot \mathbf{w} = 5(2) + (-5)(-1) + (-5)(3) = 10 + 5 - 15 = 0 \implies \mathbf{u} \perp \mathbf{w}
-   $$
-*Resultado Verificado:* $\mathbf{v} \times \mathbf{w} = (5, -5, -5)$.
-
----
-
-#### Ejercicio 9 (Slide 28): Área de un Triángulo 3D en el Espacio
-> [!example] Enunciado
-> Calcule el área del triángulo cuyos vértices en el espacio tridimensional son:
-> 
-> $$
-> P(1, 3, -2), \qquad Q(2, 1, 4), \qquad R(-3, 1, 6)
-> $$
-
-**Resolución Paso a Paso:**
-1. **Construcción de los vectores arista concurrentes en $P$:**
-   $$
-   \overrightarrow{PQ} = Q - P = (2 - 1,\ 1 - 3,\ 4 - (-2)) = (1, -2, 6)
-   $$
-   $$
-   \overrightarrow{PR} = R - P = (-3 - 1,\ 1 - 3,\ 6 - (-2)) = (-4, -2, 8)
-   $$
-2. **Producto Cruz $\overrightarrow{PQ} \times \overrightarrow{PR}$:**
-   $$
-   \overrightarrow{PQ} \times \overrightarrow{PR} = \begin{vmatrix}
-   \mathbf{i} & \mathbf{j} & \mathbf{k} \\
-   1 & -2 & 6 \\
-   -4 & -2 & 8
-   \end{vmatrix}
-   $$
-   - Componente $\mathbf{i}$: $(-2)(8) - (6)(-2) = -16 + 12 = -4$.
-   - Componente $\mathbf{j}$: $- [ 1(8) - (6)(-4) ] = - [ 8 + 24 ] = -32$.
-   - Componente $\mathbf{k}$: $1(-2) - (-2)(-4) = -2 - 8 = -10$.
-   $$
-   \overrightarrow{PQ} \times \overrightarrow{PR} = (-4, -32, -10)
-   $$
-3. **Norma del Producto Cruz:**
-   $$
-   \|\overrightarrow{PQ} \times \overrightarrow{PR}\| = \sqrt{(-4)^2 + (-32)^2 + (-10)^2} = \sqrt{16 + 1024 + 100} = \sqrt{1140}
-   $$
-   Factorizando el radicando: $1140 = 4 \times 285 \implies \sqrt{1140} = 2\sqrt{285}$.
-4. **Área del Triángulo:**
-   $$
-   \text{Área}_{\triangle} = \frac{1}{2} \|\overrightarrow{PQ} \times \overrightarrow{PR}\| = \frac{1}{2} (2\sqrt{285}) = \sqrt{285} \approx 16.8819\,\text{u}^2
-   $$
-
----
-
-#### Ejercicio 10 (Slide 29): Volumen de Paralelepípedo por Triple Producto Escalar
-> [!example] Enunciado
-> Determine el volumen del paralelepípedo cuyas tres aristas concurrentes vienen dadas por los vectores:
-> 
-> $$
-> \mathbf{u} = (1, 3, -2), \qquad \mathbf{v} = (2, 1, 4), \qquad \mathbf{w} = (-3, 1, 6)
-> $$
-
-**Resolución Paso a Paso:**
-1. **Formulación del Triple Producto Escalar como Determinante $3 \times 3$:**
-   $$
-   V = | \mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) | = \left| \det\begin{pmatrix}
-   1 & 3 & -2 \\
-   2 & 1 & 4 \\
-   -3 & 1 & 6
-   \end{pmatrix} \right|
-   $$
-2. **Evaluación por Expansión de Laplace en la primera fila:**
-   $$
-   \det = 1 \begin{vmatrix} 1 & 4 \\ 1 & 6 \end{vmatrix} - 3 \begin{vmatrix} 2 & 4 \\ -3 & 6 \end{vmatrix} + (-2) \begin{vmatrix} 2 & 1 \\ -3 & 1 \end{vmatrix}
-   $$
-   - Primer menor: $1(6) - 4(1) = 6 - 4 = 2$.
-   - Segundo menor: $2(6) - 4(-3) = 12 + 12 = 24$.
-   - Tercer menor: $2(1) - 1(-3) = 2 + 3 = 5$.
-   $$
-   \det = 1(2) - 3(24) - 2(5) = 2 - 72 - 10 = -80
-   $$
-3. **Cálculo del Volumen Físico:**
-   $$
-   V = |-80| = 80\,\text{u}^3
-   $$
-*Resultado Verificado:* $V = 80\,\text{u}^3$.
-
----
 
 #### Ejercicio 11 (Slide 30): Recta por Dos Puntos con Componente Directriz Nula
 > [!example] Enunciado
@@ -1377,6 +918,25 @@ Este compendio reúne y resuelve paso a paso con máxima rigurosidad analítica 
    $$
 
 ---
+
+
+---
+
+## 📐 4.1 Ángulo, Paralelismo, Perpendicularidad e Intersección entre Rectas (Slides 31–33) 🎓 `[Cátedra USS]`
+
+Dadas dos rectas $L_1: P_1 + t\mathbf{d}_1$ y $L_2: P_2 + s\mathbf{d}_2$:
+- **Ángulo entre rectas:**
+  $$
+  \cos\theta = \frac{|\mathbf{d}_1 \cdot \mathbf{d}_2|}{\|\mathbf{d}_1\| \|\mathbf{d}_2\|},\quad \theta \in [0, \pi/2]
+  $$
+- **Paralelismo:** $L_1 \parallel L_2 \iff \mathbf{d}_1 \parallel \mathbf{d}_2 \iff \mathbf{d}_1 = c\mathbf{d}_2$.
+- **Perpendicularidad:** $L_1 \perp L_2 \iff \mathbf{d}_1 \cdot \mathbf{d}_2 = 0$.
+- **Secantes (Intersección en un punto):** No paralelas y el sistema de ecuaciones paramétricas igualadas posee una solución única $(t^*, s^*)$.
+- **Alabeadas (Skew lines):** No son paralelas ($\mathbf{d}_1 \not\parallel \mathbf{d}_2$) y no se cortan en ningún punto del espacio. Condición analítica por determinante:
+  $$
+  \det(\overrightarrow{P_1P_2},\ \mathbf{d}_1,\ \mathbf{d}_2) \neq 0
+  $$
+
 
 #### Ejercicio 12 (Slide 32): Análisis Topológico de Cuatro Rectas en el Espacio
 > [!example] Enunciado
@@ -1443,6 +1003,8 @@ Este compendio reúne y resuelve paso a paso con máxima rigurosidad analítica 
 
 ---
 
+
+
 #### Ejercicio 13 (Slide 33): Criterio Analítico de Rectas Alabeadas en el Espacio
 > [!example] Enunciado
 > Dadas las rectas en $\mathbb{R}^3$:
@@ -1480,6 +1042,91 @@ Este compendio reúne y resuelve paso a paso con máxima rigurosidad analítica 
 4. **Conclusión:** Las rectas $L_1$ y $L_2$ **no yacen en un mismo plano, no se cortan y son estrictamente alabeadas**.
 
 ---
+
+
+
+#### Ejercicio Avanzado Tipo Certamen 1: Posición Relativa y Distancia entre Rectas Alabeadas 🌐 `[UdeC]`
+> [!example] Enunciado
+> Dadas las rectas en $\mathbb{R}^3$:
+> $$
+> L_1: \frac{x - 1}{2} = \frac{y + 1}{3} = z - 2, \qquad L_2: \mathbf{r}_2(t) = (2, 0, -1) + t(1, -1, 2)
+> $$
+> 1. Demostrar rigurosamente que $L_1$ y $L_2$ son rectas alabeadas (cruzadas).
+> 2. Calcular la distancia mínima que las separa en el espacio.
+> 3. Determinar la ecuación general del plano $\pi$ que contiene a $L_1$ y es estrictamente paralelo a $L_2$.
+
+**Resolución Paso a Paso:**
+
+1. **Extracción de Elementos Geométricos:**
+   - Para $L_1$: Pasa por $P_1(1, -1, 2)$ con vector director $\mathbf{d}_1 = (2, 3, 1)$.
+   - Para $L_2$: Pasa por $P_2(2, 0, -1)$ con vector director $\mathbf{d}_2 = (1, -1, 2)$.
+   - Vector entre puntos: $\overrightarrow{P_1 P_2} = P_2 - P_1 = (2-1, 0-(-1), -1-2) = (1, 1, -3)$.
+
+2. **Comprobación de Rectas Alabeadas:**
+   - *Verificación de paralelismo:*
+     $$
+     \mathbf{d}_1 \times \mathbf{d}_2 = \begin{vmatrix}
+     \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+     2 & 3 & 1 \\
+     1 & -1 & 2
+     \end{vmatrix}
+     = \mathbf{i}(6 - (-1)) - \mathbf{j}(4 - 1) + \mathbf{k}(-2 - 3) = (7, -3, -5) \neq \mathbf{0}
+     $$
+     Al ser $\mathbf{d}_1 \times \mathbf{d}_2 \neq \mathbf{0}$, las rectas **no son paralelas ni coincidentes**.
+   - *Verificación de coplanaridad (Triple Producto Escalar):*
+     $$
+     [\overrightarrow{P_1 P_2}, \mathbf{d}_1, \mathbf{d}_2] = \overrightarrow{P_1 P_2} \cdot (\mathbf{d}_1 \times \mathbf{d}_2) = 1(7) + 1(-3) + (-3)(-5) = 7 - 3 + 15 = 19 \neq 0
+     $$
+     Puesto que el triple producto escalar no es nulo, los vectores no son coplanares. En consecuencia, las rectas **no se cortan y son estrictamente alabeadas**.
+
+3. **Cálculo de la Distancia Mínima:**
+   $$
+   \|\mathbf{d}_1 \times \mathbf{d}_2\| = \sqrt{7^2 + (-3)^2 + (-5)^2} = \sqrt{49 + 9 + 25} = \sqrt{83}
+   $$
+   $$
+   d(L_1, L_2) = \frac{|\overrightarrow{P_1 P_2} \cdot (\mathbf{d}_1 \times \mathbf{d}_2)|}{\|\mathbf{d}_1 \times \mathbf{d}_2\|} = \frac{19}{\sqrt{83}} = \frac{19\sqrt{83}}{83} \approx 2.0855\,\text{u}
+   $$
+
+4. **Plano $\pi$ que contiene a $L_1$ y es paralelo a $L_2$:**
+   - El plano pasa por $P_1(1, -1, 2)$ y tiene por vector normal a $\mathbf{n} = \mathbf{d}_1 \times \mathbf{d}_2 = (7, -3, -5)$.
+   - Ecuación del plano:
+     $$
+     7(x - 1) - 3(y + 1) - 5(z - 2) = 0
+     $$
+     $$
+     7x - 7 - 3y - 3 - 5z + 10 = 0 \implies 7x - 3y - 5z = 0
+     $$
+   *Verificación adicional:* Calculamos la distancia de $P_2(2, 0, -1) \in L_2$ a este plano $\pi$:
+   $$
+   d(P_2, \pi) = \frac{|7(2) - 3(0) - 5(-1)|}{\sqrt{7^2 + (-3)^2 + (-5)^2}} = \frac{|14 + 5|}{\sqrt{83}} = \frac{19}{\sqrt{83}}
+   $$
+   El resultado coincide exactamente con la distancia entre ambas rectas.
+
+---
+
+
+---
+
+## 🔲 4.2 Planos en el Espacio (Slides 34–37) 🎓 `[Cátedra USS]`
+
+Un plano $\pi$ en $\mathbb{R}^3$ queda determinado conociendo un punto $P_0(x_0, y_0, z_0) \in \pi$ y un vector ortogonal no nulo $\mathbf{n} = (a, b, c)$, denominado **vector normal**.
+
+1. **Ecuación Vectorial Normal:**
+   $$
+   \mathbf{n} \cdot (P - P_0) = 0
+   $$
+2. **Ecuación General (Cartesiana):**
+   $$
+   a(x - x_0) + b(y - y_0) + c(z - z_0) = 0 \iff ax + by + cz = d
+   $$
+   donde $d = ax_0 + by_0 + cz_0$.
+
+### Plano Determinado por Tres Puntos No Colineales (Slides 36–37) 🎓 `[Cátedra USS]`
+Dados $P, Q, R$ no colineales, se forman los vectores directores coplanares $\overrightarrow{PQ}$ y $\overrightarrow{PR}$. El vector normal se obtiene mediante el producto cruz:
+$$
+\mathbf{n} = \overrightarrow{PQ} \times \overrightarrow{PR}
+$$
+
 
 #### Ejercicio 14 (Slide 36): Plano Determinado por Tres Puntos No Colineales
 > [!example] Enunciado
@@ -1528,6 +1175,30 @@ Este compendio reúne y resuelve paso a paso con máxima rigurosidad analítica 
 - En $R(0,2,-1)$: $0 - 2 - (-1) + 1 = -2 + 1 + 1 = 0$ (Cumple).
 
 ---
+
+
+---
+
+## 📐 4.3 Paralelismo, Perpendicularidad y Ángulo entre Planos (Slides 38–40) 🎓 `[Cátedra USS]`
+
+Dados dos planos $\pi_1: a_1 x + b_1 y + c_1 z = d_1$ y $\pi_2: a_2 x + b_2 y + c_2 z = d_2$, con vectores normales $\mathbf{n}_1 = (a_1, b_1, c_1)$ y $\mathbf{n}_2 = (a_2, b_2, c_2)$:
+
+1. **Planos Paralelos:** $\pi_1 \parallel \pi_2 \iff \mathbf{n}_1 \parallel \mathbf{n}_2 \iff \mathbf{n}_1 = k\mathbf{n}_2$.
+2. **Planos Perpendiculares:** $\pi_1 \perp \pi_2 \iff \mathbf{n}_1 \cdot \mathbf{n}_2 = 0$.
+3. **Ángulo Diedro Agudo:**
+   $$
+   \cos\theta = \frac{|\mathbf{n}_1 \cdot \mathbf{n}_2|}{\|\mathbf{n}_1\| \|\mathbf{n}_2\|}
+   $$
+4. **Recta de Intersección:** Si no son paralelos, su intersección es una recta $L = \pi_1 \cap \pi_2$ cuyo vector director es ortogonal a ambas normales:
+   $$
+   \mathbf{d} = \mathbf{n}_1 \times \mathbf{n}_2
+   $$
+
+### Relaciones entre Rectas y Planos (Slide 40) 🎓 `[Cátedra USS]`
+Dada una recta $L$ con vector director $\mathbf{d}$ y un plano $\pi$ con normal $\mathbf{n}$:
+- **Recta paralela al plano:** $L \parallel \pi \iff \mathbf{d} \cdot \mathbf{n} = 0$. (Si además $P_0 \in \pi$, la recta está totalmente contenida en el plano).
+- **Recta perpendicular al plano:** $L \perp \pi \iff \mathbf{d} \parallel \mathbf{n} \iff \mathbf{d} = k\mathbf{n}$.
+
 
 #### Ejercicio 15 (Slide 39): Ángulo Diedro y Recta de Intersección entre Dos Planos
 > [!example] Enunciado
@@ -1587,6 +1258,71 @@ Este compendio reúne y resuelve paso a paso con máxima rigurosidad analítica 
 
 ---
 
+
+
+#### Ejercicio Avanzado Tipo Certamen 2: Plano Perpendicular a Dos Planos y Distancia Punto-Plano 🌐 `[UdeC]`
+> [!example] Enunciado
+> Determinar la ecuación general del plano $\pi$ que pasa por el punto $M(1, -2, 4)$ y es perpendicular simultáneamente a los planos:
+> $$
+> \pi_1: 2x - y + 3z = 4, \qquad \pi_2: x + 2y - z = 1
+> $$
+> Posteriormente, calcular la distancia euclídea exacta desde el punto $K(3, 1, 2)$ al plano obtenido $\pi$.
+
+**Resolución Paso a Paso:**
+
+1. **Vectores Normales de los Planos Dados:**
+   - Para $\pi_1$: $\mathbf{n}_1 = (2, -1, 3)$.
+   - Para $\pi_2$: $\mathbf{n}_2 = (1, 2, -1)$.
+
+2. **Construcción del Vector Normal de $\pi$:**
+   Para que el plano buscado sea perpendicular a $\pi_1$ y a $\pi_2$, su vector normal $\mathbf{n}_\pi$ debe ser simultáneamente ortogonal a $\mathbf{n}_1$ y a $\mathbf{n}_2$. Por lo tanto:
+   $$
+   \mathbf{n}_\pi = \mathbf{n}_1 \times \mathbf{n}_2 = \begin{vmatrix}
+   \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+   2 & -1 & 3 \\
+   1 & 2 & -1
+   \end{vmatrix}
+   = \mathbf{i}(1 - 6) - \mathbf{j}(-2 - 3) + \mathbf{k}(4 - (-1)) = (-5, 5, 5)
+   $$
+   Podemos simplificar el vector normal multiplicando por el escalar $\frac{1}{5}$:
+   $$
+   \mathbf{n}'_\pi = (-1, 1, 1) \quad \text{o equivalentemente } (1, -1, -1)
+   $$
+
+3. **Ecuación Cartesiana del Plano $\pi$:**
+   Haciendo uso de $\mathbf{n}'_\pi = (1, -1, -1)$ y el punto $M(1, -2, 4)$:
+   $$
+   1(x - 1) - 1(y - (-2)) - 1(z - 4) = 0
+   $$
+   $$
+   x - 1 - (y + 2) - (z - 4) = 0 \implies x - y - z + 1 = 0
+   $$
+   *Comprobación en $M$:* $1 - (-2) - 4 + 1 = 1 + 2 - 4 + 1 = 0$.
+
+4. **Distancia desde $K(3, 1, 2)$ al Plano $\pi$:**
+   Aplicando la fórmula de distancia punto-plano para $\pi: x - y - z + 1 = 0$:
+   $$
+   d(K, \pi) = \frac{|1(3) - 1(1) - 1(2) + 1|}{\sqrt{1^2 + (-1)^2 + (-1)^2}} = \frac{|3 - 1 - 2 + 1|}{\sqrt{1 + 1 + 1}} = \frac{|1|}{\sqrt{3}} = \frac{\sqrt{3}}{3} \approx 0.5774\,\text{u}
+   $$
+
+---
+
+---
+
+
+---
+
+## 🎯 4.4 Intersección entre Recta y Plano (Slides 41–42) 🎓 `[Cátedra USS]`
+
+> **Método Sistemático de Cátedra:**
+> 1. Se escriben las ecuaciones paramétricas de la recta: $x = x_0 + t d_1,\ y = y_0 + t d_2,\ z = z_0 + t d_3$.
+> 2. Se sustituyen $x(t), y(t), z(t)$ directamente en la ecuación cartesiana del plano: $a(x_0 + t d_1) + b(y_0 + t d_2) + c(z_0 + t d_3) = d$.
+> 3. Se despeja el parámetro escalar $t$:
+>    - Si hay **solución única para $t$**: la recta corta al plano en un único punto $P(x(t), y(t), z(t))$.
+>    - Si la ecuación resulta **$0t = 0$ (infinitas soluciones)**: la recta está completamente **contenida en el plano** ($L \subset \pi$).
+>    - Si la ecuación resulta **$0t = k$ con $k \neq 0$ (sin solución)**: la recta es estrictamente **paralela y disjunta al plano** ($L \cap \pi = \emptyset$).
+
+
 #### Ejercicio 16 (Slide 42): Intersección Recta-Plano por Sustitución Paramétrica
 > [!example] Enunciado
 > Resuelva analíticamente la intersección de las siguientes rectas con sus respectivos planos:
@@ -1624,6 +1360,47 @@ Este compendio reúne y resuelve paso a paso con máxima rigurosidad analítica 
      **Punto de Intersección:** $P_2(6, 0, 1)$.
 
 ---
+
+
+---
+
+## 📏 4.5 Distancia Mínima de un Punto al Plano (Slide 43) 🎓 `[Cátedra USS]`
+
+> **Deducción de Cátedra (Slide 43):**
+> Dado un punto $Q(x_1, y_1, z_1)$ exterior y un plano $\pi: ax + by + cz = d$, seleccionamos cualquier punto de apoyo $P_0(x_0, y_0, z_0) \in \pi$. La distancia perpendicular mínima es la longitud de la proyección ortogonal del vector $\overrightarrow{P_0Q} = Q - P_0$ sobre el vector normal $\mathbf{n} = (a,b,c)$:
+> 
+> $$
+> d(Q, \pi) = \|\mathrm{proy}_{\mathbf{n}}\overrightarrow{P_0Q}\| = \frac{|\overrightarrow{P_0Q} \cdot \mathbf{n}|}{\|\mathbf{n}\|}
+> $$
+> Sustituyendo componentes:
+> $$
+> d(Q, \pi) = \frac{|a(x_1 - x_0) + b(y_1 - y_0) + c(z_1 - z_0)|}{\sqrt{a^2 + b^2 + c^2}} = \frac{|ax_1 + by_1 + cz_1 - (ax_0 + by_0 + cz_0)|}{\sqrt{a^2 + b^2 + c^2}}
+> $$
+> Como $ax_0 + by_0 + cz_0 = d$:
+> $$
+> d(Q, \pi) = \frac{|ax_1 + by_1 + cz_1 - d|}{\sqrt{a^2 + b^2 + c^2}}
+> $$
+
+---
+
+## 📏 4.6 Distancia de una Recta a un Plano y de un Plano a otro Plano (Slide 44) 🎓 `[Cátedra USS]`
+
+1. **Distancia de una Recta Paralela a un Plano:**
+   Si $L \parallel \pi$, la distancia es constante para todo punto de la recta:
+   $$
+   d(L, \pi) = d(P_0, \pi) = \frac{|ax_{P_0} + by_{P_0} + cz_{P_0} - d|}{\sqrt{a^2 + b^2 + c^2}}
+   $$
+2. **Distancia entre Dos Planos Paralelos:**
+   Dados $\pi_1: ax + by + cz = d_1$ y $\pi_2: ax + by + cz = d_2$:
+   $$
+   d(\pi_1, \pi_2) = \frac{|d_2 - d_1|}{\sqrt{a^2 + b^2 + c^2}}
+   $$
+3. **Distancia entre Dos Rectas Paralelas en el Espacio:**
+   Dadas $L_1: P_1 + t\mathbf{d}$ y $L_2: P_2 + s\mathbf{d}$ con vector director común $\mathbf{d}$:
+   $$
+   d(L_1, L_2) = \frac{\|\mathbf{d} \times \overrightarrow{P_1P_2}\|}{\|\mathbf{d}\|}
+   $$
+
 
 #### Ejercicio 17 (Slide 44): Distancias Euclídeas de Cátedra
 > [!example] Enunciado
@@ -1667,6 +1444,10 @@ Este compendio reúne y resuelve paso a paso con máxima rigurosidad analítica 
      d(\pi_1, \pi_2) = \frac{|D_2 - D_1|}{\|\mathbf{n}\|} = \frac{|10 - 4|}{3} = \frac{6}{3} = 2\,\text{u}
      $$
    *(Verificación alternativa: un punto de $\pi_1$ es $P_0(2, 0, 0)$ pues $2(2) - 0 + 0 = 4$. Evaluando en $\pi_2$: $d(P_0, \pi_2) = \frac{|2(2) - 0 + 2(0) - 10|}{\sqrt{9}} = \frac{|4 - 10|}{3} = \frac{6}{3} = 2\,\text{u}$).*
+
+
+---
+
 
 ## 🌐 7. Enriquecimiento Web: Génesis Histórica y Aplicaciones en Computación Gráfica 3D
 
@@ -1763,6 +1544,10 @@ Para evitar procesar y pintar píxeles innecesarios en el pipeline gráfico, se 
 
 ---
 
+
+---
+
+
 ## 💻 8. Verificación Computacional y Visualización en Python
 
 Para garantizar la reproducibilidad científica y verificación simbólica de cada identidad, se desarrollaron dos scripts modulares en el repositorio:
@@ -1778,17 +1563,17 @@ Para garantizar la reproducibilidad científica y verificación simbólica de ca
 #### Figura 1: Proyección Ortogonal y Descomposición Vectorial en $\mathbb{R}^3$
 Visualiza la proyección ortogonal $\mathbf{p} = \mathrm{proy}_{\mathbf{u}}\mathbf{v}$, el residuo ortogonal $\mathbf{r} \perp \mathbf{u}$ y la verificación geométrica de la Desigualdad de Cauchy-Schwarz mediante triángulos rectángulos de Pitágoras.
 
-![Figura 7: Proyección Ortogonal y Descomposición Vectorial en R3](figuras/Figura7_proyeccion_ortogonal_r3.png)
+!`750`
 
 #### Figura 2: Producto Cruz, Base Normal y Volumen del Paralelepípedo
 Representación del paralelogramo generado por $\mathbf{u}$ y $\mathbf{v}$, su vector normal perpendicular $\mathbf{u} \times \mathbf{v}$, y el paralelepípedo sustentado por $\{\mathbf{u}, \mathbf{v}, \mathbf{w}\}$ cuyo volumen es cuantificado por el determinante $3 \times 3$ del triple producto escalar.
 
-![Figura 8: Producto Cruz, Base Normal y Volumen del Paralelepípedo](figuras/Figura8_producto_cruz_paralelepipedo.png)
+!`750`
 
 #### Figura 3: Geometría de Rectas Alabeadas y Planos en $\mathbb{R}^3$
 Ilustración de la mínima distancia ortogonal entre rectas alabeadas mediante su vector director perpendicular común, y la intersección de planos analizada por el Teorema de Rouché-Frobenius.
 
-![Figura 9: Geometría de Rectas Alabeadas y Planos en R3](figuras/Figura9_interseccion_planos_rouche_frobenius.png)
+!`750`
 
 ---
 
@@ -1863,18 +1648,16 @@ print(f"✓ Distancia rectas alabeadas verificada: {dist_skew} ≈ {float(dist_s
 
 ---
 
-## 🔗 9. Enlaces y Conexiones Bidireccionales
-
-- [README Principal](../../README.md) — Índice Central del Repositorio.
-- [Dashboard de Álgebra Lineal](../../README.md) — Planificación académica, syllabus y bitácora de cátedra.
-- [Unidad 1: Matrices y Sistemas de Ecuaciones Lineales](../Unidad_1_Matrices_y_Sistemas/Matrices.md):
-  - Fundamentos de producto matriz-vector en $\mathbb{R}^3$.
-  - Determinantes de orden 3 y su equivalencia con el triple producto escalar.
-  - Teorema de Rouché-Frobenius y clasificación topológica de la intersección de planos en $\mathbb{R}^3$.
-- [Grossman — Apunte Maestro Capítulo 4](../Libros/Grossman/Grossman_Algebra_Lineal.md): Geometría vectorial euclídea.
-- [Axler — Apunte Maestro Capítulo 6](../Libros/Axler/Axler_Linear_Algebra_Done_Right.md): Espacios con producto interno, complementos ortogonales y Desigualdad de Cauchy-Schwarz.
 
 ---
-## 🔗 Conexiones
-- [README Principal](../../README.md)
-- [Unidad 1: Matrices y Sistemas](../Unidad_1_Matrices_y_Sistemas/Matrices.md)
+
+## 🔗 9. Enlaces y Conexiones Bidireccionales
+
+- [[algebra_lineal_dashboard|Dashboard Principal de Álgebra Lineal]]
+- [[Matrices|Unidad 1: Matrices y Sistemas de Ecuaciones Lineales]]
+- [[Espacios_y_Subespacios_Vectoriales|Unidad 2.2: Espacios y Subespacios Vectoriales]]
+- [[Transformaciones_Lineales|Unidad 3: Transformaciones Lineales]]
+- [[Valores_y_Vectores_Propios|Unidad 4: Valores y Vectores Propios]]
+- [[Home|Panel de Control Unificado (Home)]]
+- [[Task_Board|Tablero de Control de Agentes (Task Board)]]
+
