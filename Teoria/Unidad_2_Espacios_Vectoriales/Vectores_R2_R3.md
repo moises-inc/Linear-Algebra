@@ -12,9 +12,9 @@ status: completado
 
 > [!info] Leyenda de Trazabilidad de Fuentes
 > Con el fin de garantizar la máxima rigurosidad académica, trazabilidad y procedencia conceptual en la carrera de Ingeniería Civil Informática de la Universidad San Sebastián (USS), cada sección, definición y teorema incluye distintivos explícitos:
-> - 🎓 `[Cátedra USS / Programa Oficial]`: Contenido curricular directo, syllabus y pautas de la asignatura Álgebra Lineal (DCEX0007), Cátedra de Carol Asencio González.
+> - 🎓 `[Cátedra USS / Diapositivas Docente Carol Asencio]`: Contenido curricular directo, deducciones analíticas, definiciones y banco completo de 17 ejercicios de cátedra extraídos de las diapositivas oficiales de Carol Asencio González (Álgebra Lineal DCEX0007, USS Patagonia).
 > - 📖 `[Texto Guía — Grossman / Axler / Aranda]`: Fundamentación teórica formal, demostraciones matemáticas rigurosas y propiedades algebraicas avanzadas (*Grossman 7ª Ed.*, *Axler 4ª Ed.* y *Aranda - Álgebra Lineal con Python*).
-> - 🌐 `[UdeC / Mecánica Vectorial / Python]`: Enriquecimiento aplicado de ingeniería, casos de torque, estática tridimensional, ejercicios tipo certamen universitario y scripts de verificación computacional.
+> - 🌐 `[Enriquecimiento Web / Computación Gráfica / Historia]`: Génesis histórica del análisis vectorial (Hamilton, Gibbs, Heaviside), reducción de ecuaciones de Maxwell, y algoritmos clave en computación gráfica 3D (Möller-Trumbore ray-triangle, backface culling, reflexión para shaders PBR) junto con verificación computacional.
 
 ---
 
@@ -643,7 +643,67 @@ $$
 d(P_1, \pi) = \frac{|a x_1 + b y_1 + c z_1 + d|}{\sqrt{a^2 + b^2 + c^2}} \quad \blacksquare
 $$
 
-### 5.3 Intersección de Tres Planos y Conexión con el Teorema de Rouché-Frobenius 🔗 `[Matrices]`
+### 5.3 Ángulo Diedro y Recta de Intersección entre Planos 🎓 `[Cátedra USS / Diapositivas]`
+
+Sean dos planos $\pi_1$ y $\pi_2$ con vectores normales $\mathbf{n}_1 = (a_1, b_1, c_1)$ y $\mathbf{n}_2 = (a_2, b_2, c_2)$ respectivamente:
+
+1. **Planos Paralelos:**
+   $$
+   \pi_1 \parallel \pi_2 \iff \mathbf{n}_1 \parallel \mathbf{n}_2 \iff \mathbf{n}_1 = k \mathbf{n}_2 \quad (k \neq 0) \iff \mathbf{n}_1 \times \mathbf{n}_2 = \mathbf{0}
+   $$
+2. **Planos Perpendiculares:**
+   $$
+   \pi_1 \perp \pi_2 \iff \mathbf{n}_1 \cdot \mathbf{n}_2 = 0
+   $$
+3. **Ángulo Diedro Agudo ($\theta \in [0, \pi/2]$):**
+   $$
+   \cos\theta = \frac{|\mathbf{n}_1 \cdot \mathbf{n}_2|}{\|\mathbf{n}_1\| \|\mathbf{n}_2\|}
+   $$
+4. **Recta de Intersección entre Planos Secantes:**
+   Si $\mathbf{n}_1 \nparallel \mathbf{n}_2$, la intersección $\pi_1 \cap \pi_2$ define una recta $L$ en $\mathbb{R}^3$. El vector director de dicha recta es perpendicular a ambas normales simultáneamente:
+   $$
+   \mathbf{d}_L = \mathbf{n}_1 \times \mathbf{n}_2
+   $$
+   Para obtener las ecuaciones paramétricas completas de $L$, se fija una coordenada constante (por ejemplo $z=0$) y se resuelve el sistema $2 \times 2$ resultante para hallar un punto $P_0 \in \pi_1 \cap \pi_2$.
+
+### 5.4 Intersección entre Recta y Plano 🎓 `[Cátedra USS / Diapositivas]`
+
+Dada una recta $L: \mathbf{r}(t) = P_0 + t\mathbf{d}$ con ecuaciones paramétricas $x = x_0 + a t$, $y = y_0 + b t$, $z = z_0 + c t$, y un plano cartesiano $\pi: A x + B y + C z = D$:
+
+- **Método Sistemático por Sustitución:** Se sustituyen directamente las expresiones paramétricas en la ecuación general del plano:
+  $$
+  A(x_0 + a t) + B(y_0 + b t) + C(z_0 + c t) = D
+  $$
+  $$
+  (A x_0 + B y_0 + C z_0) + t(A a + B b + C c) = D \implies t (\mathbf{n} \cdot \mathbf{d}) = D - \mathbf{n} \cdot P_0
+  $$
+
+- **Clasificación Topológica de Soluciones:**
+  1. **Solución Única ($\mathbf{n} \cdot \mathbf{d} \neq 0$):** La recta corta al plano en un **único punto** $P = \mathbf{r}(t^*)$.
+  2. **Infinitas Soluciones ($\mathbf{n} \cdot \mathbf{d} = 0$ y $D - \mathbf{n} \cdot P_0 = 0$):** La recta está **completamente contenida** en el plano ($L \subset \pi$).
+  3. **Sin Solución ($\mathbf{n} \cdot \mathbf{d} = 0$ y $D - \mathbf{n} \cdot P_0 \neq 0$):** La recta es **estrictamente paralela y disjunta** al plano ($L \parallel \pi$, $L \cap \pi = \emptyset$).
+
+### 5.5 Distancias Euclídeas de Cátedra: Recta-Plano, Plano-Plano y Rectas Paralelas 🎓 `[Cátedra USS]`
+
+1. **Distancia entre Recta y Plano Paralelos ($L \parallel \pi$):**
+   Si $\mathbf{d} \cdot \mathbf{n} = 0$, todos los puntos de la recta equidistan del plano. Tomando un punto arbitrario $P_0 \in L$:
+   $$
+   d(L, \pi) = d(P_0, \pi) = \frac{|A x_0 + B y_0 + C z_0 - D|}{\sqrt{A^2 + B^2 + C^2}}
+   $$
+
+2. **Distancia entre Dos Planos Paralelos ($\pi_1 \parallel \pi_2$):**
+   Sean $\pi_1: A x + B y + C z = D_1$ y $\pi_2: A x + B y + C z = D_2$ con coeficientes normales normalizados o idénticos. La distancia mínima viene dada por:
+   $$
+   d(\pi_1, \pi_2) = \frac{|D_2 - D_1|}{\sqrt{A^2 + B^2 + C^2}} = \frac{|D_2 - D_1|}{\|\mathbf{n}\|}
+   $$
+
+3. **Distancia entre Dos Rectas Paralelas ($L_1 \parallel L_2$):**
+   Sean $L_1$ que pasa por $P_1$ con director $\mathbf{d}$, y $L_2$ que pasa por $P_2$ con el mismo director $\mathbf{d}$. La distancia entre ambas rectas es la altura del paralelogramo sustentado por $\mathbf{d}$ y $\overrightarrow{P_1 P_2}$:
+   $$
+   d(L_1, L_2) = \frac{\|\mathbf{d} \times \overrightarrow{P_1 P_2}\|}{\|\mathbf{d}\|}
+   $$
+
+### 5.6 Intersección de Tres Planos y Conexión con el Teorema de Rouché-Frobenius 🔗 `[Matrices]`
 
 La intersección simultánea de tres planos en el espacio tridimensional:
 
@@ -979,7 +1039,731 @@ Visualización tridimensional de la ecuación general del plano con su vector no
 
 ---
 
-## 💻 7. Verificación Computacional y Visualización en Python
+---
+
+### 6.6 Banco Canónico de 17 Ejercicios y Ejemplos de Cátedra USS (Slides 1 a 44 — Carol Asencio) 🎓 `[Cátedra USS / Diapositivas Docente]`
+
+Este compendio reúne y resuelve paso a paso con máxima rigurosidad analítica los **17 problemas y ejemplos oficiales** presentados en las 44 diapositivas de la asignatura por la docente **Carol Asencio González**, verificados simbólicamente con SymPy.
+
+#### Ejercicio 1 (Slide 8): Combinación Lineal y Operaciones Básicas en $\mathbb{R}^3$
+> [!example] Enunciado
+> Sean los vectores $\mathbf{v} = (1, -2, 0)$ y $\mathbf{w} = (3, 4, -1)$ en $\mathbb{R}^3$. Determine analíticamente el vector resultante de la combinación lineal:
+> 
+> $$
+> \mathbf{u} = 2\mathbf{v} - 3\mathbf{w}
+> $$
+
+**Resolución Paso a Paso:**
+1. Aplicamos la multiplicación por escalar componente a componente:
+   $$
+   2\mathbf{v} = 2(1, -2, 0) = (2(1), 2(-2), 2(0)) = (2, -4, 0)
+   $$
+   $$
+   3\mathbf{w} = 3(3, 4, -1) = (3(3), 3(4), 3(-1)) = (9, 12, -3)
+   $$
+2. Efectuamos la resta vectorial componente a componente:
+   $$
+   \mathbf{u} = 2\mathbf{v} - 3\mathbf{w} = (2 - 9,\ -4 - 12,\ 0 - (-3)) = (-7, -16, 3)
+   $$
+*Resultado Verificado:* $\mathbf{u} = (-7, -16, 3)$.
+
+---
+
+#### Ejercicio 2 (Slide 10): Producto Punto en $\mathbb{R}^3$ y $\mathbb{R}^2$
+> [!example] Enunciado
+> Calcule el producto escalar euclídeo para cada uno de los siguientes pares de vectores:
+> 1. $\mathbf{v} = (2, -1, 3)$ y $\mathbf{w} = (-1, 0, 4)$ en $\mathbb{R}^3$.
+> 2. $\mathbf{v} = (1, 4)$ y $\mathbf{w} = (-2, 3)$ en $\mathbb{R}^2$.
+
+**Resolución Paso a Paso:**
+1. Para el par tridimensional en $\mathbb{R}^3$:
+   $$
+   \mathbf{v} \cdot \mathbf{w} = v_1 w_1 + v_2 w_2 + v_3 w_3 = 2(-1) + (-1)(0) + 3(4) = -2 + 0 + 12 = 10
+   $$
+2. Para el par bidimensional en $\mathbb{R}^2$:
+   $$
+   \mathbf{v} \cdot \mathbf{w} = v_1 w_1 + v_2 w_2 = 1(-2) + 4(3) = -2 + 12 = 10
+   $$
+*Conclusión:* Ambos pares arrojan un producto punto estrictamente positivo ($10 > 0$), indicando que en ambos casos los vectores forman un ángulo convexo agudo ($\theta < 90^\circ$).
+
+---
+
+#### Ejercicio 3 (Slide 14): Módulo y Dirección Analítica en los Cuatro Cuadrantes
+> [!example] Enunciado
+> Calcule la norma $\|\mathbf{v}\|$ y el ángulo director polar $\theta \in [0, 2\pi)$ medido desde el semieje positivo de las abscisas para cada uno de los siguientes vectores de $\mathbb{R}^2$:
+> 1. $\mathbf{v}_1 = (2, 2)$
+> 2. $\mathbf{v}_2 = (2, 2\sqrt{3})$
+> 3. $\mathbf{v}_3 = (-3, -3)$
+> 4. $\mathbf{v}_4 = (0, 3)$
+
+**Resolución Paso a Paso:**
+1. **Para $\mathbf{v}_1 = (2, 2)$ (Cuadrante I):**
+   - Norma: $\|\mathbf{v}_1\| = \sqrt{2^2 + 2^2} = \sqrt{4 + 4} = \sqrt{8} = 2\sqrt{2}$.
+   - Dirección: Al estar en el primer cuadrante ($x > 0, y > 0$), $\tan\theta = \frac{2}{2} = 1 \implies \theta = \arctan(1) = \frac{\pi}{4}\ (45^\circ)$.
+2. **Para $\mathbf{v}_2 = (2, 2\sqrt{3})$ (Cuadrante I):**
+   - Norma: $\|\mathbf{v}_2\| = \sqrt{2^2 + (2\sqrt{3})^2} = \sqrt{4 + 12} = \sqrt{16} = 4$.
+   - Dirección: $\tan\theta = \frac{2\sqrt{3}}{2} = \sqrt{3} \implies \theta = \arctan(\sqrt{3}) = \frac{\pi}{3}\ (60^\circ)$.
+3. **Para $\mathbf{v}_3 = (-3, -3)$ (Cuadrante III):**
+   - Norma: $\|\mathbf{v}_3\| = \sqrt{(-3)^2 + (-3)^2} = \sqrt{9 + 9} = \sqrt{18} = 3\sqrt{2}$.
+   - Dirección: Al encontrarse en el tercer cuadrante ($x < 0, y < 0$), el ángulo se ajusta sumando $\pi$:
+     $$
+     \theta = \pi + \arctan\left(\frac{-3}{-3}\right) = \pi + \frac{\pi}{4} = \frac{5\pi}{4}\ (225^\circ)
+     $$
+4. **Para $\mathbf{v}_4 = (0, 3)$ (Sobre el semieje positivo $y$):**
+   - Norma: $\|\mathbf{v}_4\| = \sqrt{0^2 + 3^2} = \sqrt{9} = 3$.
+   - Dirección: Con $x = 0$ e $y > 0$, el vector apunta verticalmente hacia arriba: $\theta = \frac{\pi}{2}\ (90^\circ)$.
+
+---
+
+#### Ejercicio 4 (Slides 16–17): Deducción de $\mathbf{v}\cdot\mathbf{w} = \|\mathbf{v}\|\|\mathbf{w}\|\cos\theta$ y Ángulo entre Vectores
+> [!example] Enunciado
+> 1. Demuestre analíticamente mediante la Ley de Cosenos que $\mathbf{v} \cdot \mathbf{w} = \|\mathbf{v}\| \|\mathbf{w}\| \cos\theta$.
+> 2. Determine el ángulo convexo $\theta$ formado por los vectores $\mathbf{v} = (2, 3)$ y $\mathbf{w} = (-1, 2)$ en $\mathbb{R}^2$.
+> 3. Determine el ángulo convexo $\theta$ formado por $\mathbf{v} = (1, 0, -1)$ y $\mathbf{w} = (1, 1, 0)$ en $\mathbb{R}^3$.
+
+**Resolución Paso a Paso:**
+1. **Deducción por Ley de Cosenos:**
+   En el triángulo formado por los lados $\mathbf{v}$, $\mathbf{w}$ y el lado opuesto $\mathbf{v} - \mathbf{w}$, la Ley de Cosenos establece:
+   $$
+   \|\mathbf{v} - \mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 - 2\|\mathbf{v}\| \|\mathbf{w}\| \cos\theta
+   $$
+   Desarrollando algebraicamente el cuadrado de la norma por producto interno:
+   $$
+   \|\mathbf{v} - \mathbf{w}\|^2 = (\mathbf{v} - \mathbf{w}) \cdot (\mathbf{v} - \mathbf{w}) = \|\mathbf{v}\|^2 - 2(\mathbf{v} \cdot \mathbf{w}) + \|\mathbf{w}\|^2
+   $$
+   Igualando miembro a miembro:
+   $$
+   \|\mathbf{v}\|^2 - 2(\mathbf{v} \cdot \mathbf{w}) + \|\mathbf{w}\|^2 = \|\mathbf{v}\|^2 + \|\mathbf{w}\|^2 - 2\|\mathbf{v}\| \|\mathbf{w}\| \cos\theta
+   $$
+   Cancelando $\|\mathbf{v}\|^2 + \|\mathbf{w}\|^2$ y dividiendo por $-2$, se concluye:
+   $$
+   \mathbf{v} \cdot \mathbf{w} = \|\mathbf{v}\| \|\mathbf{w}\| \cos\theta \implies \cos\theta = \frac{\mathbf{v} \cdot \mathbf{w}}{\|\mathbf{v}\| \|\mathbf{w}\|} \quad \blacksquare
+   $$
+2. **Cálculo para $\mathbf{v} = (2, 3)$ y $\mathbf{w} = (-1, 2)$:**
+   - $\mathbf{v} \cdot \mathbf{w} = 2(-1) + 3(2) = -2 + 6 = 4$.
+   - $\|\mathbf{v}\| = \sqrt{2^2 + 3^2} = \sqrt{13}$.
+   - $\|\mathbf{w}\| = \sqrt{(-1)^2 + 2^2} = \sqrt{5}$.
+   - Coseno: $\cos\theta = \frac{4}{\sqrt{13}\sqrt{5}} = \frac{4}{\sqrt{65}}$.
+   - Ángulo: $\theta = \arccos\left(\frac{4}{\sqrt{65}}\right) \approx 60.255^\circ\ (1.05165\,\text{rad})$.
+3. **Cálculo para $\mathbf{v} = (1, 0, -1)$ y $\mathbf{w} = (1, 1, 0)$:**
+   - $\mathbf{v} \cdot \mathbf{w} = 1(1) + 0(1) + (-1)(0) = 1$.
+   - $\|\mathbf{v}\| = \sqrt{1^2 + 0^2 + (-1)^2} = \sqrt{2}$.
+   - $\|\mathbf{w}\| = \sqrt{1^2 + 1^2 + 0^2} = \sqrt{2}$.
+   - Coseno: $\cos\theta = \frac{1}{\sqrt{2}\sqrt{2}} = \frac{1}{2}$.
+   - Ángulo notable exacto: $\theta = \arccos\left(\frac{1}{2}\right) = \frac{\pi}{3} = 60^\circ$.
+
+---
+
+#### Ejercicio 5 (Slide 19): Verificación de Vectores Ortogonales y Búsqueda de Complementos
+> [!example] Enunciado
+> 1. Verifique si los vectores $\mathbf{v} = (1, -2, 3)$ y $\mathbf{w} = (4, 5, 2)$ son ortogonales entre sí.
+> 2. Proponga un vector no nulo en $\mathbb{R}^2$ perpendicular a $\mathbf{a} = (3, -2)$.
+> 3. Proponga un vector no nulo en $\mathbb{R}^3$ perpendicular a $\mathbf{b} = (1, 2, -3)$.
+
+**Resolución Paso a Paso:**
+1. **Comprobación de Ortogonalidad:**
+   Dos vectores son ortogonales si y solo si su producto escalar es nulo:
+   $$
+   \mathbf{v} \cdot \mathbf{w} = 1(4) + (-2)(5) + 3(2) = 4 - 10 + 6 = 0
+   $$
+   Dado que $\mathbf{v} \cdot \mathbf{w} = 0$, los vectores son **estrictamente ortogonales** ($\mathbf{v} \perp \mathbf{w}$).
+2. **Vector ortogonal a $\mathbf{a} = (3, -2)$:**
+   Buscamos $\mathbf{u} = (x, y)$ tal que $3x - 2y = 0 \implies 3x = 2y$.
+   Tomando $x = 2$, se tiene $y = 3$. Por ende, $\mathbf{u} = (2, 3)$ satisface:
+   $$
+   (3, -2) \cdot (2, 3) = 6 - 6 = 0 \implies \mathbf{u} = (2, 3) \perp \mathbf{a}
+   $$
+3. **Vector ortogonal a $\mathbf{b} = (1, 2, -3)$:**
+   Buscamos $(x, y, z)$ tal que $x + 2y - 3z = 0$.
+   Fijando $y = 0$ y $z = 1$, obtenemos $x = 3$. Así, el vector $\mathbf{w}_1 = (3, 0, 1)$ cumple:
+   $$
+   1(3) + 2(0) - 3(1) = 0 \implies \mathbf{w}_1 = (3, 0, 1) \perp \mathbf{b}
+   $$
+   (Otra solución válida fijando $z = 0$ y $y = 1$ es $\mathbf{w}_2 = (-2, 1, 0)$).
+
+---
+
+#### Ejercicio 6 (Slide 20): Discusión del Parámetro $\alpha$ para Ortogonalidad y Paralelismo
+> [!example] Enunciado
+> Sean los vectores $\mathbf{u} = 3\mathbf{i} + 4\mathbf{j} = (3, 4)$ y $\mathbf{v} = \mathbf{i} + \alpha\mathbf{j} = (1, \alpha)$ en $\mathbb{R}^2$. Determine el valor real del parámetro $\alpha$ tal que:
+> 1. $\mathbf{u} \perp \mathbf{v}$ (vectores ortogonales).
+> 2. $\mathbf{u} \parallel \mathbf{v}$ (vectores paralelos).
+
+**Resolución Paso a Paso:**
+1. **Condición de Ortogonalidad ($\mathbf{u} \perp \mathbf{v}$):**
+   Se requiere que su producto escalar sea idénticamente nulo:
+   $$
+   \mathbf{u} \cdot \mathbf{v} = 0 \iff 3(1) + 4(\alpha) = 0 \iff 3 + 4\alpha = 0 \iff \alpha = -\frac{3}{4}
+   $$
+2. **Condición de Paralelismo ($\mathbf{u} \parallel \mathbf{v}$):**
+   Dos vectores en $\mathbb{R}^2$ son paralelos si y solo si sus componentes son proporcionales (o su determinante $2 \times 2$ es nulo):
+   $$
+   \frac{u_x}{v_x} = \frac{u_y}{v_y} \iff \frac{3}{1} = \frac{4}{\alpha} \iff 3\alpha = 4 \iff \alpha = \frac{4}{3}
+   $$
+   *Comprobación:* Si $\alpha = 4/3$, entonces $\mathbf{u} = (3, 4) = 3(1, 4/3) = 3\mathbf{v}$, confirmando que son colineales con igual sentido ($c = 3 > 0$).
+
+---
+
+#### Ejercicio 7 (Slides 22–23): Cálculo Comparativo de Proyecciones Ortogonales Cruzadas
+> [!example] Enunciado
+> Sean los vectores en $\mathbb{R}^3$:
+> 
+> $$
+> \mathbf{v} = (2, 3, 1) \qquad \text{y} \qquad \mathbf{w} = (1, 2, -1)
+> $$
+> 
+> 1. Determine el vector proyección ortogonal de $\mathbf{v}$ sobre $\mathbf{w}$ ($\mathrm{proy}_{\mathbf{w}}\mathbf{v}$).
+> 2. Determine el vector proyección ortogonal de $\mathbf{w}$ sobre $\mathbf{v}$ ($\mathrm{proy}_{\mathbf{v}}\mathbf{w}$).
+
+**Resolución Paso a Paso:**
+1. **Cálculo de $\mathrm{proy}_{\mathbf{w}}\mathbf{v}$:**
+   - Producto escalar: $\mathbf{v} \cdot \mathbf{w} = 2(1) + 3(2) + 1(-1) = 2 + 6 - 1 = 7$.
+   - Norma al cuadrado de $\mathbf{w}$: $\|\mathbf{w}\|^2 = 1^2 + 2^2 + (-1)^2 = 1 + 4 + 1 = 6$.
+   - Proyección:
+     $$
+     \mathrm{proy}_{\mathbf{w}}\mathbf{v} = \left( \frac{\mathbf{v} \cdot \mathbf{w}}{\|\mathbf{w}\|^2} \right) \mathbf{w} = \frac{7}{6}(1, 2, -1) = \left( \frac{7}{6},\ \frac{7}{3},\ -\frac{7}{6} \right)
+     $$
+2. **Cálculo de $\mathrm{proy}_{\mathbf{v}}\mathbf{w}$:**
+   - El producto escalar es conmutativo: $\mathbf{w} \cdot \mathbf{v} = 7$.
+   - Norma al cuadrado de $\mathbf{v}$: $\|\mathbf{v}\|^2 = 2^2 + 3^2 + 1^2 = 4 + 9 + 1 = 14$.
+   - Proyección:
+     $$
+     \mathrm{proy}_{\mathbf{v}}\mathbf{w} = \left( \frac{\mathbf{w} \cdot \mathbf{v}}{\|\mathbf{v}\|^2} \right) \mathbf{v} = \frac{7}{14}(2, 3, 1) = \frac{1}{2}(2, 3, 1) = \left( 1,\ \frac{3}{2},\ \frac{1}{2} \right)
+     $$
+*Observación Conceptual:* Se comprueba empíricamente que la proyección ortogonal no es conmutativa ni simétrica: $\mathrm{proy}_{\mathbf{w}}\mathbf{v} \neq \mathrm{proy}_{\mathbf{v}}\mathbf{w}$, pues las direcciones de proyección $\mathbf{w}$ y $\mathbf{v}$ son distintas.
+
+---
+
+#### Ejercicio 8 (Slide 25): Producto Cruz Simbólico y Verificación de Ortogonalidad
+> [!example] Enunciado
+> Sean $\mathbf{v} = (1, 2, -1)$ y $\mathbf{w} = (2, -1, 3)$ en $\mathbb{R}^3$.
+> 1. Calcule el producto vectorial $\mathbf{u} = \mathbf{v} \times \mathbf{w}$ mediante el determinante formal.
+> 2. Verifique analíticamente que $\mathbf{u} \perp \mathbf{v}$ y $\mathbf{u} \perp \mathbf{w}$.
+
+**Resolución Paso a Paso:**
+1. **Desarrollo por Cofactores en la primera fila:**
+   $$
+   \mathbf{v} \times \mathbf{w} = \begin{vmatrix}
+   \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+   1 & 2 & -1 \\
+   2 & -1 & 3
+   \end{vmatrix}
+   = \mathbf{i}\begin{vmatrix} 2 & -1 \\ -1 & 3 \end{vmatrix} - \mathbf{j}\begin{vmatrix} 1 & -1 \\ 2 & 3 \end{vmatrix} + \mathbf{k}\begin{vmatrix} 1 & 2 \\ 2 & -1 \end{vmatrix}
+   $$
+   - Componente $\mathbf{i}$: $2(3) - (-1)(-1) = 6 - 1 = 5$.
+   - Componente $\mathbf{j}$: $- [ 1(3) - (-1)(2) ] = - [ 3 + 2 ] = -5$.
+   - Componente $\mathbf{k}$: $1(-1) - 2(2) = -1 - 4 = -5$.
+   $$
+   \mathbf{u} = \mathbf{v} \times \mathbf{w} = (5, -5, -5)
+   $$
+2. **Verificación de Ortogonalidad Doble:**
+   $$
+   \mathbf{u} \cdot \mathbf{v} = 5(1) + (-5)(2) + (-5)(-1) = 5 - 10 + 5 = 0 \implies \mathbf{u} \perp \mathbf{v}
+   $$
+   $$
+   \mathbf{u} \cdot \mathbf{w} = 5(2) + (-5)(-1) + (-5)(3) = 10 + 5 - 15 = 0 \implies \mathbf{u} \perp \mathbf{w}
+   $$
+*Resultado Verificado:* $\mathbf{v} \times \mathbf{w} = (5, -5, -5)$.
+
+---
+
+#### Ejercicio 9 (Slide 28): Área de un Triángulo 3D en el Espacio
+> [!example] Enunciado
+> Calcule el área del triángulo cuyos vértices en el espacio tridimensional son:
+> 
+> $$
+> P(1, 3, -2), \qquad Q(2, 1, 4), \qquad R(-3, 1, 6)
+> $$
+
+**Resolución Paso a Paso:**
+1. **Construcción de los vectores arista concurrentes en $P$:**
+   $$
+   \overrightarrow{PQ} = Q - P = (2 - 1,\ 1 - 3,\ 4 - (-2)) = (1, -2, 6)
+   $$
+   $$
+   \overrightarrow{PR} = R - P = (-3 - 1,\ 1 - 3,\ 6 - (-2)) = (-4, -2, 8)
+   $$
+2. **Producto Cruz $\overrightarrow{PQ} \times \overrightarrow{PR}$:**
+   $$
+   \overrightarrow{PQ} \times \overrightarrow{PR} = \begin{vmatrix}
+   \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+   1 & -2 & 6 \\
+   -4 & -2 & 8
+   \end{vmatrix}
+   $$
+   - Componente $\mathbf{i}$: $(-2)(8) - (6)(-2) = -16 + 12 = -4$.
+   - Componente $\mathbf{j}$: $- [ 1(8) - (6)(-4) ] = - [ 8 + 24 ] = -32$.
+   - Componente $\mathbf{k}$: $1(-2) - (-2)(-4) = -2 - 8 = -10$.
+   $$
+   \overrightarrow{PQ} \times \overrightarrow{PR} = (-4, -32, -10)
+   $$
+3. **Norma del Producto Cruz:**
+   $$
+   \|\overrightarrow{PQ} \times \overrightarrow{PR}\| = \sqrt{(-4)^2 + (-32)^2 + (-10)^2} = \sqrt{16 + 1024 + 100} = \sqrt{1140}
+   $$
+   Factorizando el radicando: $1140 = 4 \times 285 \implies \sqrt{1140} = 2\sqrt{285}$.
+4. **Área del Triángulo:**
+   $$
+   \text{Área}_{\triangle} = \frac{1}{2} \|\overrightarrow{PQ} \times \overrightarrow{PR}\| = \frac{1}{2} (2\sqrt{285}) = \sqrt{285} \approx 16.8819\,\text{u}^2
+   $$
+
+---
+
+#### Ejercicio 10 (Slide 29): Volumen de Paralelepípedo por Triple Producto Escalar
+> [!example] Enunciado
+> Determine el volumen del paralelepípedo cuyas tres aristas concurrentes vienen dadas por los vectores:
+> 
+> $$
+> \mathbf{u} = (1, 3, -2), \qquad \mathbf{v} = (2, 1, 4), \qquad \mathbf{w} = (-3, 1, 6)
+> $$
+
+**Resolución Paso a Paso:**
+1. **Formulación del Triple Producto Escalar como Determinante $3 \times 3$:**
+   $$
+   V = | \mathbf{u} \cdot (\mathbf{v} \times \mathbf{w}) | = \left| \det\begin{pmatrix}
+   1 & 3 & -2 \\
+   2 & 1 & 4 \\
+   -3 & 1 & 6
+   \end{pmatrix} \right|
+   $$
+2. **Evaluación por Expansión de Laplace en la primera fila:**
+   $$
+   \det = 1 \begin{vmatrix} 1 & 4 \\ 1 & 6 \end{vmatrix} - 3 \begin{vmatrix} 2 & 4 \\ -3 & 6 \end{vmatrix} + (-2) \begin{vmatrix} 2 & 1 \\ -3 & 1 \end{vmatrix}
+   $$
+   - Primer menor: $1(6) - 4(1) = 6 - 4 = 2$.
+   - Segundo menor: $2(6) - 4(-3) = 12 + 12 = 24$.
+   - Tercer menor: $2(1) - 1(-3) = 2 + 3 = 5$.
+   $$
+   \det = 1(2) - 3(24) - 2(5) = 2 - 72 - 10 = -80
+   $$
+3. **Cálculo del Volumen Físico:**
+   $$
+   V = |-80| = 80\,\text{u}^3
+   $$
+*Resultado Verificado:* $V = 80\,\text{u}^3$.
+
+---
+
+#### Ejercicio 11 (Slide 30): Recta por Dos Puntos con Componente Directriz Nula
+> [!example] Enunciado
+> Encuentre las ecuaciones vectorial, paramétricas y simétricas de la recta $L$ que pasa por los puntos:
+> 
+> $$
+> P(1, 3, -2) \qquad \text{y} \qquad Q(2, 1, -2)
+> $$
+
+**Resolución Paso a Paso:**
+1. **Vector Director:**
+   $$
+   \mathbf{d} = Q - P = (2 - 1,\ 1 - 3,\ -2 - (-2)) = (1, -2, 0)
+   $$
+2. **Ecuación Vectorial:**
+   Tomando $P$ como punto base con $t \in \mathbb{R}$:
+   $$
+   (x, y, z) = (1, 3, -2) + t(1, -2, 0)
+   $$
+3. **Ecuaciones Paramétricas:**
+   $$
+   \begin{cases}
+   x = 1 + t \\
+   y = 3 - 2t \\
+   z = -2
+   \end{cases} \quad (t \in \mathbb{R})
+   $$
+4. **Ecuaciones Simétricas:**
+   Dado que la tercera componente del vector director es nula ($c = 0$), no es posible dividir por cero. La variable $z$ queda fijada de forma constante:
+   $$
+   \frac{x - 1}{1} = \frac{y - 3}{-2}, \qquad z = -2
+   $$
+
+---
+
+#### Ejercicio 12 (Slide 32): Análisis Topológico de Cuatro Rectas en el Espacio
+> [!example] Enunciado
+> Dadas las siguientes cuatro rectas en $\mathbb{R}^3$:
+> - $L_1: \mathbf{r}_1(t) = (-1, 3, 1) + t(4, 1, 0)$
+> - $L_2: \mathbf{r}_2(s) = (-13, -3, -2) + s(12, 6, 3)$
+> - $L_3: \mathbf{r}_3(u) = (1, 3, -2) + u(8, 2, 0)$
+> - $L_4: \mathbf{r}_4(v) = (0, 2, -1) + v(-1, 4, 3)$
+> 
+> Analice y clasifique las posiciones relativas:
+> 1. Entre $L_1$ y $L_3$.
+> 2. Entre $L_1$ y $L_4$.
+> 3. Entre $L_1$ y $L_2$.
+
+**Resolución Paso a Paso:**
+1. **Posición Relativa entre $L_1$ y $L_3$:**
+   - Vectores directores: $\mathbf{d}_1 = (4, 1, 0)$ y $\mathbf{d}_3 = (8, 2, 0)$.
+   - Verificamos proporcionalidad: $\mathbf{d}_3 = (8, 2, 0) = 2(4, 1, 0) = 2\mathbf{d}_1$.
+   - Como $\mathbf{d}_3 \parallel \mathbf{d}_1$, las rectas son **paralelas**.
+   - Comprobamos si son coincidentes: evaluamos si el punto $P_1(-1, 3, 1) \in L_1$ pertenece a $L_3$:
+     $$
+     z = -2 + u(0) = -2 \neq 1
+     $$
+     El punto no pertenece. Por lo tanto, $L_1$ y $L_3$ son **rectas estrictamente paralelas disjuntas**.
+2. **Posición Relativa entre $L_1$ y $L_4$:**
+   - Vectores directores: $\mathbf{d}_1 = (4, 1, 0)$ y $\mathbf{d}_4 = (-1, 4, 3)$.
+   - Evaluamos el producto punto:
+     $$
+     \mathbf{d}_1 \cdot \mathbf{d}_4 = 4(-1) + 1(4) + 0(3) = -4 + 4 + 0 = 0
+     $$
+   - Por ende, las direcciones de $L_1$ y $L_4$ son **estrictamente ortogonales** ($\mathbf{d}_1 \perp \mathbf{d}_4$).
+3. **Posición Relativa entre $L_1$ y $L_2$:**
+   - Vectores directores: $\mathbf{d}_1 = (4, 1, 0)$ y $\mathbf{d}_2 = (12, 6, 3)$ (no son paralelos, ya que $3 \neq 0$).
+   - Igualamos las ecuaciones paramétricas para determinar si existe intersección:
+     $$
+     \begin{cases}
+     -1 + 4t = -13 + 12s & \text{(1)} \\
+     3 + t = -3 + 6s & \text{(2)} \\
+     1 = -2 + 3s & \text{(3)}
+     \end{cases}
+     $$
+   - De la ecuación (3):
+     $$
+     3s = 1 + 2 = 3 \implies s = 1
+     $$
+   - Sustituyendo $s = 1$ en la ecuación (1):
+     $$
+     -1 + 4t = -13 + 12(1) = -1 \implies 4t = 0 \implies t = 0
+     $$
+   - Comprobamos la consistencia en la ecuación (2) con $t = 0$ y $s = 1$:
+     $$
+     \text{Lado izquierdo: } 3 + 0 = 3
+     $$
+     $$
+     \text{Lado derecho: } -3 + 6(1) = 3
+     $$
+     ¡El sistema es compatible determinado!
+   - Punto de corte evaluando $t = 0$ en $L_1$:
+     $$
+     \mathbf{r}_1(0) = (-1, 3, 1)
+     $$
+   - Evaluando $s = 1$ en $L_2$: $\mathbf{r}_2(1) = (-13 + 12,\ -3 + 6,\ -2 + 3) = (-1, 3, 1)$.
+   - **Conclusión:** $L_1$ y $L_2$ **son rectas secantes que se cortan en el punto $(-1, 3, 1)$**.
+
+---
+
+#### Ejercicio 13 (Slide 33): Criterio Analítico de Rectas Alabeadas en el Espacio
+> [!example] Enunciado
+> Dadas las rectas en $\mathbb{R}^3$:
+> 
+> $$
+> L_1: \mathbf{r}_1(t) = (1, -6, 2) + t(1, 2, 1) \qquad \text{y} \qquad L_2: \mathbf{r}_2(s) = (0, 4, 1) + s(2, 1, -1)
+> $$
+> 
+> Demuestre que $L_1$ y $L_2$ son rectas alabeadas (no se intersectan y no son paralelas).
+
+**Resolución Paso a Paso:**
+1. **Verificación de no paralelismo:**
+   $$
+   \mathbf{d}_1 = (1, 2, 1), \qquad \mathbf{d}_2 = (2, 1, -1)
+   $$
+   $$
+   \mathbf{d}_1 \times \mathbf{d}_2 = \begin{vmatrix}
+   \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+   1 & 2 & 1 \\
+   2 & 1 & -1
+   \end{vmatrix}
+   = \mathbf{i}(-2 - 1) - \mathbf{j}(-1 - 2) + \mathbf{k}(1 - 4) = (-3, 3, -3) \neq \mathbf{0}
+   $$
+   Al ser el producto cruz no nulo, las rectas **no son paralelas ni coincidentes**.
+2. **Vector de unión entre puntos conocidos:**
+   Tomando $P_1(1, -6, 2) \in L_1$ y $P_2(0, 4, 1) \in L_2$:
+   $$
+   \overrightarrow{P_1 P_2} = P_2 - P_1 = (0 - 1,\ 4 - (-6),\ 1 - 2) = (-1, 10, -1)
+   $$
+3. **Cálculo del Determinante de Alabeo (Triple Producto Escalar):**
+   $$
+   [\overrightarrow{P_1 P_2}, \mathbf{d}_1, \mathbf{d}_2] = \overrightarrow{P_1 P_2} \cdot (\mathbf{d}_1 \times \mathbf{d}_2) = (-1)(-3) + 10(3) + (-1)(-3) = 3 + 30 + 3 = 36
+   $$
+   Como $[\overrightarrow{P_1 P_2}, \mathbf{d}_1, \mathbf{d}_2] = 36 \neq 0$, los vectores directores y el vector entre puntos no son coplanares.
+4. **Conclusión:** Las rectas $L_1$ y $L_2$ **no yacen en un mismo plano, no se cortan y son estrictamente alabeadas**.
+
+---
+
+#### Ejercicio 14 (Slide 36): Plano Determinado por Tres Puntos No Colineales
+> [!example] Enunciado
+> Encuentre la ecuación general cartesiana del plano $\pi$ que pasa por los tres puntos:
+> 
+> $$
+> P(1, 1, 1), \qquad Q(2, 1, 2), \qquad R(0, 2, -1)
+> $$
+
+**Resolución Paso a Paso:**
+1. **Construcción de dos vectores directores del plano:**
+   $$
+   \mathbf{u} = \overrightarrow{PQ} = Q - P = (2 - 1,\ 1 - 1,\ 2 - 1) = (1, 0, 1)
+   $$
+   $$
+   \mathbf{v} = \overrightarrow{PR} = R - P = (0 - 1,\ 2 - 1,\ -1 - 1) = (-1, 1, -2)
+   $$
+2. **Determinación del Vector Normal por Producto Cruz:**
+   $$
+   \mathbf{n} = \mathbf{u} \times \mathbf{v} = \begin{vmatrix}
+   \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+   1 & 0 & 1 \\
+   -1 & 1 & -2
+   \end{vmatrix}
+   $$
+   - Componente $\mathbf{i}$: $0(-2) - 1(1) = -1$.
+   - Componente $\mathbf{j}$: $- [ 1(-2) - 1(-1) ] = - [ -2 + 1 ] = 1$.
+   - Componente $\mathbf{k}$: $1(1) - 0(-1) = 1$.
+   $$
+   \mathbf{n} = (-1, 1, 1)
+   $$
+3. **Ecuación del Plano usando el punto $P(1, 1, 1)$:**
+   $$
+   -1(x - 1) + 1(y - 1) + 1(z - 1) = 0
+   $$
+   $$
+   -x + 1 + y - 1 + z - 1 = 0 \implies -x + y + z - 1 = 0
+   $$
+   Multiplicando por $-1$ para la forma canónica:
+   $$
+   x - y - z + 1 = 0
+   $$
+*Comprobación Rápida:*
+- En $P(1,1,1)$: $1 - 1 - 1 + 1 = 0$ (Cumple).
+- En $Q(2,1,2)$: $2 - 1 - 2 + 1 = 0$ (Cumple).
+- En $R(0,2,-1)$: $0 - 2 - (-1) + 1 = -2 + 1 + 1 = 0$ (Cumple).
+
+---
+
+#### Ejercicio 15 (Slide 39): Ángulo Diedro y Recta de Intersección entre Dos Planos
+> [!example] Enunciado
+> Sean los planos en $\mathbb{R}^3$:
+> 
+> $$
+> \pi_1: x - y + 2z = 3 \qquad \text{y} \qquad \pi_2: x + 2y - z = 1
+> $$
+> 
+> 1. Determine el ángulo agudo $\theta$ que forman ambos planos.
+> 2. Encuentre la ecuación vectorial paramétrica de la recta de intersección $L = \pi_1 \cap \pi_2$.
+
+**Resolución Paso a Paso:**
+1. **Extracción de Vectores Normales:**
+   $$
+   \mathbf{n}_1 = (1, -1, 2) \implies \|\mathbf{n}_1\| = \sqrt{1^2 + (-1)^2 + 2^2} = \sqrt{1 + 1 + 4} = \sqrt{6}
+   $$
+   $$
+   \mathbf{n}_2 = (1, 2, -1) \implies \|\mathbf{n}_2\| = \sqrt{1^2 + 2^2 + (-1)^2} = \sqrt{1 + 4 + 1} = \sqrt{6}
+   $$
+2. **Cálculo del Ángulo Diedro:**
+   $$
+   \mathbf{n}_1 \cdot \mathbf{n}_2 = 1(1) + (-1)(2) + 2(-1) = 1 - 2 - 2 = -3
+   $$
+   $$
+   \cos\theta = \frac{|\mathbf{n}_1 \cdot \mathbf{n}_2|}{\|\mathbf{n}_1\| \|\mathbf{n}_2\|} = \frac{|-3|}{\sqrt{6}\sqrt{6}} = \frac{3}{6} = \frac{1}{2}
+   $$
+   Por lo tanto, el ángulo exacto es:
+   $$
+   \theta = \arccos\left(\frac{1}{2}\right) = \frac{\pi}{3} = 60^\circ
+   $$
+3. **Recta de Intersección $L = \pi_1 \cap \pi_2$:**
+   - Vector director de la recta:
+     $$
+     \mathbf{d} = \mathbf{n}_1 \times \mathbf{n}_2 = \begin{vmatrix}
+     \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+     1 & -1 & 2 \\
+     1 & 2 & -1
+     \end{vmatrix}
+     = \mathbf{i}(1 - 4) - \mathbf{j}(-1 - 2) + \mathbf{k}(2 - (-1)) = (-3, 3, 3)
+     $$
+     Podemos tomar como vector director simplificado colineal a $\mathbf{d}' = (1, -1, -1)$.
+   - Punto particular $P_0$: fijamos $z = 0$ en el sistema:
+     $$
+     \begin{cases}
+     x - y = 3 \\
+     x + 2y = 1
+     \end{cases}
+     $$
+     Restando la primera ecuación de la segunda: $3y = -2 \implies y = -\frac{2}{3}$.
+     Sustituyendo en la primera: $x = 3 + y = 3 - \frac{2}{3} = \frac{7}{3}$.
+     El punto base es $P_0\left(\frac{7}{3},\ -\frac{2}{3},\ 0\right)$.
+   - Ecuación vectorial de la recta de intersección:
+     $$
+     (x, y, z) = \left(\frac{7}{3},\ -\frac{2}{3},\ 0\right) + t(1, -1, -1), \quad t \in \mathbb{R}
+     $$
+
+---
+
+#### Ejercicio 16 (Slide 42): Intersección Recta-Plano por Sustitución Paramétrica
+> [!example] Enunciado
+> Resuelva analíticamente la intersección de las siguientes rectas con sus respectivos planos:
+> 1. Recta $L_1: (x, y, z) = (1, 2, 1) + t(0, 2, 3)$ con el plano $\pi_1: x - y + 2z = 3$.
+> 2. Recta $L_2: (x, y, z) = (1, 0, 1) + t(5, 0, 0)$ con el plano $\pi_2: x + 2y + 4z = 10$.
+
+**Resolución Paso a Paso:**
+1. **Caso 1 ($L_1$ con $\pi_1$):**
+   - Ecuaciones paramétricas de $L_1$: $x = 1$, $y = 2 + 2t$, $z = 1 + 3t$.
+   - Sustituyendo en la ecuación cartesiana de $\pi_1$:
+     $$
+     1 - (2 + 2t) + 2(1 + 3t) = 3
+     $$
+     $$
+     1 - 2 - 2t + 2 + 6t = 3 \implies 1 + 4t = 3 \implies 4t = 2 \implies t = \frac{1}{2}
+     $$
+   - Punto de corte evaluando $t = 1/2$:
+     $$
+     x = 1, \qquad y = 2 + 2(1/2) = 3, \qquad z = 1 + 3(1/2) = \frac{5}{2}
+     $$
+     **Punto de Intersección:** $P_1\left(1,\ 3,\ \frac{5}{2}\right)$.
+2. **Caso 2 ($L_2$ con $\pi_2$):**
+   - Ecuaciones paramétricas de $L_2$: $x = 1 + 5t$, $y = 0$, $z = 1$.
+   - Sustituyendo en $\pi_2$:
+     $$
+     (1 + 5t) + 2(0) + 4(1) = 10
+     $$
+     $$
+     1 + 5t + 0 + 4 = 10 \implies 5 + 5t = 10 \implies 5t = 5 \implies t = 1
+     $$
+   - Punto de corte evaluando $t = 1$:
+     $$
+     x = 1 + 5(1) = 6, \qquad y = 0, \qquad z = 1
+     $$
+     **Punto de Intersección:** $P_2(6, 0, 1)$.
+
+---
+
+#### Ejercicio 17 (Slide 44): Distancias Euclídeas de Cátedra
+> [!example] Enunciado
+> 1. Calcule la distancia euclídea mínima entre las rectas paralelas:
+>    $$
+>    L_1: \mathbf{r}_1(t) = (1, 2, 1) + t(0, 2, 3) \qquad \text{y} \qquad L_2: \mathbf{r}_2(s) = (1, 0, 1) + s(0, 2, 3)
+>    $$
+> 2. Calcule la distancia euclídea entre los planos paralelos:
+>    $$
+>    \pi_1: 2x - y + 2z = 4 \qquad \text{y} \qquad \pi_2: 2x - y + 2z = 10
+>    $$
+
+**Resolución Paso a Paso:**
+1. **Distancia entre las Rectas Paralelas $L_1$ y $L_2$:**
+   - Vector director común: $\mathbf{d} = (0, 2, 3)$, con norma $\|\mathbf{d}\| = \sqrt{0^2 + 2^2 + 3^2} = \sqrt{13}$.
+   - Puntos conocidos: $P_1(1, 2, 1) \in L_1$ y $P_2(1, 0, 1) \in L_2$.
+   - Vector entre puntos: $\overrightarrow{P_1 P_2} = (1 - 1,\ 0 - 2,\ 1 - 1) = (0, -2, 0)$.
+   - Producto cruz $\mathbf{d} \times \overrightarrow{P_1 P_2}$:
+     $$
+     \mathbf{d} \times \overrightarrow{P_1 P_2} = \begin{vmatrix}
+     \mathbf{i} & \mathbf{j} & \mathbf{k} \\
+     0 & 2 & 3 \\
+     0 & -2 & 0
+     \end{vmatrix}
+     = \mathbf{i}(0 - (-6)) - \mathbf{j}(0 - 0) + \mathbf{k}(0 - 0) = (6, 0, 0)
+     $$
+   - Norma: $\|\mathbf{d} \times \overrightarrow{P_1 P_2}\| = \sqrt{6^2 + 0^2 + 0^2} = 6$.
+   - Distancia mínima:
+     $$
+     d(L_1, L_2) = \frac{\|\mathbf{d} \times \overrightarrow{P_1 P_2}\|}{\|\mathbf{d}\|} = \frac{6}{\sqrt{13}} = \frac{6\sqrt{13}}{13} \approx 1.6641\,\text{u}
+     $$
+2. **Distancia entre los Planos Paralelos $\pi_1$ y $\pi_2$:**
+   - Ambos planos poseen el mismo vector normal $\mathbf{n} = (2, -1, 2)$.
+   - Norma del vector normal:
+     $$
+     \|\mathbf{n}\| = \sqrt{2^2 + (-1)^2 + 2^2} = \sqrt{4 + 1 + 4} = \sqrt{9} = 3
+     $$
+   - Términos independientes: $D_1 = 4$ y $D_2 = 10$.
+   - Aplicando la fórmula de distancia entre planos paralelos:
+     $$
+     d(\pi_1, \pi_2) = \frac{|D_2 - D_1|}{\|\mathbf{n}\|} = \frac{|10 - 4|}{3} = \frac{6}{3} = 2\,\text{u}
+     $$
+   *(Verificación alternativa: un punto de $\pi_1$ es $P_0(2, 0, 0)$ pues $2(2) - 0 + 0 = 4$. Evaluando en $\pi_2$: $d(P_0, \pi_2) = \frac{|2(2) - 0 + 2(0) - 10|}{\sqrt{9}} = \frac{|4 - 10|}{3} = \frac{6}{3} = 2\,\text{u}$).*
+
+## 🌐 7. Enriquecimiento Web: Génesis Histórica y Aplicaciones en Computación Gráfica 3D
+
+> [!info] Trazabilidad y Fundamentación 🌐 `[Enriquecimiento Web / Referencias Externas]`
+> Esta sección complementa el análisis clásico con una perspectiva epistemológica e ingenieril profunda, conectando la formulación abstracta de $\mathbb{R}^2$ y $\mathbb{R}^3$ con los orígenes del electromagnetismo moderno y su implementación algorítmica en la renderización gráfica contemporánea.
+
+### 7.1 La Transición Epistemológica: De los Cuaterniones de Hamilton al Análisis Vectorial de Gibbs y Heaviside
+
+La formulación vectorial que hoy se enseña en las facultades de ingeniería no existía a mediados del siglo XIX. El físico-matemático irlandés **Sir William Rowan Hamilton** descubrió en 1843 los **cuaterniones** $\mathbb{H}$, una extensión de cuatro dimensiones de los números complejos:
+
+$$
+q = a + b\mathbf{i} + c\mathbf{j} + d\mathbf{k}, \qquad \mathbf{i}^2 = \mathbf{j}^2 = \mathbf{k}^2 = \mathbf{i}\mathbf{j}\mathbf{k} = -1
+$$
+
+Hamilton concebía a $a$ como la "parte escalar" y a $b\mathbf{i} + c\mathbf{j} + d\mathbf{k}$ como la "parte vectorial". Al multiplicar dos cuaterniones puros $p = \mathbf{u}$ y $q = \mathbf{v}$ (con parte escalar nula), el producto cuaterniónico arrojaba:
+
+$$
+p q = -(\mathbf{u} \cdot \mathbf{v}) + (\mathbf{u} \times \mathbf{v})
+$$
+
+Es decir, el producto cuaterniónico combinaba en una sola entidad un escalar (con signo negativo) y un nuevo vector perpendicular. Aunque algebraicamente elegante, los físicos encontraban los cuaterniones engorrosos e innecesariamente abstractos para modelar la mecánica clásica y el electromagnetismo.
+
+Hacia la década de 1880, dos científicos de forma totalmente independiente —**Josiah Willard Gibbs** en la Universidad de Yale (EE.UU.) y el autodidacta **Oliver Heaviside** en Gran Bretaña— tomaron una decisión conceptual revolucionaria: **separar quirúrgicamente el producto cuaterniónico en dos operaciones vectoriales directas e independientes**:
+1. El **producto punto (o escalar)**: $\mathbf{u} \cdot \mathbf{v} \in \mathbb{R}$, que cuantifica proyección, trabajo mecánico y energía.
+2. El **producto cruz (o vectorial)**: $\mathbf{u} \times \mathbf{v} \in \mathbb{R}^3$, que cuantifica áreas orientadas, momentos de fuerza (torque) y campos magnéticos.
+
+#### La Reducción de las Ecuaciones de Maxwell por Oliver Heaviside
+Cuando James Clerk Maxwell publicó su monumental tratado de electromagnetismo en 1873 (*A Treatise on Electricity and Magnetism*), presentó su teoría mediante un sistema de **20 ecuaciones diferenciales escalares** con 20 variables.
+
+Fue **Oliver Heaviside** quien, empleando el nuevo cálculo vectorial de Gibbs basado en el operador nabla $\nabla$, el producto punto (divergencia $\nabla \cdot$) y el producto cruz (rotor $\nabla \times$), redujo las 20 ecuaciones de Maxwell a las **4 ecuaciones vectoriales fundamentales** universales que hoy rigen la electrodinámica clásica:
+
+$$
+\begin{aligned}
+\nabla \cdot \mathbf{E} &= \frac{\rho}{\varepsilon_0} && \text{(Ley de Gauss para el campo eléctrico)} \\[6pt]
+\nabla \cdot \mathbf{B} &= 0 && \text{(Ley de Gauss para el campo magnético / Inexistencia de monopolos)} \\[6pt]
+\nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} && \text{(Ley de Faraday-Lenz)} \\[6pt]
+\nabla \times \mathbf{B} &= \mu_0 \mathbf{J} + \mu_0 \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t} && \text{(Ley de Ampère-Maxwell)}
+\end{aligned}
+$$
+
+#### El Tratado Canónico de Wilson (1901)
+Gibbs inicialmente imprimió sus apuntes en forma de folletos privados para sus alumnos de Yale en 1881 y 1884. Ante la gran demanda internacional, uno de sus más brillantes estudiantes, **Edwin Bidwell Wilson**, recopiló y expandió las conferencias de Gibbs en el libro canónico de referencia mundial:
+- *Vector Analysis: A Text-Book for the Use of Students of Mathematics and Physics* (Yale University Press / Charles Scribner's Sons, 1901).
+
+Este libro estandarizó la notación de puntos, cruces, componentes y determinantes que se utiliza hasta el día de hoy en todo el mundo.
+
+---
+
+### 7.2 Aplicaciones Fundamentales en Computación Gráfica 3D y Motores de Videojuegos
+
+En la carrera de Ingeniería Civil Informática, los vectores en $\mathbb{R}^2$ y $\mathbb{R}^3$, las rectas y los planos constituyen los bloques fundamentales de renderizado en tiempo real, trazado de rayos (*Ray Tracing*) y física computacional.
+
+#### 1. Algoritmo de Intersección Ray-Triangle de Möller-Trumbore (1997)
+En los motores de *Ray Tracing* (como Unreal Engine Lumen, Blender Cycles o renderizadores basados en GPU con NVIDIA OptiX), una escena se compone de millones de triángulos tridimensionales. Cada rayo de luz lanzado desde la cámara es una recta paramétrica:
+
+$$
+\mathbf{r}(t) = \mathbf{O} + t \mathbf{D}, \qquad t \ge 0
+$$
+
+Para determinar si el rayo impacta un triángulo definido por los vértices $\mathbf{V}_0, \mathbf{V}_1, \mathbf{V}_2$, el método ingenuo requeriría calcular primero la ecuación del plano que contiene al triángulo y luego verificar si el punto de corte cae dentro de las aristas.
+
+El **Algoritmo de Möller-Trumbore** resuelve la intersección en un solo paso mediante coordenadas baricéntricas $(u, v)$ utilizando únicamente productos cruz y productos punto, sin calcular ni almacenar la ecuación del plano:
+
+Cualquier punto interior del triángulo se expresa baricéntricamente como:
+$$
+\mathbf{T}(u, v) = (1 - u - v)\mathbf{V}_0 + u \mathbf{V}_1 + v \mathbf{V}_2 = \mathbf{V}_0 + u \mathbf{E}_1 + v \mathbf{E}_2
+$$
+donde $\mathbf{E}_1 = \mathbf{V}_1 - \mathbf{V}_0$ y $\mathbf{E}_2 = \mathbf{V}_2 - \mathbf{V}_0$.
+
+Igualando el rayo con la superficie del triángulo:
+$$
+\mathbf{O} + t \mathbf{D} = \mathbf{V}_0 + u \mathbf{E}_1 + v \mathbf{E}_2 \implies \begin{pmatrix} -\mathbf{D} & \mathbf{E}_1 & \mathbf{E}_2 \end{pmatrix} \begin{pmatrix} t \\ u \\ v \end{pmatrix} = \mathbf{O} - \mathbf{V}_0 = \mathbf{T}
+$$
+
+Aplicando la **Regla de Cramer** y las propiedades del triple producto escalar:
+$$
+\begin{pmatrix} t \\ u \\ v \end{pmatrix} = \frac{1}{(\mathbf{D} \times \mathbf{E}_2) \cdot \mathbf{E}_1} \begin{pmatrix} (\mathbf{T} \times \mathbf{E}_1) \cdot \mathbf{E}_2 \\ (\mathbf{D} \times \mathbf{E}_2) \cdot \mathbf{T} \\ (\mathbf{T} \times \mathbf{E}_1) \cdot \mathbf{D} \end{pmatrix} = \frac{1}{\mathbf{P} \cdot \mathbf{E}_1} \begin{pmatrix} \mathbf{Q} \cdot \mathbf{E}_2 \\ \mathbf{P} \cdot \mathbf{T} \\ \mathbf{Q} \cdot \mathbf{D} \end{pmatrix}
+$$
+donde $\mathbf{P} = \mathbf{D} \times \mathbf{E}_2$ y $\mathbf{Q} = \mathbf{T} \times \mathbf{E}_1$.
+
+*Condiciones de impacto:* Si $\mathbf{P} \cdot \mathbf{E}_1 \approx 0$, el rayo es paralelo al plano del triángulo. Si no, se calcula $u$ y $v$. El impacto ocurre si y solo si:
+$$
+u \ge 0, \qquad v \ge 0, \qquad u + v \le 1, \qquad t > 0
+$$
+
+#### 2. Descarte de Caras Ocultas (Backface Culling) mediante Producto Punto
+En motores de rasterización clásica (como OpenGL, Vulkan o DirectX), más del 50% de los polígonos de una malla cerrada están orientados hacia adentro o en dirección contraria a la cámara.
+
+Para evitar procesar y pintar píxeles innecesarios en el pipeline gráfico, se evalúa el producto punto entre el vector normal exterior de la cara $\mathbf{n}$ y el vector de visión dirigido hacia la cámara $\mathbf{v}_{\text{cam}}$:
+- Si $\mathbf{n} \cdot \mathbf{v}_{\text{cam}} > 0$: El ángulo entre la normal y la cámara es agudo, la cara **mira hacia el observador** (Front-face, debe renderizarse).
+- Si $\mathbf{n} \cdot \mathbf{v}_{\text{cam}} \le 0$: La cara apunta en sentido opuesto a la cámara, por lo que **se descarta instantáneamente** en el shader de vértices o en el rasterizador (Back-face, ahorro computacional masivo de fill-rate).
+
+#### 3. Ley de Reflexión Vectorial en Shaders PBR (Physically Based Rendering)
+
+---
+
+## 💻 8. Verificación Computacional y Visualización en Python
 
 Para garantizar la reproducibilidad científica y verificación simbólica de cada identidad, se desarrollaron dos scripts modulares en el repositorio:
 1. **Script de Comprobación Simbólica y Numérica:**  
@@ -989,7 +1773,7 @@ Para garantizar la reproducibilidad científica y verificación simbólica de ca
    `Trabajos_y_Talleres/Recursos/Scripts/generar_figuras_vectores_3d.py`  
    Genera las visualizaciones espaciales de alta resolución guardadas en `Trabajos_y_Talleres/Recursos/Imagenes/` utilizando los colores institucionales de la USS (`#00205B` Azul USS y `#D4AF37` Dorado USS).
 
-### 7.1 Visualizaciones Espaciales Embebidas
+### 8.1 Visualizaciones Espaciales Embebidas
 
 #### Figura 1: Proyección Ortogonal y Descomposición Vectorial en $\mathbb{R}^3$
 Visualiza la proyección ortogonal $\mathbf{p} = \mathrm{proy}_{\mathbf{u}}\mathbf{v}$, el residuo ortogonal $\mathbf{r} \perp \mathbf{u}$ y la verificación geométrica de la Desigualdad de Cauchy-Schwarz mediante triángulos rectángulos de Pitágoras.
@@ -1008,7 +1792,7 @@ Ilustración de la mínima distancia ortogonal entre rectas alabeadas mediante s
 
 ---
 
-### 7.2 Código Python de Verificación Interactiva (SymPy & NumPy)
+### 8.2 Código Python de Verificación Interactiva (SymPy & NumPy)
 
 ```python
 """
@@ -1079,7 +1863,7 @@ print(f"✓ Distancia rectas alabeadas verificada: {dist_skew} ≈ {float(dist_s
 
 ---
 
-## 🔗 8. Enlaces y Conexiones Bidireccionales
+## 🔗 9. Enlaces y Conexiones Bidireccionales
 
 - [README Principal](../../README.md) — Índice Central del Repositorio.
 - [Dashboard de Álgebra Lineal](../../README.md) — Planificación académica, syllabus y bitácora de cátedra.
