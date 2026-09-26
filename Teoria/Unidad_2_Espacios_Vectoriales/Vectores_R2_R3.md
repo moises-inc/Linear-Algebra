@@ -218,7 +218,7 @@ Sean $\vec{u}, \vec{v}, \vec{w} \in \mathbb{R}^3$ vectores arbitrarios y $\alpha
 > Para $\vec{v} = (v_1, v_2, v_3) \in \mathbb{R}^3$ y $\vec{w} = (w_1, w_2, w_3) \in \mathbb{R}^3$, el producto punto se define como:
 > 
 > $$
-> \vec{v} \cdot \vec{w} = \sum_{i=1}^3 v_i w_i = v_1 w_1 + v_2 w_2 + v_3 w_3 \in \mathbb{R}
+\vec{v} \cdot \vec{w} = \sum_{i=1}^3 v_i w_i = v_1 w_1 + v_2 w_2 + v_3 w_3 \in \mathbb{R}
 > $$
 
 > [!example] Ejemplo Oficial de Cátedra (Slide 10) `[Cátedra USS]`
@@ -264,8 +264,8 @@ Para cualesquiera vectores $\vec{u}, \vec{v}, \vec{w} \in \mathbb{R}^3$ y cualqu
 > **Definición Formal de Cátedra (Slide 12):** La norma euclidiana define formalmente la longitud geométrica de un vector desde la métrica euclidiana. Para $\vec{v} = (v_1, v_2, v_3) \in \mathbb{R}^3$, su norma se denota $\|\vec{v}\|$ y se calcula mediante la raíz cuadrada de su producto punto consigo mismo:
 > 
 > $$
-> \|\vec{v}\| = \sqrt{\vec{v} \cdot \vec{v}} = \sqrt{v_1^2 + v_2^2 + v_3^2}
-> $$
+ \|\vec{v}\| = \sqrt{\vec{v} \cdot \vec{v}} = \sqrt{v_1^2 + v_2^2 + v_3^2}
+ $$
 > 
 > **Propiedad fundamental:** $\vec{v} \cdot \vec{v} = \|\vec{v}\|^2$.
 > 
@@ -273,8 +273,8 @@ Para cualesquiera vectores $\vec{u}, \vec{v}, \vec{w} \in \mathbb{R}^3$ y cualqu
 > La distancia métrica entre $A(x_A, y_A, z_A)$ y $B(x_B, y_B, z_B)$ se define como la norma del vector que une ambos puntos:
 > 
 > $$
-> d(A, B) = \|\overrightarrow{AB}\| = \|B - A\| = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}
-> $$
+d(A, B) = \|\overrightarrow{AB}\| = \|B - A\| = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}
+ $$
 
 > [!example] Ejemplo Oficial de Cátedra (Slide 12) `[Cátedra USS]`
 > **Enunciado:**
@@ -310,13 +310,13 @@ Para vectores $\vec{v}, \vec{w} \in \mathbb{R}^3$ y escalares $\alpha \in \mathb
 > **Definición Formal de Cátedra (Slide 14):** Se define la dirección del vector plano $\vec{v} = (a, b) \in \mathbb{R}^2$ como el ángulo $\theta$, medido en radianes (o grados sexagesimales), que forma el segmento orientado con la dirección positiva del semieje $X$. Por convención métrica, se escoge $\theta$ en el intervalo semiabierto:
 > 
 > $$
-> 0 \le \theta < 2\pi \qquad (0^\circ \le \theta < 360^\circ)
-> $$
+ 0 \le \theta < 2\pi \qquad (0^\circ \le \theta < 360^\circ)
+$$
 > De la trigonometría básica en el triángulo rectángulo de catetos $a$ y $b$, si $a \neq 0$:
 > 
 > $$
-> \tan\theta = \frac{b}{a}
-> $$
+\tan\theta = \frac{b}{a}
+ $$
 > *Ajuste por cuadrantes:* Para determinar $\theta$ de manera unívoca, es imprescindible identificar el signo simultáneo de $a$ y $b$:
 > - **Cuadrante I ($a>0, b>0$):** $\theta = \arctan(b/a)$.
 > - **Cuadrante II ($a<0, b>0$):** $\theta = \pi - \arctan(|b/a|) = 180^\circ - \arctan(|b/a|)$.
@@ -360,18 +360,18 @@ Para vectores $\vec{v}, \vec{w} \in \mathbb{R}^3$ y escalares $\alpha \in \mathb
 > Dado cualquier vector no nulo $\vec{v} \neq \mathbf{0}$, su versor unitario normalizado en la misma dirección y sentido se obtiene mediante la escala por el inverso de su norma:
 > 
 > $$
-> \hat{v} = \frac{\vec{v}}{\|\vec{v}\|}
-> $$
+\hat{v} = \frac{\vec{v}}{\|\vec{v}\|}
+$$
 > 
 > **Base Canónica Ortonormal:**
 > - En $\mathbb{R}^2$: se denota al vector unitario horizontal por $\mathbf{i} = (1, 0)$ y al vertical por $\mathbf{j} = (0, 1)$. Todo vector del plano se expresa como combinación lineal única:
 >   $$
->   \vec{v} = (a, b) = a\mathbf{i} + b\mathbf{j}
->   $$
+  \vec{v} = (a, b) = a\mathbf{i} + b\mathbf{j}
+  $$
 > - En $\mathbb{R}^3$: los versores canónicos son $\mathbf{i} = (1, 0, 0)$, $\mathbf{j} = (0, 1, 0)$ y $\mathbf{k} = (0, 0, 1)$. Se descompone unívocamente como:
 >   $$
->   \vec{v} = (x, y, z) = (x, 0, 0) + (0, y, 0) + (0, 0, z) = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}
->   $$
+  \vec{v} = (x, y, z) = (x, 0, 0) + (0, y, 0) + (0, 0, z) = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}
+  $$
 > 
 > **Propiedad Álgebraica Esencial:** Ninguno de los vectores de la base canónica es múltiplo escalar de los demás; forman un conjunto **linealmente independiente** que genera la totalidad del espacio euclídeo.
 
@@ -409,8 +409,8 @@ $$
 > **Definición de Ángulo (Slide 17):** Para vectores no nulos $\vec{v}, \vec{w}$, el ángulo $\theta$ es el único valor en $[0, \pi]$ dado por:
 > 
 > $$
-> \cos\theta = \frac{\vec{v} \cdot \vec{w}}{\|\vec{v}\| \|\vec{w}\|} \implies \theta = \arccos\left( \frac{\vec{v} \cdot \vec{w}}{\|\vec{v}\| \|\vec{w}\|} \right)
-> $$
+\cos\theta = \frac{\vec{v} \cdot \vec{w}}{\|\vec{v}\| \|\vec{w}\|} \implies \theta = \arccos\left( \frac{\vec{v} \cdot \vec{w}}{\|\vec{v}\| \|\vec{w}\|} \right)
+ $$
 
 > [!example] Ejemplo Oficial de Cátedra (Slide 17) `[Cátedra USS]`
 > **Enunciado:**
@@ -473,8 +473,7 @@ $$
 > Como $\cos(\pi/2) = 0$, se establece la equivalencia fundamental:
 > 
 > $$
-> \vec{v} \perp \vec{w} \iff \vec{v} \cdot \vec{w} = 0
-> $$
+\vec{v} \perp \vec{w} \iff \vec{v} \cdot \vec{w} = 0 $$
 
 > [!example] Ejemplo Oficial de Cátedra (Slide 19) `[Cátedra USS]`
 > **Enunciado:** ¿Los vectores $\vec{v} = (-2, 1, \sqrt{2})$ y $\vec{w} = (1, 0, \sqrt{2})$ son ortogonales?
@@ -552,8 +551,8 @@ $$
 > **Teorema de Paralelismo:** Dos vectores $\vec{u}, \vec{v} \in \mathbb{R}^n$ son paralelos si y sólo si uno es múltiplo escalar del otro:
 > 
 > $$
-> \vec{u} \parallel \vec{v} \iff \vec{u} = \lambda\vec{v}, \quad \text{para algún } \lambda \in \mathbb{R} \setminus \{0\}
-> $$
+\vec{u} \parallel \vec{v} \iff \vec{u} = \lambda\vec{v}, \quad \text{para algún } \lambda \in \mathbb{R} \setminus \{0\}
+ $$
 
 > [!example] Ejemplo Oficial de Cátedra (Slide 20) `[Cátedra USS]`
 > **Enunciado:** ¿Los vectores $\vec{v} = (2, -3)$ y $\vec{w} = (-4, 6)$ son paralelos?
@@ -1638,6 +1637,7 @@ print("¡Validación 100% exitosa!")
 ## 7. Enlaces y Conexiones Bidireccionales
 
 - [[algebra_lineal_dashboard|Dashboard Principal de Álgebra Lineal]]
+- [[Vectores_R2_R3.pdf|Documento Formal PDF para Compartir (16 págs, LaTeX USS)]]
 - [[Matrices|Unidad 1: Matrices y Sistemas de Ecuaciones Lineales]]
 - [[Espacios_y_Subespacios_Vectoriales|Unidad 2.2: Espacios y Subespacios Vectoriales]]
 - [[Transformaciones_Lineales|Unidad 3: Transformaciones Lineales]]
