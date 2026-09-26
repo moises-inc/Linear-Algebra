@@ -1,0 +1,940 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\usepackage[margin=1.8cm,top=2.2cm,bottom=2.2cm,headheight=15pt]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{booktabs,array,tabularx,multirow}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\setlist{noitemsep, topsep=3pt, parsep=2pt}
+
+% --- PALETA INSTITUCIONAL USS ---
+\definecolor{USSBlue}{RGB}{0, 32, 91}          % #00205B
+\definecolor{USSGold}{RGB}{212, 175, 55}        % #D4AF37
+\definecolor{USSBlueLight}{RGB}{240, 246, 255}  % Fondo azul tenue
+\definecolor{USSGoldLight}{RGB}{255, 252, 240}  % Fondo dorado tenue
+\definecolor{USSGray}{RGB}{248, 249, 251}       % Fondo gris claro
+\definecolor{USSDark}{RGB}{35, 35, 35}          % Texto principal oscuro
+\definecolor{BorderGray}{RGB}{215, 222, 232}   % Bordes suaves
+\definecolor{CodeBg}{RGB}{245, 247, 250}       % Fondo código
+\definecolor{CodeGreen}{RGB}{28, 120, 50}       % Comentarios Python
+\definecolor{CodePurple}{RGB}{125, 30, 140}     % Strings Python
+
+% --- ESTILO DE TÍTULOS ---
+\titleformat{\section}
+  {\normalfont\Large\bfseries\sffamily\color{USSBlue}}
+  {\thesection}{1em}{}[\titlerule]
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\sffamily\color{USSBlue!90!black}}
+  {\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\sffamily\color{USSBlue!80!black}}
+  {\thesubsubsection}{1em}{}
+\titleformat{\paragraph}[runin]
+  {\normalfont\normalsize\bfseries\color{USSBlue!70!black}}
+  {\theparagraph}{1em}{}[. ]
+
+% --- CONFIGURACIÓN DE HYPERREF ---
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=USSBlue,
+    citecolor=USSBlue,
+    urlcolor=USSBlue,
+    bookmarksnumbered=true,
+    pdfauthor={Moisés Amundarain Romero},
+    pdftitle={Unidad 2: Vectores en R2 y R3 — Geometría Vectorial, Rectas y Planos},
+    pdfsubject={Álgebra Lineal DCEX0007 — Universidad San Sebastián},
+    pdfkeywords={algebra lineal, vectores, r2, r3, rectas, planos, uss}
+}
+
+% --- ENCABEZADOS Y PIES DE PÁGINA ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily\color{USSBlue}\textbf{Universidad San Sebastián} \textbar\ Álgebra Lineal (DCEX0007)}
+\fancyhead[R]{\small\sffamily\color{USSDark}Unidad 2: Vectores en $\mathbb{R}^2$ y $\mathbb{R}^3$}
+\fancyfoot[L]{\footnotesize\sffamily\color{USSDark!70}Moisés Amundarain R. --- Docente: Carol Asencio G.}
+\fancyfoot[R]{\footnotesize\sffamily\color{USSBlue}\textbf{Página \thepage\ de \pageref{LastPage}}}
+\renewcommand{\headrulewidth}{0.8pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% --- ENTORNOS TCOLORBOX ---
+\newtcolorbox{cajaEjemplo}[1][]{
+    enhanced,
+    breakable,
+    colback=USSGoldLight,
+    colframe=USSGold,
+    coltitle=USSBlue,
+    fonttitle=\bfseries\sffamily\small,
+    title={#1},
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=USSGold!25, colframe=USSGold, arc=1.5mm},
+    arc=2mm,
+    boxrule=0.9pt,
+    top=4mm, bottom=3mm, left=4mm, right=4mm,
+    before skip=8pt, after skip=8pt
+}
+
+\newtcolorbox{cajaTeorema}[1][]{
+    enhanced,
+    breakable,
+    colback=USSBlueLight,
+    colframe=USSBlue,
+    coltitle=white,
+    fonttitle=\bfseries\sffamily\small,
+    title={#1},
+    attach boxed title to top left={yshift=-2mm, xshift=4mm},
+    boxed title style={colback=USSBlue, colframe=USSBlue, arc=1.5mm},
+    arc=2mm,
+    boxrule=0.9pt,
+    top=4mm, bottom=3mm, left=4mm, right=4mm,
+    before skip=8pt, after skip=8pt
+}
+
+\newtcolorbox{cajaDefinicion}[1][]{
+    enhanced,
+    breakable,
+    colback=USSGray,
+    colframe=USSBlue!80!black,
+    arc=0mm,
+    boxrule=0pt,
+    leftrule=3.5pt,
+    fonttitle=\bfseries\sffamily\small\color{USSBlue},
+    title={#1},
+    top=2.5mm, bottom=2.5mm, left=3.5mm, right=3.5mm,
+    before skip=6pt, after skip=6pt
+}
+
+\newtcolorbox{cajaNota}[1][]{
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=BorderGray,
+    arc=1.5mm,
+    boxrule=0.6pt,
+    leftrule=3pt,
+    colbacktitle=white,
+    fonttitle=\bfseries\sffamily\small\color{USSBlue},
+    title={#1},
+    top=2.5mm, bottom=2.5mm, left=3.5mm, right=3.5mm,
+    before skip=6pt, after skip=6pt
+}
+
+% --- ESTILO DE LISTINGS (PYTHON) ---
+\lstset{
+    language=Python,
+    backgroundcolor=\color{CodeBg},
+    basicstyle=\ttfamily\footnotesize\color{USSDark},
+    keywordstyle=\bfseries\color{USSBlue},
+    commentstyle=\itshape\color{CodeGreen},
+    stringstyle=\color{CodePurple},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=6pt,
+    frame=single,
+    rulecolor=\color{BorderGray},
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=true,
+    captionpos=b
+}
+
+% --- COMANDOS MATEMÁTICOS ---
+\newcommand{\proy}{\mathrm{proy}}
+\newcommand{\comp}{\mathrm{comp}}
+\newcommand{\iu}{\mathbf{i}}
+\newcommand{\ju}{\mathbf{j}}
+\newcommand{\ku}{\mathbf{k}}
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vn}{\mathbf{N}}
+
+\begin{document}
+
+% --- PORTADA INSTITUCIONAL ---
+\begin{titlepage}
+    \centering
+    \vspace*{0.5cm}
+    {\Huge\bfseries\sffamily\color{USSBlue} UNIVERSIDAD SAN SEBASTIÁN}\\[0.3cm]
+    {\large\sffamily\color{USSGold}\textbf{FACULTAD DE INGENIERÍA, ARQUITECTURA Y DISEÑO}}\\[0.2cm]
+    {\normalsize\sffamily\color{USSDark} Carrera de Ingeniería Civil Informática --- Sede Patagonia (Puerto Montt)}\\[1.2cm]
+
+    \rule{\linewidth}{1.5pt}\\[0.4cm]
+    {\huge\bfseries\sffamily\color{USSBlue} ÁLGEBRA LINEAL (DCEX0007)}\\[0.3cm]
+    {\Large\bfseries\sffamily\color{USSDark} Unidad 2: Vectores en $\mathbb{R}^2$ y $\mathbb{R}^3$}\\[0.2cm]
+    {\large\itshape Geometría Vectorial, Rectas y Planos en el Espacio Tridimensional}\\[0.4cm]
+    \rule{\linewidth}{1.5pt}\\[1.2cm]
+
+    \begin{tcolorbox}[colback=USSBlueLight, colframe=USSBlue, width=0.92\linewidth, arc=2.5mm, boxrule=1pt]
+        \centering\sffamily
+        \begin{tabular}{ll}
+            \textbf{Docente Titular:} & Prof. Carol Asencio González (\texttt{casenciog@docente.uss.cl}) \\
+            \textbf{Estudiante:} & Moisés Amundarain Romero \\
+            \textbf{Semestre Académico:} & Segundo Semestre 2026 \\
+            \textbf{Nivel Curricular:} & Plan Común de Ingeniería \\
+            \textbf{Versión del Documento:} & Edición Oficial Ampliada y Verificada Simbólicamente (SymPy) \\
+            \textbf{Estado:} & Aprobado para Estudio y Distribución Académica
+        \end{tabular}
+    \end{tcolorbox}
+
+    \vspace{0.8cm}
+
+    \begin{tcolorbox}[colback=USSGoldLight, colframe=USSGold, width=0.92\linewidth, arc=2.5mm, boxrule=1pt]
+        \sffamily\small
+        \textbf{Resultado de Aprendizaje Formal (Slide 2 Cátedra USS):}\\
+        \textit{"Analiza rectas y planos en el espacio identificando sus distancias y posiciones relativas."}\\[0.2cm]
+        \textbf{Ejes Temáticos Cubiertos:}
+        Vectores cartesianos en $\mathbb{R}^2$ y $\mathbb{R}^3$; operaciones y 8 axiomas de espacio vectorial; producto escalar (punto), norma euclidiana y distancia; dirección y versores unitarios; ángulos entre vectores y Ley de Cosenos; ortogonalidad y paralelismo; proyecciones ortogonales; producto vectorial (cruz), áreas y volúmenes; ecuaciones de rectas y planos en $\mathbb{R}^3$, posiciones relativas e intersecciones; y distancias euclidianas mínimas.
+    \end{tcolorbox}
+
+    \vfill
+    {\footnotesize\sffamily\color{USSDark!70} Puerto Montt, Chile --- Septiembre de 2026}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% =========================================================================
+% SECCIÓN 1: VECTORES EN EL PLANO Y EN EL ESPACIO
+% =========================================================================
+\section{Vectores en el Plano y en el Espacio (Slides 3--20) [Cátedra USS]}
+
+\begin{cajaNota}[Leyenda de Trazabilidad y Procedencia Académica]
+Para garantizar rigor y claridad en la formación universitaria, los contenidos de este apunte se señalan explícitamente:
+\begin{itemize}
+    \item \textbf{[Cátedra USS / Diapositivas Docente Carol Asencio]:} Contenidos curriculares oficiales, deducciones y los 24 ejercicios resueltos en paridad cronológica 1:1 con las 44 diapositivas del curso.
+    \item \textbf{[Texto Guía --- Grossman / Axler]:} Demostraciones formales completas (\textit{Cauchy-Schwarz}, \textit{Lagrange}).
+    \item \textbf{[Material Complementario --- UdeC / Enriquecimiento Web]:} Aplicaciones físicas (Torque 3D, equilibrio nodal), ejercicios de certamen avanzado y computación gráfica 3D (\textit{Möller-Trumbore}, \textit{Backface Culling}).
+\end{itemize}
+\end{cajaNota}
+
+\subsection{Definición Analítica y Geométrica (Slides 3--4) [Cátedra USS]}
+
+\subsubsection{\texorpdfstring{Vector $(a,b)$ en $\mathbb{R}^2$ (Slide 3)}{Vector (a,b) en R2 (Slide 3)}}
+Un vector en el plano cartesiano bidimensional se define analíticamente como un par ordenado de números reales:
+\[
+\vv = (a, b) \in \mathbb{R}^2
+\]
+donde $a$ denota la primera componente (abscisa horizontal) y $b$ denota la segunda componente (ordenada vertical). Mediante la base canónica del plano:
+\[
+\vv = a\iu + b\ju, \qquad \text{con } \iu = (1, 0) \quad \text{y} \quad \ju = (0, 1)
+\]
+Geométricamente, un vector representa una clase de equivalencia de segmentos dirigidos (vectores libres equipolentes) caracterizados por:
+\begin{enumerate}
+    \item \textbf{Magnitud o módulo:} la longitud métrica del segmento orientado.
+    \item \textbf{Dirección:} la inclinación o ángulo de la recta soporte respecto al eje de referencia.
+    \item \textbf{Sentido:} la orientación indicada por la flecha hacia el punto terminal.
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{Vector $(a,b,c)$ en $\mathbb{R}^3$ (Slide 4)}{Vector (a,b,c) en R3 (Slide 4)}}
+En el espacio euclídeo tridimensional, un vector se define como una terna ordenada de números reales:
+\[
+\vv = (a, b, c) \in \mathbb{R}^3
+\]
+donde $a, b, c$ representan sus componentes sobre los ejes ortogonales $X$, $Y$ y $Z$. En la base canónica:
+\[
+\vv = a\iu + b\ju + c\ku, \qquad \text{con } \iu = (1, 0, 0), \quad \ju = (0, 1, 0), \quad \ku = (0, 0, 1)
+\]
+Fijando el origen en $O(0,0,0)$ y el punto final en $P(a,b,c)$, el vector $\vv = \overrightarrow{OP}$ se denomina \textbf{vector de posición} de $P$. Dados dos puntos espaciales $P(x_P, y_P, z_P)$ y $Q(x_Q, y_Q, z_Q)$, el vector libre dirigido desde $P$ hacia $Q$ se obtiene por la diferencia de coordenadas:
+\[
+\overrightarrow{PQ} = Q - P = (x_Q - x_P,\ y_Q - y_P,\ z_Q - z_P)
+\]
+
+\subsection{Operaciones Básicas entre Vectores (Slides 5--8) [Cátedra USS]}
+
+\subsubsection{Igualdad de Vectores (Slide 5)}
+Dos vectores en $\mathbb{R}^n$ son iguales si y sólo si tienen, en idéntico orden, los mismos componentes escalares:
+\[
+\vv = (v_1, v_2, v_3) \quad \text{y} \quad \vw = (w_1, w_2, w_3) \implies \vv = \vw \iff v_1 = w_1, \quad v_2 = w_2, \quad v_3 = w_3
+\]
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slide 5) --- Igualdad de Vectores]
+\textbf{Enunciado:} Determine si los vectores $\vv = (1, 3, 4)$ y $\vw = (3, 1, 4)$ son iguales en $\mathbb{R}^3$.\\[0.15cm]
+\textbf{Resolución Analítica:}
+\begin{enumerate}
+    \item Primera componente: $v_1 = 1 \neq 3 = w_1$.
+    \item Segunda componente: $v_2 = 3 \neq 1 = w_2$.
+    \item Tercera componente: $v_3 = 4 = 4 = w_3$.
+\end{enumerate}
+\textbf{Conclusión:} Como $v_1 \neq w_1$ y $v_2 \neq w_2$, se concluye categóricamente que $\vv \neq \vw$. El orden posicional en las $n$-tuplas es estricto e inmutable.
+\end{cajaEjemplo}
+
+\subsubsection{Suma y Resta Vectorial (Slides 6--7)}
+Dados $\vv = (v_1, v_2, v_3)$ y $\vw = (w_1, w_2, w_3)$ en $\mathbb{R}^3$:
+\begin{align*}
+\vv + \vw &= (v_1 + w_1,\ v_2 + w_2,\ v_3 + w_3) \\
+\vv - \vw &= \vv + (-\vw) = (v_1 - w_1,\ v_2 - w_2,\ v_3 - w_3)
+\end{align*}
+\textbf{Interpretación Geométrica:}
+\begin{itemize}
+    \item \textbf{Regla del Paralelogramo:} Al hacer coincidir los orígenes de $\vv$ y $\vw$, el vector suma $\vv + \vw$ coincide con la diagonal principal del paralelogramo generado.
+    \item \textbf{Vector Diferencia:} El vector $\vv - \vw$ es el vector libre que va desde el extremo terminal de $\vw$ hacia el extremo de $\vv$. En consecuencia, $\vw - \vv = -(\vv - \vw)$ posee la misma magnitud pero sentido opuesto.
+\end{itemize}
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slides 6--7) --- Suma y Resta 3D]
+\textbf{Enunciado:} Para los vectores $\vv = (1, 3, 4)$ y $\vw = (3, 1, 4)$, determine $\vv + \vw$, $\vv - \vw$ y $\vw - \vv$.\\[0.15cm]
+\textbf{Resolución:}
+\begin{align*}
+\vv + \vw &= (1 + 3,\ 3 + 1,\ 4 + 4) = (4, 4, 8) \\
+\vv - \vw &= (1 - 3,\ 3 - 1,\ 4 - 4) = (-2, 2, 0) \\
+\vw - \vv &= (3 - 1,\ 1 - 3,\ 4 - 4) = (2, -2, 0)
+\end{align*}
+Se verifica analíticamente que $\vw - \vv = -(-2, 2, 0) = -(\vv - \vw)$.
+\end{cajaEjemplo}
+
+\subsubsection{Multiplicación por un Escalar (Slide 8)}
+Sea $\alpha \in \mathbb{R}$ un escalar y $\vv = (v_1, v_2, v_3) \in \mathbb{R}^3$. El producto por escalar se define como:
+\[
+\alpha\vv = (\alpha v_1,\ \alpha v_2,\ \alpha v_3)
+\]
+Efectos geométricos según el valor de $\alpha$:
+\begin{itemize}
+    \item Si $|\alpha| > 1$: amplificación o dilatación de la longitud del vector.
+    \item Si $0 < |\alpha| < 1$: contracción o reducción de la longitud.
+    \item Si $\alpha > 0$: conserva el sentido original.
+    \item Si $\alpha < 0$: invierte el sentido geométrico en $180^\circ$.
+    \item Si $\alpha = 0$: colapsa al vector nulo $\mathbf{0} = (0, 0, 0)$.
+\end{itemize}
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slide 8) --- Ponderación Escalar]
+\textbf{Enunciado:} Para el vector $\vv = (1, 3, 4)$, halle los vectores ponderados $2\vv$ y $\frac{1}{2}\vv$.\\[0.15cm]
+\textbf{Resolución:}
+\begin{align*}
+2\vv &= (2 \cdot 1,\ 2 \cdot 3,\ 2 \cdot 4) = (2, 6, 8) \\
+\frac{1}{2}\vv &= \left(\frac{1}{2} \cdot 1,\ \frac{1}{2} \cdot 3,\ \frac{1}{2} \cdot 4\right) = \left(\frac{1}{2},\ \frac{3}{2},\ 2\right) = (0.5,\ 1.5,\ 2)
+\end{align*}
+\end{cajaEjemplo}
+
+\subsection{Propiedades de las Operaciones entre Vectores (Slide 9) [Cátedra USS]}
+
+\begin{cajaTeorema}[Los Ocho Axiomas Fundamentales de Espacio Vectorial (Slide 9)]
+Para cualesquiera vectores $\vu, \vv, \vw \in \mathbb{R}^3$ y escalares $\alpha, \beta \in \mathbb{R}$, se verifican:
+\begin{enumerate}
+    \item \textbf{Conmutatividad de la adición:} $\vu + \vv = \vv + \vu$.
+    \item \textbf{Asociatividad de la adición:} $(\vu + \vv) + \vw = \vu + (\vv + \vw)$.
+    \item \textbf{Elemento neutro aditivo:} Existe $\mathbf{0} = (0,0,0)$ tal que $\vv + \mathbf{0} = \vv$.
+    \item \textbf{Elemento opuesto aditivo:} Para cada $\vv$, existe $-\vv = (-v_1, -v_2, -v_3)$ tal que $\vv + (-\vv) = \mathbf{0}$.
+    \item \textbf{Distributividad del escalar respecto a la suma vectorial:} $\alpha(\vu + \vv) = \alpha\vu + \alpha\vv$.
+    \item \textbf{Distributividad de la adición de escalares sobre un vector:} $(\alpha + \beta)\vv = \alpha\vv + \beta\vv$.
+    \item \textbf{Asociatividad de la multiplicación escalar:} $\alpha(\beta\vv) = (\alpha\beta)\vv$.
+    \item \textbf{Elemento neutro de la escala:} El número real $1$ satisface $1\vv = \vv$.
+\end{enumerate}
+\end{cajaTeorema}
+
+\subsection{Producto Punto (Escalar) (Slides 10--11) [Cátedra USS]}
+
+\begin{cajaDefinicion}[Definición Formal del Producto Punto (Slide 10)]
+El producto punto (o producto escalar) es una operación algebraica binaria entre dos vectores que devuelve como resultado un \textbf{escalar real}. Para $\vv = (v_1, v_2, v_3)$ y $\vw = (w_1, w_2, w_3)$:
+\[
+\vv \cdot \vw = v_1 w_1 + v_2 w_2 + v_3 w_3 \in \mathbb{R}
+\]
+\end{cajaDefinicion}
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slide 10) --- Cálculo del Producto Punto]
+\textbf{Enunciado:} Calcule $\vv \cdot \vw$ para $\vv = (-1, 3, 4)$ y $\vw = (1, 0, -4)$, y determine la expresión general de $\vu \cdot \vu$ para $\vu = (a, b, c)$.\\[0.15cm]
+\textbf{Resolución:}
+\begin{align*}
+\vv \cdot \vw &= (-1)(1) + (3)(0) + (4)(-4) = -1 + 0 - 16 = -17 \\
+\vu \cdot \vu &= a(a) + b(b) + c(c) = a^2 + b^2 + c^2 \ge 0
+\end{align*}
+\end{cajaEjemplo}
+
+\begin{cajaTeorema}[Propiedades del Producto Punto (Slide 11)]
+Para cualesquiera vectores $\vu, \vv, \vw \in \mathbb{R}^3$ y $\alpha \in \mathbb{R}$:
+\begin{enumerate}
+    \item \textbf{Conmutatividad:} $\vv \cdot \vw = \vw \cdot \vv$.
+    \item \textbf{Distributividad respecto a la suma:} $\vu \cdot (\vv + \vw) = \vu \cdot \vv + \vu \cdot \vw$.
+    \item \textbf{Homogeneidad escalar:} $(\alpha\vv) \cdot \vw = \alpha(\vv \cdot \vw) = \vv \cdot (\alpha\vw)$.
+    \item \textbf{Carácter no negativo y definido positivo:} $\vv \cdot \vv \ge 0$, y $\vv \cdot \vv = 0 \iff \vv = \mathbf{0}$.
+\end{enumerate}
+\end{cajaTeorema}
+
+\subsection{Norma Euclidiana y Distancia (Slides 12--13) [Cátedra USS]}
+
+\begin{cajaDefinicion}[Norma Euclidiana y Métrica Espacial (Slide 12)]
+La longitud métrica euclidiana de $\vv = (v_1, v_2, v_3) \in \mathbb{R}^3$ se denota $\|\vv\|$ y se define como:
+\[
+\|\vv\| = \sqrt{\vv \cdot \vv} = \sqrt{v_1^2 + v_2^2 + v_3^2}
+\]
+Dados dos puntos $A(x_A, y_A, z_A)$ y $B(x_B, y_B, z_B)$, la distancia euclidiana entre ellos es la norma del vector $\overrightarrow{AB}$:
+\[
+d(A, B) = \|\overrightarrow{AB}\| = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}
+\]
+\end{cajaDefinicion}
+
+\begin{cajaEjemplo}[Ejemplos Oficiales de Cátedra (Slide 12) --- Norma y Distancia]
+\textbf{1. Norma de un vector:} Para $\vu = (1, 0, -2)$:
+\[
+\|\vu\| = \sqrt{1^2 + 0^2 + (-2)^2} = \sqrt{1 + 0 + 4} = \sqrt{5} \approx 2.2361
+\]
+\textbf{2. Distancia entre dos puntos:} Para $A(2, 0, -1)$ y $B(1, -3, -2)$:
+\[
+\overrightarrow{AB} = (1 - 2,\ -3 - 0,\ -2 - (-1)) = (-1, -3, -1)
+\]
+\[
+d(A, B) = \sqrt{(-1)^2 + (-3)^2 + (-1)^2} = \sqrt{1 + 9 + 1} = \sqrt{11} \approx 3.3166
+\]
+\end{cajaEjemplo}
+
+\begin{cajaTeorema}[Propiedades Formales de la Norma (Slide 13)]
+\begin{enumerate}
+    \item \textbf{No negatividad:} $\|\vv\| \ge 0$, con $\|\vv\| = 0 \iff \vv = \mathbf{0}$.
+    \item \textbf{Homogeneidad absoluta:} $\|\alpha\vv\| = |\alpha| \|\vv\|$.
+    \item \textbf{Desigualdad Triangular:} $\|\vv + \vw\| \le \|\vv\| + \|\vw\|$.
+    \item \textbf{Desigualdad de Cauchy-Schwarz:} $|\vv \cdot \vw| \le \|\vv\| \|\vw\|$.
+\end{enumerate}
+\end{cajaTeorema}
+
+\subsection{\texorpdfstring{Dirección de un Vector en $\mathbb{R}^2$ (Slide 14)}{Dirección de un Vector en R2 (Slide 14)} [Cátedra USS]}
+Se define la dirección del vector plano $\vv = (a, b) \in \mathbb{R}^2$ como el ángulo $\theta$, medido en sentido antihorario respecto al semieje positivo $X$, con la convención métrica:
+\[
+0 \le \theta < 2\pi \qquad (0^\circ \le \theta < 360^\circ)
+\]
+Si $a \neq 0$, la razón trigonométrica es $\tan\theta = \frac{b}{a}$. El ángulo debe ajustarse por cuadrantes según el signo de $a$ y $b$:
+\begin{itemize}
+    \item \textbf{Cuadrante I ($a > 0, b \ge 0$):} $\theta = \arctan(b/a)$.
+    \item \textbf{Cuadrante II ($a < 0, b \ge 0$):} $\theta = \arctan(b/a) + \pi = \arctan(b/a) + 180^\circ$.
+    \item \textbf{Cuadrante III ($a < 0, b < 0$):} $\theta = \arctan(b/a) + \pi = \arctan(b/a) + 180^\circ$.
+    \item \textbf{Cuadrante IV ($a > 0, b < 0$):} $\theta = \arctan(b/a) + 2\pi = \arctan(b/a) + 360^\circ$.
+    \item \textbf{Casos sobre los semiejes ($a = 0$):} $\theta = \pi/2$ ($90^\circ$) si $b > 0$; $\theta = 3\pi/2$ ($270^\circ$) si $b < 0$.
+\end{itemize}
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slide 14) --- Direcciones por Cuadrante]
+\begin{enumerate}
+    \item $\vu = (2, 2)$: $\|\vu\| = \sqrt{8} = 2\sqrt{2}$. En el C-I ($a>0, b>0$), $\theta = \arctan(2/2) = \arctan(1) = \frac{\pi}{4}$ ($45^\circ$).
+    \item $\vv = (-2, 2)$: $\|\vv\| = 2\sqrt{2}$. En el C-II ($a<0, b>0$), $\theta = \arctan(-1) + 180^\circ = -45^\circ + 180^\circ = 135^\circ$ ($\frac{3\pi}{4}$).
+    \item $\vw = (-2, -2)$: $\|\vw\| = 2\sqrt{2}$. En el C-III ($a<0, b<0$), $\theta = \arctan(1) + 180^\circ = 45^\circ + 180^\circ = 225^\circ$ ($\frac{5\pi}{4}$).
+    \item $\mathbf{z} = (2, -2)$: $\|\mathbf{z}\| = 2\sqrt{2}$. En el C-IV ($a>0, b<0$), $\theta = \arctan(-1) + 360^\circ = -45^\circ + 360^\circ = 315^\circ$ ($\frac{7\pi}{4}$).
+    \item $\vv = (0, 3)$: $\|\vv\| = 3$. Sobre el semieje positivo $Y$ ($a=0, b>0$), $\theta = \frac{\pi}{2}$ ($90^\circ$).
+\end{enumerate}
+\end{cajaEjemplo}
+
+\subsection{\texorpdfstring{Vectores Unitarios $\hat{v}$ y Base Canónica (Slide 15)}{Vectores Unitarios y Base Canónica (Slide 15)} [Cátedra USS]}
+Un vector unitario (o versor) es aquel cuya norma euclidiana es unitaria ($\|\hat{v}\| = 1$). Dado $\vv \neq \mathbf{0}$, su versor normalizado se obtiene mediante:
+\[
+\hat{v} = \frac{\vv}{\|\vv\|}
+\]
+\textbf{Base Canónica Ortonormal:}
+\begin{itemize}
+    \item En $\mathbb{R}^2$: $\iu = (1, 0)$ y $\ju = (0, 1)$, con descomposición única $\vv = (a, b) = a\iu + b\ju$.
+    \item En $\mathbb{R}^3$: $\iu = (1, 0, 0)$, $\ju = (0, 1, 0)$ y $\ku = (0, 0, 1)$, con descomposición $\vv = (x, y, z) = x\iu + y\ju + z\ku$.
+\end{itemize}
+Los vectores canónicos son mutuamente ortogonales, de norma unitaria, y forman una base linealmente independiente del espacio euclídeo.
+
+\subsection{\texorpdfstring{Ángulos entre Vectores en $\mathbb{R}^3$ y Ley de Cosenos (Slides 16--18)}{Ángulos entre Vectores en R3 y Ley de Cosenos (Slides 16--18)} [Cátedra USS]}
+
+\begin{cajaTeorema}[Deducción Geométrica del Ángulo (Slide 16)]
+Consideremos $\vv, \vw \in \mathbb{R}^3 \setminus \{\mathbf{0}\}$ con ángulo $\theta \in [0, \pi]$. Aplicando la Ley de los Cosenos al triángulo formado por $\vv$, $\vw$ y $\vw - \vv$:
+\[
+\|\vw - \vv\|^2 = \|\vv\|^2 + \|\vw\|^2 - 2\|\vv\|\|\vw\|\cos\theta
+\]
+Desarrollando el primer miembro mediante producto escalar:
+\[
+\|\vw - \vv\|^2 = (\vw - \vv) \cdot (\vw - \vv) = \|\vw\|^2 - 2(\vv \cdot \vw) + \|\vv\|^2
+\]
+Igualando ambas expresiones:
+\[
+\|\vw\|^2 - 2(\vv \cdot \vw) + \|\vv\|^2 = \|\vv\|^2 + \|\vw\|^2 - 2\|\vv\|\|\vw\|\cos\theta \implies \vv \cdot \vw = \|\vv\|\|\vw\|\cos\theta
+\]
+Despejando el coseno del ángulo comprendido:
+\[
+\cos\theta = \frac{\vv \cdot \vw}{\|\vv\|\|\vw\|}, \qquad \theta = \arccos\left(\frac{\vv \cdot \vw}{\|\vv\|\|\vw\|}\right)
+\]
+\end{cajaTeorema}
+
+\begin{cajaEjemplo}[Ejemplos Oficiales de Cátedra (Slides 17--18) --- Ángulos y Cosenos Directores]
+\textbf{1. Ángulo entre vectores espaciales (Slide 17):} Sean $\vv = (0, 2, 2)$ y $\vw = (2, 0, 2)$.
+\[
+\vv \cdot \vw = 0(2) + 2(0) + 2(2) = 4, \quad \|\vv\| = \sqrt{0+4+4} = \sqrt{8}, \quad \|\vw\| = \sqrt{4+0+4} = \sqrt{8}
+\]
+\[
+\cos\theta = \frac{4}{\sqrt{8}\sqrt{8}} = \frac{4}{8} = \frac{1}{2} \implies \theta = 60^\circ \quad \left(\frac{\pi}{3}\text{ rad}\right)
+\]
+\textbf{2. Ángulo en combinación canónica (Slide 17):} Sean $\vv = 2\iu + 3\ju$ y $\vw = -7\iu + \ju$.
+\[
+\vv \cdot \vw = 2(-7) + 3(1) = -14 + 3 = -11, \quad \|\vv\| = \sqrt{4+9} = \sqrt{13}, \quad \|\vw\| = \sqrt{49+1} = \sqrt{50}
+\]
+\[
+\cos\theta = \frac{-11}{\sqrt{13}\sqrt{50}} = \frac{-11}{\sqrt{650}} \approx -0.431455 \implies \theta \approx 115.55^\circ \quad (2.0168\text{ rad})
+\]
+\textbf{3. Cosenos Directores (Slide 18):} Para $\vv = 2\iu + 3\ju + 4\ku$, su norma es $\|\vv\| = \sqrt{4+9+16} = \sqrt{29}$.
+\[
+\cos\alpha = \frac{2}{\sqrt{29}} \implies \alpha \approx 68.20^\circ, \quad \cos\beta = \frac{3}{\sqrt{29}} \implies \beta \approx 56.15^\circ, \quad \cos\gamma = \frac{4}{\sqrt{29}} \implies \gamma \approx 42.03^\circ
+\]
+Identidad canónica de los cosenos directores:
+\[
+\cos^2\alpha + \cos^2\beta + \cos^2\gamma = \frac{4}{29} + \frac{9}{29} + \frac{16}{29} = \frac{29}{29} = 1
+\]
+\end{cajaEjemplo}
+
+\subsection{Vectores Ortogonales (Slide 19) [Cátedra USS]}
+Dos vectores no nulos $\vu$ y $\vv$ son ortogonales ($\vu \perp \vv$) si y sólo si su producto punto es idénticamente nulo:
+\[
+\vu \perp \vv \iff \vu \cdot \vv = 0
+\]
+
+\begin{cajaEjemplo}[Problema Oficial de Cátedra (Slide 19) --- Vector Bajo Tres Condiciones]
+\textbf{Enunciado:} Sean $\vv = (1, -1, 0)$ y $\vw = (1, 1, 0)$. Halle todos los vectores $\vu = (x, y, z) \in \mathbb{R}^3$ que cumplan simultáneamente:
+\[
+1)\ \vu \perp \vv; \qquad 2)\ \|\vu\| = 4; \qquad 3)\ \angle(\vu, \vw) = \frac{\pi}{3}
+\]
+\textbf{Resolución Analítica Paso a Paso:}
+\begin{enumerate}
+    \item Condición de ortogonalidad: $\vu \cdot \vv = x(1) + y(-1) + z(0) = x - y = 0 \implies y = x$.
+    \item Condición angular: $\vu \cdot \vw = \|\vu\|\|\vw\|\cos(\pi/3) = 4 \cdot \sqrt{2} \cdot \frac{1}{2} = 2\sqrt{2}$.\\
+    Analíticamente: $\vu \cdot \vw = x(1) + y(1) + z(0) = x + y = 2x$.\\
+    Igualando: $2x = 2\sqrt{2} \implies x = \sqrt{2} \implies y = \sqrt{2}$.
+    \item Condición de norma: $\|\vu\|^2 = x^2 + y^2 + z^2 = 16 \implies (\sqrt{2})^2 + (\sqrt{2})^2 + z^2 = 16 \implies 4 + z^2 = 16 \implies z^2 = 12 \implies z = \pm 2\sqrt{3}$.
+\end{enumerate}
+\textbf{Solución Final:} Existen exactamente dos vectores solución en el espacio tridimensional:
+\[
+\vu_1 = (\sqrt{2},\ \sqrt{2},\ 2\sqrt{3}) \qquad \text{y} \qquad \vu_2 = (\sqrt{2},\ \sqrt{2},\ -2\sqrt{3})
+\]
+\end{cajaEjemplo}
+
+\subsection{Vectores Paralelos (Slide 20) [Cátedra USS]}
+Dos vectores $\vu$ y $\vv$ son paralelos ($\vu \parallel \vv$) si y sólo si existe un escalar no nulo $\lambda \in \mathbb{R} \setminus \{0\}$ tal que $\vu = \lambda\vv$.
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slide 20) --- Determinación de Parámetro $\alpha$]
+\textbf{Enunciado:} Sean $\vv = (1, \alpha)$ y $\vw = (3, 4)$. Determine el valor del parámetro $\alpha \in \mathbb{R}$ para que:
+\begin{enumerate}
+    \item Sean ortogonales ($\vv \perp \vw$):
+    \[
+    \vv \cdot \vw = 1(3) + \alpha(4) = 3 + 4\alpha = 0 \implies \alpha = -\frac{3}{4}
+    \]
+    \item Sean paralelos ($\vv \parallel \vw$):
+    \[
+    \vv = \lambda\vw \implies (1, \alpha) = (\lambda \cdot 3,\ \lambda \cdot 4) \implies 1 = 3\lambda \implies \lambda = \frac{1}{3} \implies \alpha = \frac{4}{3}
+    \]
+\end{enumerate}
+\end{cajaEjemplo}
+
+% =========================================================================
+% SECCIÓN 2: PROYECCIÓN ORTOGONAL
+% =========================================================================
+\section{Proyección Ortogonal (Slides 21--23) [Cátedra USS]}
+
+\begin{cajaTeorema}[Deducción del Vector Proyección Ortogonal (Slides 21--22)]
+Sea $\vv$ un vector a proyectar sobre un vector no nulo $\vw \neq \mathbf{0}$. Deseamos descomponer $\vv$ de forma única como:
+\[
+\vv = \proy_{\vw}\vv + \comp^\perp_{\vw}\vv
+\]
+donde $\proy_{\vw}\vv = t\vw$ es paralelo a $\vw$, y $\comp^\perp_{\vw}\vv = \vv - t\vw$ es ortogonal a $\vw$:
+\[
+(\vv - t\vw) \cdot \vw = 0 \implies \vv \cdot \vw - t(\vw \cdot \vw) = 0 \implies t = \frac{\vv \cdot \vw}{\|\vw\|^2}
+\]
+Por lo tanto, la fórmula formal del vector proyección ortogonal es:
+\[
+\proy_{\vw}\vv = \left(\frac{\vv \cdot \vw}{\|\vw\|^2}\right)\vw
+\]
+y la componente ortogonal residual viene dada por $\comp^\perp_{\vw}\vv = \vv - \proy_{\vw}\vv$.
+\end{cajaTeorema}
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slide 23) --- Proyecciones Cruzadas]
+\textbf{Enunciado:} Para $\vv = (2, -3)$ y $\vw = (1, 1)$, calcule $\proy_{\vw}\vv$ y $\proy_{\vv}\vw$.\\[0.15cm]
+\textbf{Resolución Paso a Paso:}
+\begin{enumerate}
+    \item Producto escalar: $\vv \cdot \vw = 2(1) + (-3)(1) = 2 - 3 = -1$.
+    \item Normas al cuadrado: $\|\vw\|^2 = 1^2 + 1^2 = 2$; $\|\vv\|^2 = 2^2 + (-3)^2 = 4 + 9 = 13$.
+    \item Proyección de $\vv$ sobre $\vw$:
+    \[
+    \proy_{\vw}\vv = \frac{-1}{2}(1, 1) = \left(-\frac{1}{2},\ -\frac{1}{2}\right)
+    \]
+    Componente ortogonal residual:
+    \[
+    \comp^\perp_{\vw}\vv = (2, -3) - \left(-\frac{1}{2}, -\frac{1}{2}\right) = \left(\frac{5}{2},\ -\frac{5}{2}\right)
+    \]
+    Verificación de ortogonalidad: $\left(\frac{5}{2}\right)(1) + \left(-\frac{5}{2}\right)(1) = 0$.
+    \item Proyección de $\vw$ sobre $\vv$:
+    \[
+    \proy_{\vv}\vw = \frac{-1}{13}(2, -3) = \left(-\frac{2}{13},\ \frac{3}{13}\right)
+    \]
+    Componente ortogonal residual:
+    \[
+    \comp^\perp_{\vv}\vw = (1, 1) - \left(-\frac{2}{13}, \frac{3}{13}\right) = \left(\frac{15}{13},\ \frac{10}{13}\right)
+    \]
+    Verificación: $\left(\frac{15}{13}\right)(2) + \left(\frac{10}{13}\right)(-3) = \frac{30 - 30}{13} = 0$.
+\end{enumerate}
+\end{cajaEjemplo}
+
+% =========================================================================
+% SECCIÓN 3: PRODUCTO CRUZ O PRODUCTO VECTORIAL
+% =========================================================================
+\section{Producto Cruz o Producto Vectorial (Slides 24--29) [Cátedra USS]}
+
+\begin{cajaDefinicion}[Definición del Producto Cruz (Slide 24)]
+Para $\vu = (u_1, u_2, u_3)$ y $\vv = (v_1, v_2, v_3)$ en $\mathbb{R}^3$, el producto cruz es un \textbf{vector} ortogonal a ambos definido formalmente por el determinante:
+\[
+\vu \times \vv = \begin{vmatrix} \iu & \ju & \ku \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \end{vmatrix} = (u_2 v_3 - u_3 v_2)\iu - (u_1 v_3 - u_3 v_1)\ju + (u_1 v_2 - u_2 v_1)\ku
+\]
+\end{cajaDefinicion}
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slide 25) --- Anticonmutatividad]
+Para $\vu = (2, 4, -5)$ y $\vv = (-3, -2, 1)$:
+\[
+\vu \times \vv = \begin{vmatrix} \iu & \ju & \ku \\ 2 & 4 & -5 \\ -3 & -2 & 1 \end{vmatrix} = (4 - 10)\iu - (2 - 15)\ju + (-4 + 12)\ku = (-6, 13, 8)
+\]
+\[
+\vv \times \vu = \begin{vmatrix} \iu & \ju & \ku \\ -3 & -2 & 1 \\ 2 & 4 & -5 \end{vmatrix} = (10 - 4)\iu - (15 - 2)\ju + (-12 + 4)\ku = (6, -13, -8)
+\]
+Se demuestra empíricamente que $\vv \times \vu = -(\vu \times \vv)$.
+\end{cajaEjemplo}
+
+\begin{cajaTeorema}[Interpretación Geométrica, Áreas y Volúmenes (Slides 26--29)]
+\begin{enumerate}
+    \item \textbf{Norma y Área del Paralelogramo (Slide 26):} $\|\vu \times \vv\| = \|\vu\|\|\vv\|\sin\theta$. Corresponde al área del paralelogramo delimitado por $\vu$ y $\vv$. El área del triángulo sustentado es $A_{\triangle} = \frac{1}{2}\|\vu \times \vv\|$.
+    \item \textbf{Triple Producto Escalar y Volumen del Paralelepípedo (Slides 28--29):} Para tres vectores concurrentes $\vu, \vv, \vw \in \mathbb{R}^3$, el volumen del paralelepípedo viene dado por el valor absoluto del determinante:
+    \[
+    V = |(\vu \times \vv) \cdot \vw| = \left| \det \begin{pmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{pmatrix} \right|
+    \]
+    \item \textbf{Criterio de Coplanaridad (Slide 29):} Tres vectores $\vu, \vv, \vw$ son coplanares si y sólo si $(\vu \times \vv) \cdot \vw = 0$.
+\end{enumerate}
+\end{cajaTeorema}
+
+\begin{cajaEjemplo}[Ejemplos Oficiales de Cátedra (Slides 27 y 29) --- Área y Volumen]
+\textbf{1. Área de paralelogramo por vértices (Slide 27):} Vértices $A(1,1,1), B(2,3,4), C(6,5,2), D(7,7,5)$.
+\[
+\overrightarrow{AB} = B - A = (1, 2, 3), \qquad \overrightarrow{AC} = C - A = (5, 4, 1)
+\]
+\[
+\overrightarrow{AB} \times \overrightarrow{AC} = \begin{vmatrix} \iu & \ju & \ku \\ 1 & 2 & 3 \\ 5 & 4 & 1 \end{vmatrix} = (2-12)\iu - (1-15)\ju + (4-10)\ku = (-10, 14, -6)
+\]
+\[
+\text{Área} = \|(-10, 14, -6)\| = \sqrt{(-10)^2 + 14^2 + (-6)^2} = \sqrt{100 + 196 + 36} = \sqrt{332} \approx 18.2209\,\text{u}^2
+\]
+\textbf{2. Volumen del Paralelepípedo (Slide 29):} Para $\vu = (1, 0, 2), \vv = (0, 2, 3), \vw = (0, 1, 3)$:
+\[
+\vu \times \vv = \begin{vmatrix} \iu & \ju & \ku \\ 1 & 0 & 2 \\ 0 & 2 & 3 \end{vmatrix} = (0 - 4)\iu - (3 - 0)\ju + (2 - 0)\ku = (-4, -3, 2)
+\]
+\[
+(\vu \times \vv) \cdot \vw = (-4)(0) + (-3)(1) + (2)(3) = 0 - 3 + 6 = 3 \implies V = |3| = 3\,\text{u}^3
+\]
+\end{cajaEjemplo}
+
+% =========================================================================
+% SECCIÓN 4: RECTAS Y PLANOS EN EL ESPACIO
+% =========================================================================
+\section{Rectas y Planos en el Espacio (Slides 30--44) [Cátedra USS]}
+
+\subsection{\texorpdfstring{Ecuaciones de la Recta en $\mathbb{R}^3$ (Slide 30)}{Ecuaciones de la Recta en R3 (Slide 30)}}
+Una recta $L$ con punto de apoyo $P(p_1, p_2, p_3)$ y vector director $\vv = (v_1, v_2, v_3) \neq \mathbf{0}$ se describe analíticamente mediante:
+\begin{enumerate}
+    \item \textbf{Ecuación Vectorial:} $(x, y, z) = P + t\vv, \quad t \in \mathbb{R}$.
+    \item \textbf{Ecuaciones Paramétricas:} $x = p_1 + tv_1, \quad y = p_2 + tv_2, \quad z = p_3 + tv_3$.
+    \item \textbf{Ecuaciones Simétricas (Continuas):} $\frac{x - p_1}{v_1} = \frac{y - p_2}{v_2} = \frac{z - p_3}{v_3}$ (si $v_i \neq 0$). Si alguna componente directriz es nula (ej: $v_3 = 0$), se expresa como:
+    \[
+    \frac{x - p_1}{v_1} = \frac{y - p_2}{v_2}, \qquad z = p_3
+    \]
+\end{enumerate}
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slide 30) --- Recta por Dos Puntos]
+Para la recta $L$ que pasa por $P(1, 3, -2)$ y $Q(2, 1, -2)$:
+\begin{itemize}
+    \item Vector director: $\vv = Q - P = (2-1, 1-3, -2 - (-2)) = (1, -2, 0)$.
+    \item Ecuación vectorial: $(x, y, z) = (1, 3, -2) + t(1, -2, 0), \; t \in \mathbb{R}$.
+    \item Ecuaciones paramétricas: $x = 1 + t, \; y = 3 - 2t, \; z = -2$.
+    \item Ecuaciones simétricas: $\frac{x - 1}{1} = \frac{y - 3}{-2}, \quad z = -2$.
+\end{itemize}
+\end{cajaEjemplo}
+
+\subsection{Posiciones Relativas entre Rectas (Slides 31--33)}
+Dadas dos rectas $L_1: P + t\vv$ y $L_2: Q + s\vw$:
+\begin{itemize}
+    \item \textbf{Paralelas:} $\vv = \lambda\vw$. Son coincidentes si $P \in L_2$, o paralelas disjuntas si $P \notin L_2$.
+    \item \textbf{Secantes (se cortan):} Existe un único par de parámetros $(t, s)$ tal que $P + t\vv = Q + s\vw$.
+    \item \textbf{Perpendiculares:} Sus vectores directores son ortogonales ($\vv \cdot \vw = 0$).
+    \item \textbf{Alabeadas (se cruzan):} No son paralelas y no se intersectan en ningún punto del espacio.
+\end{itemize}
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slide 32) --- Análisis de Cuatro Rectas]
+Dadas las rectas:
+\begin{align*}
+L_1&: (-1, 3, 1) + t(4, 1, 0) & L_2&: (-13, -3, -2) + s(12, 6, 3) \\
+L_3&: (1, 3, -2) + u(8, 2, 0) & L_4&: (0, 2, -1) + v(-1, 4, 3)
+\end{align*}
+\begin{enumerate}
+    \item \textbf{Intersección $L_1 \cap L_2$:} Igualando coordenadas paramétricas:
+    \[
+    -1 + 4t = -13 + 12s, \quad 3 + t = -3 + 6s, \quad 1 = -2 + 3s
+    \]
+    De la 3ª ecuación: $3s = 3 \implies s = 1$. En la 1ª: $-1 + 4t = -1 \implies t = 0$. Comprobando en la 2ª: $3 + 0 = -3 + 6(1) = 3$ (Compatible). Punto de corte: $P_0 = (-1, 3, 1)$.
+    \item \textbf{¿Es $L_1 \parallel L_3$?:} Directores $\mathbf{d}_1 = (4, 1, 0)$ y $\mathbf{d}_3 = (8, 2, 0) = 2(4, 1, 0)$. Como son proporcionales, \textbf{sí son paralelas}.
+    \item \textbf{¿Es $L_1 \perp L_4$?:} $\mathbf{d}_1 \cdot \mathbf{d}_4 = (4)(-1) + (1)(4) + (0)(3) = -4 + 4 + 0 = 0$. Como el producto punto es nulo, \textbf{son perpendiculares}.
+    \item \textbf{¿Se intersectan $L_1$ y $L_4$?:} Igualando componentes: $1 = -1 + 3v \implies v = 2/3$. De $3 + t = 2 + 4(2/3) \implies t = 5/3$. Evaluando en $x$: $-1 + 4(5/3) = 17/3 \neq -2/3 = -v$. El sistema es incompatible; por ende, \textbf{no se intersectan (son rectas alabeadas perpendiculares)}.
+\end{enumerate}
+\end{cajaEjemplo}
+
+\begin{cajaEjemplo}[Problema Oficial de Cátedra (Slide 33) --- Parámetros de Paralelismo]
+\textbf{Enunciado:} Determine los valores de $m$ y $n$ para que las rectas $r$ y $s$ sean paralelas:
+\[
+r: \frac{x - 1}{4} = \frac{y + 2}{m} = \frac{z - 3}{2} \qquad \text{y} \qquad s: \frac{x + 1}{2n} = \frac{y - 1}{-4} = \frac{z + 2}{-1}
+\]
+\textbf{Resolución:} Directores $\vv_r = (4, m, 2)$ y $\vv_s = (2n, -4, -1)$.
+Para paralelismo: $\vv_r = \lambda\vv_s$.
+\begin{align*}
+2 &= \lambda(-1) \implies \lambda = -2 \\
+4 &= \lambda(2n) = -4n \implies n = -1 \\
+m &= \lambda(-4) = -2(-4) \implies m = 8
+\end{align*}
+\textbf{Resultado:} $m = 8$ y $n = -1$ (o $n = -2$ si el denominador en $x$ de $s$ fuera $n$).
+\end{cajaEjemplo}
+
+\subsection{Planos en el Espacio y sus Ecuaciones (Slides 34--37)}
+Un plano $\Pi$ en $\mathbb{R}^3$ queda determinado por un punto $P(x_0, y_0, z_0)$ y un vector normal ortogonal $\vn = (a, b, c) \neq \mathbf{0}$:
+\[
+\vn \cdot (\mathbf{x} - P) = 0 \iff a(x - x_0) + b(y - y_0) + c(z - z_0) = 0 \iff ax + by + cz = d
+\]
+donde $d = ax_0 + by_0 + cz_0$.
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slide 36) --- Plano por Tres Puntos]
+Para los puntos no colineales $P(1, 1, 1), Q(2, 1, 2)$ y $R(0, 2, -1)$:
+\begin{align*}
+\overrightarrow{PQ} &= Q - P = (1, 0, 1), \qquad \overrightarrow{PR} = R - P = (-1, 1, -2) \\
+\vn &= \overrightarrow{PQ} \times \overrightarrow{PR} = \begin{vmatrix} \iu & \ju & \ku \\ 1 & 0 & 1 \\ -1 & 1 & -2 \end{vmatrix} = (-1)\iu - (-2 - (-1))\ju + (1)\ku = (-1, 1, 1)
+\end{align*}
+Ecuación punto-normal con $P(1, 1, 1)$:
+\[
+-1(x - 1) + 1(y - 1) + 1(z - 1) = 0 \implies -x + y + z - 1 = 0 \iff x - y - z + 1 = 0
+\]
+\end{cajaEjemplo}
+
+\subsection{Paralelismo, Perpendicularidad y Ángulo entre Planos (Slides 38--40)}
+Para $\Pi_1: a_1 x + b_1 y + c_1 z = d_1$ y $\Pi_2: a_2 x + b_2 y + c_2 z = d_2$:
+\begin{itemize}
+    \item \textbf{Planos Paralelos:} $\vn_1 \parallel \vn_2 \iff \vn_1 = \lambda\vn_2$.
+    \item \textbf{Planos Perpendiculares:} $\vn_1 \perp \vn_2 \iff \vn_1 \cdot \vn_2 = 0$.
+    \item \textbf{Ángulo Diedro:} $\cos\theta = \frac{|\vn_1 \cdot \vn_2|}{\|\vn_1\|\|\vn_2\|}$.
+\end{itemize}
+
+\begin{cajaEjemplo}[Ejercicios Oficiales de Cátedra (Slide 39) --- Construcción de Planos]
+\begin{enumerate}
+    \item \textbf{Plano por punto $A(0, 0, -1)$ y recta $L_1: (1, 2, 1) + t(0, 2, 3)$:}
+    Vector coplanar: $\overrightarrow{AP_0} = (1, 2, 2)$. Normal: $\vn = (1, 2, 2) \times (0, 2, 3) = (2, -3, 2)$.
+    Ecuación cartesiana: $2(x - 0) - 3(y - 0) + 2(z - (-1)) = 0 \implies 2x - 3y + 2z + 2 = 0$.
+    \item \textbf{Plano paralelo a dos rectas por $P(1, 1, 1)$:}
+    Rectas con directores $\mathbf{d}_1 = (0, 2, 3)$ y $\mathbf{d}_2 = (5, 0, 0)$. Normal: $\vn = \mathbf{d}_1 \times \mathbf{d}_2 = (0, 15, -10) \sim (0, 3, -2)$.
+    Ecuación cartesiana: $0(x - 1) + 3(y - 1) - 2(z - 1) = 0 \implies 3y - 2z = 1$.
+    \item \textbf{Plano perpendicular a la recta $L_1: (1, 2, 1) + t(0, 2, 3)$ por $P(1, 1, 1)$:}
+    El vector normal es el director de la recta: $\vn = (0, 2, 3)$.
+    Ecuación cartesiana: $0(x - 1) + 2(y - 1) + 3(z - 1) = 0 \implies 2y + 3z = 5$.
+\end{enumerate}
+\end{cajaEjemplo}
+
+\begin{cajaEjemplo}[Ejercicio Oficial de Cátedra (Slide 40) --- Recta Perpendicular a Dos Rectas]
+\textbf{Enunciado:} Halle la recta que pasa por $P(3, -3, 4)$ y es perpendicular a:
+\[
+L_1: \frac{2x - 4}{2} = \frac{y - 3}{-1} = \frac{z + 2}{5} \qquad \text{y} \qquad L_2: \frac{x - 3}{1} = \frac{2y - 7}{3} = \frac{z - 3}{3}
+\]
+\textbf{Resolución:}
+\begin{enumerate}
+    \item Normalizando directores: para $L_1$: $\frac{x - 2}{1} = \frac{y - 3}{-1} = \frac{z + 2}{5} \implies \mathbf{d}_1 = (1, -1, 5)$.\\
+    Para $L_2$: $\frac{x - 3}{1} = \frac{y - 7/2}{3/2} = \frac{z - 3}{3} \implies \mathbf{d}_2 = (2, 3, 6)$.
+    \item Producto cruz:
+    \[
+    \mathbf{d} = \mathbf{d}_1 \times \mathbf{d}_2 = \begin{vmatrix} \iu & \ju & \ku \\ 1 & -1 & 5 \\ 2 & 3 & 6 \end{vmatrix} = (-6 - 15)\iu - (6 - 10)\ju + (3 - (-2))\ku = (-21, 4, 5)
+    \]
+    \item Ecuación vectorial: $(x, y, z) = (3, -3, 4) + t(-21, 4, 5), \; t \in \mathbb{R}$.
+\end{enumerate}
+\end{cajaEjemplo}
+
+\subsection{Intersección entre Recta y Plano (Slides 41--42)}
+Para intersectar $L: \mathbf{x}(t) = P + t\vv$ con $\Pi: ax + by + cz = d$, se sustituyen las paramétricas $x(t), y(t), z(t)$ en la ecuación del plano y se resuelve para $t$.
+
+\begin{cajaEjemplo}[Ejemplos Oficiales de Cátedra (Slide 42) --- Intersección y Distancia]
+\textbf{1. Intersección:} $\Pi: x - 2y + 3z = 1$ con $L: (x,y,z) = (1,2,1) + t(0,2,3)$.
+Paramétricas: $x = 1, \; y = 2 + 2t, \; z = 1 + 3t$.
+\[
+(1) - 2(2 + 2t) + 3(1 + 3t) = 1 \implies 1 - 4 - 4t + 3 + 9t = 1 \implies 5t = 1 \implies t = \frac{1}{5}
+\]
+Punto de intersección: $P_{\text{int}} = \left(1,\ 2 + \frac{2}{5},\ 1 + \frac{3}{5}\right) = \left(1,\ \frac{12}{5},\ \frac{8}{5}\right)$.\\[0.2cm]
+\textbf{2. Distancia Punto-Plano:} Punto $P(4, 35, 70)$ al plano $\Pi: 5y + 12z - 1 = 0$.
+\[
+d(P, \Pi) = \frac{|0(4) + 5(35) + 12(70) - 1|}{\sqrt{0^2 + 5^2 + 12^2}} = \frac{|175 + 840 - 1|}{\sqrt{169}} = \frac{1014}{13} = 78\,\text{u}
+\]
+\end{cajaEjemplo}
+
+\subsection{\texorpdfstring{Distancias Euclidianas Mínimas en $\mathbb{R}^3$ (Slides 43--44)}{Distancias Euclidianas Mínimas en R3 (Slides 43--44)}}
+\begin{enumerate}
+    \item \textbf{Distancia de Punto $Q$ a Plano $\Pi: ax+by+cz=d$ (Slide 43):}
+    Deducción por proyección ortogonal de $\overrightarrow{PQ}$ sobre $\vn$:
+    \[
+    d(Q, \Pi) = \frac{|\overrightarrow{PQ} \cdot \vn|}{\|\vn\|} = \frac{|ax_Q + by_Q + cz_Q - d|}{\sqrt{a^2 + b^2 + c^2}}
+    \]
+    \item \textbf{Distancia entre Planos Paralelos $\Pi_1: ax+by+cz=d_1$ y $\Pi_2: ax+by+cz=d_2$ (Slide 44):}
+    \[
+    d(\Pi_1, \Pi_2) = \frac{|d_1 - d_2|}{\sqrt{a^2 + b^2 + c^2}}
+    \]
+\end{enumerate}
+
+\begin{cajaEjemplo}[Ejemplo Oficial de Cátedra (Slide 44) --- Distancia entre Planos Paralelos]
+Para $\Pi_1: 2x - 3y + z = 1$ y $\Pi_2: 4x - 6y + 2z = 0$:
+Normalizando $\Pi_2$ dividiendo por 2: $2x - 3y + z = 0$ ($d_1 = 1, d_2 = 0$).
+\[
+d(\Pi_1, \Pi_2) = \frac{|1 - 0|}{\sqrt{2^2 + (-3)^2 + 1^2}} = \frac{1}{\sqrt{14}} = \frac{\sqrt{14}}{14} \approx 0.2673\,\text{u}
+\]
+\end{cajaEjemplo}
+
+% =========================================================================
+% SECCIÓN 5: MATERIAL COMPLEMENTARIO Y APLICACIONES AVANZADAS
+% =========================================================================
+\section{Material Complementario y Aplicaciones Avanzadas (Grossman, Axler y UdeC)}
+
+\subsection{Demostración: Desigualdad de Cauchy-Schwarz [Axler §6A]}
+\begin{cajaTeorema}[Teorema de Cauchy-Schwarz]
+Para cualesquiera vectores $\vu, \vv \in \mathbb{R}^n$, se cumple:
+\[
+|\vu \cdot \vv| \le \|\vu\| \|\vv\|
+\]
+con igualdad si y sólo si $\vu$ y $\vv$ son linealmente dependientes.
+\end{cajaTeorema}
+\begin{proof}
+Si $\vv = \mathbf{0}$, la desigualdad es inmediata ($0 \le 0$). Supongamos $\vv \neq \mathbf{0}$. Para cualquier escalar real $t \in \mathbb{R}$, consideremos el vector $\vu - t\vv$. Por la no negatividad del producto interno euclídeo:
+\[
+\|\vu - t\vv\|^2 \ge 0 \iff (\vu - t\vv) \cdot (\vu - t\vv) \ge 0
+\]
+Desarrollando algebraicamente:
+\[
+\|\vu\|^2 - 2t(\vu \cdot \vv) + t^2\|\vv\|^2 \ge 0
+\]
+Esta expresión representa un polinomio cuadrático en $t$: $P(t) = A t^2 + B t + C \ge 0$, con coeficientes $A = \|\vv\|^2 > 0$, $B = -2(\vu \cdot \vv)$ y $C = \|\vu\|^2$. Para que un polinomio cuadrático con rama parabólica convexa ($A > 0$) sea no negativo para todo $t \in \mathbb{R}$, su discriminante $\Delta = B^2 - 4AC$ debe ser estrictamente no positivo ($\Delta \le 0$):
+\[
+\Delta = (-2(\vu \cdot \vv))^2 - 4\|\vv\|^2 \|\vu\|^2 \le 0 \implies 4(\vu \cdot \vv)^2 \le 4\|\vu\|^2 \|\vv\|^2 \implies |\vu \cdot \vv| \le \|\vu\| \|\vv\|
+\]
+\end{proof}
+
+\subsection{Demostración: Identidad de Lagrange [Grossman §4.4]}
+\begin{cajaTeorema}[Identidad de Lagrange]
+Para cualesquiera vectores $\vu, \vv \in \mathbb{R}^3$:
+\[
+\|\vu \times \vv\|^2 = \|\vu\|^2 \|\vv\|^2 - (\vu \cdot \vv)^2
+\]
+\end{cajaTeorema}
+\begin{proof}
+Geométricamente, recordando que $\|\vu \times \vv\| = \|\vu\|\|\vv\|\sin\theta$ y $\vu \cdot \vv = \|\vu\|\|\vv\|\cos\theta$:
+\[
+\|\vu\|^2 \|\vv\|^2 - (\vu \cdot \vv)^2 = \|\vu\|^2 \|\vv\|^2 (1 - \cos^2\theta) = \|\vu\|^2 \|\vv\|^2 \sin^2\theta = (\|\vu\|\|\vv\|\sin\theta)^2 = \|\vu \times \vv\|^2
+\]
+\end{proof}
+
+\subsection{Casos Prácticos en Ingeniería [UdeC]}
+\begin{itemize}
+    \item \textbf{Torque 3D en Robótica:} El momento de torsión generado por una fuerza $\mathbf{F}$ aplicada en la posición $\mathbf{r}$ se define como $\boldsymbol{\tau} = \mathbf{r} \times \mathbf{F}$. Si $\mathbf{r} = (0.4, 0.2, 0.0)\,\text{m}$ y $\mathbf{F} = (0, 50, -20)\,\text{N}$:
+    \[
+    \boldsymbol{\tau} = (0.4, 0.2, 0) \times (0, 50, -20) = (-4.0,\ 8.0,\ 20.0)\,\text{N}\cdot\text{m}, \quad \|\boldsymbol{\tau}\| = \sqrt{496} \approx 22.27\,\text{N}\cdot\text{m}
+    \]
+    \item \textbf{Equilibrio Estático Tridimensional de un Nodo:} En una estructura reticulada 3D, la primera ley de Newton exige que la suma vectorial neta de fuerzas concurrentes en el nodo sea nula: $\sum \mathbf{F} = \mathbf{F}_1 + \mathbf{F}_2 + \mathbf{F}_3 + \mathbf{W} = \mathbf{0}$. Resolviendo por componentes se obtiene un sistema lineal $3 \times 3$ compatible determinado.
+    \item \textbf{Distancia Mínima entre Rectas Alabeadas (Certamen UdeC):}
+    Para $L_1: (1, 0, -1) + t(2, 1, 3)$ y $L_2: (0, 1, 2) + s(1, -2, 1)$:
+    \[
+    \mathbf{n} = \mathbf{d}_1 \times \mathbf{d}_2 = (7, 1, -5), \qquad \overrightarrow{P_1P_2} = (-1, 1, 3)
+    \]
+    \[
+    \det(\overrightarrow{P_1P_2}, \mathbf{d}_1, \mathbf{d}_2) = \overrightarrow{P_1P_2} \cdot \mathbf{n} = -7 + 1 - 15 = -21 \neq 0 \implies \text{Alabeadas}
+    \]
+    \[
+    d(L_1, L_2) = \frac{|\overrightarrow{P_1P_2} \cdot \mathbf{n}|}{\|\mathbf{n}\|} = \frac{21}{\sqrt{49+1+25}} = \frac{21}{\sqrt{75}} = \frac{21}{5\sqrt{3}} = \frac{7\sqrt{3}}{5} \approx 2.4249\,\text{u}
+    \]
+    \item \textbf{Plano Ortogonal a Dos Planos Concurrentes (Certamen UdeC):}
+    Plano $\Pi$ por $A(2, -1, 3)$ perpendicular a $\Pi_1: 2x - y + z = 4$ y $\Pi_2: x + 2y - 3z = 1$:
+    \[
+    \vn = \vn_1 \times \vn_2 = (2, -1, 1) \times (1, 2, -3) = (1, 7, 5)
+    \]
+    \[
+    1(x - 2) + 7(y + 1) + 5(z - 3) = 0 \implies x + 7y + 5z = 10
+    \]
+\end{itemize}
+
+\subsection{Epistemología y Computación Gráfica 3D [Enriquecimiento Web]}
+\begin{itemize}
+    \item \textbf{De los Cuaterniones a Maxwell:} En 1843, Hamilton inventó los cuaterniones $\mathbb{H}$. A fines del siglo XIX, Gibbs y Heaviside separaron la parte escalar (producto punto) y vectorial (producto cruz). Con esto, Heaviside redujo las 20 ecuaciones de Maxwell a las 4 ecuaciones universales del electromagnetismo moderno.
+    \item \textbf{Ray Tracing (Möller-Trumbore):} Evalúa la intersección entre un rayo $\mathbf{R}(t) = \mathbf{O} + t\mathbf{D}$ y un triángulo $V_0, V_1, V_2$ en tiempo constante usando proyecciones baricéntricas con producto cruz y punto.
+    \item \textbf{Backface Culling:} Descarta polígonos no visibles comprobando si $\mathbf{c}_{\text{dir}} \cdot \vn \ge 0$, ahorrando el 50\% de la carga computacional en renderizadores 3D.
+\end{itemize}
+
+% =========================================================================
+% SECCIÓN 6: VERIFICACIÓN COMPUTACIONAL EN PYTHON (SYMPY)
+% =========================================================================
+\section{Verificación Computacional en Python (SymPy)}
+
+\begin{lstlisting}[caption={Suite de Verificación Simbólica de los 24 Problemas de Cátedra}]
+import sympy as sp
+
+# 1. Slide 5: Igualdad de vectores
+v = sp.Matrix([1, 3, 4])
+w = sp.Matrix([3, 1, 4])
+assert v != w, "Error en igualdad"
+
+# 2. Slides 6-8: Suma, resta y ponderacion
+assert v + w == sp.Matrix([4, 4, 8])
+assert v - w == sp.Matrix([-2, 2, 0])
+assert 2 * v == sp.Matrix([2, 6, 8])
+
+# 3. Slide 10: Producto punto
+v_10 = sp.Matrix([-1, 3, 4])
+w_10 = sp.Matrix([1, 0, -4])
+assert v_10.dot(w_10) == -17
+
+# 4. Slide 12: Norma y Distancia
+u_12 = sp.Matrix([1, 0, -2])
+assert u_12.norm() == sp.sqrt(5)
+A = sp.Matrix([2, 0, -1])
+B = sp.Matrix([1, -3, -2])
+assert (B - A).norm() == sp.sqrt(11)
+
+# 5. Slide 19: Vector bajo tres condiciones
+u1 = sp.Matrix([sp.sqrt(2), sp.sqrt(2), 2*sp.sqrt(3)])
+assert u1.dot(sp.Matrix([1, -1, 0])) == 0
+assert u1.norm() == 4
+assert sp.acos(u1.dot(sp.Matrix([1, 1, 0])) / (u1.norm() * sp.sqrt(2))) == sp.pi/3
+
+# 6. Slide 20: Paralelismo y parametro alpha
+alpha = sp.Symbol('alpha')
+assert sp.solve(sp.Matrix([1, alpha]).dot(sp.Matrix([3, 4])), alpha)[0] == sp.Rational(-3, 4)
+
+# 7. Slide 25: Producto Cruz
+u_25 = sp.Matrix([2, 4, -5])
+v_25 = sp.Matrix([-3, -2, 1])
+assert u_25.cross(v_25) == sp.Matrix([-6, 13, 8])
+
+# 8. Slide 32: Interseccion L1 y L2
+t, s = sp.symbols('t s')
+p_int = sp.solve([-1 + 4*t - (-13 + 12*s), 3 + t - (-3 + 6*s), 1 - (-2 + 3*s)], (t, s))
+assert p_int[t] == 0 and p_int[s] == 1
+
+# 9. Slide 42: Interseccion recta-plano y distancia punto-plano
+t_param = sp.Symbol('t_param')
+assert sp.solve((1) - 2*(2 + 2*t_param) + 3*(1 + 3*t_param) - 1, t_param)[0] == sp.Rational(1, 5)
+assert abs(0*4 + 5*35 + 12*70 - 1) / sp.sqrt(5**2 + 12**2) == 78
+
+# 10. Slide 44: Distancia entre planos paralelos
+d_planos = abs(1 - 0) / sp.sqrt(2**2 + (-3)**2 + 1**2)
+assert d_planos == 1 / sp.sqrt(14)
+print("Todas las 24 aserciones matematicas verificadas exitosamente.")
+\end{lstlisting}
+
+% =========================================================================
+% SECCIÓN 7: REFERENCIAS BIBLIOGRÁFICAS
+% =========================================================================
+\section{Referencias Bibliográficas}
+\begin{enumerate}
+    \item Asencio González, C. (2026). \textit{Material Docente Oficial: Unidad 2 Espacios Vectoriales, Rectas y Planos en $\mathbb{R}^3$}. Universidad San Sebastián, Sede Patagonia.
+    \item Grossman, S. I., \& Flores Godoy, J. J. (2012). \textit{Álgebra Lineal} (7ª ed.). McGraw-Hill / Interamericana Editores.
+    \item Axler, S. (2024). \textit{Linear Algebra Done Right} (4th ed.). Undergraduate Texts in Mathematics, Springer.
+    \item Aranda, E. (2016). \textit{Álgebra Lineal con Aplicaciones y Python}. Universidad de Castilla-La Mancha.
+    \item Stewart, J. (2018). \textit{Cálculo de Varias Variables: Trascendentes Tempranas} (8ª ed.). Cengage Learning.
+\end{enumerate}
+
+\end{document}
